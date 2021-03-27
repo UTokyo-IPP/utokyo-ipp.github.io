@@ -1,0 +1,978 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="jp">
+  <head>
+    <meta charset="utf-8" />
+    <title>6-3. クラス &#8212; Pythonプログラミング入門  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7-1. pandasライブラリ" href="../7/7-1.html" />
+    <link rel="prev" title="6-2. 高階関数" href="6-2.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    min-width: 5.5ex;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 0.3rem;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<div class="section" id="6-3.-クラス">
+<h1>6-3. クラス<a class="headerlink" href="#6-3.-クラス" title="Permalink to this headline">¶</a></h1>
+<p>Pythonにおけるオブジェクト指向プログラミングのうち、クラスを定義する方法について簡単に説明します。</p>
+<p>参考</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/ja/3/tutorial/classes.html">https://docs.python.org/ja/3/tutorial/classes.html</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/ja/3/reference/datamodel.html">https://docs.python.org/ja/3/reference/datamodel.html</a></p></li>
+</ul>
+<div class="section" id="クラス定義">
+<h2>クラス定義<a class="headerlink" href="#クラス定義" title="Permalink to this headline">¶</a></h2>
+<p>Pythonでは全てのデータはオブジェクトなのですが、 以下では特に、クラス定義によって作成されたクラスを型とするデータを扱います。 このようなデータは、<strong>オブジェクト指向プログラミング</strong>における典型的な<strong>オブジェクト</strong>です。 そこで以下では、オブジェクトという用語をもっぱら使います。</p>
+<p>4-1で見たように、ファイルオブジェクトに対して <code class="docutils literal notranslate"><span class="pre">readline()</span></code> というメソッドを呼び出すと、 ファイルの行が文字列として次々と返されます。 ここでは、ファイルオブジェクトのようなオブジェクトで、 <code class="docutils literal notranslate"><span class="pre">readline()</span></code> というメソッドが呼び出されると、常に <code class="docutils literal notranslate"><span class="pre">'Hello.\n'</span></code> という文字列を返すようなものを作ってみましょう。</p>
+<p>そのためには、新しいクラスを定義します。 <strong>クラス</strong>とは、オブジェクトの種類を意味します。 新しいクラスを定義すると、そのクラスに属するオブジェクトを作ることができるようになります。 それらのオブジェクトの型は、その新しいクラスになります。</p>
+<p>ここでは、ずっと <code class="docutils literal notranslate"><span class="pre">'Hello.\n'</span></code> を返し続けるので、 <code class="docutils literal notranslate"><span class="pre">HelloForEver</span></code> という名前を持つクラスを定義しましょう。 そして、<code class="docutils literal notranslate"><span class="pre">HelloForEver</span></code> というクラスを型とするオブジェクトを作ります。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">class</span> <span class="nc">HelloForEver</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">readline</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;Hello.</span><span class="se">\n</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</div>
+<p>一般にクラス定義は、以下のような形をしています。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">クラス名</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">メソッド名</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">引数</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+        <span class="n">実行文</span>
+    <span class="k">def</span> <span class="nf">メソッド名</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">引数</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+        <span class="n">実行文</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>メソッド定義は関数定義と同じ形をしていますが、 クラス定義の中に入っています。 メソッド定義において、その最初の引数には慣例として <code class="docutils literal notranslate"><span class="pre">self</span></code> という名前を付けます。 この引数には、メソッドが呼び出されたオブジェクト自身が渡されます。</p>
+<p>上の例では、<code class="docutils literal notranslate"><span class="pre">readline</span></code> というメソッドが1つ定義されています。</p>
+<p>以下のようにして、このクラスのオブジェクトを作ることができます。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">f</span> <span class="o">=</span> <span class="n">HelloForEver</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">HelloForEver</span></code> を型とする新しいオブジェクトが作られて変数 <code class="docutils literal notranslate"><span class="pre">f</span></code> の値となります。</p>
+<p>一般に、オブジェクトの生成は、</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">クラス名</span><span class="p">(</span><span class="n">式</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>という式で行います。このようにオブジェクトを生成する式は<strong>コンストラクタ</strong>と呼ばれます。 なお、上の例では、括弧の中に式は1つもありません。</p>
+<p>このようにして作ったオブジェクトの型を確認してください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">type</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+__main__.HelloForEver
+</pre></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">__main__.HelloForEver</span></code> と表示されたでしょう。 <code class="docutils literal notranslate"><span class="pre">__main__</span></code> は、ノートブックの式が評価されているモジュールを指すので、 このオブジェクトの型が、上で定義した <code class="docutils literal notranslate"><span class="pre">HelloForEver</span></code> クラスであることがわかります。 クラスのコンストラクタによって生成されたオブジェクトを、そのクラスの<strong>インスタンス</strong>と言います。 上のオブジェクトは <code class="docutils literal notranslate"><span class="pre">HelloForEver</span></code> クラスのインスタンスです。</p>
+<p>オブジェクトそのものは以下のように表示されます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">f</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;__main__.HelloForEver at 0x7f766e753fa0&gt;
+</pre></div></div>
+</div>
+<p>このオブジェクトに対して、<code class="docutils literal notranslate"><span class="pre">readline</span></code> というメソッドを呼び出すことができます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Hello.\n&#39;
+</pre></div></div>
+</div>
+<p>この例では、<code class="docutils literal notranslate"><span class="pre">f</span></code> という変数に入っているオブジェクトが <code class="docutils literal notranslate"><span class="pre">self</span></code> という引数に渡されて、 <code class="docutils literal notranslate"><span class="pre">readline</span></code> の本体である以下の文が実行されました。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="s1">&#39;Hello.</span><span class="se">\n</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+<p>（この例では <code class="docutils literal notranslate"><span class="pre">self</span></code> は参照されていません。）</p>
+<p>何回やっても同じです。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Hello.\n&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Hello.\n&#39;
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="初期化と属性">
+<h2>初期化と属性<a class="headerlink" href="#初期化と属性" title="Permalink to this headline">¶</a></h2>
+<p>以下の例では、初期化のメソッドが定義され、オブジェクトに属性が与えられます。</p>
+<p><strong>初期化</strong>のメソッドは <code class="docutils literal notranslate"><span class="pre">__init__</span></code> という名前を持ち、 オブジェクトが作られたときに自動的に呼び出されます。 <code class="docutils literal notranslate"><span class="pre">__init__</span></code> の引数は、オブジェクト自身と、クラス名の後に与えられる式の値です。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">class</span> <span class="nc">HelloFile</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="n">n</span>
+    <span class="k">def</span> <span class="nf">readline</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="s1">&#39;Hello.</span><span class="se">\n</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</div>
+<p>この例では、以下のようにしてオブジェクトが作られます。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">f</span> <span class="o">=</span> <span class="n">HelloFile</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>すると、<code class="docutils literal notranslate"><span class="pre">HelloFile</span></code> を型とする新しいオブジェクトが作られて、 そのオブジェクト自身が <code class="docutils literal notranslate"><span class="pre">self</span></code> に、<code class="docutils literal notranslate"><span class="pre">3</span></code> が <code class="docutils literal notranslate"><span class="pre">n</span></code> に渡されて、 <code class="docutils literal notranslate"><span class="pre">self.n</span> <span class="pre">=</span> <span class="pre">n</span></code> という文が実行されます。</p>
+<p><code class="docutils literal notranslate"><span class="pre">self.n</span></code> という式は、このオブジェクトの <code class="docutils literal notranslate"><span class="pre">n</span></code> という名前の属性を表します。</p>
+<p>一般に、<code class="docutils literal notranslate"><span class="pre">class</span></code> の構文によって定義されたクラスを型とするオブジェクトは、 属性を持つことができます。 <strong>属性</strong>とは、個々のオブジェクトごとに記録される値であり、 オブジェクト内の変数と考えられます。 オブジェクトの属性は、オブジェクトに対してその<strong>属性名</strong>を指定して、参照したり設定したりできます。 オブジェクトの属性は、<code class="docutils literal notranslate"><span class="pre">self.属性名</span></code> という式で参照されます。 <code class="docutils literal notranslate"><span class="pre">self.属性名</span></code> を代入文の左辺に書けば、属性を設定することができます。</p>
+<p><code class="docutils literal notranslate"><span class="pre">self.n</span> <span class="pre">=</span> <span class="pre">n</span></code> のうち、<code class="docutils literal notranslate"><span class="pre">self.</span></code> の次の <code class="docutils literal notranslate"><span class="pre">n</span></code> は属性を表し、 右辺の <code class="docutils literal notranslate"><span class="pre">n</span></code> は、<code class="docutils literal notranslate"><span class="pre">__init__</span></code> メソッドの引数を表していますので、 混同しないようにしてください。</p>
+<p>この例では、新しく作られたオブジェクトの <code class="docutils literal notranslate"><span class="pre">n</span></code> という属性が、引数 <code class="docutils literal notranslate"><span class="pre">n</span></code> の値である <code class="docutils literal notranslate"><span class="pre">3</span></code> に設定されます。</p>
+<p><code class="docutils literal notranslate"><span class="pre">readline</span></code> メソッドは以下のように定義されています。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">readline</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="s1">&#39;Hello.</span><span class="se">\n</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+<p>オブジェクトの属性 <code class="docutils literal notranslate"><span class="pre">n</span></code> を参照して、それが <code class="docutils literal notranslate"><span class="pre">0</span></code> ならば空文字列を返します。 そうでなければ、属性 <code class="docutils literal notranslate"><span class="pre">n</span></code> を <code class="docutils literal notranslate"><span class="pre">1</span></code> 減らしてから文字列 <code class="docutils literal notranslate"><span class="pre">'Hello.\n'</span></code> を返します。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Hello.\n&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Hello.\n&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Hello.\n&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;&#39;
+</pre></div></div>
+</div>
+<p>変数 <code class="docutils literal notranslate"><span class="pre">f</span></code> の値であるオブジェクトの属性 <code class="docutils literal notranslate"><span class="pre">n</span></code> は、<code class="docutils literal notranslate"><span class="pre">f.n</span></code> という式によって参照できます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">f</span><span class="o">.</span><span class="n">n</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0
+</pre></div></div>
+</div>
+<p>ここでは詳しく説明しませんが、オブジェクトのメソッドも属性の一種です。</p>
+</div>
+<div class="section" id="継承">
+<h2>継承<a class="headerlink" href="#継承" title="Permalink to this headline">¶</a></h2>
+<p><strong>継承</strong>は、既存のクラスをもとにして、変更部分だけを与えることにより、 新たなクラスを定義する機能です。</p>
+<p>以下の例では、<code class="docutils literal notranslate"><span class="pre">HelloForEver</span></code> をもとにして <code class="docutils literal notranslate"><span class="pre">HelloFile</span></code> を定義しています。 一般に、新しく定義されるクラスを<strong>子クラス</strong>、そのもとになるクラスを<strong>親クラス</strong>と言います。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">class</span> <span class="nc">HelloFile</span><span class="p">(</span><span class="n">HelloForEver</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="n">n</span>
+    <span class="k">def</span> <span class="nf">readline</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>ここでは、<code class="docutils literal notranslate"><span class="pre">__init__</span></code> と <code class="docutils literal notranslate"><span class="pre">readline</span></code> を新たに定義しています。</p>
+<p><code class="docutils literal notranslate"><span class="pre">HelloForEver</span></code> にも <code class="docutils literal notranslate"><span class="pre">readline</span></code> があります。 こちらの <code class="docutils literal notranslate"><span class="pre">readline</span></code> は、<code class="docutils literal notranslate"><span class="pre">super().readline()</span></code> という式で呼び出すことができます。 <code class="docutils literal notranslate"><span class="pre">super()</span></code> は、子クラスのオブジェクトに対して親クラスのメソッドを呼び出すための構文です。 実際に、<code class="docutils literal notranslate"><span class="pre">HelloFile</span></code> の <code class="docutils literal notranslate"><span class="pre">readline</span></code> の中で、 <code class="docutils literal notranslate"><span class="pre">HelloForEver</span></code> の <code class="docutils literal notranslate"><span class="pre">readline</span></code> を呼び出しています。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">f</span> <span class="o">=</span> <span class="n">HelloFile</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Hello.\n&#39;
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="特殊メソッド">
+<h2>特殊メソッド<a class="headerlink" href="#特殊メソッド" title="Permalink to this headline">¶</a></h2>
+<p>Pythonでは、<strong>特殊メソッド</strong>と呼ばれるメソッドが多数あります。 これらのメソッドの名前は <code class="docutils literal notranslate"><span class="pre">__</span></code> で始まり <code class="docutils literal notranslate"><span class="pre">__</span></code> で終わります。</p>
+<p>クラス定義の中で特殊メソッドを定義すると、そのクラスのオブジェクトに対して、 その特殊メソッドに対応する機能が付与されます。 初期化メソッド <code class="docutils literal notranslate"><span class="pre">__init__</span></code> も特殊メソッドですが、 以下のクラス <code class="docutils literal notranslate"><span class="pre">HelloFileIterator</span></code> では、<code class="docutils literal notranslate"><span class="pre">__iter__</span></code> と <code class="docutils literal notranslate"><span class="pre">__next__</span></code> という特殊メソッドが定義されています。 このクラスは、<code class="docutils literal notranslate"><span class="pre">HelloFile</span></code> を継承して定義されています。</p>
+<p><code class="docutils literal notranslate"><span class="pre">__iter__</span></code> メソッドは、オブジェクトに対して関数 <code class="docutils literal notranslate"><span class="pre">iter</span></code> が適用されたときに呼び出されます。 <code class="docutils literal notranslate"><span class="pre">__iter__</span></code> メソッドの値が関数 <code class="docutils literal notranslate"><span class="pre">iter</span></code> の値となります。 以下の例では、<code class="docutils literal notranslate"><span class="pre">__iter__</span></code> はオブジェクト自身を返しています。 したがって、オブジェクトに <code class="docutils literal notranslate"><span class="pre">iter</span></code> が適用されると、オブジェクト自身が返ります。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">class</span> <span class="nc">HelloFileIterator</span><span class="p">(</span><span class="n">HelloFile</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>
+    <span class="k">def</span> <span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">line</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">StopIteration</span>
+        <span class="k">return</span> <span class="n">line</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">f</span> <span class="o">=</span> <span class="n">HelloFileIterator</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">f</span> <span class="ow">is</span> <span class="nb">iter</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
+</div>
+<p>上の例で、<code class="docutils literal notranslate"><span class="pre">iter(f)</span></code> として関数 <code class="docutils literal notranslate"><span class="pre">iter</span></code> を呼び出すと、 <code class="docutils literal notranslate"><span class="pre">f.__iter__()</span></code> としてメソッド <code class="docutils literal notranslate"><span class="pre">__iter__</span></code> が <code class="docutils literal notranslate"><span class="pre">f</span></code> に対して呼び出され、 その結果が <code class="docutils literal notranslate"><span class="pre">iter(f)</span></code> の値となります。 したがって、<code class="docutils literal notranslate"><span class="pre">iter(f)</span></code> は <code class="docutils literal notranslate"><span class="pre">f</span></code> と同じ値を返します。</p>
+<p><code class="docutils literal notranslate"><span class="pre">__next__</span></code> メソッドも、オブジェクトに対して関数 <code class="docutils literal notranslate"><span class="pre">next</span></code> が適用されたときに呼び出されます。 <code class="docutils literal notranslate"><span class="pre">__next__</span></code> メソッドの値が <code class="docutils literal notranslate"><span class="pre">next</span></code> の値となります。</p>
+<p>上の例では、<code class="docutils literal notranslate"><span class="pre">self.readline()</span></code> として、オブジェクト自身に対してメソッド <code class="docutils literal notranslate"><span class="pre">readline</span></code> を呼び出しています。 その値が空文字列ならば、</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">StopIteration</span>
+</pre></div>
+</div>
+<p>という文を実行して、<code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> というエラーを投げます。 実は、このエラーは、for文が捕まえて繰り返しを止める効果を持ちます。 なお、<code class="docutils literal notranslate"><span class="pre">raise</span></code> は強制的にエラーを発生させる構文です。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Hello.
+
+Hello.
+
+Hello.
+
+</pre></div></div>
+</div>
+<p>4-2で説明したように、上のfor文では、 まず <code class="docutils literal notranslate"><span class="pre">f</span></code> のオブジェクトに対して関数 <code class="docutils literal notranslate"><span class="pre">iter</span></code> が適用されます。 すると <code class="docutils literal notranslate"><span class="pre">f</span></code> のオブジェクト自身が返ります。 そして、このオブジェクトに対して関数 <code class="docutils literal notranslate"><span class="pre">next</span></code> が繰り返し適用されて、 その結果が変数 <code class="docutils literal notranslate"><span class="pre">line</span></code> の値となります。 <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> のエラーが検知されると、for文が終了します。</p>
+</div>
+<div class="section" id="継承による振舞いの改変">
+<h2>継承による振舞いの改変<a class="headerlink" href="#継承による振舞いの改変" title="Permalink to this headline">¶</a></h2>
+<p>上で示された、<code class="docutils literal notranslate"><span class="pre">HelloFileIterator</span></code> の <code class="docutils literal notranslate"><span class="pre">__next__</span></code> メソッドでは、<code class="docutils literal notranslate"><span class="pre">self.readline()</span></code> というメソッド呼び出しがありました。 上の例の振舞いから、そのメソッド呼び出しは、<code class="docutils literal notranslate"><span class="pre">HelloFileIterator</span></code> には <code class="docutils literal notranslate"><span class="pre">readline</span></code> メソッドが定義されていないので、親の <code class="docutils literal notranslate"><span class="pre">HelloFile</span></code> を見に行って、そこで定義された <code class="docutils literal notranslate"><span class="pre">readline</span></code> メソッドが使われたように見えます。 しかし、それは正確ではありません。</p>
+<p><code class="docutils literal notranslate"><span class="pre">self.readline()</span></code> では、その呼び出し場所がどこであるかに関わらず、常にオブジェクト <code class="docutils literal notranslate"><span class="pre">self</span></code> の中のメソッドを探索します。 そして、継承があるために、<code class="docutils literal notranslate"><span class="pre">__next__(self)</span></code> における <code class="docutils literal notranslate"><span class="pre">self</span></code> が、<code class="docutils literal notranslate"><span class="pre">HelloFileIterator</span></code> のインスタンスであるとも限りません。 次を見てみましょう。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">class</span> <span class="nc">EmptyFile</span><span class="p">(</span><span class="n">HelloFileIterator</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">readline</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">EmptyFile</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">StopIteration</span>                             Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-22-0980c58e36e0&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> f <span class="ansi-blue-fg">=</span> EmptyFile<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">----&gt; 6</span><span class="ansi-red-fg"> </span>next<span class="ansi-blue-fg">(</span>f<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">&lt;ipython-input-18-e10e56aa4b9e&gt;</span> in <span class="ansi-cyan-fg">__next__</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span>         line <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>readline<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span>         <span class="ansi-green-fg">if</span> line <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;&#39;</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">----&gt; 7</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> StopIteration
+<span class="ansi-green-intense-fg ansi-bold">      8</span>         <span class="ansi-green-fg">return</span> line
+
+<span class="ansi-red-fg">StopIteration</span>:
+</pre></div></div>
+</div>
+<p>コンストラクタに <code class="docutils literal notranslate"><span class="pre">3</span></code> を与えているので、<code class="docutils literal notranslate"><span class="pre">HelloFileIterator</span></code> と同様に <code class="docutils literal notranslate"><span class="pre">next</span></code> を3回適用できてもよさそうですが、即座に <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> が生じました。 これは、<code class="docutils literal notranslate"><span class="pre">__next__(self)</span></code> における <code class="docutils literal notranslate"><span class="pre">self</span></code> が、<code class="docutils literal notranslate"><span class="pre">EmptyFile</span></code> のインスタンスであり、<code class="docutils literal notranslate"><span class="pre">self.readline()</span></code> が常に <code class="docutils literal notranslate"><span class="pre">''</span></code> を返すからです。</p>
+<p>このように、継承は、メソッドの部分的な再定義を通じて、再定義されたメソッドを呼び出しているメソッドの振舞いを、間接的に改変することを可能にします。</p>
+</div>
+<div class="section" id="練習">
+<h2>練習<a class="headerlink" href="#練習" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">'Hello.\n'</span></code> ではなくて、初期時に指定された文字列を繰り返し返すように、 新たなクラス <code class="docutils literal notranslate"><span class="pre">StringFileIterator</span></code> を定義してください。</p>
+<p><code class="docutils literal notranslate"><span class="pre">StringFileIterator</span></code> は <code class="docutils literal notranslate"><span class="pre">HelloFileIterator</span></code> を継承し、 初期化メソッドには、文字列と回数を指定します。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">class</span> <span class="nc">StringFileIterator</span><span class="p">(</span><span class="n">HelloFileIterator</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="o">...</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">f</span> <span class="o">=</span> <span class="n">StringFileIterator</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span><span class="s1">&#39;abc&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-24-ebce1b2a6547&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> f <span class="ansi-blue-fg">=</span> StringFileIterator<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;abc&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>list<span class="ansi-blue-fg">(</span>f<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;abc&#39;</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">&#39;abc&#39;</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">&#39;abc&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">&lt;ipython-input-18-e10e56aa4b9e&gt;</span> in <span class="ansi-cyan-fg">__next__</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span>         <span class="ansi-green-fg">return</span> self
+<span class="ansi-green-intense-fg ansi-bold">      4</span>     <span class="ansi-green-fg">def</span> __next__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">----&gt; 5</span><span class="ansi-red-fg">         </span>line <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>readline<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span>         <span class="ansi-green-fg">if</span> line <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;&#39;</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">      7</span>             <span class="ansi-green-fg">raise</span> StopIteration
+
+<span class="ansi-green-fg">&lt;ipython-input-15-aebb2ad52a57&gt;</span> in <span class="ansi-cyan-fg">readline</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span>         self<span class="ansi-blue-fg">.</span>n <span class="ansi-blue-fg">=</span> n
+<span class="ansi-green-intense-fg ansi-bold">      4</span>     <span class="ansi-green-fg">def</span> readline<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">----&gt; 5</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>n <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span>             <span class="ansi-green-fg">return</span> <span class="ansi-blue-fg">&#39;&#39;</span>
+<span class="ansi-green-intense-fg ansi-bold">      7</span>         self<span class="ansi-blue-fg">.</span>n <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>n <span class="ansi-blue-fg">-</span> <span class="ansi-cyan-fg">1</span>
+
+<span class="ansi-red-fg">AttributeError</span>: &#39;StringFileIterator&#39; object has no attribute &#39;n&#39;
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="▲with文への対応">
+<h2>▲with文への対応<a class="headerlink" href="#▲with文への対応" title="Permalink to this headline">¶</a></h2>
+<p>ここでは詳しく説明しませんが、さらに特殊メソッドである <code class="docutils literal notranslate"><span class="pre">__enter__</span></code> と <code class="docutils literal notranslate"><span class="pre">__exit__</span></code> を定義すると、 <strong>with文</strong>にも対応できます。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">class</span> <span class="nc">HelloFileIterator</span><span class="p">(</span><span class="n">HelloFile</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>
+    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">exception_type</span><span class="p">,</span><span class="n">exception_value</span><span class="p">,</span><span class="n">traceback</span><span class="p">):</span>
+        <span class="k">pass</span>
+    <span class="k">def</span> <span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">line</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">StopIteration</span>
+        <span class="k">return</span> <span class="n">line</span>
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">with</span> <span class="n">HelloFileIterator</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Hello.
+
+Hello.
+
+Hello.
+
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="練習の解答">
+<h2>練習の解答<a class="headerlink" href="#練習の解答" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">class</span> <span class="nc">StringFileIterator</span><span class="p">(</span><span class="n">HelloFileIterator</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="o">=</span> <span class="n">s</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="n">n</span>
+    <span class="k">def</span> <span class="nf">readline</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Pythonプログラミング入門</a></h1>
+
+
+
+
+
+
+
+
+<p>
+  <a href="https://colab.research.google.com/github/utokyo-ipp/utokyo-ipp.github.io/blob/master/colab/6/6-3.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
+</p><h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-1.html">1-1. 数値演算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-2.html">1-2. 変数と関数の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-4.html">1-4. デバッグ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2/2-1.html">2-1. 文字列 (string)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2/2-2.html">2-2. リスト (list)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2/2-3.html">2-3. 条件分岐</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3/3-1.html">3-1. 辞書 (dictionary)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3/3-2.html">3-2. 繰り返し</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3/3-3.html">3-3. 関数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4/4-1.html">4-1. ファイル入出力の基本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4/4-2.html">4-2. イテレータ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4/4-3.html">4-3. コンピュータにおけるファイルやディレクトリの配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5/5-1.html">5-1. モジュールの使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5/5-2.html">5-2. モジュールの作り方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5/5-3.html">5-3. NumPyライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6-1.html">6-1. 内包表記</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6-2.html">6-2. 高階関数</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6-3. クラス</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#クラス定義">クラス定義</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#初期化と属性">初期化と属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#継承">継承</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#特殊メソッド">特殊メソッド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#継承による振舞いの改変">継承による振舞いの改変</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#練習">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#▲with文への対応">▲with文への対応</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#練習の解答">練習の解答</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../7/7-1.html">7-1. pandasライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7/7-2.html">7-2. scikit-learnライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/1-jupyter-notebook.html">▲Jupyter Notebook の使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/2-set.html">▲セット (set)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/3-recursion.html">▲再帰</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/3-visualization.html">▲簡単なデータの可視化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/4-csv.html">▲CSVファイルの入出力</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/5-bokeh.html">▲Bokehライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/5-command.html">▲Pythonスクリプトとコマンドライン実行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/5-matplotlib.html">▲Matplotlibライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/5-re.html">▲正規表現</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index_of_terms.html">索引</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="6-2.html" title="previous chapter">6-2. 高階関数</a></li>
+      <li>Next: <a href="../7/7-1.html" title="next chapter">7-1. pandasライブラリ</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020–2021, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-159819977-1']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    
+  </body>
+</html>

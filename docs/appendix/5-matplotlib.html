@@ -1,0 +1,1436 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="jp">
+  <head>
+    <meta charset="utf-8" />
+    <title>▲Matplotlibライブラリ &#8212; Pythonプログラミング入門  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="▲正規表現" href="5-re.html" />
+    <link rel="prev" title="▲Pythonスクリプトとコマンドライン実行" href="5-command.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    min-width: 5.5ex;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 0.3rem;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<div class="section" id="▲Matplotlibライブラリ">
+<h1>▲Matplotlibライブラリ<a class="headerlink" href="#▲Matplotlibライブラリ" title="Permalink to this headline">¶</a></h1>
+<p>Matplotlibライブラリについて説明します。</p>
+<p>参考</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://matplotlib.org/">https://matplotlib.org/</a></p></li>
+</ul>
+<p><strong>Matplotlib</strong>ライブラリにはグラフを可視化するためのモジュールが含まれています。以下では、Matplotlibライブラリのモジュールを使った、グラフの基本的な描画について説明します。</p>
+<p>Matoplotlibライブラリを使用するには、まず <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> のモジュールをインポートします。ここでは、基本的なグラフを描画するための <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> モジュールをインポートします。慣例として、同モジュールを <code class="docutils literal notranslate"><span class="pre">plt</span></code> と別名をつけてコードの中で使用します。また、グラフで可視化するデータはリストや配列を用いることが多いため、5-3で使用した <code class="docutils literal notranslate"><span class="pre">numpy</span></code> モジュールも併せてインポートします。なお、<code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code> はノートブック内でグラフを表示するために必要です。</p>
+<p><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> では、通常 <code class="docutils literal notranslate"><span class="pre">show()</span></code> 関数を呼ぶと描画を行いますが、<code class="docutils literal notranslate"><span class="pre">inline</span></code> 表示指定の場合、<code class="docutils literal notranslate"><span class="pre">show()</span></code> 関数を省略できます。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+<div class="section" id="線グラフ">
+<h2>線グラフ<a class="headerlink" href="#線グラフ" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">pyplot</span></code> モジュールの <code class="docutils literal notranslate"><span class="pre">plot()</span></code> 関数を用いて、リストの要素の数値をy軸の値として<strong>グラフ</strong>を描画します。y軸の値に対応するx軸の値は、リストの各要素のインデックスとなっています。</p>
+<p>具体的には、次のようにすることで <code class="docutils literal notranslate"><span class="pre">リストA</span></code> のインデックス <code class="docutils literal notranslate"><span class="pre">i</span></code> に対して、<code class="docutils literal notranslate"><span class="pre">(i,</span> <span class="pre">リストA[i])</span></code> の位置に点を打ち、各点を線でつなぎます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">リストA</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>たとえば、次のようになります。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># plotするデータ</span>
+<span class="n">d</span> <span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+
+<span class="c1"># plot関数で描画</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+<span class="c1"># セルの最後に評価されたオブジェクトの出力表示を抑制するために、以下ではセルの最後の行にセミコロン (`;`) をつけています。</span>
+<span class="c1"># 試しにセミコロンを消した場合も試してみてください。</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/appendix_5-matplotlib_3_0.png" src="../_images/appendix_5-matplotlib_3_0.png" />
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">plot()</span></code> 関数では、x, y の両方の軸の値を引数に渡すこともできます。</p>
+<p>具体的には、次のように <code class="docutils literal notranslate"><span class="pre">リストX</span></code> と <code class="docutils literal notranslate"><span class="pre">リストY</span></code> を引数として与えると、各 <code class="docutils literal notranslate"><span class="pre">i</span></code> に対して、 <code class="docutils literal notranslate"><span class="pre">(リストX[i],</span> <span class="pre">リストY[i])</span></code> の位置に点を打ち、各点を線でつなぎます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">リストX</span><span class="p">,</span> <span class="n">リストY</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># plotするデータ</span>
+<span class="n">x</span> <span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+
+<span class="c1"># plot関数で描画</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/appendix_5-matplotlib_5_0.png" src="../_images/appendix_5-matplotlib_5_0.png" />
+</div>
+</div>
+<p>リストの代わりに<strong>NumPy</strong>ライブラリの配列を与えても同じ結果が得られます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># plotするデータ</span>
+<span class="n">x</span> <span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">aryx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># リストから配列を作成</span>
+<span class="n">y</span> <span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+<span class="n">aryy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="c1"># リストから配列を作成</span>
+
+<span class="c1"># plot関数で描画</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">aryx</span><span class="p">,</span> <span class="n">aryy</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/appendix_5-matplotlib_7_0.png" src="../_images/appendix_5-matplotlib_7_0.png" />
+</div>
+</div>
+<p>以下のようにグラフを複数まとめて表示することもできます。複数のグラフを表示すると、線ごとに異なる色が自動で割り当てられます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># plotするデータ</span>
+<span class="n">data</span> <span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="c1"># plot関数で描画。</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/appendix_5-matplotlib_9_0.png" src="../_images/appendix_5-matplotlib_9_0.png" />
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">plot()</span></code> 関数ではグラフの線の色、形状、データポイントのマーカの種類を、それぞれ以下のように <code class="docutils literal notranslate"><span class="pre">linestyle</span></code>, <code class="docutils literal notranslate"><span class="pre">color</span></code>, <code class="docutils literal notranslate"><span class="pre">marker</span></code> 引数で指定して変更することができます。それぞれの引数で指定可能な値は以下を参照してください。</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_linestyle">linestyle</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/api/colors_api.html?highlight=color#module-matplotlib.colors">color</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/api/markers_api.html#module-matplotlib.markers">marker</a></p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># plotするデータ</span>
+<span class="n">data</span> <span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="c1"># plot関数で描画。線の形状、色、データポイントのマーカ指定</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/appendix_5-matplotlib_11_0.png" src="../_images/appendix_5-matplotlib_11_0.png" />
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">plot()</span></code> 関数の <code class="docutils literal notranslate"><span class="pre">label</span></code> 引数にグラフの各線の凡例を文字列として渡し、<code class="docutils literal notranslate"><span class="pre">legend()</span></code> 関数を呼ぶことで、グラフ内に凡例を表示できます。<code class="docutils literal notranslate"><span class="pre">legend()</span></code> 関数の <code class="docutils literal notranslate"><span class="pre">loc</span></code> 引数で凡例を表示する位置を指定することができます。引数で指定可能な値は以下を参照してください。</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.legend.html#matplotlib.pyplot.legend">lengend()関数</a></p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># plotするデータ</span>
+<span class="n">data</span> <span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="c1"># plot関数で描画。線の形状、色、データポイントのマーカ指定</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;quad&#39;</span><span class="p">)</span>
+<span class="c1">#凡例を表示</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/appendix_5-matplotlib_13_0.png" src="../_images/appendix_5-matplotlib_13_0.png" />
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pyplot</span></code> モジュールでは、以下のようにグラフのタイトルと各軸のラベルを指定して表示することができます。タイトル、x軸のラベル、y軸のラベル、はそれぞれ <code class="docutils literal notranslate"><span class="pre">title()</span></code> 関数、<code class="docutils literal notranslate"><span class="pre">xlabel()</span></code> 関数、<code class="docutils literal notranslate"><span class="pre">ylabel()</span></code> 関数に文字列を渡して指定します。また、<code class="docutils literal notranslate"><span class="pre">grid()</span></code> 関数を用いるとグリッドを併せて表示することもできます。グリッドを表示させたい場合は、<code class="docutils literal notranslate"><span class="pre">grid()</span></code> 関数に <code class="docutils literal notranslate"><span class="pre">True</span></code> を渡してください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># plotするデータ</span>
+<span class="n">data</span> <span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="c1"># plot関数で描画。線の形状、色、データポイントのマーカ、凡例を指定</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;quad&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;My First Graph&#39;</span><span class="p">)</span> <span class="c1"># グラフのタイトル</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span> <span class="c1">#x軸のラベル</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span> <span class="c1">#y軸のラベル</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">);</span> <span class="c1">#グリッドの表示</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/appendix_5-matplotlib_15_0.png" src="../_images/appendix_5-matplotlib_15_0.png" />
+</div>
+</div>
+<p>グラフを描画するときのプロット数を増やすことで任意の曲線のグラフを作成することもできます。以下では、<code class="docutils literal notranslate"><span class="pre">numpy</span></code> モジュールの <code class="docutils literal notranslate"><span class="pre">arange()</span></code> 関数を用いて、<span class="math notranslate nohighlight">\(- \pi\)</span> から <span class="math notranslate nohighlight">\(\pi\)</span> の範囲を <code class="docutils literal notranslate"><span class="pre">0.1</span></code> 刻みでx軸の値を配列として準備しています。そのx軸の値に対して、<code class="docutils literal notranslate"><span class="pre">numpy</span></code> モジュールの <code class="docutils literal notranslate"><span class="pre">cos()</span></code> 関数と <code class="docutils literal notranslate"><span class="pre">sin()</span></code> 関数を用いて、y軸の値をそれぞれ準備し、cosカーブとsinカーブを描画しています。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#　グラフのx軸の値となる配列</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+
+<span class="c1"># 上記配列をcos, sin関数に渡し, y軸の値として描画</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;cos ans sin Curves&#39;</span><span class="p">)</span>  <span class="c1"># グラフのタイトル</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span> <span class="c1">#x軸のラベル</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span> <span class="c1">#y軸のラベル</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">);</span> <span class="c1">#グリッドの表示</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/appendix_5-matplotlib_17_0.png" src="../_images/appendix_5-matplotlib_17_0.png" />
+</div>
+</div>
+<p>プロットの数を少なくすると、曲線は直線をつなぎ合わせることで描画されていることがわかります。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;cos ans sin Curves&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/appendix_5-matplotlib_19_0.png" src="../_images/appendix_5-matplotlib_19_0.png" />
+</div>
+</div>
+<div class="section" id="グラフの例：ソートアルゴリズムにおける比較回数">
+<h3>グラフの例：ソートアルゴリズムにおける比較回数<a class="headerlink" href="#グラフの例：ソートアルゴリズムにおける比較回数" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">j</span><span class="p">):</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="n">lst</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">n</span>
+
+<span class="k">def</span> <span class="nf">merge_sort_rec</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">work</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">l</span><span class="o">+</span><span class="mi">1</span> <span class="o">&gt;=</span> <span class="n">r</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">l</span><span class="o">+</span><span class="p">(</span><span class="n">r</span><span class="o">-</span><span class="n">l</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
+    <span class="n">n1</span> <span class="o">=</span> <span class="n">merge_sort_rec</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">work</span><span class="p">)</span>
+    <span class="n">n2</span> <span class="o">=</span> <span class="n">merge_sort_rec</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">work</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">i1</span> <span class="o">=</span> <span class="n">l</span>
+    <span class="n">i2</span> <span class="o">=</span> <span class="n">m</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+        <span class="n">from1</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">i2</span> <span class="o">&gt;=</span> <span class="n">r</span><span class="p">:</span>
+            <span class="n">from1</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">elif</span> <span class="n">i1</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">:</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">i1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">data</span><span class="p">[</span><span class="n">i2</span><span class="p">]:</span>
+                <span class="n">from1</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="n">from1</span><span class="p">:</span>
+            <span class="n">work</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i1</span><span class="p">]</span>
+            <span class="n">i1</span> <span class="o">=</span> <span class="n">i1</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">work</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i2</span><span class="p">]</span>
+            <span class="n">i2</span> <span class="o">=</span> <span class="n">i2</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">work</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">n1</span><span class="o">+</span><span class="n">n2</span><span class="o">+</span><span class="n">n</span>
+
+<span class="k">def</span> <span class="nf">merge_sort</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">merge_sort_rec</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">bdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">bubble_sort</span><span class="p">([</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">)])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">x</span><span class="p">])</span>
+<span class="n">mdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">merge_sort</span><span class="p">([</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">)])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">x</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bdata</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mdata</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;bubble sort vs. merge sort&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;number of items&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;number of comparisons&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/appendix_5-matplotlib_23_0.png" src="../_images/appendix_5-matplotlib_23_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="練習">
+<h2>練習<a class="headerlink" href="#練習" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">-2</span></code> から <code class="docutils literal notranslate"><span class="pre">2</span></code> の範囲を <code class="docutils literal notranslate"><span class="pre">0.1</span></code> 刻みでx軸の値を配列として作成し、そのx軸の値に対して <code class="docutils literal notranslate"><span class="pre">numpy</span></code> モジュールの <code class="docutils literal notranslate"><span class="pre">exp()</span></code> 関数を用いてy軸の値を作成し、<span class="math notranslate nohighlight">\(y=e^{x}\)</span> のグラフを描画する関数 <code class="docutils literal notranslate"><span class="pre">plot_exp</span></code> を作成してください。ただし、そのグラフに任意のタイトル、x軸、y軸の任意のラベル、任意の凡例、グリッドを表示させてください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">...</span>
+<span class="o">...</span>
+<span class="k">def</span> <span class="nf">plot_exp</span><span class="p">():</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-14-859224c51e05&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-red-fg">    import ...</span>
+           ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
+
+</pre></div></div>
+</div>
+<p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が全て <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">res_x</span> <span class="o">=</span> <span class="n">plot_exp</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">res_x</span><span class="p">)</span> <span class="o">==</span> <span class="mi">41</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">res_x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">res_x</span><span class="p">[</span><span class="mi">9</span><span class="p">])</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-15-7e0bfb663c10&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>res_x <span class="ansi-blue-fg">=</span> plot_exp<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>len<span class="ansi-blue-fg">(</span>res_x<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">41</span><span class="ansi-blue-fg">,</span> int<span class="ansi-blue-fg">(</span>res_x<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">,</span> int<span class="ansi-blue-fg">(</span>res_x<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">9</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;plot_exp&#39; is not defined
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>練習<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>4-csvで説明したように、<code class="docutils literal notranslate"><span class="pre">tokyo-temps.csv</span></code> には、気象庁のオープンデータからダウンロードした、東京の平均気温のデータが入っています。具体的には、各行の第2列に気温の値が格納されており、47行目に1875年6月の、48行目に1875年7月の、…、53行目に1875年12月の、54行目に1876年1月の、…という風に2017年1月のデータまでが格納されています。</p>
+<p>そこで、2つの整数 <code class="docutils literal notranslate"><span class="pre">year</span></code> と <code class="docutils literal notranslate"><span class="pre">month</span></code> を引数として取り、 <code class="docutils literal notranslate"><span class="pre">year</span></code> 年以降の <code class="docutils literal notranslate"><span class="pre">month</span></code> 月の平均気温の値をy軸に、年をx軸に描画した線グラフを表示するとともに、描画したx軸とy軸の値をタプルに格納して返す関数 <code class="docutils literal notranslate"><span class="pre">plot_tokyotemps</span></code> を作成してください。</p>
+<p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて解答してください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">...</span>
+<span class="o">...</span>
+<span class="k">def</span> <span class="nf">plot_tokyotemps</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-16-7a1e43c0be99&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-red-fg">    import ...</span>
+           ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
+
+</pre></div></div>
+</div>
+<p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が全て <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">res_years</span><span class="p">,</span> <span class="n">res_temps</span> <span class="o">=</span> <span class="n">plot_tokyotemps</span><span class="p">(</span><span class="mi">1875</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">res_years</span><span class="p">)</span> <span class="o">==</span> <span class="mi">142</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">res_temps</span><span class="p">)</span> <span class="o">==</span> <span class="mi">142</span><span class="p">,</span> <span class="n">res_years</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1875</span><span class="p">,</span> <span class="n">res_temps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">26.0</span><span class="p">)</span>
+<span class="n">res_years</span><span class="p">,</span> <span class="n">res_temps</span> <span class="o">=</span> <span class="n">plot_tokyotemps</span><span class="p">(</span><span class="mi">1875</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">res_years</span><span class="p">)</span> <span class="o">==</span> <span class="mi">142</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">res_temps</span><span class="p">)</span> <span class="o">==</span> <span class="mi">142</span><span class="p">,</span> <span class="n">res_years</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1875</span><span class="p">,</span> <span class="n">res_temps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">22.3</span><span class="p">)</span>
+<span class="n">res_years</span><span class="p">,</span> <span class="n">res_temps</span> <span class="o">=</span> <span class="n">plot_tokyotemps</span><span class="p">(</span><span class="mi">1875</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">res_years</span><span class="p">)</span> <span class="o">==</span> <span class="mi">142</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">res_temps</span><span class="p">)</span> <span class="o">==</span> <span class="mi">142</span><span class="p">,</span> <span class="n">res_years</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1875</span><span class="p">,</span> <span class="n">res_temps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">4.6</span><span class="p">)</span>
+<span class="n">res_years</span><span class="p">,</span> <span class="n">res_temps</span> <span class="o">=</span> <span class="n">plot_tokyotemps</span><span class="p">(</span><span class="mi">1876</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">res_years</span><span class="p">)</span> <span class="o">==</span> <span class="mi">142</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">res_temps</span><span class="p">)</span> <span class="o">==</span> <span class="mi">142</span><span class="p">,</span> <span class="n">res_years</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1876</span><span class="p">,</span> <span class="n">res_temps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1.6</span><span class="p">)</span>
+<span class="n">res_years</span><span class="p">,</span> <span class="n">res_temps</span> <span class="o">=</span> <span class="n">plot_tokyotemps</span><span class="p">(</span><span class="mi">1876</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">res_years</span><span class="p">)</span> <span class="o">==</span> <span class="mi">141</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">res_temps</span><span class="p">)</span> <span class="o">==</span> <span class="mi">141</span><span class="p">,</span> <span class="n">res_years</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1876</span><span class="p">,</span> <span class="n">res_temps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">18.5</span><span class="p">)</span>
+<span class="n">res_years</span><span class="p">,</span> <span class="n">res_temps</span> <span class="o">=</span> <span class="n">plot_tokyotemps</span><span class="p">(</span><span class="mi">1900</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">res_years</span><span class="p">)</span> <span class="o">==</span> <span class="mi">117</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">res_temps</span><span class="p">)</span> <span class="o">==</span> <span class="mi">117</span><span class="p">,</span> <span class="n">res_years</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1900</span><span class="p">,</span> <span class="n">res_temps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">19.3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-17-3c72f435fb3f&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>res_years<span class="ansi-blue-fg">,</span> res_temps <span class="ansi-blue-fg">=</span> plot_tokyotemps<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">1875</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">7</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>len<span class="ansi-blue-fg">(</span>res_years<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">142</span><span class="ansi-blue-fg">,</span> len<span class="ansi-blue-fg">(</span>res_temps<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">142</span><span class="ansi-blue-fg">,</span> res_years<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">1875</span><span class="ansi-blue-fg">,</span> res_temps<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">26.0</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> res_years<span class="ansi-blue-fg">,</span> res_temps <span class="ansi-blue-fg">=</span> plot_tokyotemps<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">1875</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span>len<span class="ansi-blue-fg">(</span>res_years<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">142</span><span class="ansi-blue-fg">,</span> len<span class="ansi-blue-fg">(</span>res_temps<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">142</span><span class="ansi-blue-fg">,</span> res_years<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">1875</span><span class="ansi-blue-fg">,</span> res_temps<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">22.3</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> res_years<span class="ansi-blue-fg">,</span> res_temps <span class="ansi-blue-fg">=</span> plot_tokyotemps<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">1875</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">12</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;plot_tokyotemps&#39; is not defined
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="散布図">
+<h2>散布図<a class="headerlink" href="#散布図" title="Permalink to this headline">¶</a></h2>
+<p><strong>散布図</strong>は、<code class="docutils literal notranslate"><span class="pre">pyplot</span></code> モジュールの <code class="docutils literal notranslate"><span class="pre">scatter()</span></code> 関数を用いて描画できます。</p>
+<p>具体的には、次のように <code class="docutils literal notranslate"><span class="pre">リストX</span></code> と <code class="docutils literal notranslate"><span class="pre">リストY</span></code> （もしくは、 <code class="docutils literal notranslate"><span class="pre">配列X</span></code> と <code class="docutils literal notranslate"><span class="pre">配列Y</span></code>）を引数として与えると、各 <code class="docutils literal notranslate"><span class="pre">i</span></code> に対して、 <code class="docutils literal notranslate"><span class="pre">(リストX[i],</span> <span class="pre">リストY[i])</span></code> の位置に点を打ちます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">リストX</span><span class="p">,</span> <span class="n">リストY</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>以下では、ランダムに生成した20個の要素からなる配列 x, y の各要素の値の組を点としてプロットした散布図を表示しています。プロットする点のマーカの色や形状は、線グラフの時と同様に、 <code class="docutils literal notranslate"><span class="pre">color</span></code>, <code class="docutils literal notranslate"><span class="pre">marker</span></code> 引数で指定して変更することができます。加えて、<code class="docutils literal notranslate"><span class="pre">s</span></code>, <code class="docutils literal notranslate"><span class="pre">alpha</span></code> 引数で、それぞれマーカの大きさと透明度を指定することができます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#　グラフのx軸の値となる配列</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="c1">#　グラフのy軸の値となる配列</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># scatter関数で散布図を描画</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/appendix_5-matplotlib_33_0.png" src="../_images/appendix_5-matplotlib_33_0.png" />
+</div>
+</div>
+<p>以下のように、<code class="docutils literal notranslate"><span class="pre">plot()</span></code> 関数を用いても同様の散布図を表示することができます。具体的には、3番目の引数にプロットする点のマーカの形状を指定することにより実現します。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/appendix_5-matplotlib_35_0.png" src="../_images/appendix_5-matplotlib_35_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>練習<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">tokyo-temps.csv</span></code> には、気象庁のオープンデータからダウンロードした、東京の平均気温のデータが入っています。具体的には、各行の第2列に気温の値が格納されており、47行目に1875年6月の、48行目に1875年7月の、…、53行目に1875年12月の、54行目に1876年1月の、…という風に2017年1月のデータまでが格納されています。</p>
+<p>そこで、1875年以降の平均気温の値をy軸に、月の値をx軸に描画した散布図を表示するとともに、描画したx軸とy軸の値をタプルに格納して返す関数 <code class="docutils literal notranslate"><span class="pre">scatter_tokyotemps</span></code> を作成してください。</p>
+<p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて解答してください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">...</span>
+<span class="o">...</span>
+<span class="k">def</span> <span class="nf">scatter_tokyotemps</span><span class="p">():</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-20-0c22feb25120&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-red-fg">    import ...</span>
+           ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
+
+</pre></div></div>
+</div>
+<p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が全て <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">res_months</span><span class="p">,</span> <span class="n">res_temps</span> <span class="o">=</span> <span class="n">scatter_tokyotemps</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">res_months</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1700</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">res_temps</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1700</span><span class="p">,</span> <span class="n">res_months</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">6</span><span class="p">,</span> <span class="n">res_months</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">7</span><span class="p">,</span> <span class="n">res_months</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="o">==</span> <span class="mi">6</span><span class="p">,</span> <span class="n">res_months</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">==</span> <span class="mi">7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res_temps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">22.3</span><span class="p">,</span> <span class="n">res_temps</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mf">26.0</span><span class="p">,</span> <span class="n">res_temps</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="o">==</span> <span class="mf">18.5</span><span class="p">,</span> <span class="n">res_temps</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">==</span> <span class="mf">24.3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-21-98c9832c2013&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>res_months<span class="ansi-blue-fg">,</span> res_temps <span class="ansi-blue-fg">=</span> scatter_tokyotemps<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>len<span class="ansi-blue-fg">(</span>res_months<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">1700</span><span class="ansi-blue-fg">,</span> len<span class="ansi-blue-fg">(</span>res_temps<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">1700</span><span class="ansi-blue-fg">,</span> res_months<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">,</span> res_months<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">7</span><span class="ansi-blue-fg">,</span> res_months<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">12</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">,</span> res_months<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">13</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">7</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>res_temps<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">22.3</span><span class="ansi-blue-fg">,</span> res_temps<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">26.0</span><span class="ansi-blue-fg">,</span> res_temps<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">12</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">18.5</span><span class="ansi-blue-fg">,</span> res_temps<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">13</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">24.3</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;scatter_tokyotemps&#39; is not defined
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="棒グラフ">
+<h2>棒グラフ<a class="headerlink" href="#棒グラフ" title="Permalink to this headline">¶</a></h2>
+<p><strong>棒グラフ</strong>は、<code class="docutils literal notranslate"><span class="pre">pyplot</span></code> モジュールの <code class="docutils literal notranslate"><span class="pre">bar()</span></code> 関数を用いて描画できます。以下では、ランダムに生成した10個の要素からなる配列 <code class="docutils literal notranslate"><span class="pre">y</span></code> の各要素の値を縦の棒グラフで表示しています。<code class="docutils literal notranslate"><span class="pre">x</span></code> は、x軸上で棒グラフのバーの並ぶ位置を示しています。ここでは、<code class="docutils literal notranslate"><span class="pre">numpy</span></code> モジュールの <code class="docutils literal notranslate"><span class="pre">arange()</span></code> 関数を用いて、<code class="docutils literal notranslate"><span class="pre">1</span></code> から <code class="docutils literal notranslate"><span class="pre">10</span></code> の範囲を <code class="docutils literal notranslate"><span class="pre">1</span></code> 刻みでx軸上のバーの並ぶ位置として配列を準備しています。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># x軸上で棒の並ぶ位置となる配列</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1">#　グラフのy軸の値となる配列</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># bar関数で棒グラフを描画</span>
+<span class="c1">#print(x, y)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/appendix_5-matplotlib_41_0.png" src="../_images/appendix_5-matplotlib_41_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>練習<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">tokyo-temps.csv</span></code> には、気象庁のオープンデータからダウンロードした、東京の平均気温のデータが入っています。具体的には、各行の第2列に気温の値が格納されており、47行目に1875年6月の、48行目に1875年7月の、…、53行目に1875年12月の、54行目に1876年1月の、…という風に2017年1月のデータまでが格納されています。</p>
+<p>そこで、4つの引数 <code class="docutils literal notranslate"><span class="pre">year1</span></code>, <code class="docutils literal notranslate"><span class="pre">month1</span></code>, <code class="docutils literal notranslate"><span class="pre">year2</span></code>, <code class="docutils literal notranslate"><span class="pre">month2</span></code> を引数に取り、 <code class="docutils literal notranslate"><span class="pre">year1</span></code> 年 <code class="docutils literal notranslate"><span class="pre">month1</span></code> 月から <code class="docutils literal notranslate"><span class="pre">year2</span></code> 年 <code class="docutils literal notranslate"><span class="pre">month2</span></code> 月までの各月の平均気温の値をy軸に、年月の値（<code class="docutils literal notranslate"><span class="pre">tokyo-temps.csv</span></code> の1列目の値）をx軸に描画した棒グラフを表示するとともに、描画したx軸とy軸の値をタプルに格納して返す関数 <code class="docutils literal notranslate"><span class="pre">bar_tokyotemps</span></code> を作成してください。</p>
+<p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて解答してください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">...</span>
+<span class="o">...</span>
+<span class="k">def</span> <span class="nf">bar_tokyotemps</span><span class="p">(</span><span class="n">year1</span><span class="p">,</span> <span class="n">month1</span><span class="p">,</span> <span class="n">year2</span><span class="p">,</span> <span class="n">month2</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-23-b27113b5f2c4&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-red-fg">    import ...</span>
+           ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
+
+</pre></div></div>
+</div>
+<p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が全て <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">res_months</span><span class="p">,</span> <span class="n">res_temps</span> <span class="o">=</span> <span class="n">bar_tokyotemps</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2001</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">res_months</span><span class="p">)</span> <span class="o">==</span> <span class="mi">13</span><span class="p">,</span> <span class="n">res_months</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;2000/6&#39;</span><span class="p">,</span> <span class="n">res_temps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">22.5</span><span class="p">,</span> <span class="n">res_months</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;2001/6&#39;</span><span class="p">,</span> <span class="n">res_temps</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="o">==</span> <span class="mf">23.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-24-733fe05486b6&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>res_months<span class="ansi-blue-fg">,</span> res_temps <span class="ansi-blue-fg">=</span> bar_tokyotemps<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">2000</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">2001</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>len<span class="ansi-blue-fg">(</span>res_months<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">13</span><span class="ansi-blue-fg">,</span> res_months<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;2000/6&#39;</span><span class="ansi-blue-fg">,</span> res_temps<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">22.5</span><span class="ansi-blue-fg">,</span> res_months<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">12</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;2001/6&#39;</span><span class="ansi-blue-fg">,</span> res_temps<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">12</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">23.1</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;bar_tokyotemps&#39; is not defined
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="ヒストグラム">
+<h2>ヒストグラム<a class="headerlink" href="#ヒストグラム" title="Permalink to this headline">¶</a></h2>
+<p><strong>ヒストグラム</strong>は、<code class="docutils literal notranslate"><span class="pre">pyplot</span></code> モジュールの <code class="docutils literal notranslate"><span class="pre">hist()</span></code> 関数を用いて描画できます。 以下では、<code class="docutils literal notranslate"><span class="pre">numpy</span></code> モジュールの <code class="docutils literal notranslate"><span class="pre">random.randn()</span></code> 関数を用いて、正規分布に基づく1000個の数値の要素からなる配列を用意し、ヒストグラムとして表示しています。 <code class="docutils literal notranslate"><span class="pre">hist()</span></code> 関数の <code class="docutils literal notranslate"><span class="pre">bins</span></code> 引数でヒストグラムの箱（ビン）の数を指定します。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># 正規分布に基づく1000個の数値の要素からなる配列</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1"># hist関数でヒストグラムを描画</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/appendix_5-matplotlib_47_0.png" src="../_images/appendix_5-matplotlib_47_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>練習<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">tokyo-temps.csv</span></code> には、気象庁のオープンデータからダウンロードした、東京の平均気温のデータが入っています。具体的には、各行の第2列に気温の値が格納されており、47行目に1875年6月の、48行目に1875年7月の、…、53行目に1875年12月の、54行目に1876年1月の、…という風に2017年1月のデータまでが格納されています。</p>
+<p>そこで、5つの引数 <code class="docutils literal notranslate"><span class="pre">year1</span></code>, <code class="docutils literal notranslate"><span class="pre">month1</span></code>, <code class="docutils literal notranslate"><span class="pre">year2</span></code>, <code class="docutils literal notranslate"><span class="pre">month2</span></code>, <code class="docutils literal notranslate"><span class="pre">mybin</span></code> を引数に取り、 <code class="docutils literal notranslate"><span class="pre">year1</span></code> 年 <code class="docutils literal notranslate"><span class="pre">month1</span></code> 月から <code class="docutils literal notranslate"><span class="pre">year2</span></code> 年 <code class="docutils literal notranslate"><span class="pre">month2</span></code> 月までの各月の平均気温の値を格納したリスト <code class="docutils literal notranslate"><span class="pre">temps</span></code> から <code class="docutils literal notranslate"><span class="pre">mybin</span></code> 個のヒストグラムを表示するとともに、 <code class="docutils literal notranslate"><span class="pre">temps</span></code> を返す関数 <code class="docutils literal notranslate"><span class="pre">hist_tokyotemps</span></code> を作成してください。</p>
+<p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて解答してください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">...</span>
+<span class="o">...</span>
+<span class="k">def</span> <span class="nf">hist_tokyotemps</span><span class="p">(</span><span class="n">year1</span><span class="p">,</span> <span class="n">month1</span><span class="p">,</span> <span class="n">year2</span><span class="p">,</span> <span class="n">month2</span><span class="p">,</span> <span class="n">mybin</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-26-6b59c7306bf0&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-red-fg">    import ...</span>
+           ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
+
+</pre></div></div>
+</div>
+<p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が全て <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">res_temps</span> <span class="o">=</span> <span class="n">hist_tokyotemps</span><span class="p">(</span><span class="mi">1875</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">res_temps</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1501</span><span class="p">,</span> <span class="n">res_temps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">22.3</span><span class="p">,</span> <span class="n">res_temps</span><span class="p">[</span><span class="mi">1500</span><span class="p">]</span> <span class="o">==</span> <span class="mf">22.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-27-0d26f8df3a7b&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>res_temps <span class="ansi-blue-fg">=</span> hist_tokyotemps<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">1875</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">2000</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">50</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>len<span class="ansi-blue-fg">(</span>res_temps<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">1501</span><span class="ansi-blue-fg">,</span> res_temps<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">22.3</span><span class="ansi-blue-fg">,</span> res_temps<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1500</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">22.5</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;hist_tokyotemps&#39; is not defined
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="ヒートマップ">
+<h2>ヒートマップ<a class="headerlink" href="#ヒートマップ" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">impshow()</span></code> 関数を用いると、以下のように行列の要素の値に応じて色の濃淡を変えることで、行列を<strong>ヒートマップ</strong>として可視化することができます。<code class="docutils literal notranslate"><span class="pre">colorbar()</span></code> 関数は行列の値と色の濃淡の対応を表示します。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># 10行10列のランダム要素からなる行列</span>
+<span class="n">ary1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">ary2</span> <span class="o">=</span> <span class="n">ary1</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1">#ary2 = np.random.rand(100).reshape(10,10) #と同じ</span>
+
+<span class="c1"># imshow関数でヒートマップを描画</span>
+<span class="n">im</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ary2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/appendix_5-matplotlib_53_0.png" src="../_images/appendix_5-matplotlib_53_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id12">
+<h2>練習<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">tokyo-temps.csv</span></code> には、気象庁のオープンデータからダウンロードした、東京の平均気温のデータが入っています。具体的には、各行の第2列に気温の値が格納されており、47行目に1875年6月の、48行目に1875年7月の、…、53行目に1875年12月の、54行目に1876年1月の、…という風に2017年1月のデータまでが格納されています。</p>
+<p>そこで、30×12のNumPyの配列 <code class="docutils literal notranslate"><span class="pre">ary1</span></code> を作成し、各月の平均気温を整数に丸めた値を求めて、月ごとにその値の数を数えて配列 <code class="docutils literal notranslate"><span class="pre">ary1</span></code> に格納して、 <code class="docutils literal notranslate"><span class="pre">ary1</span></code> からなるヒートマップを表示しつつ、 <code class="docutils literal notranslate"><span class="pre">ary1</span></code> を返す関数 <code class="docutils literal notranslate"><span class="pre">heat_tokyotemps</span></code> を作成してください。 ただし、厳密には <code class="docutils literal notranslate"><span class="pre">x</span></code> が <code class="docutils literal notranslate"><span class="pre">0</span></code> 以上 <code class="docutils literal notranslate"><span class="pre">11</span></code> 以下の任意の整数とし、<code class="docutils literal notranslate"><span class="pre">y</span></code> を <code class="docutils literal notranslate"><span class="pre">0</span></code> 以上 <code class="docutils literal notranslate"><span class="pre">29</span></code> 以下の整数とするとき、 <code class="docutils literal notranslate"><span class="pre">ary1[y][x]</span></code> には、 <code class="docutils literal notranslate"><span class="pre">y</span></code> ℃以上、 <code class="docutils literal notranslate"><span class="pre">y+1</span></code> ℃より小さい平均気温を持つ <code class="docutils literal notranslate"><span class="pre">x+1</span></code> 月の数が格納されているものとします。</p>
+<p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて解答してください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">...</span>
+<span class="o">...</span>
+<span class="k">def</span> <span class="nf">heat_tokyotemps</span><span class="p">():</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-29-403e5d9a71a4&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-red-fg">    import ...</span>
+           ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
+
+</pre></div></div>
+</div>
+<p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が全て <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ary1</span> <span class="o">=</span> <span class="n">heat_tokyotemps</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ary1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ary1</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ary1</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">28</span><span class="p">)</span>
+<span class="c1">#画像の向きが気になる人は、以下の2行を同時に実行してみてください</span>
+<span class="c1">#ary1 = np.flip(ary1, axis=0)</span>
+<span class="c1">#im=plt.imshow(ary1)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-30-99fa2458edaf&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>ary1 <span class="ansi-blue-fg">=</span> heat_tokyotemps<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>ary1<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">,</span> ary1<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">,</span> ary1<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">28</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-red-fg">#画像の向きが気になる人は、以下の2行を同時に実行してみてください</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-red-fg">#ary1 = np.flip(ary1, axis=0)</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> <span class="ansi-red-fg">#im=plt.imshow(ary1)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;heat_tokyotemps&#39; is not defined
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="グラフの画像ファイル出力">
+<h2>グラフの画像ファイル出力<a class="headerlink" href="#グラフの画像ファイル出力" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">savefig()</span></code> 関数を用いると、以下のように作成したグラフを画像としてファイルに保存することができます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;cos&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;sin&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;cos ans sin Curves&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># savefig関数でグラフを画像保存</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;cos_sin.png&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/appendix_5-matplotlib_59_0.png" src="../_images/appendix_5-matplotlib_59_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="練習の解答">
+<h2>練習の解答<a class="headerlink" href="#練習の解答" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="k">def</span> <span class="nf">plot_exp</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;exp(x)&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;y = exp(x)&#39;</span><span class="p">)</span> <span class="c1"># タイトル</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span> <span class="c1"># x軸のラベル</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;exp(x)&#39;</span><span class="p">)</span> <span class="c1"># y軸のラベル</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">);</span> <span class="c1"># グリッドを表示</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span> <span class="c1"># 盆例を表示</span>
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="k">def</span> <span class="nf">plot_tokyotemps</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;tokyo-temps.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;sjis&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">dataReader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># csvリーダを作成</span>
+        <span class="n">n</span><span class="o">=</span><span class="mi">0</span>
+        <span class="c1"># 1875年6月が47行目なので、指定されたyear年6月のデータの行番号をまず求める</span>
+        <span class="n">init_row</span> <span class="o">=</span> <span class="p">(</span><span class="n">year</span> <span class="o">-</span> <span class="mi">1875</span><span class="p">)</span> <span class="o">*</span> <span class="mi">12</span> <span class="o">+</span> <span class="mi">47</span>
+        <span class="c1"># その上で、year年month月のデータの行番号を求める</span>
+        <span class="n">init_row</span> <span class="o">=</span> <span class="n">init_row</span> <span class="o">+</span> <span class="n">month</span> <span class="o">-</span> <span class="mi">6</span>
+        <span class="n">years</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># 年</span>
+        <span class="n">temps</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># 平均気温</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">dataReader</span><span class="p">:</span> <span class="c1"># CSVファイルの中身を1行ずつ読み込み</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span>
+            <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="n">init_row</span> <span class="ow">and</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">init_row</span><span class="p">)</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># init_row行目からはじめて12か月ごとにif内を実行</span>
+                <span class="n">years</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">year</span><span class="p">)</span>
+                <span class="n">temp</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># float関数で実数のデータ型に変換する</span>
+                <span class="n">temps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+                <span class="n">year</span> <span class="o">=</span> <span class="n">year</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="c1">#print(years)</span>
+    <span class="c1">#print(temps)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="n">temps</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">years</span><span class="p">,</span> <span class="n">temps</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="k">def</span> <span class="nf">scatter_tokyotemps</span><span class="p">():</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;tokyo-temps.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;sjis&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">dataReader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># csvリーダを作成</span>
+        <span class="n">n</span><span class="o">=</span><span class="mi">0</span>
+        <span class="n">months</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># 月</span>
+        <span class="n">temps</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># 平均気温</span>
+        <span class="n">month</span> <span class="o">=</span> <span class="mi">6</span> <span class="c1"># 47行目は6月</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">dataReader</span><span class="p">:</span> <span class="c1"># CSVファイルの中身を1行ずつ読み込み</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span>
+            <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">47</span><span class="p">:</span> <span class="c1"># 47行目からif内を実行</span>
+                <span class="n">months</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">month</span><span class="p">)</span>
+                <span class="n">temp</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># float関数で実数のデータ型に変換する</span>
+                <span class="n">temps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+                <span class="n">month</span> <span class="o">=</span> <span class="n">month</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">month</span> <span class="o">&gt;</span> <span class="mi">12</span><span class="p">:</span>
+                    <span class="n">month</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="c1">#print(months)</span>
+    <span class="c1">#print(temps)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">months</span><span class="p">,</span> <span class="n">temps</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">months</span><span class="p">,</span> <span class="n">temps</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="k">def</span> <span class="nf">bar_tokyotemps</span><span class="p">(</span><span class="n">year1</span><span class="p">,</span> <span class="n">month1</span><span class="p">,</span> <span class="n">year2</span><span class="p">,</span> <span class="n">month2</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;tokyo-temps.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;sjis&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">dataReader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># csvリーダを作成</span>
+        <span class="n">n</span><span class="o">=</span><span class="mi">0</span>
+        <span class="n">months</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#</span>
+        <span class="n">temps</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># 平均気温</span>
+        <span class="n">init_row</span> <span class="o">=</span> <span class="p">(</span><span class="n">year1</span> <span class="o">-</span> <span class="mi">1875</span><span class="p">)</span> <span class="o">*</span> <span class="mi">12</span> <span class="o">-</span> <span class="mi">6</span> <span class="o">+</span> <span class="n">month1</span> <span class="o">+</span> <span class="mi">47</span>
+        <span class="n">end_row</span> <span class="o">=</span> <span class="p">(</span><span class="n">year2</span> <span class="o">-</span> <span class="mi">1875</span><span class="p">)</span> <span class="o">*</span> <span class="mi">12</span> <span class="o">-</span> <span class="mi">6</span> <span class="o">+</span> <span class="n">month2</span> <span class="o">+</span> <span class="mi">47</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">dataReader</span><span class="p">:</span> <span class="c1"># CSVファイルの中身を1行ずつ読み込み</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span>
+            <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="n">init_row</span> <span class="ow">and</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">end_row</span><span class="p">:</span> <span class="c1"># init_row行目から、end_row行までif内を実行</span>
+                <span class="n">months</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">temp</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># float関数で実数のデータ型に変換する</span>
+                <span class="n">temps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+    <span class="c1">#print(months)</span>
+    <span class="c1">#print(temps)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">months</span><span class="p">,</span> <span class="n">temps</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">months</span><span class="p">,</span> <span class="n">temps</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="k">def</span> <span class="nf">hist_tokyotemps</span><span class="p">(</span><span class="n">year1</span><span class="p">,</span> <span class="n">month1</span><span class="p">,</span> <span class="n">year2</span><span class="p">,</span> <span class="n">month2</span><span class="p">,</span> <span class="n">mybin</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;tokyo-temps.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;sjis&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">dataReader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># csvリーダを作成</span>
+        <span class="n">n</span><span class="o">=</span><span class="mi">0</span>
+        <span class="n">months</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#</span>
+        <span class="n">temps</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># 平均気温</span>
+        <span class="n">init_row</span> <span class="o">=</span> <span class="p">(</span><span class="n">year1</span> <span class="o">-</span> <span class="mi">1875</span><span class="p">)</span> <span class="o">*</span> <span class="mi">12</span> <span class="o">-</span> <span class="mi">6</span> <span class="o">+</span> <span class="n">month1</span> <span class="o">+</span> <span class="mi">47</span>
+        <span class="n">end_row</span> <span class="o">=</span> <span class="p">(</span><span class="n">year2</span> <span class="o">-</span> <span class="mi">1875</span><span class="p">)</span> <span class="o">*</span> <span class="mi">12</span> <span class="o">-</span> <span class="mi">6</span> <span class="o">+</span> <span class="n">month2</span> <span class="o">+</span> <span class="mi">47</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">dataReader</span><span class="p">:</span> <span class="c1"># CSVファイルの中身を1行ずつ読み込み</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span>
+            <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="n">init_row</span> <span class="ow">and</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">end_row</span><span class="p">:</span> <span class="c1"># init_row行目から、end_row行までif内を実行</span>
+                <span class="n">temp</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># float関数で実数のデータ型に変換する</span>
+                <span class="n">temps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+    <span class="c1">#print(months)</span>
+    <span class="c1">#print(temps)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">temps</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">mybin</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">temps</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="k">def</span> <span class="nf">heat_tokyotemps</span><span class="p">():</span>
+    <span class="n">ary1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">30</span><span class="o">*</span><span class="mi">12</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span> <span class="c1"># 30×12の配列を作成</span>
+    <span class="n">ary1</span> <span class="o">=</span> <span class="n">ary1</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;tokyo-temps.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;sjis&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">dataReader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># csvリーダを作成</span>
+        <span class="n">n</span><span class="o">=</span><span class="mi">0</span>
+        <span class="n">month</span> <span class="o">=</span> <span class="mi">6</span> <span class="c1"># 一番最初の月（47行目）は6月</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">dataReader</span><span class="p">:</span> <span class="c1"># CSVファイルの中身を1行ずつ読み込み</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span>
+            <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">47</span><span class="p">:</span> <span class="c1"># 47行目からif内を実行</span>
+                <span class="n">temp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="c1"># まずfloat関数で実数型に変換してから、int関数で整数のデータ型に変換する</span>
+                <span class="n">ary1</span><span class="p">[</span><span class="n">temp</span><span class="p">][</span><span class="n">month</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># month月の値はmonth-1行目に格納する</span>
+                <span class="n">month</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">month</span> <span class="o">==</span> <span class="mi">13</span><span class="p">:</span>
+                    <span class="n">month</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">im</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ary1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">);</span>
+    <span class="c1">#print(ary1)</span>
+    <span class="k">return</span> <span class="n">ary1</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Pythonプログラミング入門</a></h1>
+
+
+
+
+
+
+
+
+<p>
+  <a href="https://colab.research.google.com/github/utokyo-ipp/utokyo-ipp.github.io/blob/master/colab/appendix/5-matplotlib.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
+</p><h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-1.html">1-1. 数値演算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-2.html">1-2. 変数と関数の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-4.html">1-4. デバッグ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2/2-1.html">2-1. 文字列 (string)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2/2-2.html">2-2. リスト (list)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2/2-3.html">2-3. 条件分岐</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3/3-1.html">3-1. 辞書 (dictionary)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3/3-2.html">3-2. 繰り返し</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3/3-3.html">3-3. 関数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4/4-1.html">4-1. ファイル入出力の基本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4/4-2.html">4-2. イテレータ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4/4-3.html">4-3. コンピュータにおけるファイルやディレクトリの配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5/5-1.html">5-1. モジュールの使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5/5-2.html">5-2. モジュールの作り方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5/5-3.html">5-3. NumPyライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6/6-1.html">6-1. 内包表記</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6/6-2.html">6-2. 高階関数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6/6-3.html">6-3. クラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7/7-1.html">7-1. pandasライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7/7-2.html">7-2. scikit-learnライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1-jupyter-notebook.html">▲Jupyter Notebook の使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2-set.html">▲セット (set)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3-recursion.html">▲再帰</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3-visualization.html">▲簡単なデータの可視化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4-csv.html">▲CSVファイルの入出力</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5-bokeh.html">▲Bokehライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5-command.html">▲Pythonスクリプトとコマンドライン実行</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">▲Matplotlibライブラリ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#線グラフ">線グラフ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#練習">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#散布図">散布図</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#棒グラフ">棒グラフ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ヒストグラム">ヒストグラム</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ヒートマップ">ヒートマップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#グラフの画像ファイル出力">グラフの画像ファイル出力</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#練習の解答">練習の解答</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="5-re.html">▲正規表現</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index_of_terms.html">索引</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="5-command.html" title="previous chapter">▲Pythonスクリプトとコマンドライン実行</a></li>
+      <li>Next: <a href="5-re.html" title="next chapter">▲正規表現</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020–2021, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-159819977-1']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    
+  </body>
+</html>

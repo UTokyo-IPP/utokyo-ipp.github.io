@@ -1,0 +1,861 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="jp">
+  <head>
+    <meta charset="utf-8" />
+    <title>2-3. 条件分岐 &#8212; Pythonプログラミング入門  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3-1. 辞書 (dictionary)" href="../3/3-1.html" />
+    <link rel="prev" title="2-2. リスト (list)" href="2-2.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    min-width: 5.5ex;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 0.3rem;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<div class="section" id="2-3.-条件分岐">
+<h1>2-3. 条件分岐<a class="headerlink" href="#2-3.-条件分岐" title="Permalink to this headline">¶</a></h1>
+<p>制御構造のうち<strong>条件分岐</strong>について説明します。</p>
+<p>参考:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/ja/3/tutorial/controlflow.html#if-statements">https://docs.python.org/ja/3/tutorial/controlflow.html#if-statements</a></p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">if</span></code> で始まり条件分岐を行う制御構造によって、条件に応じてプログラムの動作を変えることができます。</p>
+<p>ここではまず「インデント」について説明し、そのあとで条件分岐について説明します。</p>
+<div class="section" id="インデントによる構文">
+<h2>インデントによる構文<a class="headerlink" href="#インデントによる構文" title="Permalink to this headline">¶</a></h2>
+<p>条件分岐の前に、Pythonの<strong>インデント</strong>（行頭の空白、字下げ）について説明します。 Pythonのインデントは実行文をグループにまとめる機能を持ちます。</p>
+<p>プログラム文はインデントレベル（深さ）の違いによって異なるグループとして扱われます。 細かく言えば、インデントレベルが進む（深くなる）とプログラム文はもとのグループの下に位置する 別のグループに属するものとして扱われます。 逆に、インデントレベルが戻る（浅くなる）までプログラム文は同じグループに属することになります。</p>
+<p>具体例として、第1回で定義した関数 <code class="docutils literal notranslate"><span class="pre">bmax()</span></code> を使って説明します:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">bmax</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">b</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Hello World
+</pre></div></div>
+</div>
+<p>この例では1行目の関数定義 <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">bmax(a,b):</span></code> の後から第1レベルのインデントが開始され5行目まで続きます。 すなわち、5行目までは関数 <code class="docutils literal notranslate"><span class="pre">bmax</span></code> を記述するプログラム文のグループということです。</p>
+<p>次に、3行目の一行のみの第2レベルのインデントの実行文は、 if文（<code class="docutils literal notranslate"><span class="pre">if</span></code> による条件分岐）の論理式 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&gt;</span> <span class="pre">b</span></code> が <code class="docutils literal notranslate"><span class="pre">True</span></code> の場合にのみ実行されるグループに属します。 そして、4行目の <code class="docutils literal notranslate"><span class="pre">else</span></code> ではインデントが戻されています。 5行目から再び始まる第2レベルの実行文は2行目の論理式が <code class="docutils literal notranslate"><span class="pre">False</span></code> の場合に実行されるグループに属します。</p>
+<p>最後に、7行目ではインデントが戻されており、これ以降は関数 <code class="docutils literal notranslate"><span class="pre">bmax()</span></code> の定義とは関係ないことがわかります。</p>
+<p>Pythonではインデントとして半角スペース4つが広く利用されています。 本教材でもこの書式を利用します。 1-4 のコーディングスタイルのところで紹介したスタイルガイドのPEP8でも、 半角スペース4つが推奨されています。</p>
+<p>Codeセルでは行の先頭でTabを入力すれば、自動的にこの書式のインデントが挿入されます。 また、インデントを戻すときはShift-Tabが便利です。 なお、Colaboratoryでは、Tabを入力すると半角スペース2つのインデントが挿入されます。</p>
+</div>
+<div class="section" id="if-...-else-による条件分岐">
+<h2><code class="docutils literal notranslate"><span class="pre">if</span></code> … <code class="docutils literal notranslate"><span class="pre">else</span></code> による条件分岐<a class="headerlink" href="#if-...-else-による条件分岐" title="Permalink to this headline">¶</a></h2>
+<p>これまで関数 <code class="docutils literal notranslate"><span class="pre">bmax</span></code> を例にとって説明しましたが、一般にif文では、 <code class="docutils literal notranslate"><span class="pre">式</span></code> が真であれば <code class="docutils literal notranslate"><span class="pre">if</span></code> 直後のグループが、偽であれば <code class="docutils literal notranslate"><span class="pre">else</span></code> 直後のグループが、それぞれ実行されます。（真であった場合、<code class="docutils literal notranslate"><span class="pre">else</span></code> 直後のグループは実行されません。）</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>if 式:
+    ここのグループは「式」が真のときにのみ実行される
+else:
+    ここのグループは「式」が偽のときにのみ実行される
+</pre></div>
+</div>
+<p>また、<code class="docutils literal notranslate"><span class="pre">else</span></code> は省略することができます。省略した場合、「式」が真のときに <code class="docutils literal notranslate"><span class="pre">if</span></code> 直後のグループが実行されるのみになります。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>if 式:
+    ここのグループは「式」が真のときにのみ実行される
+ここのグループは常に実行される
+</pre></div>
+</div>
+<p>条件が複雑になってくると、if文の中にさらにif文を記述して、条件分岐を<strong>入れ子</strong>（<strong>ネスト</strong>）にすることがあります。 この場合は、インデントはさらに深くなります。</p>
+<p>そして、下の2つのプロラムの動作は明らかに異なることに注意が必要です。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>if 式1:
+    ここのグループは「式1」が真のときにのみ実行される
+    if 式2:
+        ここのグループは「式1」「式2」が共に真のときにのみ実行される
+        if 式3:
+            ここのグループは「式1」「式2」「式3」が全て真のときにのみ実行される
+        ここのグループは「式1」と「式2」が共に真のときにのみ実行される
+    ここのグループは「式1」が真のときにのみ実行される
+ここのグループは常に実行される
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>if 式1:
+    ここのグループは「式1」が真のときにのみ実行される
+ここのグループは常に実行される
+if 式2:
+    ここのグループは「式2」が真のときにのみ実行される (「式1」には影響されない)
+ここのグループは常に実行される
+if 式3:
+    ここのグループは「式3」が真のときにのみ実行される (「式1」「式2」には影響されない)
+ここのグループは常に実行される
+</pre></div>
+</div>
+</div>
+<div class="section" id="if-...-elif-...-else-による条件分岐">
+<h2><code class="docutils literal notranslate"><span class="pre">if</span></code> … <code class="docutils literal notranslate"><span class="pre">elif</span></code> … <code class="docutils literal notranslate"><span class="pre">else</span></code> による条件分岐<a class="headerlink" href="#if-...-elif-...-else-による条件分岐" title="Permalink to this headline">¶</a></h2>
+<p>ここまでで <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">...</span> <span class="pre">else</span></code> 文について紹介しましたが、複数の条件分岐を続けて書くことができる <code class="docutils literal notranslate"><span class="pre">elif</span></code> を紹介します。</p>
+<p>たとえばテストの点数から評定（優、良、可、…）を計算したい場合など、「条件1のときは処理1、条件1に該当しなくても条件2であれば処理2、更にどちらでもない場合、条件3であれば処理3、…」という処理を考えます。 <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">...</span> <span class="pre">else</span></code> による文のみでこの処理を行う場合、次のようなプログラムになってしまいます:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>if 式1:
+    「式1」が真のときにのみ実行するグループ
+else:
+    if 式2:
+        「式1」が偽 かつ「式2」が真のときにのみ実行するグループ
+    else:
+        if 式3:
+            「式1」「式2」が偽 かつ「式3」が真のときにのみ実行するグループ
+        else:
+            ...
+</pre></div>
+</div>
+<p>このような場合には、以下のように <code class="docutils literal notranslate"><span class="pre">elif</span></code> を使うとより簡潔にできます:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>if 式1:
+    ここのグループは「式1」が真のときにのみ実行される
+elif 式2:
+    ここのグループは「式1」が偽 かつ「式2」が真のときにのみ実行される
+elif 式3:
+    ここのグループは「式1」「式2」が偽 かつ「式3」が真のときにのみ実行される
+else:
+    ここのグループは「式1」「式2」「式3」がいずれも偽のときにのみ実行される
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">if</span></code> … <code class="docutils literal notranslate"><span class="pre">elif</span></code> … <code class="docutils literal notranslate"><span class="pre">else</span></code> では、条件は上から順に評価され、式が真の場合、 直後の実行文グループのみが実行され終了します。 その他の場合、すなわち全ての条件が <code class="docutils literal notranslate"><span class="pre">False</span></code> のときは、<code class="docutils literal notranslate"><span class="pre">else</span></code> 以降のグループが実行されます。</p>
+<p>なお、<code class="docutils literal notranslate"><span class="pre">elif</span></code> もしくは <code class="docutils literal notranslate"><span class="pre">else</span></code> 以降を省略することも可能です。</p>
+</div>
+<div class="section" id="練習">
+<h2>練習<a class="headerlink" href="#練習" title="Permalink to this headline">¶</a></h2>
+<p>関数 <code class="docutils literal notranslate"><span class="pre">exception3(x,y,z)</span></code> の引数は以下の条件を満たすとします。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> と <code class="docutils literal notranslate"><span class="pre">y</span></code> と <code class="docutils literal notranslate"><span class="pre">z</span></code> の値は整数です。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> と <code class="docutils literal notranslate"><span class="pre">y</span></code> と <code class="docutils literal notranslate"><span class="pre">z</span></code> のうち、2つの値は同じで、もう1つの値は他の2つの値とは異なるとします。</p></li>
+</ul>
+<p>その異なる値を返すように、以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて <code class="docutils literal notranslate"><span class="pre">exception3(x,y,z)</span></code> を定義してください。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">exception3</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<p>次のセルで動作を確認してください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">exception3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">exception3</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">exception3</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+None
+None
+None
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>練習<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>関数 <code class="docutils literal notranslate"><span class="pre">exception9(a)</span></code> の引数は以下の条件を満たすとします。</p>
+<ul class="simple">
+<li><p>引数 <code class="docutils literal notranslate"><span class="pre">a</span></code> には、長さが9のリストが渡されます。</p></li>
+<li><p>このリストの要素は整数ですが、1つの要素を除いて、残りは要素の値は全て同じとします。</p></li>
+</ul>
+<p>その1つの要素の値を返すように、以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて <code class="docutils literal notranslate"><span class="pre">exception9(a)</span></code> を定義してください。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">exception9</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<p>次のセルで動作を確認してください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">exception9</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">exception9</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">exception9</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">3</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+None
+None
+None
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="▲複数行にまたがる条件式">
+<h2>▲複数行にまたがる条件式<a class="headerlink" href="#▲複数行にまたがる条件式" title="Permalink to this headline">¶</a></h2>
+<p>複雑な条件式では複数行に分割した方が見やすい場合もありあます。 ここでは、式を複数行にまたがって記述する1つの方法を示します。 1つ目は、丸括弧で括られた式を複数の行にまたがって記述する方法です。 2つ目は、行末にバックスラッシュ <code class="docutils literal notranslate"><span class="pre">\</span></code> を置く方法です。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">### 丸括弧で括る方法</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">z</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span>
+    <span class="n">x</span> <span class="o">!=</span> <span class="n">y</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">!=</span> <span class="n">z</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">z</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x, y and z are different and negatives.&#39;</span><span class="p">)</span>
+
+<span class="c1">### 行末にバックスラッシュ(\) を入れる方法</span>
+
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">z</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span> \
+    <span class="n">x</span> <span class="o">!=</span> <span class="n">y</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">!=</span> <span class="n">z</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">z</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x, y and z are different and negatives.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+x, y and z are different and negatives.
+x, y and z are different and negatives.
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="if-...-elif-...-else-における条件の評価">
+<h2><code class="docutils literal notranslate"><span class="pre">if</span></code> … <code class="docutils literal notranslate"><span class="pre">elif</span></code> … <code class="docutils literal notranslate"><span class="pre">else</span></code> における条件の評価<a class="headerlink" href="#if-...-elif-...-else-における条件の評価" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">if</span></code> と <code class="docutils literal notranslate"><span class="pre">elif</span></code> による条件分岐では、<code class="docutils literal notranslate"><span class="pre">if</span></code> あるいは <code class="docutils literal notranslate"><span class="pre">elif</span></code> に続く条件式が <code class="docutils literal notranslate"><span class="pre">True</span></code> の場合、 それ以降の <code class="docutils literal notranslate"><span class="pre">elif</span></code> に続く条件式の評価は行われません。</p>
+<p>以下のプログラムで <code class="docutils literal notranslate"><span class="pre">x</span></code> を <code class="docutils literal notranslate"><span class="pre">3</span></code>, <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">-4</span></code> とした際に何が表示されるかを予想したのちに実行してみましょう。</p>
+<p>特に、 <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">-4</span></code> としたときの動作に注意してください。（<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">is</span> <span class="pre">zero.</span></code> は表示されません。）</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># example: 3, 0, -4</span>
+
+<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x is greater than zero.&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x is less than zero, but x will be 0&#39;</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x is zero.&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+x is greater than zero.
+3
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>練習<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>以下のプログラムはプログラマの意図どおりに動作しません。 <code class="docutils literal notranslate"><span class="pre">print</span></code> の出力内容から意図を判断して条件分岐を書き換えてください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x is larger than or equal to 2, and less than 3&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x is larger than or equal to 1, and less than 2&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x is less than 1&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x is larger or equal to 3&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+x is larger than or equal to 2, and less than 3
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="or-もしくは-and-で結合された条件の評価">
+<h2><code class="docutils literal notranslate"><span class="pre">or</span></code> もしくは <code class="docutils literal notranslate"><span class="pre">and</span></code> で結合された条件の評価<a class="headerlink" href="#or-もしくは-and-で結合された条件の評価" title="Permalink to this headline">¶</a></h2>
+<p>if文に与える条件が <code class="docutils literal notranslate"><span class="pre">or</span></code> もしくは <code class="docutils literal notranslate"><span class="pre">and</span></code> で結合されている場合、条件は左から順に評価され、 不要（以降の式を評価するまでもなく自明）な評価は省かれます。</p>
+<p>たとえば、<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">a</span> <span class="pre">==</span> <span class="pre">0</span> <span class="pre">or</span> <span class="pre">b</span> <span class="pre">==</span> <span class="pre">0:</span></code> において 最初の式 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">0</span></code> が <code class="docutils literal notranslate"><span class="pre">True</span></code> の場合、式全体の結果が <code class="docutils literal notranslate"><span class="pre">True</span></code> となることは自明なので、 二番目の式 <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">==</span> <span class="pre">0</span></code> を評価することなく続く実行文グループが実行されます。</p>
+<p>逆に、<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">a</span> <span class="pre">==</span> <span class="pre">0</span> <span class="pre">and</span> <span class="pre">b</span> <span class="pre">==</span> <span class="pre">0:</span></code> において、 最初の式が <code class="docutils literal notranslate"><span class="pre">False</span></code> の場合、以降の式は評価されることなく処理が進みます。</p>
+<p>以下のセルで示す例の1行目で、<code class="docutils literal notranslate"><span class="pre">x</span></code> の値を <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">-4</span></code> に変更し、表示される内容を予想し、予想通りか確認してください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>          <span class="c1"># del x のエラーを抑制するため</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">del</span> <span class="n">x</span>           <span class="c1"># x を未定義に</span>
+
+<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="ow">or</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&#39;x&#39; or &#39;y&#39; is larger than 5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-9-9a741ddc984d&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-green-fg">del</span> x           <span class="ansi-red-fg"># x を未定義に</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span>
+<span class="ansi-green-fg">----&gt; 6</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">if</span> x <span class="ansi-blue-fg">&gt;</span> <span class="ansi-cyan-fg">5</span> <span class="ansi-green-fg">or</span> y <span class="ansi-blue-fg">&gt;</span> <span class="ansi-cyan-fg">5</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">      7</span>     print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;&#39;x&#39; or &#39;y&#39; is larger than 5&#34;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;x&#39; is not defined
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">10</span>          <span class="c1"># del y のエラーを抑制するため</span>
+
+<span class="k">del</span> <span class="n">y</span>           <span class="c1"># y を未定義に</span>
+
+<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="ow">or</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&#39;x&#39; or &#39;y&#39; is larger than 5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;x&#39; or &#39;y&#39; is larger than 5
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="▲3項演算子（条件式）">
+<h2>▲<strong>3項演算子</strong>（条件式）<a class="headerlink" href="#▲3項演算子（条件式）" title="Permalink to this headline">¶</a></h2>
+<p>Pythonでは以下のように <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">...</span> <span class="pre">else</span></code> を1行に書くこともできます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">sign</span> <span class="o">=</span> <span class="s1">&#39;positive or zero&#39;</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">&#39;negative&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sign</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+positive or zero
+</pre></div></div>
+</div>
+<p>これは、以下と等価です。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="p">:</span>
+    <span class="n">sign</span> <span class="o">=</span> <span class="s1">&#39;positive or zero&#39;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">sign</span> <span class="o">=</span> <span class="s1">&#39;negative&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sign</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+positive or zero
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="練習の解答">
+<h2>練習の解答<a class="headerlink" href="#練習の解答" title="Permalink to this headline">¶</a></h2>
+<p>以下は解答例です。これ以外にも様々な解答があり得ます。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">exception3</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="n">y</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">z</span>
+    <span class="k">elif</span> <span class="n">x</span><span class="o">==</span><span class="n">z</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">y</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">exception9</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="n">y</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">exception3</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">8</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="n">x</span><span class="o">==</span><span class="n">z</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">exception3</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">exception3</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="練習の解説">
+<h2>練習の解説<a class="headerlink" href="#練習の解説" title="Permalink to this headline">¶</a></h2>
+<p>最後の練習では、条件文の順番を修正する必要があります。 条件は上から順に処理され、式が真の場合にその「直後の実行文グループのみ」が処理されます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x is less than 1&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x is larger or equal to 1, and less than 2&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x is larger or equal to 2, and less than 3&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x is larger or equal to 3&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+x is less than 1
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Pythonプログラミング入門</a></h1>
+
+
+
+
+
+
+
+
+<p>
+  <a href="https://colab.research.google.com/github/utokyo-ipp/utokyo-ipp.github.io/blob/master/colab/2/2-3.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
+</p><h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-1.html">1-1. 数値演算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-2.html">1-2. 変数と関数の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-4.html">1-4. デバッグ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2-1.html">2-1. 文字列 (string)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2-2.html">2-2. リスト (list)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2-3. 条件分岐</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#インデントによる構文">インデントによる構文</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#if-...-else-による条件分岐"><code class="docutils literal notranslate"><span class="pre">if</span></code> … <code class="docutils literal notranslate"><span class="pre">else</span></code> による条件分岐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#if-...-elif-...-else-による条件分岐"><code class="docutils literal notranslate"><span class="pre">if</span></code> … <code class="docutils literal notranslate"><span class="pre">elif</span></code> … <code class="docutils literal notranslate"><span class="pre">else</span></code> による条件分岐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#練習">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#▲複数行にまたがる条件式">▲複数行にまたがる条件式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#if-...-elif-...-else-における条件の評価"><code class="docutils literal notranslate"><span class="pre">if</span></code> … <code class="docutils literal notranslate"><span class="pre">elif</span></code> … <code class="docutils literal notranslate"><span class="pre">else</span></code> における条件の評価</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#or-もしくは-and-で結合された条件の評価"><code class="docutils literal notranslate"><span class="pre">or</span></code> もしくは <code class="docutils literal notranslate"><span class="pre">and</span></code> で結合された条件の評価</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#▲3項演算子（条件式）">▲<strong>3項演算子</strong>（条件式）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#練習の解答">練習の解答</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#練習の解説">練習の解説</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../3/3-1.html">3-1. 辞書 (dictionary)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3/3-2.html">3-2. 繰り返し</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3/3-3.html">3-3. 関数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4/4-1.html">4-1. ファイル入出力の基本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4/4-2.html">4-2. イテレータ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4/4-3.html">4-3. コンピュータにおけるファイルやディレクトリの配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5/5-1.html">5-1. モジュールの使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5/5-2.html">5-2. モジュールの作り方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5/5-3.html">5-3. NumPyライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6/6-1.html">6-1. 内包表記</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6/6-2.html">6-2. 高階関数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6/6-3.html">6-3. クラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7/7-1.html">7-1. pandasライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7/7-2.html">7-2. scikit-learnライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/1-jupyter-notebook.html">▲Jupyter Notebook の使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/2-set.html">▲セット (set)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/3-recursion.html">▲再帰</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/3-visualization.html">▲簡単なデータの可視化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/4-csv.html">▲CSVファイルの入出力</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/5-bokeh.html">▲Bokehライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/5-command.html">▲Pythonスクリプトとコマンドライン実行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/5-matplotlib.html">▲Matplotlibライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/5-re.html">▲正規表現</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index_of_terms.html">索引</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="2-2.html" title="previous chapter">2-2. リスト (list)</a></li>
+      <li>Next: <a href="../3/3-1.html" title="next chapter">3-1. 辞書 (dictionary)</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020–2021, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-159819977-1']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    
+  </body>
+</html>
