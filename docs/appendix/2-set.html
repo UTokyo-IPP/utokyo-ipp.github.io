@@ -1,0 +1,1272 @@
+
+<!DOCTYPE html>
+
+<html lang="jp">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>▲セット (set) &#8212; Pythonプログラミング入門  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="▲再帰" href="3-recursion.html" />
+    <link rel="prev" title="▲Jupyter Notebook の使い方" href="1-jupyter-notebook.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<section id="▲セット-(set)">
+<h1>▲セット (set)<a class="headerlink" href="#▲セット-(set)" title="Permalink to this headline">¶</a></h1>
+<p>セットについて説明します。</p>
+<p>参考</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/ja/3/tutorial/datastructures.html#sets">https://docs.python.org/ja/3/tutorial/datastructures.html#sets</a></p></li>
+</ul>
+<p><strong>セット</strong>（<strong>集合</strong>）は、リストと同様に複数の要素から構成されるデータです。 セットでは、リストと異なり要素の重複がありません、また要素の順番もありません。</p>
+<p>セットを作成するには、次のように波括弧で要素を囲みます。 辞書と似ていますが、辞書では <code class="docutils literal notranslate"><span class="pre">:</span></code> でキーと値を対応させる必要がありました。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">set1</span><span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">}</span>
+<span class="n">set1</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{1, 2, 3}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">type</span><span class="p">(</span><span class="n">set1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+set
+</pre></div></div>
+</div>
+<p>セットのデータ型は <code class="docutils literal notranslate"><span class="pre">set</span></code> であり、<code class="docutils literal notranslate"><span class="pre">set</span></code> は組み込み関数でもあります。</p>
+<p>組み込み関数 <code class="docutils literal notranslate"><span class="pre">set</span></code> を用いてもセットを作成することができます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">set</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{1, 2, 3}
+</pre></div></div>
+</div>
+<p>空のセットを作成する場合、次のようにします。（ <code class="docutils literal notranslate"><span class="pre">{}</span></code> では空の辞書が作成されます。）</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">set2</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span> <span class="c1"># 空のセット</span>
+<span class="n">set2</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+set()
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">set2</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># 空の辞書</span>
+<span class="n">set2</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{}
+</pre></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">set</span></code> を用いて、文字列、リストやタプルなどからセットを作成することができます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{1, 2, 3}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">set</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{1, 2, 3}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">set</span><span class="p">(</span><span class="s1">&#39;aabdceabdae&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">set</span><span class="p">({</span><span class="s1">&#39;apple&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;pen&#39;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;apple&#39;, &#39;pen&#39;}
+</pre></div></div>
+</div>
+<section id="セットの組み込み関数">
+<h2>セットの組み込み関数<a class="headerlink" href="#セットの組み込み関数" title="Permalink to this headline">¶</a></h2>
+<p>リストなどと同様に、次の関数などはセットにも適用可能です。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">len</span><span class="p">(</span><span class="n">set1</span><span class="p">)</span> <span class="c1"># 集合を構成する要素数</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+3
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">set1</span> <span class="c1"># 多重代入</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="mi">2</span> <span class="ow">in</span> <span class="n">set1</span> <span class="c1"># 指定した要素を集合が含むかどうかの判定</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="mi">10</span> <span class="ow">in</span> <span class="n">set1</span> <span class="c1"># 指定した要素を集合が含むかどうかの判定</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+False
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="mi">10</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">set1</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
+</div>
+<p>セットの要素は、順序付けられていないのでインデックスを指定して取り出すことはできません。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">set1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/tmp/ipykernel_7949/2166654704.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>set1<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span>
+
+<span class="ansi-red-fg">TypeError</span>: &#39;set&#39; object is not subscriptable
+</pre></div></div>
+</div>
+</section>
+<section id="練習">
+<h2>練習<a class="headerlink" href="#練習" title="Permalink to this headline">¶</a></h2>
+<p>文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> が引数として与えられたとき、<code class="docutils literal notranslate"><span class="pre">str1</span></code> に含まれる要素（文字、すなわち長さ1の文字列）の種類を返す関数 <code class="docutils literal notranslate"><span class="pre">check_characters</span></code> を作成してください（大文字と小文字は区別し、スペースや句読点も1つと数えます）。 たとえば、<code class="docutils literal notranslate"><span class="pre">'aabccc'</span></code> には <code class="docutils literal notranslate"><span class="pre">'a'</span></code> と <code class="docutils literal notranslate"><span class="pre">'b'</span></code> と <code class="docutils literal notranslate"><span class="pre">'c'</span></code> が含まれるので、 <code class="docutils literal notranslate"><span class="pre">check_characters('aabccc')</span></code> は 3 を返します。</p>
+<p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて <code class="docutils literal notranslate"><span class="pre">check_characters(str1)</span></code> を作成してください。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">check_characters</span><span class="p">(</span><span class="n">str1</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">check_characters</span><span class="p">(</span><span class="s1">&#39;Onde a terra acaba e o mar começa&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">13</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+False
+</pre></div></div>
+</div>
+</section>
+<section id="id3">
+<h2>練習<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>辞書 <code class="docutils literal notranslate"><span class="pre">dic1</span></code> が引数として与えられたとき、<code class="docutils literal notranslate"><span class="pre">dic1</span></code> に登録されているキーの数を返す関数 <code class="docutils literal notranslate"><span class="pre">check_dicsize</span></code> を作成してください。</p>
+<p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて <code class="docutils literal notranslate"><span class="pre">check_dicsize(dic1)</span></code> を作成してください。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">check_dicsize</span><span class="p">(</span><span class="n">dic1</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">check_dicsize</span><span class="p">({</span><span class="s1">&#39;apple&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;pen&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+False
+</pre></div></div>
+</div>
+</section>
+<section id="集合演算">
+<h2><strong>集合演算</strong><a class="headerlink" href="#集合演算" title="Permalink to this headline">¶</a></h2>
+<p>複数のセットから、<strong>和集合</strong>・<strong>積集合</strong>・<strong>差集合</strong>・<strong>対称差</strong>を求める集合演算が存在します。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">set1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+<span class="n">set2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">set1</span> <span class="o">|</span> <span class="n">set2</span> <span class="c1"># 和集合</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{1, 2, 3, 4, 5, 6}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">set1</span> <span class="o">&amp;</span> <span class="n">set2</span> <span class="c1"># 積集合</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{3, 4}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">set1</span> <span class="o">-</span> <span class="n">set2</span> <span class="c1"># 差集合</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{1, 2}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">set1</span> <span class="o">^</span> <span class="n">set2</span> <span class="c1"># 対称差</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{1, 2, 5, 6}
+</pre></div></div>
+</div>
+</section>
+<section id="比較演算">
+<h2><strong>比較演算</strong><a class="headerlink" href="#比較演算" title="Permalink to this headline">¶</a></h2>
+<p>数値などを比較するのに用いた比較演算子を用いて、2つのセットを比較することもできます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span> <span class="o">==</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span> <span class="o">==</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+False
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span> <span class="o">!=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span> <span class="o">!=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+False
+True
+</pre></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> や <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> は、集合の間の包含関係を判定します。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span> <span class="o">&lt;=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span> <span class="o">&lt;</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span> <span class="o">&lt;</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+False
+True
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span> <span class="o">&lt;=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+False
+</pre></div></div>
+</div>
+</section>
+<section id="セットのメソッド">
+<h2>セットのメソッド<a class="headerlink" href="#セットのメソッド" title="Permalink to this headline">¶</a></h2>
+<p>セットにも様々なメソッドが存在します。なお、以下のメソッドは全て破壊的です。</p>
+<section id="add">
+<h3><strong>add</strong><a class="headerlink" href="#add" title="Permalink to this headline">¶</a></h3>
+<p>指定した要素を新たにセットに追加します。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">set1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+<span class="n">set1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">set1</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{1, 2, 3, 4}
+</pre></div></div>
+</div>
+</section>
+<section id="remove">
+<h3><strong>remove</strong><a class="headerlink" href="#remove" title="Permalink to this headline">¶</a></h3>
+<p>指定した要素をセットから削除します。 その要素がセットに含まれていない場合、エラーになります。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">set1</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">set1</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{2, 3, 4}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">set1</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
+<span class="ansi-green-fg">/tmp/ipykernel_7949/760318040.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>set1<span class="ansi-blue-fg">.</span>remove<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">10</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">KeyError</span>: 10
+</pre></div></div>
+</div>
+</section>
+<section id="discard">
+<h3><strong>discard</strong><a class="headerlink" href="#discard" title="Permalink to this headline">¶</a></h3>
+<p>指定した要素をセットから削除します。 その要素がセットに含まれていなくともエラーになりません。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">set1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+<span class="n">set1</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">set1</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{2, 3, 4}
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">set1</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="clear">
+<h3><strong>clear</strong><a class="headerlink" href="#clear" title="Permalink to this headline">¶</a></h3>
+<p>全ての要素を削除して対象のセットを空にします。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">set1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+<span class="n">set1</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="n">set1</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+set()
+</pre></div></div>
+</div>
+</section>
+<section id="pop">
+<h3><strong>pop</strong><a class="headerlink" href="#pop" title="Permalink to this headline">¶</a></h3>
+<p>セットからランダムに1つの要素を取り出します。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">set1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">set1</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">set1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1
+{2, 3, 4}
+</pre></div></div>
+</div>
+</section>
+<section id="union,-intersection,-difference">
+<h3><strong>union</strong>, <strong>intersection</strong>, <strong>difference</strong><a class="headerlink" href="#union,-intersection,-difference" title="Permalink to this headline">¶</a></h3>
+<p><strong>和集合</strong>・<strong>積集合</strong>・<strong>差集合</strong>・<strong>対称差</strong>を求めるメソッドも存在します。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">set1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+<span class="n">set2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">}</span>
+<span class="n">set1</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">set2</span><span class="p">)</span> <span class="c1"># 和集合</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{1, 2, 3, 4, 5, 6}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">set1</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">set2</span><span class="p">)</span> <span class="c1"># 積集合</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{3, 4}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">set1</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">set2</span><span class="p">)</span> <span class="c1"># 差集合</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{1, 2}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">set1</span><span class="o">.</span><span class="n">symmetric_difference</span><span class="p">(</span><span class="n">set2</span><span class="p">)</span> <span class="c1"># 対称差</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{1, 2, 5, 6}
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="id7">
+<h2>練習<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>英語の文章からなる文字列 <code class="docutils literal notranslate"><span class="pre">str_engsentences</span></code> が引数として与えられたとき、<code class="docutils literal notranslate"><span class="pre">str_engsentences</span></code> 中に含まれる単語の種類数を返す関数 <code class="docutils literal notranslate"><span class="pre">count_words2</span></code> を作成してください。</p>
+<p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて <code class="docutils literal notranslate"><span class="pre">count_words2(str_engsentences)</span></code> を作成してください。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">count_words2</span><span class="p">(</span><span class="n">str_engsentences</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">count_words2</span><span class="p">(</span><span class="s1">&#39;From Stettin in the Baltic to Trieste in the Adriatic an iron curtain has descended across the Continent.&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+False
+</pre></div></div>
+</div>
+</section>
+<section id="練習の解答">
+<h2>練習の解答<a class="headerlink" href="#練習の解答" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">check_characters</span><span class="p">(</span><span class="n">str1</span><span class="p">):</span>
+    <span class="n">set1</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">str1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">set1</span><span class="p">)</span>
+<span class="c1">#check_characters(&#39;Onde a terra acaba e o mar começa&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">check_dicsize</span><span class="p">(</span><span class="n">dic1</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">dic1</span><span class="p">))</span>
+<span class="c1">#check_dicsize({&#39;apple&#39;: 0, &#39;orange&#39;: 2, &#39;pen&#39;: 1})</span>
+</pre></div>
+</div>
+</div>
+<p>実は <code class="docutils literal notranslate"><span class="pre">len</span></code> は辞書に対してキーの数を返すので、セットを使う必要はありません。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">check_dicsize</span><span class="p">(</span><span class="n">dic1</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">dic1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">count_words2</span><span class="p">(</span><span class="n">str_engsentences</span><span class="p">):</span>
+    <span class="n">str1</span> <span class="o">=</span> <span class="n">str_engsentences</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="c1"># 句読点を削除する</span>
+    <span class="n">str1</span> <span class="o">=</span> <span class="n">str1</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">str1</span> <span class="o">=</span> <span class="n">str1</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">str1</span> <span class="o">=</span> <span class="n">str1</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">str1</span> <span class="o">=</span> <span class="n">str1</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;!&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">str1</span> <span class="o">=</span> <span class="n">str1</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">list1</span> <span class="o">=</span> <span class="n">str1</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="c1"># 句読点を削除した文字列を、単語ごとにリストに格納する</span>
+    <span class="n">set1</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span> <span class="c1"># リストを集合に変換して同じ要素を1つにまとめる</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">set1</span><span class="p">)</span>
+<span class="c1">#count_words2(&#39;From Stettin in the Baltic to Trieste in the Adriatic an iron curtain has descended across the Continent.&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Pythonプログラミング入門</a></h1>
+
+
+
+
+
+
+
+
+<p>
+  <a href="https://colab.research.google.com/github/utokyo-ipp/utokyo-ipp.github.io/blob/master/colab/appendix/2-set.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
+</p><h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-1.html">1-1. 数値演算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-2.html">1-2. 変数と関数の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-4.html">1-4. デバッグ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2/2-1.html">2-1. 文字列 (string)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2/2-2.html">2-2. リスト (list)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2/2-3.html">2-3. 条件分岐</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3/3-1.html">3-1. 辞書 (dictionary)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3/3-2.html">3-2. 繰り返し</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3/3-3.html">3-3. 関数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4/4-1.html">4-1. ファイル入出力の基本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4/4-2.html">4-2. イテレータ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4/4-3.html">4-3. コンピュータにおけるファイルやディレクトリの配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5/5-1.html">5-1. モジュールの使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5/5-2.html">5-2. モジュールの作り方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5/5-3.html">5-3. NumPyライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6/6-1.html">6-1. 内包表記</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6/6-2.html">6-2. 高階関数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6/6-3.html">6-3. クラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7/7-1.html">7-1. pandasライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7/7-2.html">7-2. scikit-learnライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1-jupyter-notebook.html">▲Jupyter Notebook の使い方</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">▲セット (set)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#セットの組み込み関数">セットの組み込み関数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#練習">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#集合演算"><strong>集合演算</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#比較演算"><strong>比較演算</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#セットのメソッド">セットのメソッド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#練習の解答">練習の解答</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3-recursion.html">▲再帰</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3-visualization.html">▲簡単なデータの可視化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4-csv.html">▲CSVファイルの入出力</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5-bokeh.html">▲Bokehライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5-command.html">▲Pythonスクリプトとコマンドライン実行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5-matplotlib.html">▲Matplotlibライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5-re.html">▲正規表現</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index_of_terms.html">索引</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="1-jupyter-notebook.html" title="previous chapter">▲Jupyter Notebook の使い方</a></li>
+      <li>Next: <a href="3-recursion.html" title="next chapter">▲再帰</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020–2021, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-159819977-1']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    
+  </body>
+</html>

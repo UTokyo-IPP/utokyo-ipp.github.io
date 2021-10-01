@@ -1,0 +1,737 @@
+
+<!DOCTYPE html>
+
+<html lang="jp">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>▲Pythonスクリプトとコマンドライン実行 &#8212; Pythonプログラミング入門  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="▲Matplotlibライブラリ" href="5-matplotlib.html" />
+    <link rel="prev" title="▲Bokehライブラリ" href="5-bokeh.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<section id="▲Pythonスクリプトとコマンドライン実行">
+<h1>▲Pythonスクリプトとコマンドライン実行<a class="headerlink" href="#▲Pythonスクリプトとコマンドライン実行" title="Permalink to this headline">¶</a></h1>
+<p>Pythonスクリプトとコマンドライン実行について説明します。</p>
+<p>参考</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/ja/3/tutorial/interpreter.html">https://docs.python.org/ja/3/tutorial/interpreter.html</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/ja/3/tutorial/modules.html">https://docs.python.org/ja/3/tutorial/modules.html</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/ja/3/tutorial/appendix.html">https://docs.python.org/ja/3/tutorial/appendix.html</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/ja/3/library/sys.html">https://docs.python.org/ja/3/library/sys.html</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/ja/3/reference/import.html">https://docs.python.org/ja/3/reference/import.html</a></p></li>
+</ul>
+<p>実は、第4回で紹介したモジュールファイル（拡張子 <code class="docutils literal notranslate"><span class="pre">.py</span></code>）は、それ単独で直接実行可能な自己完結したプログラムです。 直接実行されるPythonプログラムコードのことを指して特に、<strong>Pythonスクリプト</strong>と呼びます。 モジュールかスクリプトかを区別しないときには、Pythonソースファイルや <code class="docutils literal notranslate"><span class="pre">.py</span></code> ファイル等と呼ばれます。</p>
+<p>たとえば、次のコードセルを実行してみてください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">a1</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a1 contains the value of&#39;</span><span class="p">,</span> <span class="n">a1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+a1 contains the value of 10
+</pre></div></div>
+</div>
+<p>この内容と全く同じコードを記述したPythonスクリプトファイル <code class="docutils literal notranslate"><span class="pre">sample.py</span></code> を教材として用意しました。</p>
+<p>オペレーティングシステム（実際にはシェル）から <code class="docutils literal notranslate"><span class="pre">sample.py</span></code> を実行するには、以下のようにします。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; python sample.py
+</pre></div>
+</div>
+<p>あるいは</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; python3 sample.py
+</pre></div>
+</div>
+<p>ここで、<code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code> は、シェルのプロンプト（コマンド入力を促す記号）を意味します。 後に示す具体例を見るとわかるように、環境によっては <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> であったり、<code class="docutils literal notranslate"><span class="pre">$</span></code> であったりします。</p>
+<p>このようにスクリプトをシェルから実行することを、<strong>コマンドライン実行</strong>と呼びます。</p>
+<section id="コマンドライン実行の具体例">
+<h2>コマンドライン実行の具体例<a class="headerlink" href="#コマンドライン実行の具体例" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">sample.py</span></code> をコマンドライン実行する具体例を、実行環境毎に説明します。</p>
+<section id="Jupyter-Notebook-での実行方法">
+<h3>Jupyter Notebook での実行方法<a class="headerlink" href="#Jupyter-Notebook-での実行方法" title="Permalink to this headline">¶</a></h3>
+<p>ファイルマネージャ画面で、</p>
+<p>New ⇒ Terminal</p>
+<p>を選択すると、ターミナルのタブが生成されます。</p>
+<p><img alt="fig/terminal-in-menu.png" src="../_images/terminal_in_menu.png" /></p>
+<p>Windows 10 の環境（ユーザーアカウント名 <code class="docutils literal notranslate"><span class="pre">sato</span></code>）では、次のように表示されます。</p>
+<p><img alt="fig/console-in-browser.png" src="../_images/console_in_browser.png" /></p>
+<p>次の例では、<code class="docutils literal notranslate"><span class="pre">cd</span></code> コマンドで <code class="docutils literal notranslate"><span class="pre">sample.py</span></code> が存在するディレクトリ <code class="docutils literal notranslate"><span class="pre">materials/5/</span></code> に移動し、その上で <code class="docutils literal notranslate"><span class="pre">sample.py</span></code> を実行しています。</p>
+<p><img alt="fig/sample-py-browser.png" src="../_images/sample_py_browser.png" /></p>
+<p>Jupyter Notebook 上で開かれるターミナルは、環境によって違います。 デフォルトでは、Windows 10 ではPowerShellが起動し、macOSならばbashが起動するでしょう。</p>
+</section>
+<section id="Windowsでの実行方法">
+<h3>Windowsでの実行方法<a class="headerlink" href="#Windowsでの実行方法" title="Permalink to this headline">¶</a></h3>
+<p>以下をクリックすれば、ターミナルが開いて <code class="docutils literal notranslate"><span class="pre">python</span></code> をコマンドとして実行できます。</p>
+<p>Start メニュー ⇒ Anaonda3(64-bit) ⇒ Anaconda Prompt</p>
+<p><img alt="fig/sample-py-win-1.png" src="../_images/sample_py_win_1.png" /></p>
+<p>下記のようなウインドウが表示されます。</p>
+<p><img alt="fig/sample-py-win-2.png" src="../_images/sample_py_win_2.png" /></p>
+<p>Windowsのユーザーアカウント名のついたフォルダ（画像では、KMK）の中に <code class="docutils literal notranslate"><span class="pre">pythontest</span></code> というフォルダを作成し、その中に <code class="docutils literal notranslate"><span class="pre">sample.py</span></code> を格納した場合の実行例を示します。</p>
+<p>例では、<code class="docutils literal notranslate"><span class="pre">cd</span></code> というコマンドで <code class="docutils literal notranslate"><span class="pre">sample.py</span></code> を格納したフォルダ <code class="docutils literal notranslate"><span class="pre">pythontest</span></code> に移動し、その上で <code class="docutils literal notranslate"><span class="pre">sample.py</span></code> を実行しています。</p>
+<p><img alt="fig/sample-py-win-3.png" src="../_images/sample_py_win_3.png" /></p>
+</section>
+<section id="macOS-での実行方法">
+<h3>macOS での実行方法<a class="headerlink" href="#macOS-での実行方法" title="Permalink to this headline">¶</a></h3>
+<p>Application ⇒ Utilities ⇒ Terminal.app を起動します。</p>
+<p>アプリケーション ⇒ ユーティリティ ⇒ ターミナル.app を起動します。（日本語の場合）</p>
+<p><img alt="fig/sample-py-mac-1.png" src="../_images/sample_py_mac_1.png" /></p>
+<p>下記のようなウインドウが表示されます。</p>
+<p><img alt="fig/sample-py-mac-2.png" src="../_images/sample_py_mac_2.png" /></p>
+<p>ダウンロードフォルダ (<code class="docutils literal notranslate"><span class="pre">Downloads</span></code>) に <code class="docutils literal notranslate"><span class="pre">sample.py</span></code> を格納した場合の実行例を示します。</p>
+<p>例では、<code class="docutils literal notranslate"><span class="pre">cd</span></code> というコマンドで <code class="docutils literal notranslate"><span class="pre">sample.py</span></code> を格納した <code class="docutils literal notranslate"><span class="pre">Downloads</span></code> フォルダに移動し、その上で <code class="docutils literal notranslate"><span class="pre">sample.py</span></code> を実行しています。</p>
+<p><img alt="fig/sample-py-mac-3.png" src="../_images/sample_py_mac_3.png" /></p>
+</section>
+</section>
+<section id="コマンドライン引数">
+<h2>コマンドライン引数<a class="headerlink" href="#コマンドライン引数" title="Permalink to this headline">¶</a></h2>
+<p>コマンドライン実行時には、実行スクリプト名の後に、文字列を書き込むことにより、実行スクリプトへ引数を与えることができます。 この引数のことを、<strong>コマンドライン引数</strong>と呼びます。</p>
+<p>たとえば、<code class="docutils literal notranslate"><span class="pre">argsprint.py</span></code> というスクリプトファイルをコマンドライン実行することを考えます。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; python argsprint.py
+</pre></div>
+</div>
+<p>ここで、 <code class="docutils literal notranslate"><span class="pre">argsprint.py</span></code> の後ろに、適当な文字列を付け加えます。たとえば、以下のように3つの文字列 <code class="docutils literal notranslate"><span class="pre">firstvalue</span></code> <code class="docutils literal notranslate"><span class="pre">secondvalue</span></code> <code class="docutils literal notranslate"><span class="pre">thirdvalue</span></code> をスペースで区切って付け加えてみます。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; python argsprint.py firstvalue secondvalue thirdvalue
+</pre></div>
+</div>
+<p>このとき、この3つの文字列が <code class="docutils literal notranslate"><span class="pre">argsprint.py</span></code> にコマンドライン引数として与えられることになります。</p>
+<p>この引数は、<code class="docutils literal notranslate"><span class="pre">sys</span></code> モジュールの <code class="docutils literal notranslate"><span class="pre">argv</span></code> という変数 (<code class="docutils literal notranslate"><span class="pre">sys.argv</span></code>) にリストとして格納されます。</p>
+<p><code class="docutils literal notranslate"><span class="pre">argsprint.py</span></code> を次のようなコードからなるファイルとしましょう。</p>
+<p>argsprint.py:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import sys
+print(sys.argv) # リスト sys.argv の中身を印字
+</pre></div>
+</div>
+<p>このような <code class="docutils literal notranslate"><span class="pre">argsprint.py</span></code> を先の例のように実行すると、以下の画像のような結果が得られます。リスト <code class="docutils literal notranslate"><span class="pre">sys.argv</span></code> に2番目の要素として文字列 <code class="docutils literal notranslate"><span class="pre">firstvalue</span></code> が、3番目の要素として文字列 <code class="docutils literal notranslate"><span class="pre">secondvalue</span></code> が、4番目の要素として文字列 <code class="docutils literal notranslate"><span class="pre">thirdvalue</span></code> が格納されていることを確認してください。また、リストの最初の要素には、実行したスクリプト名（ここでは <code class="docutils literal notranslate"><span class="pre">argsprint.py</span></code>）が格納されることに注意してください。</p>
+<p><img alt="fig/argsprint.png" src="../_images/argsprint.png" /></p>
+<section id="練習">
+<h3>練習<a class="headerlink" href="#練習" title="Permalink to this headline">¶</a></h3>
+<p>上記に従って <code class="docutils literal notranslate"><span class="pre">argsprint.py</span></code> ファイルを作成して、引数を変更したり、引数の数を増やしたり減らしたりして、表示がどう変わるか調べてください。</p>
+</section>
+<section id="id4">
+<h3>練習<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>コマンドライン実行時に、コマンドライン引数の1番目を印字 (print) する <code class="docutils literal notranslate"><span class="pre">arg1.py</span></code> を作成せよ。</p>
+</section>
+<section id="id5">
+<h3>練習<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>コマンドライン実行時に、スクリプト名を印字する <code class="docutils literal notranslate"><span class="pre">scriptname.py</span></code> を作成してください。</p>
+</section>
+<section id="id6">
+<h3>練習<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>コマンドライン実行時に、コマンドライン引数の数を印字する <code class="docutils literal notranslate"><span class="pre">numargs.py</span></code> を作成してください。</p>
+</section>
+<section id="id7">
+<h3>練習<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>コマンドライン引数として与えられた任意個の整数の和を印字する <code class="docutils literal notranslate"><span class="pre">sum.py</span></code> を作成してください。</p>
+<p>たとえば、次のように実行すると、</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; python sum.py 1 2 3
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">6</span></code> と印字されます。</p>
+<p>なお、コマンドライン引数は文字列型であることに注意してください。。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">v1</span> <span class="o">=</span> <span class="s1">&#39;100&#39;</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="s1">&#39;200&#39;</span>
+<span class="nb">int</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span> <span class="c1"># 整数加算</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+300
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">v1</span> <span class="o">+</span> <span class="n">v2</span> <span class="c1"># 文字列結合</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;100200&#39;
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="モジュールのコマンドライン実行">
+<h2>モジュールのコマンドライン実行<a class="headerlink" href="#モジュールのコマンドライン実行" title="Permalink to this headline">¶</a></h2>
+<p>さて、モジュールファイルは、それ自体が単独で実行可能であると述べました。 つまり、Pythonソースファイルは、モジュールとしてインポートされる場合と、スクリプトとしてコマンドライン実行される場合の2通りが考えられるわけです。</p>
+<p>あるモジュールが、インポートされたのか、スクリプトとしてコマンドライン実行されたのかは、プログラム中の <code class="docutils literal notranslate"><span class="pre">__name__</span></code> という組み込み変数を参照することで区別できます。</p>
+<p>具体的には、モジュール <code class="docutils literal notranslate"><span class="pre">mod.py</span></code> がコマンドライン実行されたとき、<code class="docutils literal notranslate"><span class="pre">__name__</span></code> の値は <code class="docutils literal notranslate"><span class="pre">'__main__'</span></code> になります。 一方、<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">mod</span></code> されたとき、<code class="docutils literal notranslate"><span class="pre">__name__</span></code> の値は <code class="docutils literal notranslate"><span class="pre">'mod'</span></code> になります。</p>
+<p>これを利用することで、インポートされた場合とコマンドライン実行された場合で、モジュールの振舞いを変えることができます。 たとえば、次に示す <code class="docutils literal notranslate"><span class="pre">factorial.py</span></code> モジュールを考えます。</p>
+<p>factorial.py:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import sys
+
+# 階乗n!を返す
+def fact(n):
+    prod = 1
+    for i in range(1, n + 1):
+        prod *= i
+    return prod
+
+if __name__ == &#39;__main__&#39;:
+    n = int(sys.argv[1]) # 整数nが1番目のコマンドライン引数で与えられる
+    print(fact(n))       # n!を印字
+</pre></div>
+</div>
+<p>これに対して、<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">factorial</span></code> すると、階乗を計算する関数 <code class="docutils literal notranslate"><span class="pre">factorial.fact()</span></code> が利用できるようになります。 一方、<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">factorial.py</span> <span class="pre">6</span></code> とコマンドライン実行すると、6の階乗である <code class="docutils literal notranslate"><span class="pre">720</span></code> が印字されます。 つまり、このモジュールは、階乗を計算するライブラリとしても、階乗を計算するスクリプトとしても利用できるわけです。</p>
+<p>もし <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">'__main__'</span></code> の条件分岐が無かったら、モジュールとしてインポートしたときに、インポート元のスクリプトのために与えられたコマンドライン引数を使って、階乗を計算・印字しようとします。 これは一般に、望ましい振舞いではありません。</p>
+<p>このように、<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">'__main__'</span></code> の分岐中には、自己完結したスクリプトとしての振舞いが記述されます。</p>
+<p>ライブラリモジュールとして使うことのみが想定されている場合、テストコードが記述されることもあります。 たとえば、次のように記述すると、</p>
+<p>factorial.py:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import sys
+
+# 階乗n!を返す
+def fact(n):
+    prod = 1
+    for i in range(1, n + 1):
+        prod *= i
+    return prod
+
+if __name__ == &#39;__main__&#39;:
+    print(&#39;test n = 6:&#39;, fact(6) == 720)
+    print(&#39;test n = 0:&#39;, fact(0) == 1)
+</pre></div>
+</div>
+<p>コマンドライン実行したときには、<code class="docutils literal notranslate"><span class="pre">fact()</span></code> が正しく計算されているかテストした結果が印字されます。 このテストコードは、ライブラリモジュールとしてimportして利用するときには実行されません。 このようにすると、1つのPythonソースファイルの中で、ライブラリ実装とテストをひとまとめにできて、保守しやすくなります。</p>
+</section>
+<section id="ソースファイル先頭部分にある宣言">
+<h2>ソースファイル先頭部分にある宣言<a class="headerlink" href="#ソースファイル先頭部分にある宣言" title="Permalink to this headline">¶</a></h2>
+<section id="文字コード宣言">
+<h3>文字コード宣言<a class="headerlink" href="#文字コード宣言" title="Permalink to this headline">¶</a></h3>
+<p>PythonソースコードはUTF-8で記述することが<a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#source-file-encoding">公式に推奨されています</a>。</p>
+<p>しかし、特にWindows環境では、歴史的事情からShift_JIS (shift_jis) が使われることがあります。 このとき、Pythonソースファイルの先頭部分には、次のような<strong>文字コード宣言</strong>が必要です。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># -*- coding: shift_jis -*-
+</pre></div>
+</div>
+<p>これがないと、Pythonインタプリタがエラーを出して止まります。</p>
+<p>なお、UTF-8で記述されている場合には、文字コード宣言を記述しないことが<a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#source-file-encoding">公式に推奨されています</a>。</p>
+</section>
+<section id="shebang">
+<h3>shebang<a class="headerlink" href="#shebang" title="Permalink to this headline">¶</a></h3>
+<p>Unix環境（macOSを含む）では、スクリプトファイルの先頭行には、そのスクリプトを実行するコマンドを指定できるようになっています。 この先頭行のことは、<strong>shebang</strong>と呼ばれます。</p>
+<p>Unix環境でPythonスクリプトに用いられる標準的なshebangは次です。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#!/usr/bin/env python3
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">#!</span></code> に続く部分で、コマンドを絶対パスで指定します。 <code class="docutils literal notranslate"><span class="pre">env</span></code> コマンドは、その引数（ここでは <code class="docutils literal notranslate"><span class="pre">python3</span></code>）の名前のコマンドを、環境の中から探して実行します。 したがって、上のように記述すると、Pythonインタプリタがインストールされている場所を気にせずに、Unix環境におけるPython3系列の標準コマンド名である <code class="docutils literal notranslate"><span class="pre">python3</span></code> を使って実行できるようになります。</p>
+<p>shebangと文字コード宣言の両方を含む場合は、たとえば、次のようになります。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#!/usr/bin/env python3
+# -*- coding: shift_jis -*-
+</pre></div>
+</div>
+</section>
+</section>
+<section id="練習の解答">
+<h2>練習の解答<a class="headerlink" href="#練習の解答" title="Permalink to this headline">¶</a></h2>
+<p>各セルのコードを保存した <code class="docutils literal notranslate"><span class="pre">.py</span></code> ファイルが解答です。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#arg1.py</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+-f
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#scriptname.py</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+/home/sato/.local/lib/python3.8/site-packages/ipykernel_launcher.py
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#numargs.py</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">num</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="c1"># sys.argv[0]はコマンドライン引数ではないので1減らす</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+3
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#sum.py</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+    <span class="n">s</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
+<span class="ansi-green-fg">/tmp/ipykernel_8934/2860029703.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> s <span class="ansi-blue-fg">=</span> <span class="ansi-cyan-fg">0</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-green-fg">for</span> v <span class="ansi-green-fg">in</span> sys<span class="ansi-blue-fg">.</span>argv<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">----&gt; 5</span><span class="ansi-red-fg">     </span>s <span class="ansi-blue-fg">+=</span> int<span class="ansi-blue-fg">(</span>v<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span> print<span class="ansi-blue-fg">(</span>s<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">ValueError</span>: invalid literal for int() with base 10: &#39;-f&#39;
+</pre></div></div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Pythonプログラミング入門</a></h1>
+
+
+
+
+
+
+
+
+<p>
+  <a href="https://colab.research.google.com/github/utokyo-ipp/utokyo-ipp.github.io/blob/master/colab/appendix/5-command.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
+</p><h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-1.html">1-1. 数値演算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-2.html">1-2. 変数と関数の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-4.html">1-4. デバッグ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2/2-1.html">2-1. 文字列 (string)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2/2-2.html">2-2. リスト (list)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2/2-3.html">2-3. 条件分岐</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3/3-1.html">3-1. 辞書 (dictionary)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3/3-2.html">3-2. 繰り返し</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3/3-3.html">3-3. 関数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4/4-1.html">4-1. ファイル入出力の基本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4/4-2.html">4-2. イテレータ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4/4-3.html">4-3. コンピュータにおけるファイルやディレクトリの配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5/5-1.html">5-1. モジュールの使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5/5-2.html">5-2. モジュールの作り方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5/5-3.html">5-3. NumPyライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6/6-1.html">6-1. 内包表記</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6/6-2.html">6-2. 高階関数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6/6-3.html">6-3. クラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7/7-1.html">7-1. pandasライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7/7-2.html">7-2. scikit-learnライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1-jupyter-notebook.html">▲Jupyter Notebook の使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2-set.html">▲セット (set)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3-recursion.html">▲再帰</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3-visualization.html">▲簡単なデータの可視化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4-csv.html">▲CSVファイルの入出力</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5-bokeh.html">▲Bokehライブラリ</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">▲Pythonスクリプトとコマンドライン実行</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#コマンドライン実行の具体例">コマンドライン実行の具体例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#コマンドライン引数">コマンドライン引数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#モジュールのコマンドライン実行">モジュールのコマンドライン実行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ソースファイル先頭部分にある宣言">ソースファイル先頭部分にある宣言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#練習の解答">練習の解答</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="5-matplotlib.html">▲Matplotlibライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5-re.html">▲正規表現</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index_of_terms.html">索引</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="5-bokeh.html" title="previous chapter">▲Bokehライブラリ</a></li>
+      <li>Next: <a href="5-matplotlib.html" title="next chapter">▲Matplotlibライブラリ</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020–2021, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-159819977-1']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    
+  </body>
+</html>

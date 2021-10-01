@@ -1,0 +1,563 @@
+
+<!DOCTYPE html>
+
+<html lang="jp">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Pythonプログラミング入門 &#8212; Pythonプログラミング入門  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1-0. Colaboratoryによるノートブックの使い方" href="1/1-0.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="python">
+<h1>Pythonプログラミング入門<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
+<p>▲で始まる項目は授業では扱いません。興味にしたがって学習してください。</p>
+<p>ノートブック全体に▲が付いているものもありますので注意してください。</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1/1-0.html#Colaboratoryの立ち上げ">Colaboratoryの立ち上げ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-0.html#ノートブックのアップロード">ノートブックのアップロード</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-0.html#教材のオープン">教材のオープン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-0.html#ノートブックのダウンロード">ノートブックのダウンロード</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-0.html#ノートブックのアップロード（再び）">ノートブックのアップロード（再び）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-0.html#ノートブックの作成">ノートブックの作成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-0.html#ノートブックの操作">ノートブックの操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-0.html#セル">セル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-0.html#セルの編集">セルの編集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-0.html#練習">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-0.html#セルの挿入">セルの挿入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-0.html#セルの実行が止まらないとき">セルの実行が止まらないとき</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-0.html#セルの操作">セルの操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-0.html#ノートブックの参照">ノートブックの参照</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="1/1-1.html">1-1. 数値演算</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1/1-1.html#簡単な算術計算">簡単な算術計算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-1.html#コメント">コメント</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-1.html#整数と実数">整数と実数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-1.html#演算子の優先順位と括弧">演算子の優先順位と括弧</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-1.html#算術演算子のまとめ">算術演算子のまとめ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-1.html#空白">空白</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-1.html#エラー">エラー</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-1.html#数学関数（モジュールのインポート）">数学関数（モジュールのインポート）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-1.html#練習">練習</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="1/1-2.html">1-2. 変数と関数の基礎</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1/1-2.html#変数">変数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-2.html#関数の定義と返値">関数の定義と返値</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-2.html#練習">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-2.html#ローカル変数">ローカル変数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-2.html#print"><code class="docutils literal notranslate"><span class="pre">print</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-2.html#print-と-return"><code class="docutils literal notranslate"><span class="pre">print</span></code> と <code class="docutils literal notranslate"><span class="pre">return</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-2.html#コメントと空行">コメントと空行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-2.html#関数の参照の書き方">関数の参照の書き方</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-2.html#id11">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-2.html#▲グローバル変数">▲グローバル変数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-2.html#練習の解答">練習の解答</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1/1-3.html#if文による条件分岐">if文による条件分岐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-3.html#様々な条件">様々な条件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-3.html#練習">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-3.html#真理値を返す関数">真理値を返す関数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-3.html#オブジェクト">オブジェクト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-3.html#None"><code class="docutils literal notranslate"><span class="pre">None</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-3.html#▲条件として使われる他の値">▲条件として使われる他の値</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-3.html#▲再帰">▲再帰</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-3.html#練習の解答">練習の解答</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="1/1-4.html">1-4. デバッグ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1/1-4.html#文法エラー：Syntax-Errors"><strong>文法エラー</strong>：Syntax Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-4.html#実行エラー：Runtime-Errors"><strong>実行エラー</strong>：Runtime Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-4.html#論理エラー：Logical-Errors"><strong>論理エラー</strong>：Logical Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-4.html#print-によるデバッグ"><code class="docutils literal notranslate"><span class="pre">print</span></code> によるデバッグ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-4.html#コーディングスタイル">コーディングスタイル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1/1-4.html#▲assert文によるデバッグ">▲assert文によるデバッグ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2/2-1.html">2-1. 文字列 (string)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2/2-1.html#文字列とインデックス">文字列とインデックス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-1.html#文字列とスライス">文字列とスライス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-1.html#空文字列">空文字列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-1.html#文字列の検索">文字列の検索</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-1.html#▲エスケープシーケンス">▲エスケープシーケンス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-1.html#バックスラッシュの表示と入力">バックスラッシュの表示と入力</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-1.html#文字列の連結">文字列の連結</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-1.html#文字列とメソッド">文字列とメソッド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-1.html#文字列の比較演算"><strong>文字列の比較演算</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-1.html#id19">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-1.html#初心者によくある誤解-—-変数と文字列の混乱">初心者によくある誤解 — <strong>変数</strong>と<strong>文字列</strong>の混乱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-1.html#id21">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-1.html#練習の解答">練習の解答</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2/2-2.html">2-2. リスト (list)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2/2-2.html#リストとインデックス">リストとインデックス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-2.html#練習">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-2.html#多重リスト"><strong>多重リスト</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-2.html#リストに対する関数・演算子・メソッド">リストに対する関数・演算子・メソッド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-2.html#破壊的（インプレース）な操作と非破壊的な生成">破壊的（インプレース）な操作と非破壊的な生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-2.html#リストを操作するメソッドなど">リストを操作するメソッドなど</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-2.html#タプル-(tuple)">タプル (tuple)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-2.html#id18">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-2.html#多重代入">多重代入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-2.html#リストやタプルの比較演算">リストやタプルの比較演算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-2.html#for文による繰り返しとリスト・タプル">for文による繰り返しとリスト・タプル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-2.html#id21">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-2.html#for文による繰り返しと文字列">for文による繰り返しと文字列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-2.html#id23">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-2.html#for文によるリスト初期化の短縮記法">for文によるリスト初期化の短縮記法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-2.html#▲オブジェクトの等価性と同一性">▲オブジェクトの等価性と同一性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-2.html#練習の解答">練習の解答</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2/2-3.html">2-3. 条件分岐</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2/2-3.html#インデントによる構文">インデントによる構文</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-3.html#if-…-else-による条件分岐"><code class="docutils literal notranslate"><span class="pre">if</span></code> … <code class="docutils literal notranslate"><span class="pre">else</span></code> による条件分岐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-3.html#if-…-elif-…-else-による条件分岐"><code class="docutils literal notranslate"><span class="pre">if</span></code> … <code class="docutils literal notranslate"><span class="pre">elif</span></code> … <code class="docutils literal notranslate"><span class="pre">else</span></code> による条件分岐</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-3.html#練習">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-3.html#id4">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-3.html#▲複数行にまたがる条件式">▲複数行にまたがる条件式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-3.html#if-…-elif-…-else-における条件の評価"><code class="docutils literal notranslate"><span class="pre">if</span></code> … <code class="docutils literal notranslate"><span class="pre">elif</span></code> … <code class="docutils literal notranslate"><span class="pre">else</span></code> における条件の評価</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-3.html#id7">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-3.html#or-もしくは-and-で結合された条件の評価"><code class="docutils literal notranslate"><span class="pre">or</span></code> もしくは <code class="docutils literal notranslate"><span class="pre">and</span></code> で結合された条件の評価</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-3.html#▲3項演算子（条件式）">▲<strong>3項演算子</strong>（条件式）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-3.html#練習の解答">練習の解答</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2/2-3.html#練習の解説">練習の解説</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3/3-1.html">3-1. 辞書 (dictionary)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3/3-1.html#練習">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-1.html#辞書のメソッド">辞書のメソッド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-1.html#辞書とリスト">辞書とリスト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-1.html#id12">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-1.html#練習の解答">練習の解答</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3/3-2.html">3-2. 繰り返し</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#for文による繰り返し">for文による繰り返し</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#for文による繰り返しと辞書">for文による繰り返しと辞書</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#練習">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#range"><code class="docutils literal notranslate"><span class="pre">range</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#id4">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#id5">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#range-とリスト"><code class="docutils literal notranslate"><span class="pre">range</span></code> とリスト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#for文の入れ子">for文の<strong>入れ子</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#id8">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#id9">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#for文の計算量">for文の<strong>計算量</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#enumerate"><code class="docutils literal notranslate"><span class="pre">enumerate</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#in"><code class="docutils literal notranslate"><span class="pre">in</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#while文による繰り返し">while文による繰り返し</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#制御構造とreturn文">制御構造とreturn文</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#break文"><strong>break文</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#id11">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#continue文"><strong>continue文</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#▲for文とwhile文における-else">▲for文とwhile文における <code class="docutils literal notranslate"><span class="pre">else</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#pass文"><strong>pass文</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#id12">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#id13">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#id14">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#id15">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#id16">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#id17">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#id18">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#id19">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#id20">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#練習の解答">練習の解答</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#練習の解説">練習の解説</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-2.html#id23">練習の解答</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3/3-3.html">3-3. 関数</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3/3-3.html#関数の定義">関数の定義</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-3.html#引数">引数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-3.html#返値">返値</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-3.html#複数の引数">複数の引数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-3.html#変数とスコープ">変数とスコープ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-3.html#▲キーワード引数">▲キーワード引数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-3.html#▲引数の初期値">▲引数の初期値</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-3.html#▲可変長引数">▲可変長引数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-3.html#▲辞書型の可変長引数">▲辞書型の可変長引数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-3.html#▲引数の順番">▲引数の順番</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3/3-3.html#▲変数としての関数">▲変数としての関数</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4/4-1.html">4-1. ファイル入出力の基本</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4/4-1.html#ファイルのオープン">ファイルのオープン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4/4-1.html#ファイルのクローズ">ファイルのクローズ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4/4-1.html#行の読み込み">行の読み込み</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4/4-1.html#練習">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4/4-1.html#ファイル全体の読み込み">ファイル全体の読み込み</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4/4-1.html#id7">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4/4-1.html#編集中のファイルの動作">編集中のファイルの動作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4/4-1.html#ファイルに対するwith文">ファイルに対するwith文</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4/4-1.html#ファイルへの書き込み">ファイルへの書き込み</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4/4-1.html#id10">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4/4-1.html#ファイルの読み書きにおける文字コード指定">ファイルの読み書きにおける文字コード指定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4/4-1.html#改行文字の削除">改行文字の削除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4/4-1.html#練習の解答">練習の解答</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4/4-2.html">4-2. イテレータ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4/4-2.html#next"><code class="docutils literal notranslate"><span class="pre">next</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4/4-2.html#for文による繰り返しとファイルオブジェクト">for文による繰り返しとファイルオブジェクト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4/4-2.html#練習">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4/4-2.html#iter"><code class="docutils literal notranslate"><span class="pre">iter</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4/4-2.html#id3">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4/4-2.html#イテラブル">イテラブル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4/4-2.html#イテレータを返す-enumerate">イテレータを返す <code class="docutils literal notranslate"><span class="pre">enumerate</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4/4-2.html#練習の解答">練習の解答</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4/4-3.html">4-3. コンピュータにおけるファイルやディレクトリの配置</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4/4-3.html#カレントディレクトリ">カレントディレクトリ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4/4-3.html#相対パスと絶対パス">相対パスと絶対パス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4/4-3.html#木構造によるデータ表現">木構造によるデータ表現</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="5/5-1.html">5-1. モジュールの使い方</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5/5-1.html#モジュールのインポート">モジュールのインポート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5/5-1.html#from"><code class="docutils literal notranslate"><span class="pre">from</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="5/5-1.html#as"><code class="docutils literal notranslate"><span class="pre">as</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="5/5-1.html#練習">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5/5-1.html#練習の解答">練習の解答</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="5/5-2.html">5-2. モジュールの作り方</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5/5-2.html#モジュールファイル">モジュールファイル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5/5-2.html#自作モジュールの使い方">自作モジュールの使い方</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="5/5-3.html">5-3. NumPyライブラリ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5/5-3.html#配列の構築">配列の構築</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5/5-3.html#配列要素を生成する構築関数">配列要素を生成する構築関数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5/5-3.html#練習">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5/5-3.html#配列要素の操作">配列要素の操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5/5-3.html#要素毎の演算">要素毎の演算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5/5-3.html#よく使われる配列操作">よく使われる配列操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5/5-3.html#配列の保存と復元">配列の保存と復元</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5/5-3.html#▲真理値配列によるインデックスアクセス">▲<strong>真理値配列によるインデックスアクセス</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="5/5-3.html#▲線形代数の演算">▲線形代数の演算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5/5-3.html#練習の解答">練習の解答</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6/6-1.html">6-1. 内包表記</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6/6-1.html#リスト内包表記">リスト内包表記</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6/6-1.html#練習">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6/6-1.html#id4">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6/6-1.html#id5">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6/6-1.html#内包表記の入れ子">内包表記の入れ子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6/6-1.html#id7">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6/6-1.html#id8">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6/6-1.html#▲条件付き内包表記">▲<strong>条件付き内包表記</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="6/6-1.html#▲セット内包表記">▲<strong>セット内包表記</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="6/6-1.html#▲辞書内包表記">▲<strong>辞書内包表記</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="6/6-1.html#▲ジェネレータ式">▲<strong>ジェネレータ式</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="6/6-1.html#練習の解答">練習の解答</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6/6-2.html">6-2. 高階関数</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6/6-2.html#max"><code class="docutils literal notranslate"><span class="pre">max</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="6/6-2.html#sorted"><code class="docutils literal notranslate"><span class="pre">sorted</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="6/6-2.html#ラムダ式">ラムダ式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6/6-2.html#リストからイテラブルへ">リストからイテラブルへ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6/6-2.html#練習">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6/6-2.html#map"><code class="docutils literal notranslate"><span class="pre">map</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="6/6-2.html#id5">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6/6-2.html#filter"><code class="docutils literal notranslate"><span class="pre">filter</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="6/6-2.html#id6">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6/6-2.html#id7">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6/6-2.html#練習の解答">練習の解答</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6/6-3.html">6-3. クラス</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6/6-3.html#クラス定義">クラス定義</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6/6-3.html#初期化と属性">初期化と属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6/6-3.html#継承">継承</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6/6-3.html#特殊メソッド">特殊メソッド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6/6-3.html#継承による振舞いの改変">継承による振舞いの改変</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6/6-3.html#練習">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6/6-3.html#▲with文への対応">▲with文への対応</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6/6-3.html#練習の解答">練習の解答</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="7/7-1.html">7-1. pandasライブラリ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="7/7-1.html#シリーズとデータフレーム">シリーズとデータフレーム</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7/7-1.html#シリーズ-(Series)-の作成">シリーズ (<code class="docutils literal notranslate"><span class="pre">Series</span></code>) の作成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7/7-1.html#データフレーム-(DataFrame)-の作成">データフレーム (<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>) の作成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7/7-1.html#CSVファイルからのデータフレームの作成">CSVファイルからのデータフレームの作成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7/7-1.html#データの参照">データの参照</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7/7-1.html#データの条件取り出し">データの条件取り出し</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7/7-1.html#列の追加と削除">列の追加と削除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7/7-1.html#行の追加と削除">行の追加と削除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7/7-1.html#データの並び替え">データの並び替え</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7/7-1.html#データの統計量">データの統計量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7/7-1.html#▲データの連結">▲データの連結</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7/7-1.html#▲データの結合">▲データの結合</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7/7-1.html#▲データのグループ化">▲データのグループ化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7/7-1.html#▲欠損値、時系列データの処理">▲欠損値、時系列データの処理</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="7/7-2.html">7-2. scikit-learnライブラリ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="7/7-2.html#機械学習について">機械学習について</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7/7-2.html#教師あり学習">教師あり学習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7/7-2.html#教師なし学習">教師なし学習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7/7-2.html#データ">データ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7/7-2.html#モデル学習の基礎">モデル学習の基礎</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7/7-2.html#教師あり学習・分類の例">教師あり学習・分類の例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7/7-2.html#練習">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7/7-2.html#教師あり学習・回帰の例">教師あり学習・回帰の例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7/7-2.html#教師なし学習・クラスタリングの例">教師なし学習・クラスタリングの例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7/7-2.html#id10">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7/7-2.html#教師なし学習・次元削減の例">教師なし学習・次元削減の例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7/7-2.html#練習の解答例">練習の解答例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/1-jupyter-notebook.html">▲Jupyter Notebook の使い方</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendix/1-jupyter-notebook.html#セル">セル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/1-jupyter-notebook.html#コマンドモード">コマンドモード</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/1-jupyter-notebook.html#編集モード">編集モード</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/1-jupyter-notebook.html#練習">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/1-jupyter-notebook.html#（注意）Shift-Enterに反応がなくなったとき">（注意）Shift-Enterに反応がなくなったとき</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/2-set.html">▲セット (set)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendix/2-set.html#セットの組み込み関数">セットの組み込み関数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/2-set.html#練習">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/2-set.html#id3">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/2-set.html#集合演算"><strong>集合演算</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/2-set.html#比較演算"><strong>比較演算</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/2-set.html#セットのメソッド">セットのメソッド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/2-set.html#id7">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/2-set.html#練習の解答">練習の解答</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/3-recursion.html">▲再帰</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendix/3-recursion.html#再帰関数の例：接頭辞リストと接尾辞リスト">再帰関数の例：接頭辞リストと接尾辞リスト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/3-recursion.html#再帰関数の例：べき乗の計算">再帰関数の例：べき乗の計算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/3-recursion.html#再帰関数の例：マージソート">再帰関数の例：マージソート</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/3-visualization.html">▲簡単なデータの可視化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendix/3-visualization.html#matplotlib"><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/3-visualization.html#折れ線グラフ">折れ線グラフ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/3-visualization.html#散布図">散布図</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/3-visualization.html#棒グラフ">棒グラフ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/4-csv.html">▲CSVファイルの入出力</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendix/4-csv.html#CSV形式とは">CSV形式とは</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/4-csv.html#CSVファイルの読み込み">CSVファイルの読み込み</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/4-csv.html#CSVファイルに対するfor文">CSVファイルに対するfor文</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/4-csv.html#CSVファイルに対するwith文">CSVファイルに対するwith文</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/4-csv.html#CSVファイルの書き込み">CSVファイルの書き込み</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/4-csv.html#練習">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/4-csv.html#id6">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/4-csv.html#練習の解答">練習の解答</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/5-bokeh.html">▲Bokehライブラリ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-bokeh.html#線グラフ">線グラフ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-bokeh.html#散布図">散布図</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-bokeh.html#棒グラフ">棒グラフ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-bokeh.html#ヒストグラム">ヒストグラム</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-bokeh.html#ヒートマップ">ヒートマップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-bokeh.html#グラフのファイル出力">グラフのファイル出力</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/5-command.html">▲Pythonスクリプトとコマンドライン実行</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-command.html#コマンドライン実行の具体例">コマンドライン実行の具体例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-command.html#コマンドライン引数">コマンドライン引数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-command.html#モジュールのコマンドライン実行">モジュールのコマンドライン実行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-command.html#ソースファイル先頭部分にある宣言">ソースファイル先頭部分にある宣言</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-command.html#練習の解答">練習の解答</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/5-matplotlib.html">▲Matplotlibライブラリ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-matplotlib.html#線グラフ">線グラフ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-matplotlib.html#練習">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-matplotlib.html#id4">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-matplotlib.html#散布図">散布図</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-matplotlib.html#id6">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-matplotlib.html#棒グラフ">棒グラフ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-matplotlib.html#id8">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-matplotlib.html#ヒストグラム">ヒストグラム</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-matplotlib.html#id10">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-matplotlib.html#ヒートマップ">ヒートマップ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-matplotlib.html#id12">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-matplotlib.html#グラフの画像ファイル出力">グラフの画像ファイル出力</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-matplotlib.html#練習の解答">練習の解答</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/5-re.html">▲正規表現</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-re.html#正規表現の基本">正規表現の基本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-re.html#練習">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-re.html#id4">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-re.html#id5">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-re.html#id6">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-re.html#id7">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-re.html#文字クラス">文字クラス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-re.html#正規表現に関する基本的な関数">正規表現に関する基本的な関数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-re.html#id10">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-re.html#id11">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-re.html#その他の反復演算">その他の反復演算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-re.html#メタ文字">メタ文字</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-re.html#id14">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-re.html#id15">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-re.html#id16">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-re.html#id17">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-re.html#正規表現のエスケープシーケンス">正規表現のエスケープシーケンス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-re.html#正規表現に関する関数とメソッド">正規表現に関する関数とメソッド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-re.html#id20">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-re.html#id21">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/5-re.html#練習の解答">練習の解答</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index_of_terms.html">索引</a></li>
+</ul>
+</div>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">Pythonプログラミング入門</a></h1>
+
+
+
+
+
+
+
+
+<p>
+  <a href="https://colab.research.google.com/github/utokyo-ipp/utokyo-ipp.github.io/blob/master/colab/index.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
+</p><h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1/1-1.html">1-1. 数値演算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1/1-2.html">1-2. 変数と関数の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1/1-4.html">1-4. デバッグ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2/2-1.html">2-1. 文字列 (string)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2/2-2.html">2-2. リスト (list)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2/2-3.html">2-3. 条件分岐</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3/3-1.html">3-1. 辞書 (dictionary)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3/3-2.html">3-2. 繰り返し</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3/3-3.html">3-3. 関数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4/4-1.html">4-1. ファイル入出力の基本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4/4-2.html">4-2. イテレータ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4/4-3.html">4-3. コンピュータにおけるファイルやディレクトリの配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5/5-1.html">5-1. モジュールの使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5/5-2.html">5-2. モジュールの作り方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5/5-3.html">5-3. NumPyライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6/6-1.html">6-1. 内包表記</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6/6-2.html">6-2. 高階関数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6/6-3.html">6-3. クラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7/7-1.html">7-1. pandasライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7/7-2.html">7-2. scikit-learnライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/1-jupyter-notebook.html">▲Jupyter Notebook の使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/2-set.html">▲セット (set)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/3-recursion.html">▲再帰</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/3-visualization.html">▲簡単なデータの可視化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/4-csv.html">▲CSVファイルの入出力</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/5-bokeh.html">▲Bokehライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/5-command.html">▲Pythonスクリプトとコマンドライン実行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/5-matplotlib.html">▲Matplotlibライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/5-re.html">▲正規表現</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_of_terms.html">索引</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="1/1-0.html" title="next chapter">1-0. Colaboratoryによるノートブックの使い方</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020–2021, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-159819977-1']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    
+  </body>
+</html>

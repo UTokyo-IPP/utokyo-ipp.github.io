@@ -1,0 +1,1080 @@
+
+<!DOCTYPE html>
+
+<html lang="jp">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>3-3. 関数 &#8212; Pythonプログラミング入門  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4-1. ファイル入出力の基本" href="../4/4-1.html" />
+    <link rel="prev" title="3-2. 繰り返し" href="3-2.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<section id="3-3.-関数">
+<h1>3-3. 関数<a class="headerlink" href="#3-3.-関数" title="Permalink to this headline">¶</a></h1>
+<p>関数について改めて説明します。</p>
+<p>参考:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/ja/3/tutorial/controlflow.html#defining-functions">https://docs.python.org/ja/3/tutorial/controlflow.html#defining-functions</a></p></li>
+</ul>
+<section id="関数の定義">
+<h2>関数の定義<a class="headerlink" href="#関数の定義" title="Permalink to this headline">¶</a></h2>
+<p><strong>関数</strong>は処理（手続きの流れ）をまとめた再利用可能なコードです。関数には以下の特徴があります。</p>
+<ul class="simple">
+<li><p>名前を持つ。</p></li>
+<li><p>手続きの流れを含む。</p></li>
+<li><p>返値（明示的あるいは非明示的に）を返す。</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">len()</span></code> や <code class="docutils literal notranslate"><span class="pre">sum()</span></code> などの<a class="reference external" href="https://docs.python.jp/3/library/functions.html">組み込み関数</a>は関数の例です。</p>
+<p>まず、関数の定義をしてみましょう。関数を定義するには <code class="docutils literal notranslate"><span class="pre">def</span></code> を用います。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#&#39;Hello&#39;を表示する関数greeting</span>
+<span class="k">def</span> <span class="nf">greeting</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>関数を定義したら、それを呼び出すことができます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#関数greetingを呼び出し</span>
+<span class="n">greeting</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Hello
+</pre></div></div>
+</div>
+<p><strong>関数定義</strong>の一般形は以下の通りです。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def 関数名(引数):
+    関数本体
+</pre></div>
+</div>
+<p>1行名はヘッダと呼ばれ、<strong>関数名</strong>はその関数を呼ぶのに使う名前、<strong>引数</strong>はその関数へ渡す変数の一覧です。 変数がない場合もあります。</p>
+<p><strong>関数本体</strong>はインデントした上で、処理や手続きの流れを記述します。</p>
+</section>
+<section id="引数">
+<h2>引数<a class="headerlink" href="#引数" title="Permalink to this headline">¶</a></h2>
+<p>関数を定義する際に、ヘッダの括弧の中に関数へ渡す変数の一覧を記述します。 これらの変数は関数の<strong>ローカル変数</strong>となります。 ローカル変数とはプログラムの一部（ここでは関数内）でのみ利用可能な変数です。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#引数greeting_localに渡された値を表示する関数greeting</span>
+<span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">greeting_local</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">greeting_local</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>関数を呼び出す際に引数に値を渡すことで、関数は受け取った値を処理することができます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#関数greetingに文字列&#39;Hello&#39;を渡して呼び出し</span>
+<span class="n">greeting</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Hello
+</pre></div></div>
+</div>
+<p>このようにして引数に渡される値のことを、<strong>実引数</strong>（<strong>argument</strong>）と呼ぶことがあります。 実引数に対して、ここまで説明してきた引数（ローカル変数である引数）は、<strong>仮引数</strong>（<strong>parameter</strong>）と呼ばれます。 参考：<a class="reference external" href="https://docs.python.org/ja/3/faq/programming.html#what-is-the-difference-between-arguments-and-parameters">公式FAQ：実引数と仮引数の違いは何ですか？</a></p>
+<p>実引数のことを引数と呼ぶこともありますので、注意してください。</p>
+</section>
+<section id="返値">
+<h2>返値<a class="headerlink" href="#返値" title="Permalink to this headline">¶</a></h2>
+<p>関数は受け取った引数を元に処理を行い、その結果の<strong>返値</strong>（1-2で説明済み）を返すことができます。</p>
+<p>返値は、<code class="docutils literal notranslate"><span class="pre">return</span></code> で定義します。関数の返値がない場合は、<code class="docutils literal notranslate"><span class="pre">None</span></code> が返されます。 <code class="docutils literal notranslate"><span class="pre">return</span></code> が実行されると、関数の処理はそこで終了するため、次に文があっても実行はされません。 また、ループなどの繰り返し処理の途中でも <code class="docutils literal notranslate"><span class="pre">return</span></code> が実行されると処理は終了します。 関数の処理が最後まで実行され、返値がない場合は最後に <code class="docutils literal notranslate"><span class="pre">return</span></code> を実行したことと同じになります。</p>
+<p><code class="docutils literal notranslate"><span class="pre">return</span></code> の後に式がない場合は、<code class="docutils literal notranslate"><span class="pre">None</span></code> が返されます。 （<code class="docutils literal notranslate"><span class="pre">return</span></code> が実行されずに関数の最後まで来たときも同様です。） <code class="docutils literal notranslate"><span class="pre">return</span></code> を式なしで実行することで、関数の処理を途中で抜けることができます。 また、このような関数は、与えられた配列を破壊的に変更するなど、 呼び出した側に何らかの変化を及ぼす際にも用いられます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#引数greeting_localに渡された値を返す関数greeting</span>
+<span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">greeting_local</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">greeting_local</span>
+
+<span class="c1">#関数greetingに文字列&#39;Hello&#39;を渡して呼び出し</span>
+<span class="n">greeting</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Hello&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#入力の平均を計算して返す関数average</span>
+<span class="k">def</span> <span class="nf">average</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
+    <span class="c1">#組み込み関数のsum()とlen()を利用</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+
+<span class="c1">#関数averageに数字のリストを渡して呼び出し</span>
+<span class="n">average</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+5.0
+</pre></div></div>
+</div>
+<p>関数の返値を変数に代入することもできます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#関数greetingの返値を変数greetに代入</span>
+<span class="n">greet</span> <span class="o">=</span> <span class="n">greeting</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<span class="n">greet</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Hello&#39;
+</pre></div></div>
+</div>
+</section>
+<section id="複数の引数">
+<h2>複数の引数<a class="headerlink" href="#複数の引数" title="Permalink to this headline">¶</a></h2>
+<p>関数は任意の数の引数を受け取ることができます。 複数の引数を受け取る場合は、引数をコンマで区切ります。 これらの引数名は重複しないようにしましょう。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#3つの引数それぞれに渡された値を表示する関数greeting</span>
+<span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">en</span><span class="p">,</span> <span class="n">fr</span><span class="p">,</span> <span class="n">de</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">en</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span> <span class="o">+</span> <span class="n">fr</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span> <span class="o">+</span> <span class="n">de</span><span class="p">)</span>
+
+<span class="c1">#関数greetingに3つの引数を渡して呼び出し</span>
+<span class="n">greeting</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="s1">&#39;Bonjour&#39;</span><span class="p">,</span> <span class="s1">&#39;Guten Tag&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Hello, Bonjour, Guten Tag
+</pre></div></div>
+</div>
+<p>関数は異なる型であっても引数として受け取ることができます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#文字列と数値を引数として受け取る関数greeting</span>
+<span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">en</span><span class="p">,</span> <span class="n">number</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="c1">#文字列に数を掛け算すると、文字列を数の回だけ繰り返すことを指定します</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">en</span><span class="o">*</span><span class="n">number</span><span class="o">+</span><span class="s1">&#39;,&#39;</span><span class="o">+</span><span class="n">name</span><span class="p">)</span>
+
+<span class="c1">#関数greetingに文字列と数値を引数として渡して呼び出し</span>
+<span class="n">greeting</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;World&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+HelloHelloHello,World
+</pre></div></div>
+</div>
+</section>
+<section id="変数とスコープ">
+<h2>変数とスコープ<a class="headerlink" href="#変数とスコープ" title="Permalink to this headline">¶</a></h2>
+<p>関数の引数や関数内で定義される変数はローカル変数のため、それらの変数は関数の外からは参照できません。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#引数greeting_localに渡された値を表示する関数greeting</span>
+<span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">greeting_local</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">greeting_local</span><span class="p">)</span>
+
+<span class="n">greeting</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+
+<span class="c1">#ローカル変数（関数greetingの引数）greeting_localを参照</span>
+<span class="n">greeting_local</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Hello
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">/tmp/ipykernel_4740/2879327650.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span>
+<span class="ansi-green-intense-fg ansi-bold">      7</span> <span class="ansi-red-fg">#ローカル変数（関数greetingの引数）greeting_localを参照</span>
+<span class="ansi-green-fg">----&gt; 8</span><span class="ansi-red-fg"> </span>greeting_local
+
+<span class="ansi-red-fg">NameError</span>: name &#39;greeting_local&#39; is not defined
+</pre></div></div>
+</div>
+<p>一方、変数が<strong>グローバル変数</strong>であれば、それらの変数は関数の外からも中からも参照できます。 グローバル変数とはプログラム全体、どこからでも利用可能な変数です。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#グローバル変数greeting_globalの定義</span>
+<span class="n">greeting_global</span> <span class="o">=</span> <span class="s1">&#39;Hello&#39;</span>
+
+<span class="c1">#グローバル変数greeting_globalの値を表示する関数greeting</span>
+<span class="k">def</span> <span class="nf">greeting</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">greeting_global</span><span class="p">)</span>
+
+<span class="n">greeting</span><span class="p">()</span>
+
+<span class="c1">#グローバル変数greeting_globalを参照</span>
+<span class="n">greeting_global</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Hello
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Hello&#39;
+</pre></div></div>
+</div>
+<p>グローバル変数と同じ名前の変数を関数内で定義すると、 それは通常はグローバル変数とは異なる、関数内のみで利用可能な<strong>ローカル変数</strong>の定義として扱われます。 グローバル変数と同じ名前の引数を用いる場合も同様です。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#グローバル変数greeting_globalと同じ名前の変数に値を代入する関数greeting</span>
+<span class="k">def</span> <span class="nf">greeting</span><span class="p">():</span>
+    <span class="n">greeting_global</span> <span class="o">=</span> <span class="s1">&#39;Bonjour&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">greeting_global</span><span class="p">)</span>
+
+<span class="n">greeting</span><span class="p">()</span>
+
+<span class="c1">#変数greeting_globalを参照</span>
+<span class="n">greeting_global</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Bonjour
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Hello&#39;
+</pre></div></div>
+</div>
+<p>しかし、グローバル変数と同名のローカル変数を定義することは、一般に注意が必要です。 何故なら、ローカル変数としての定義を含む関数内では、同名のグローバル変数を参照できないからです。 たとえば、次のコードは、<code class="docutils literal notranslate"><span class="pre">Hello</span></code> と <code class="docutils literal notranslate"><span class="pre">Bonjour</span></code> が順に印字することを期待するかもしれませんが、</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">greeting</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">greeting_global</span><span class="p">)</span> <span class="c1"># 最初の参照</span>
+    <span class="n">greeting_global</span> <span class="o">=</span> <span class="s1">&#39;Bonjour&#39;</span> <span class="c1"># ローカル変数の定義</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">greeting_global</span><span class="p">)</span>
+
+<span class="n">greeting</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">UnboundLocalError</span>                         Traceback (most recent call last)
+<span class="ansi-green-fg">/tmp/ipykernel_4740/2511243068.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span>     print<span class="ansi-blue-fg">(</span>greeting_global<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span>
+<span class="ansi-green-fg">----&gt; 6</span><span class="ansi-red-fg"> </span>greeting<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/tmp/ipykernel_4740/2511243068.py</span> in <span class="ansi-cyan-fg">greeting</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">def</span> greeting<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg">     </span>print<span class="ansi-blue-fg">(</span>greeting_global<span class="ansi-blue-fg">)</span> <span class="ansi-red-fg"># 最初の参照</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span>     greeting_global <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;Bonjour&#39;</span> <span class="ansi-red-fg"># ローカル変数の定義</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span>     print<span class="ansi-blue-fg">(</span>greeting_global<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span>
+
+<span class="ansi-red-fg">UnboundLocalError</span>: local variable &#39;greeting_global&#39; referenced before assignment
+</pre></div></div>
+</div>
+<p>最初の <code class="docutils literal notranslate"><span class="pre">greeting_global</span></code> の参照でエラーになります。 これは、関数内に <code class="docutils literal notranslate"><span class="pre">greeting_global</span></code> の定義があると、 その関数内どの場所でも <code class="docutils literal notranslate"><span class="pre">greeting_global</span></code> がローカル変数として参照されるためです。 最初の参照時には、ローカル変数の <code class="docutils literal notranslate"><span class="pre">greeting_global</span></code> が未定義なので、エラーが生じます。</p>
+<p>このように、グローバル変数と同じ名前のローカル変数を使おうとするのは間違いの元です。 グローバル変数と名前が衝突しないように、ローカル変数を定義しましょう。</p>
+<section id="▲-global-宣言">
+<h3>▲ global 宣言<a class="headerlink" href="#▲-global-宣言" title="Permalink to this headline">¶</a></h3>
+<p>関数内ではグローバル変数が更新されないのが基本です。 しかし、どうしても関数内でグローバル変数を更新したいときには、 <code class="docutils literal notranslate"><span class="pre">global</span></code> 宣言を使って更新したいグローバル変数を指定します。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#グローバル変数greeting_globalに値を代入する関数greeting</span>
+<span class="k">def</span> <span class="nf">greeting</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">greeting_global</span>
+    <span class="n">greeting_global</span> <span class="o">=</span> <span class="s1">&#39;Bonjour&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">greeting_global</span><span class="p">)</span>
+
+<span class="n">greeting</span><span class="p">()</span>
+
+<span class="c1">##変数greeting_globalを参照</span>
+<span class="n">greeting_global</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Bonjour
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Bonjour&#39;
+</pre></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">global</span></code> 宣言された変数名は、関数内で常にグローバル変数として参照されます。 これを濫用すると間違いの元になるので、原則として利用しないようにしましょう。</p>
+</section>
+</section>
+<section id="▲キーワード引数">
+<h2>▲キーワード引数<a class="headerlink" href="#▲キーワード引数" title="Permalink to this headline">¶</a></h2>
+<p>上記の一般的な引数（位置引数とも呼ばれます）では、 事前に定義した引数の順番に従って、関数は引数を受け取る必要があります。</p>
+<p>キーワード付き引数（<strong>キーワード引数</strong>）を使うと、関数は引数の変数名とその値の組みを受け取ることができます。 その際、引数は順不同で関数に渡すことができます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#文字列と数値を引数として受け取る関数greeting</span>
+<span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">en</span><span class="p">,</span> <span class="n">number</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">en</span><span class="o">*</span><span class="n">number</span><span class="o">+</span><span class="s1">&#39;,&#39;</span><span class="o">+</span><span class="n">name</span><span class="p">)</span>
+
+<span class="c1">#関数greetingに引数の変数名とその値の組みを渡して呼び出し</span>
+<span class="n">greeting</span><span class="p">(</span><span class="n">en</span><span class="o">=</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Japan&#39;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+HelloHello,Japan
+</pre></div></div>
+</div>
+<p>位置引数とキーワード引数を合わせて使う場合は、最初に位置引数を指定する必要があります。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#位置引数とキーワード引数を組み合わせた関数greetingの呼び出し</span>
+<span class="n">greeting</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Japan&#39;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+HelloHello,Japan
+</pre></div></div>
+</div>
+</section>
+<section id="▲引数の初期値">
+<h2>▲引数の初期値<a class="headerlink" href="#▲引数の初期値" title="Permalink to this headline">¶</a></h2>
+<p>関数を呼び出す際に、引数が渡されない場合に、<strong>初期値</strong>を引数として渡すことができます。</p>
+<p>初期値のある引数に値を渡したら、関数はその引数の初期値の代わりに渡された値を受け取ります。</p>
+<p>初期値を持つ引数は、位置引数の後に指定する必要があります。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#引数の初期値（引数の変数enに対する&#39;Hello&#39;）を持つ関数greeting</span>
+<span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">en</span><span class="o">=</span><span class="s1">&#39;Hello&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">en</span><span class="o">+</span><span class="s1">&#39;, &#39;</span><span class="o">+</span><span class="n">name</span><span class="p">)</span>
+
+<span class="c1">#引数の初期値を持つ関数greetingの呼び出し</span>
+<span class="n">greeting</span><span class="p">(</span><span class="s1">&#39;World&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Hello, World
+</pre></div></div>
+</div>
+</section>
+<section id="▲可変長引数">
+<h2>▲可変長引数<a class="headerlink" href="#▲可変長引数" title="Permalink to this headline">¶</a></h2>
+<p>仮引数の前に <code class="docutils literal notranslate"><span class="pre">*</span></code> を付けて関数を定義すると、複数の引数をタプルとして受け取ることができます。 呼び出す側は、引数の個数を変えることができます。 一般に、個数が可変の引数は<strong>可変長引数</strong>と呼ばれます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#可変長の引数を受け取り、それらを表示する関数greeting</span>
+<span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+
+<span class="c1">#可変長の引数を受け取る関数greetingに複数の引数を渡して呼び出し</span>
+<span class="n">greeting</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span><span class="s1">&#39;Bonjour&#39;</span><span class="p">,</span><span class="s1">&#39;Guten Tag&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(&#39;Hello&#39;, &#39;Bonjour&#39;, &#39;Guten Tag&#39;)
+</pre></div></div>
+</div>
+<p>リストやタプルの要素を可変長引数として関数に渡す場合は、<code class="docutils literal notranslate"><span class="pre">*</span></code> をリストやタプルの前につけて渡します。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#リスト型オブジェクトgreeting_listを関数greetingに渡して呼び出し</span>
+<span class="n">greeting_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span><span class="s1">&#39;Bonjour&#39;</span><span class="p">,</span><span class="s1">&#39;Guten Tag&#39;</span><span class="p">]</span>
+<span class="n">greeting</span><span class="p">(</span><span class="o">*</span><span class="n">greeting_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(&#39;Hello&#39;, &#39;Bonjour&#39;, &#39;Guten Tag&#39;)
+</pre></div></div>
+</div>
+</section>
+<section id="▲辞書型の可変長引数">
+<h2>▲辞書型の可変長引数<a class="headerlink" href="#▲辞書型の可変長引数" title="Permalink to this headline">¶</a></h2>
+<p>仮引数の前に <code class="docutils literal notranslate"><span class="pre">**</span></code> を付けて関数を定義すると、複数のキーワード引数を辞書として受け取ることができます。辞書として受け取られる引数は、<strong>辞書型の可変長引数</strong>と呼ばれます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#可変長のキーワード引数を受け取り、それらを表示する関数greeting</span>
+<span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="c1">#可変長のキーワード引数を受け取る関数greetingに複数の引数を渡して呼び出し</span>
+<span class="n">greeting</span><span class="p">(</span><span class="n">en</span><span class="o">=</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="n">fr</span><span class="o">=</span><span class="s1">&#39;Bonjour&#39;</span><span class="p">,</span> <span class="n">de</span><span class="o">=</span><span class="s1">&#39;Guten Tag&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;en&#39;: &#39;Hello&#39;, &#39;fr&#39;: &#39;Bonjour&#39;, &#39;de&#39;: &#39;Guten Tag&#39;}
+</pre></div></div>
+</div>
+<p>辞書の各キーと値を複数のキーワード引数として関数に渡す場合は、 <code class="docutils literal notranslate"><span class="pre">**</span></code> をその辞書の前につけて渡します。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#辞書型オブジェクトgreeting_dictを関数greetingに渡して呼び出し</span>
+<span class="n">greeting_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;en&#39;</span><span class="p">:</span> <span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="s1">&#39;fr&#39;</span><span class="p">:</span> <span class="s1">&#39;Bonjour&#39;</span><span class="p">,</span> <span class="s1">&#39;de&#39;</span><span class="p">:</span> <span class="s1">&#39;Guten Tag&#39;</span><span class="p">}</span>
+<span class="n">greeting</span><span class="p">(</span><span class="o">**</span><span class="n">greeting_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;en&#39;: &#39;Hello&#39;, &#39;fr&#39;: &#39;Bonjour&#39;, &#39;de&#39;: &#39;Guten Tag&#39;}
+</pre></div></div>
+</div>
+</section>
+<section id="▲引数の順番">
+<h2>▲引数の順番<a class="headerlink" href="#▲引数の順番" title="Permalink to this headline">¶</a></h2>
+<p>位置引数、初期値を持つ引数、可変長引数、辞書型の可変長引数は、同時に指定することができますが、 その際、これらの順番で指定する必要があります。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def 関数名(位置引数, 初期値を持つ引数, 可変長引数, 辞書型の可変長引数)
+</pre></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#位置引数、初期値を持つ引数、可変長引数、辞書型の可変長引数</span>
+<span class="c1">#それぞれを引数として受け取り、それらを表示する関数greeting</span>
+<span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">greet</span><span class="p">,</span> <span class="n">en</span><span class="o">=</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">greet</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">en</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="c1">#可変長引数へ渡すリスト</span>
+<span class="n">greeting_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Bonjour&#39;</span><span class="p">]</span>
+
+<span class="c1">#辞書型の可変長引数へ渡す辞書</span>
+<span class="n">greeting_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;de&#39;</span><span class="p">:</span> <span class="s1">&#39;Guten Tag&#39;</span><span class="p">}</span>
+
+<span class="c1">#関数greetingに引数を渡して呼び出し</span>
+<span class="n">greeting</span><span class="p">(</span><span class="s1">&#39;Hi&#39;</span><span class="p">,</span> <span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="o">*</span><span class="n">greeting_list</span><span class="p">,</span> <span class="o">**</span><span class="n">greeting_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Hi
+Hello
+(&#39;Bonjour&#39;,)
+{&#39;de&#39;: &#39;Guten Tag&#39;}
+</pre></div></div>
+</div>
+</section>
+<section id="▲変数としての関数">
+<h2>▲変数としての関数<a class="headerlink" href="#▲変数としての関数" title="Permalink to this headline">¶</a></h2>
+<p>関数は変数でもあります。既存の変数と同じ名前の関数を定義すると、 元の変数はその新たな関数を参照するものとして変更されます。 一方、既存の関数と同じ名前の変数を定義すると、元の関数名の変数はその新たな変数を参照するものとして変更されます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#グローバル変数greeting_globalの定義と参照</span>
+<span class="n">greeting_global</span> <span class="o">=</span> <span class="s1">&#39;Hello&#39;</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">greeting_global</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+str
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#グローバル変数greeting_globalと同名の関数の定義</span>
+<span class="c1">#変数greeting_globalは関数を参照する</span>
+<span class="k">def</span> <span class="nf">greeting_global</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is the greeting_global function&#39;</span><span class="p">)</span>
+
+<span class="nb">type</span><span class="p">(</span><span class="n">greeting_global</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+function
+</pre></div></div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Pythonプログラミング入門</a></h1>
+
+
+
+
+
+
+
+
+<p>
+  <a href="https://colab.research.google.com/github/utokyo-ipp/utokyo-ipp.github.io/blob/master/colab/3/3-3.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
+</p><h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-1.html">1-1. 数値演算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-2.html">1-2. 変数と関数の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-4.html">1-4. デバッグ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2/2-1.html">2-1. 文字列 (string)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2/2-2.html">2-2. リスト (list)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2/2-3.html">2-3. 条件分岐</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3-1.html">3-1. 辞書 (dictionary)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3-2.html">3-2. 繰り返し</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3-3. 関数</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#関数の定義">関数の定義</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#引数">引数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#返値">返値</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#複数の引数">複数の引数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#変数とスコープ">変数とスコープ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#▲キーワード引数">▲キーワード引数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#▲引数の初期値">▲引数の初期値</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#▲可変長引数">▲可変長引数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#▲辞書型の可変長引数">▲辞書型の可変長引数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#▲引数の順番">▲引数の順番</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#▲変数としての関数">▲変数としての関数</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../4/4-1.html">4-1. ファイル入出力の基本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4/4-2.html">4-2. イテレータ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4/4-3.html">4-3. コンピュータにおけるファイルやディレクトリの配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5/5-1.html">5-1. モジュールの使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5/5-2.html">5-2. モジュールの作り方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5/5-3.html">5-3. NumPyライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6/6-1.html">6-1. 内包表記</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6/6-2.html">6-2. 高階関数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6/6-3.html">6-3. クラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7/7-1.html">7-1. pandasライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7/7-2.html">7-2. scikit-learnライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/1-jupyter-notebook.html">▲Jupyter Notebook の使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/2-set.html">▲セット (set)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/3-recursion.html">▲再帰</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/3-visualization.html">▲簡単なデータの可視化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/4-csv.html">▲CSVファイルの入出力</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/5-bokeh.html">▲Bokehライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/5-command.html">▲Pythonスクリプトとコマンドライン実行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/5-matplotlib.html">▲Matplotlibライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/5-re.html">▲正規表現</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index_of_terms.html">索引</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="3-2.html" title="previous chapter">3-2. 繰り返し</a></li>
+      <li>Next: <a href="../4/4-1.html" title="next chapter">4-1. ファイル入出力の基本</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020–2021, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-159819977-1']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    
+  </body>
+</html>

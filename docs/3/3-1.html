@@ -1,0 +1,1113 @@
+
+<!DOCTYPE html>
+
+<html lang="jp">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>3-1. 辞書 (dictionary) &#8212; Pythonプログラミング入門  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3-2. 繰り返し" href="3-2.html" />
+    <link rel="prev" title="2-3. 条件分岐" href="../2/2-3.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<section id="3-1.-辞書-(dictionary)">
+<h1>3-1. 辞書 (dictionary)<a class="headerlink" href="#3-1.-辞書-(dictionary)" title="Permalink to this headline">¶</a></h1>
+<p>キーと値を対応させるデータ構造である辞書について説明します。</p>
+<p>参考</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/ja/3/tutorial/datastructures.html#dictionaries">https://docs.python.org/ja/3/tutorial/datastructures.html#dictionaries</a></p></li>
+</ul>
+<p><strong>辞書</strong>は、<strong>キー</strong> (<strong>key</strong>) と<strong>値</strong> (<strong>value</strong>) を対応づけるデータです。 キーとしては、文字列・数値・タプルなどの変更不可能なデータを使うことができますが、 変更可能なデータであるリスト・辞書を使うことはできません。 （辞書も変更可能なデータです。） 一方、値としては、変更の可否にかかわらずあらゆる種類のデータを指定できます。</p>
+<p>たとえば、文字列 <code class="docutils literal notranslate"><span class="pre">'apple'</span></code> をキーとし値として数値 <code class="docutils literal notranslate"><span class="pre">3</span></code> を、<code class="docutils literal notranslate"><span class="pre">'pen'</span></code> をキーとして <code class="docutils literal notranslate"><span class="pre">5</span></code> を対応付けた辞書は、 次のように作成します。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ppap</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;apple&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;pen&#39;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+<span class="n">ppap</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;apple&#39;: 3, &#39;pen&#39;: 5}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">type</span><span class="p">(</span><span class="n">ppap</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+dict
+</pre></div></div>
+</div>
+<p>辞書の <code class="docutils literal notranslate"><span class="pre">キー1</span></code> に対応する値を得るには、リストにおけるインデックスと同様に、</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>辞書[キー1]
+</pre></div>
+</div>
+<p>とします。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ppap</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;apple&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;pen&#39;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+<span class="n">ppap</span><span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+3
+</pre></div></div>
+</div>
+<p>辞書に登録されていないキーを指定すると、エラーになります。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ppap</span><span class="p">[</span><span class="s1">&#39;orange&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
+<span class="ansi-green-fg">/tmp/ipykernel_3729/2828625380.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>ppap<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;orange&#39;</span><span class="ansi-blue-fg">]</span>
+
+<span class="ansi-red-fg">KeyError</span>: &#39;orange&#39;
+</pre></div></div>
+</div>
+<p>キーに対する値を変更したり、新たなキーと値を登録するには代入文を用います。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ppap</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;apple&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;pen&#39;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+<span class="n">ppap</span><span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">ppap</span><span class="p">[</span><span class="s1">&#39;pinapple&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">ppap</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;apple&#39;: 10, &#39;pen&#39;: 5, &#39;pinapple&#39;: 7}
+</pre></div></div>
+</div>
+<p>上のようにキーから値は取り出せますが、値からキーを直接取り出すことはできません。 また、リストのようにインデックスを指定して値を取得することはできません。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ppap</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
+<span class="ansi-green-fg">/tmp/ipykernel_3729/2923433636.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>ppap<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span>
+
+<span class="ansi-red-fg">KeyError</span>: 1
+</pre></div></div>
+</div>
+<p>キーが辞書に登録されているかどうかは、演算子 <code class="docutils literal notranslate"><span class="pre">in</span></code> を用いて調べることができます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ppap</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;apple&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;pen&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+<span class="s1">&#39;apple&#39;</span> <span class="ow">in</span> <span class="n">ppap</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="s1">&#39;banana&#39;</span> <span class="ow">in</span> <span class="n">ppap</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+False
+</pre></div></div>
+</div>
+<p>組み込み関数 <code class="docutils literal notranslate"><span class="pre">len</span></code> によって、辞書に登録されている要素、キーと値のペア、の数が得られます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ppap</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;apple&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;pen&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">ppap</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2
+</pre></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">del</span></code> 文によって、登録されているキーの要素を削除することができます。具体的には、次のように削除します。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>del 辞書[削除したいキー]
+</pre></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ppap</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;apple&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;pen&#39;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+<span class="k">del</span> <span class="n">ppap</span><span class="p">[</span><span class="s1">&#39;pen&#39;</span><span class="p">]</span>
+<span class="n">ppap</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;apple&#39;: 3}
+</pre></div></div>
+</div>
+<p>空のリストと同様に空の辞書を作ることもできます。このような空のデータは繰り返し処理でしばしば使われます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">empty_d</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">empty_d</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{}
+</pre></div></div>
+</div>
+<section id="練習">
+<h2>練習<a class="headerlink" href="#練習" title="Permalink to this headline">¶</a></h2>
+<p>リスト <code class="docutils literal notranslate"><span class="pre">list1</span></code> が引数として与えられたとき、<code class="docutils literal notranslate"><span class="pre">list1</span></code> の各要素 <code class="docutils literal notranslate"><span class="pre">value</span></code> をキー、<code class="docutils literal notranslate"><span class="pre">value</span></code> の <code class="docutils literal notranslate"><span class="pre">list1</span></code> におけるインデックスをキーに対応する値とした辞書を返す関数 <code class="docutils literal notranslate"><span class="pre">reverse_lookup</span></code> を作成してください。</p>
+<p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて <code class="docutils literal notranslate"><span class="pre">reverse_lookup(list1)</span></code> を作成してください。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">reverse_lookup</span><span class="p">(</span><span class="n">list1</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">reverse_lookup</span><span class="p">([</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;pen&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;apple&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;pen&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+False
+</pre></div></div>
+</div>
+</section>
+<section id="辞書のメソッド">
+<h2>辞書のメソッド<a class="headerlink" href="#辞書のメソッド" title="Permalink to this headline">¶</a></h2>
+<p>辞書のメソッドを紹介しておきます。</p>
+<section id="キーを指定して値を得るメソッド">
+<h3>キーを指定して値を得るメソッド<a class="headerlink" href="#キーを指定して値を得るメソッド" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">get</span></code> メソッドは、引数として指定したキーが辞書に含まれてる場合にはその値を取得し、 指定したキーが含まれていない場合には <code class="docutils literal notranslate"><span class="pre">None</span></code> を返します。 <code class="docutils literal notranslate"><span class="pre">get</span></code> を利用することで、エラーを回避し、登録されているかどうかわからないキーを使うことができます。 先に説明したキーを括弧、<code class="docutils literal notranslate"><span class="pre">[...]</span></code>、で指定する方法では、 辞書にキーが存在しないとエラーとなりプログラムの実行が停止してしまいます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ppap</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;apple&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;pen&#39;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;キーappleに対応する値 = &#39;</span><span class="p">,</span> <span class="n">ppap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;apple&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;キーorangeに対応する値 = &#39;</span><span class="p">,</span> <span class="n">ppap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;orange&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;キーorangeに対応する値（エラー） = &#39;</span><span class="p">,</span> <span class="n">ppap</span><span class="p">[</span><span class="s1">&#39;orange&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+キーappleに対応する値 =  3
+キーorangeに対応する値 =  None
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
+<span class="ansi-green-fg">/tmp/ipykernel_3729/2572363094.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;キーappleに対応する値 = &#39;</span><span class="ansi-blue-fg">,</span> ppap<span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;apple&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;キーorangeに対応する値 = &#39;</span><span class="ansi-blue-fg">,</span> ppap<span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;orange&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">----&gt; 4</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;キーorangeに対応する値（エラー） = &#39;</span><span class="ansi-blue-fg">,</span> ppap<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;orange&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">KeyError</span>: &#39;orange&#39;
+</pre></div></div>
+</div>
+<p>また、<code class="docutils literal notranslate"><span class="pre">get</span></code> に2番目の引数を与えると、その引数の値を「指定したキーが含まれていない場合」に <code class="docutils literal notranslate"><span class="pre">get</span></code> が返す値とすることができます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ppap</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;apple&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;pen&#39;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;キーappleに対応する値 = &#39;</span><span class="p">,</span> <span class="n">ppap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;キーorangeに対応する値 = &#39;</span><span class="p">,</span> <span class="n">ppap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+キーappleに対応する値 =  3
+キーorangeに対応する値 =  -1
+</pre></div></div>
+</div>
+</section>
+<section id="▲キーがない場合に登録を行う">
+<h3>▲キーがない場合に登録を行う<a class="headerlink" href="#▲キーがない場合に登録を行う" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">setdefault</span></code> メソッドは、 指定したキーが辞書に含まれてる場合には、対応する値を返します。 キーが含まれていない場合には、2番目の引数として指定した値を返すと同時に、キーに対応する値として登録します。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ppap</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;apple&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;pen&#39;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;キーappleに対応する値 = &#39;</span><span class="p">,</span> <span class="n">ppap</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;setdefault(&quot;apple&quot;, 7)を実行後の辞書 = &#39;</span><span class="p">,</span> <span class="n">ppap</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;キーorangeに対応する値 = &#39;</span><span class="p">,</span> <span class="n">ppap</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;setdefault(&quot;orange&quot;, 7)を実行後の辞書 = &#39;</span><span class="p">,</span> <span class="n">ppap</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+キーappleに対応する値 =  3
+setdefault(&#34;apple&#34;, 7)を実行後の辞書 =  {&#39;apple&#39;: 3, &#39;pen&#39;: 5}
+キーorangeに対応する値 =  7
+setdefault(&#34;orange&#34;, 7)を実行後の辞書 =  {&#39;apple&#39;: 3, &#39;pen&#39;: 5, &#39;orange&#39;: 7}
+</pre></div></div>
+</div>
+<p>上のような <code class="docutils literal notranslate"><span class="pre">setdefault</span></code> を用いた手続きを、<code class="docutils literal notranslate"><span class="pre">[...]</span></code> を用いて書き換えるとたとえば次のようになります。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ppap</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;apple&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;pen&#39;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+<span class="k">if</span> <span class="s1">&#39;apple&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ppap</span><span class="p">:</span>
+    <span class="n">ppap</span><span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;キーappleに対応する値 = &#39;</span><span class="p">,</span> <span class="n">ppap</span><span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;実行後の辞書 = &#39;</span><span class="p">,</span> <span class="n">ppap</span><span class="p">)</span>
+<span class="k">if</span> <span class="s1">&#39;orange&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ppap</span><span class="p">:</span>
+    <span class="n">ppap</span><span class="p">[</span><span class="s1">&#39;orange&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;キーorangeに対応する値 = &#39;</span><span class="p">,</span> <span class="n">ppap</span><span class="p">[</span><span class="s1">&#39;orange&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;実行後の辞書 = &#39;</span><span class="p">,</span> <span class="n">ppap</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+キーappleに対応する値 =  3
+実行後の辞書 =  {&#39;apple&#39;: 3, &#39;pen&#39;: 5}
+キーorangeに対応する値 =  7
+実行後の辞書 =  {&#39;apple&#39;: 3, &#39;pen&#39;: 5, &#39;orange&#39;: 7}
+</pre></div></div>
+</div>
+</section>
+<section id="▲キーを指定した削除">
+<h3>▲キーを指定した削除<a class="headerlink" href="#▲キーを指定した削除" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">pop</span></code> メソッドは指定したキーおよびそれに対応する値を削除し、削除されるキーに対応付けられた値を返します。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ppap</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;apple&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;pen&#39;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ppap</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;pen&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ppap</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+5
+{&#39;apple&#39;: 3}
+</pre></div></div>
+</div>
+</section>
+<section id="▲全てのキーと値の削除">
+<h3>▲全てのキーと値の削除<a class="headerlink" href="#▲全てのキーと値の削除" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">clear</span></code> メソッドは全てのキーと値を削除します。その結果、辞書は空となります。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ppap</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;apple&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;pen&#39;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+<span class="n">ppap</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="n">ppap</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{}
+</pre></div></div>
+</div>
+</section>
+<section id="キーの一覧を得る">
+<h3>キーの一覧を得る<a class="headerlink" href="#キーの一覧を得る" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">keys</span></code> メソッドはキーの一覧を返します。これはリストのようなものとして扱うことができ、 <code class="docutils literal notranslate"><span class="pre">for</span></code> ループと組み合わせて繰り返し処理で利用されます（3-2を参照してください）。 以下のように、<code class="docutils literal notranslate"><span class="pre">keys</span></code> メソッドが返した結果に関数 <code class="docutils literal notranslate"><span class="pre">list</span></code> を適用すると、 通常のリストになります。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ppap</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;apple&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;pen&#39;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">ppap</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;apple&#39;, &#39;pen&#39;]
+</pre></div></div>
+</div>
+</section>
+<section id="値の一覧を得る">
+<h3>値の一覧を得る<a class="headerlink" href="#値の一覧を得る" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">values</span></code> メソッドはキーに対応する全ての値の一覧を返します。これもリストのようなものとして扱うことができます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">list</span><span class="p">(</span><span class="n">ppap</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[3, 5]
+</pre></div></div>
+</div>
+</section>
+<section id="キーと値の一覧を得る">
+<h3>キーと値の一覧を得る<a class="headerlink" href="#キーと値の一覧を得る" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">items</span></code> メソッドはキーとそれに対応する値をタプルにした一覧を返します。 これもタプルを要素とするリストのようなものとして扱うことができ、forループなどで活用します（3-2を参照してください）。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">list</span><span class="p">(</span><span class="n">ppap</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(&#39;apple&#39;, 3), (&#39;pen&#39;, 5)]
+</pre></div></div>
+</div>
+</section>
+<section id="▲辞書を複製する">
+<h3>▲辞書を複製する<a class="headerlink" href="#▲辞書を複製する" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">copy</span></code> メソッドは辞書を複製します。リストの場合と同様に一方の辞書を変更してももう一方の辞書は影響を受けません。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ppap</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;apple&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;pen&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">}</span>
+<span class="n">ppap2</span> <span class="o">=</span> <span class="n">ppap</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">ppap</span><span class="p">[</span><span class="s1">&#39;banana&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ppap</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ppap2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;apple&#39;: 3, &#39;pen&#39;: 5, &#39;orange&#39;: 7, &#39;banana&#39;: 9}
+{&#39;apple&#39;: 3, &#39;pen&#39;: 5, &#39;orange&#39;: 7}
+</pre></div></div>
+</div>
+</section>
+<section id="▲-keys,-values,-items-の返値">
+<h3>▲ <code class="docutils literal notranslate"><span class="pre">keys</span></code>, <code class="docutils literal notranslate"><span class="pre">values</span></code>, <code class="docutils literal notranslate"><span class="pre">items</span></code> の返値<a class="headerlink" href="#▲-keys,-values,-items-の返値" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">keys</span></code>, <code class="docutils literal notranslate"><span class="pre">values</span></code>, <code class="docutils literal notranslate"><span class="pre">items</span></code> メソッドの一連の説明では、返値を「リストのようなもの」と表現してきました。 通常のリストとどう違うのでしょうか？</p>
+<p>次の例では、<code class="docutils literal notranslate"><span class="pre">ppap</span></code> の <code class="docutils literal notranslate"><span class="pre">keys</span></code>, <code class="docutils literal notranslate"><span class="pre">values</span></code>, <code class="docutils literal notranslate"><span class="pre">items</span></code> メソッドの返値をそれぞれ <code class="docutils literal notranslate"><span class="pre">ks</span></code>, <code class="docutils literal notranslate"><span class="pre">vs</span></code>, <code class="docutils literal notranslate"><span class="pre">itms</span></code> に代入し、 <code class="docutils literal notranslate"><span class="pre">print</span></code> でそれぞれの内容を表示させています。</p>
+<p>次いで、<code class="docutils literal notranslate"><span class="pre">ppap</span></code> に新たな要素を加えたのちに、同じ変数の内容を表示させています。 1, 2回目の <code class="docutils literal notranslate"><span class="pre">print</span></code> で内容が異なることに注意してください。 もとの辞書が更新されると、これらの内容も動的に変わります。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ppap</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;apple&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;pen&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">}</span>
+<span class="n">ks</span> <span class="o">=</span> <span class="n">ppap</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="n">vs</span> <span class="o">=</span> <span class="n">ppap</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+<span class="n">itms</span> <span class="o">=</span> <span class="n">ppap</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">ks</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">vs</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">itms</span><span class="p">))</span>
+<span class="n">ppap</span><span class="p">[</span><span class="s1">&#39;kiwi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">ks</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">vs</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">itms</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;apple&#39;, &#39;pen&#39;, &#39;orange&#39;]
+[3, 5, 7]
+[(&#39;apple&#39;, 3), (&#39;pen&#39;, 5), (&#39;orange&#39;, 7)]
+[&#39;apple&#39;, &#39;pen&#39;, &#39;orange&#39;, &#39;kiwi&#39;]
+[3, 5, 7, 9]
+[(&#39;apple&#39;, 3), (&#39;pen&#39;, 5), (&#39;orange&#39;, 7), (&#39;kiwi&#39;, 9)]
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="辞書とリスト">
+<h2>辞書とリスト<a class="headerlink" href="#辞書とリスト" title="Permalink to this headline">¶</a></h2>
+<p>冒頭で述べたように、辞書では値としてあらゆる型のデータを使用できます。 すなわち、次のように値としてリストを使用する辞書を作成可能です。 リストの要素を参照するには数字インデックスをさらに指定します。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;dozens&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span> <span class="s1">&#39;hundreds&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">140</span><span class="p">]}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="s1">&#39;dozens&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="s1">&#39;dozens&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[10, 20, 40]
+20
+</pre></div></div>
+</div>
+<p>逆に、辞書を要素とするリストを作成することもできます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ppap</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;apple&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;pen&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+<span class="n">pets</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cat&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;elephant&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">}</span>
+<span class="n">ld</span> <span class="o">=</span> <span class="p">[</span><span class="n">ppap</span><span class="p">,</span> <span class="n">pets</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ld</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ld</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;dog&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;cat&#39;: 3, &#39;dog&#39;: 3, &#39;elephant&#39;: 8}
+3
+</pre></div></div>
+</div>
+</section>
+<section id="id12">
+<h2>練習<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<p>辞書 <code class="docutils literal notranslate"><span class="pre">dic1</span></code> と文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> が引数として与えられたとき、 以下のように <code class="docutils literal notranslate"><span class="pre">dic1</span></code> を変更する関数 <code class="docutils literal notranslate"><span class="pre">handle_collision</span></code> を作成してください。 ただし、<code class="docutils literal notranslate"><span class="pre">dic1</span></code> のキーは整数、キーに対応する値は文字列を要素とするリストとします。</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dic1</span></code> に <code class="docutils literal notranslate"><span class="pre">str1</span></code> の長さ <code class="docutils literal notranslate"><span class="pre">n</span></code> がキーとして登録されていない場合、<code class="docutils literal notranslate"><span class="pre">str1</span></code> のみを要素とするリスト <code class="docutils literal notranslate"><span class="pre">ls</span></code> を作成し、 <code class="docutils literal notranslate"><span class="pre">dic1</span></code> にキー <code class="docutils literal notranslate"><span class="pre">n</span></code>、<code class="docutils literal notranslate"><span class="pre">n</span></code> に対応する値 <code class="docutils literal notranslate"><span class="pre">ls</span></code> を登録します。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dic1</span></code> に <code class="docutils literal notranslate"><span class="pre">str1</span></code> の長さ <code class="docutils literal notranslate"><span class="pre">n</span></code> がキーとして登録されている場合、そのキーに対応する値（リスト）に <code class="docutils literal notranslate"><span class="pre">str1</span></code> を追加します。</p></li>
+</ol>
+<p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて <code class="docutils literal notranslate"><span class="pre">handle_collision(dic1,</span> <span class="pre">str1)</span></code> を作成してください。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">handle_collision</span><span class="p">(</span><span class="n">dic1</span><span class="p">,</span> <span class="n">str1</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">dic1_orig</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;ham&#39;</span><span class="p">,</span> <span class="s1">&#39;egg&#39;</span><span class="p">],</span> <span class="mi">6</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;coffee&#39;</span><span class="p">,</span> <span class="s1">&#39;brandy&#39;</span><span class="p">],</span> <span class="mi">9</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;port wine&#39;</span><span class="p">],</span> <span class="mi">15</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;curried chicken&#39;</span><span class="p">]}</span>
+<span class="n">dic1_result</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;ham&#39;</span><span class="p">,</span> <span class="s1">&#39;egg&#39;</span><span class="p">,</span> <span class="s1">&#39;tea&#39;</span><span class="p">],</span> <span class="mi">6</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;coffee&#39;</span><span class="p">,</span> <span class="s1">&#39;brandy&#39;</span><span class="p">],</span> <span class="mi">9</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;port wine&#39;</span><span class="p">],</span> <span class="mi">15</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;curried chicken&#39;</span><span class="p">]}</span>
+<span class="n">handle_collision</span><span class="p">(</span><span class="n">dic1_orig</span><span class="p">,</span> <span class="s1">&#39;tea&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dic1_orig</span> <span class="o">==</span> <span class="n">dic1_result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+False
+</pre></div></div>
+</div>
+</section>
+<section id="練習の解答">
+<h2>練習の解答<a class="headerlink" href="#練習の解答" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">reverse_lookup</span><span class="p">(</span><span class="n">list1</span><span class="p">):</span>
+    <span class="n">dic1</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># 空の辞書を作成する</span>
+    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">list1</span><span class="p">:</span>
+        <span class="n">dic1</span><span class="p">[</span><span class="n">value</span><span class="p">]</span> <span class="o">=</span> <span class="n">list1</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dic1</span>
+<span class="c1">#reverse_lookup([&#39;apple&#39;, &#39;pen&#39;, &#39;orange&#39;])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">handle_collision</span><span class="p">(</span><span class="n">dic1</span><span class="p">,</span> <span class="n">str1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">dic1</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">str1</span><span class="p">))</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ls</span> <span class="o">=</span> <span class="p">[</span><span class="n">str1</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ls</span> <span class="o">=</span> <span class="n">dic1</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">str1</span><span class="p">)]</span>
+        <span class="n">ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">str1</span><span class="p">)</span>
+    <span class="n">dic1</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">str1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">ls</span>
+<span class="c1">#handle_collision({3: [&#39;ham&#39;, &#39;egg&#39;], 6: [&#39;coffee&#39;, &#39;brandy&#39;], 9: [&#39;port wine&#39;], 15: [&#39;curried chicken&#39;]}, &#39;tea&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Pythonプログラミング入門</a></h1>
+
+
+
+
+
+
+
+
+<p>
+  <a href="https://colab.research.google.com/github/utokyo-ipp/utokyo-ipp.github.io/blob/master/colab/3/3-1.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
+</p><h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-1.html">1-1. 数値演算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-2.html">1-2. 変数と関数の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-4.html">1-4. デバッグ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2/2-1.html">2-1. 文字列 (string)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2/2-2.html">2-2. リスト (list)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2/2-3.html">2-3. 条件分岐</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3-1. 辞書 (dictionary)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#練習">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#辞書のメソッド">辞書のメソッド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#辞書とリスト">辞書とリスト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#練習の解答">練習の解答</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3-2.html">3-2. 繰り返し</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3-3.html">3-3. 関数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4/4-1.html">4-1. ファイル入出力の基本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4/4-2.html">4-2. イテレータ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4/4-3.html">4-3. コンピュータにおけるファイルやディレクトリの配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5/5-1.html">5-1. モジュールの使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5/5-2.html">5-2. モジュールの作り方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5/5-3.html">5-3. NumPyライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6/6-1.html">6-1. 内包表記</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6/6-2.html">6-2. 高階関数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6/6-3.html">6-3. クラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7/7-1.html">7-1. pandasライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7/7-2.html">7-2. scikit-learnライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/1-jupyter-notebook.html">▲Jupyter Notebook の使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/2-set.html">▲セット (set)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/3-recursion.html">▲再帰</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/3-visualization.html">▲簡単なデータの可視化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/4-csv.html">▲CSVファイルの入出力</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/5-bokeh.html">▲Bokehライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/5-command.html">▲Pythonスクリプトとコマンドライン実行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/5-matplotlib.html">▲Matplotlibライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/5-re.html">▲正規表現</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index_of_terms.html">索引</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../2/2-3.html" title="previous chapter">2-3. 条件分岐</a></li>
+      <li>Next: <a href="3-2.html" title="next chapter">3-2. 繰り返し</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020–2021, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-159819977-1']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    
+  </body>
+</html>

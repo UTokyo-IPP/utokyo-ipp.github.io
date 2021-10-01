@@ -1,0 +1,1177 @@
+
+<!DOCTYPE html>
+
+<html lang="jp">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>6-2. 高階関数 &#8212; Pythonプログラミング入門  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6-3. クラス" href="6-3.html" />
+    <link rel="prev" title="6-1. 内包表記" href="6-1.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<section id="6-2.-高階関数">
+<h1>6-2. 高階関数<a class="headerlink" href="#6-2.-高階関数" title="Permalink to this headline">¶</a></h1>
+<p>Pythonにおける高階関数について説明します。</p>
+<p>参考</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/ja/3/howto/functional.html">https://docs.python.org/ja/3/howto/functional.html</a></p></li>
+</ul>
+<section id="max">
+<h2><code class="docutils literal notranslate"><span class="pre">max</span></code><a class="headerlink" href="#max" title="Permalink to this headline">¶</a></h2>
+<p>例として、関数 <code class="docutils literal notranslate"><span class="pre">max</span></code> について考察します。<code class="docutils literal notranslate"><span class="pre">max</span></code> は与えられたリストの要素のうち、最大のものを返します。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ls</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span>
+<span class="nb">max</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+7
+</pre></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">max</span></code> に <code class="docutils literal notranslate"><span class="pre">key</span></code> というキーワード引数として、たとえば関数 <code class="docutils literal notranslate"><span class="pre">abs</span></code> を与えることができます。 （キーワード引数について詳しくは、3-3を参照してください。）</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">max</span><span class="p">(</span><span class="n">ls</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">abs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+-8
+</pre></div></div>
+</div>
+<p>この場合、各要素に関数 <code class="docutils literal notranslate"><span class="pre">abs</span></code> が適用されて、その結果が最も大きい要素が返ります。 （各要素に <code class="docutils literal notranslate"><span class="pre">abs</span></code> 適用した結果の中の最大値が返るわけではないことに注意してください。） なお、<code class="docutils literal notranslate"><span class="pre">abs(x)</span></code> は <code class="docutils literal notranslate"><span class="pre">x</span></code> の絶対値を返します。</p>
+<p>この場合、<code class="docutils literal notranslate"><span class="pre">max</span></code> という関数は、関数を引数として受け取っています。</p>
+<p>一般に、関数を引数として受け取ったり返値として返したりする関数を<strong>高階関数</strong>といいます。</p>
+</section>
+<section id="sorted">
+<h2><code class="docutils literal notranslate"><span class="pre">sorted</span></code><a class="headerlink" href="#sorted" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">sorted</span></code> も高階関数で、<code class="docutils literal notranslate"><span class="pre">max</span></code> と同様に <code class="docutils literal notranslate"><span class="pre">key</span></code> というキーワード引数を取ります。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">sorted</span><span class="p">(</span><span class="n">ls</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">abs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[0, 1, 3, -5, 7, -8]
+</pre></div></div>
+</div>
+<p>このように、各要素に関数 <code class="docutils literal notranslate"><span class="pre">abs</span></code> を適用した結果によって、各要素をソートします。</p>
+<p>リストを降順にソートするには、次のような関数を用いればよいです。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">invert</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">sorted</span><span class="p">(</span><span class="n">ls</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">invert</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[7, 3, 1, 0, -5, -8]
+</pre></div></div>
+</div>
+<p>なお、リストを降順にソートするには、<code class="docutils literal notranslate"><span class="pre">reverse</span></code> というキーワード引数に <code class="docutils literal notranslate"><span class="pre">True</span></code> を指定するという方法もあります。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">sorted</span><span class="p">(</span><span class="n">ls</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[7, 3, 1, 0, -5, -8]
+</pre></div></div>
+</div>
+</section>
+<section id="ラムダ式">
+<h2>ラムダ式<a class="headerlink" href="#ラムダ式" title="Permalink to this headline">¶</a></h2>
+<p>上の <code class="docutils literal notranslate"><span class="pre">invert</span></code> のような簡単な関数の場合、 いちいち <code class="docutils literal notranslate"><span class="pre">def</span></code> で定義するのは面倒と思いませんか。</p>
+<p>そのようなときは、<code class="docutils literal notranslate"><span class="pre">lambda</span></code> を使った<strong>ラムダ式</strong>（または<strong>無名関数</strong>）を用いることができます。 上の例は、以下のように書くことができます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">sorted</span><span class="p">(</span><span class="n">ls</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[7, 3, 1, 0, -5, -8]
+</pre></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">x:</span> <span class="pre">-x</span></code> という式は、<code class="docutils literal notranslate"><span class="pre">x</span></code> をもらって <code class="docutils literal notranslate"><span class="pre">-x</span></code> を返す関数を表します。 <code class="docutils literal notranslate"><span class="pre">return</span></code> は書かないことに注意してください。</p>
+<p>さて、ここまで関数と呼んでいたものは、Pythonでは、オブジェクトの一種に他なりません。 実際に、<code class="docutils literal notranslate"><span class="pre">abs</span></code> や <code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">x:</span> <span class="pre">-x</span></code> という式の値を調べてみてください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">abs</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;function abs(x, /)&gt;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;function __main__.&lt;lambda&gt;(x)&gt;
+</pre></div></div>
+</div>
+<p>したがって、Pythonでは、関数を他の種類のデータ（数やリストや文字列など）と同様に、 関数の引数にしたり、リストの要素にしたり、することができます。</p>
+</section>
+<section id="リストからイテラブルへ">
+<h2>リストからイテラブルへ<a class="headerlink" href="#リストからイテラブルへ" title="Permalink to this headline">¶</a></h2>
+<p>以上の例では、<code class="docutils literal notranslate"><span class="pre">max</span></code> や <code class="docutils literal notranslate"><span class="pre">sorted</span></code> はリストを受け取っていましたが、 リストではなく、タプルでもいいですし、文字列でも構いません。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">max</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+7
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">sorted</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[-8, -5, 0, 1, 3, 7]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">max</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;w&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">sorted</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39; &#39;, &#39;d&#39;, &#39;e&#39;, &#39;h&#39;, &#39;l&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;, &#39;o&#39;, &#39;r&#39;, &#39;w&#39;]
+</pre></div></div>
+</div>
+<p>すなわち、<code class="docutils literal notranslate"><span class="pre">max</span></code> や <code class="docutils literal notranslate"><span class="pre">sorted</span></code> は、一般にイテラブルを引数に取ることができます。</p>
+<p>イテラブルについては4-2に説明がありましたが、 簡単に言うと、<strong>イテラブル</strong>とはfor文の <code class="docutils literal notranslate"><span class="pre">in</span></code> の後に来ることができるものです。 <code class="docutils literal notranslate"><span class="pre">max</span></code> や <code class="docutils literal notranslate"><span class="pre">sorted</span></code> は、イテラブルの各要素を次々と求めて、 その中の最大値を求めたり、整列した結果をリストとして返したりします。</p>
+<p>以下の例では、<code class="docutils literal notranslate"><span class="pre">max</span></code> にファイルオブジェクトが渡されます。 ファイルオブジェクトはイテレータですので、イテラブルでもあります。 ファイルオブジェクトをfor文の <code class="docutils literal notranslate"><span class="pre">in</span></code> の後に指定すると、 ファイルの各行が文字列として得られます。 以下の例では、<code class="docutils literal notranslate"><span class="pre">key</span></code> として関数 <code class="docutils literal notranslate"><span class="pre">len</span></code> が指定されていますので、 ファイルの中で最も長い行が表示されます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;jugemu.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+グーリンダイのポンポコピーのポンポコナーの、
+
+</pre></div></div>
+</div>
+<p>辞書もイテラブルです。<code class="docutils literal notranslate"><span class="pre">max</span></code> に辞書与えると、最大のキーが返ります。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">max</span><span class="p">({</span><span class="mi">3</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+9
+</pre></div></div>
+</div>
+</section>
+<section id="練習">
+<h2>練習<a class="headerlink" href="#練習" title="Permalink to this headline">¶</a></h2>
+<p>辞書 <code class="docutils literal notranslate"><span class="pre">d</span></code> が与えられたとき、 最大の値を持つキー（複数個ならばそのいずれか）を返す関数 <code class="docutils literal notranslate"><span class="pre">max_value_key(d)</span></code> を、 <code class="docutils literal notranslate"><span class="pre">max</span></code> を使って定義してください。</p>
+<p>ヒント：辞書 <code class="docutils literal notranslate"><span class="pre">d</span></code> のキー <code class="docutils literal notranslate"><span class="pre">k</span></code> に対して、<code class="docutils literal notranslate"><span class="pre">k</span></code> に対応する値を返す関数は <code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">k:</span> <span class="pre">d[k]</span></code> という式で表すことができます。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">max_value_key</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">max_value_key</span><span class="p">({</span><span class="mi">3</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+False
+</pre></div></div>
+</div>
+</section>
+<section id="map">
+<h2><code class="docutils literal notranslate"><span class="pre">map</span></code><a class="headerlink" href="#map" title="Permalink to this headline">¶</a></h2>
+<p>以下は内包表記の例です。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="p">[</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[3, 8, 1, 0, 7, 5]
+</pre></div></div>
+</div>
+<p>リストの各要素に関数 <code class="docutils literal notranslate"><span class="pre">abs</span></code> が適用された結果がリストになります。</p>
+<p>同様のことを、高階関数 <code class="docutils literal notranslate"><span class="pre">map</span></code> を用いて行うことができます。 関数 <code class="docutils literal notranslate"><span class="pre">map</span></code> は、2番目の引数としてイテラブルを取ります。1番目の引数は関数です。 例を見ましょう。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">map</span><span class="p">(</span><span class="nb">abs</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;map at 0x7fe150284640&gt;
+</pre></div></div>
+</div>
+<p>何が返ったか、よくわからないと思います。 以下のように、<code class="docutils literal notranslate"><span class="pre">map</span></code> の結果をfor文の <code class="docutils literal notranslate"><span class="pre">in</span></code> の後に指定してみましょう。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">map</span><span class="p">(</span><span class="nb">abs</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">]):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+3
+8
+1
+0
+7
+5
+</pre></div></div>
+</div>
+<p>すなわち、<code class="docutils literal notranslate"><span class="pre">map</span></code> が返すものは<strong>イテレータ</strong>です。 このイテレータは、2番目の引数のイテラブル（この例ではリスト）の各要素に 関数 <code class="docutils literal notranslate"><span class="pre">abs</span></code> を適用したものを、次々と返すようなイテレータです。</p>
+<p>内包表記を使えば、以下のようにリストにまとめることができます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">map</span><span class="p">(</span><span class="nb">abs</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">])]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[3, 8, 1, 0, 7, 5]
+</pre></div></div>
+</div>
+<p>関数 <code class="docutils literal notranslate"><span class="pre">list</span></code> をイテレータに適用してもよいです。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">abs</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[3, 8, 1, 0, 7, 5]
+</pre></div></div>
+</div>
+<p>しかし、これでは、イテレータがどのように動くのか、よくわからないと思います。</p>
+<p>以下では、呼ばれるたびにメッセージを出力する関数 <code class="docutils literal notranslate"><span class="pre">abs1</span></code> を用います。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">abs1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;abs called on&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">it</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">abs1</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<p>このように、<code class="docutils literal notranslate"><span class="pre">map</span></code> がイテレータを返した時点では、各要素に対する計算は何も行われません。</p>
+<p>このイテレータに <code class="docutils literal notranslate"><span class="pre">next</span></code> を適用するとどうなるか、見てください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+abs called on 3
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+3
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+abs called on -8
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+8
+</pre></div></div>
+</div>
+<p>関数 <code class="docutils literal notranslate"><span class="pre">next</span></code> が呼ばれるたびに、次の要素を求める計算が行われていることがわかります。</p>
+<p>イテレータはイテラブルですから、<code class="docutils literal notranslate"><span class="pre">map</span></code> の結果にさらに <code class="docutils literal notranslate"><span class="pre">map</span></code> を適用することができます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">map</span><span class="p">(</span><span class="nb">abs</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[4, 9, 2, 1, 8, 6]
+</pre></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">x:</span> <span class="pre">x+1</span></code> は、<code class="docutils literal notranslate"><span class="pre">x</span></code> をもらって <code class="docutils literal notranslate"><span class="pre">x+1</span></code> を返す関数です。 すなわち、引数に <code class="docutils literal notranslate"><span class="pre">1</span></code> を足した結果を返します。</p>
+<p>関数 <code class="docutils literal notranslate"><span class="pre">sum</span></code> は、<code class="docutils literal notranslate"><span class="pre">max</span></code> と同様に、イテラブルを受け取って、その要素の総和を返します。 したがって、<code class="docutils literal notranslate"><span class="pre">map</span></code> が返したイテレータに対しても適用できます。 （イテレータをリストに変換する必要はありません。）</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">sum</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">map</span><span class="p">(</span><span class="nb">abs</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+30
+</pre></div></div>
+</div>
+</section>
+<section id="id5">
+<h2>練習<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>数のリストが与えられたとき、その要素の絶対値の最大値を返す関数 <code class="docutils literal notranslate"><span class="pre">max_abs</span></code> を、 <code class="docutils literal notranslate"><span class="pre">map</span></code> と <code class="docutils literal notranslate"><span class="pre">max</span></code> を使って定義してください。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">max_abs</span><span class="p">(</span><span class="n">ln</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">max_abs</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">])</span> <span class="o">==</span> <span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+False
+</pre></div></div>
+</div>
+</section>
+<section id="filter">
+<h2><code class="docutils literal notranslate"><span class="pre">filter</span></code><a class="headerlink" href="#filter" title="Permalink to this headline">¶</a></h2>
+<p>関数 <code class="docutils literal notranslate"><span class="pre">filter</span></code> もイテラブルをもらってイテレータを返します。 最初の引数としては、真理値を返す関数を指定します。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">pos</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+<p>この関数 <code class="docutils literal notranslate"><span class="pre">pos</span></code> は、引数が正ならば <code class="docutils literal notranslate"><span class="pre">True</span></code>、そうでなければ <code class="docutils literal notranslate"><span class="pre">False</span></code> を返します。</p>
+<p>すると、以下のように、<code class="docutils literal notranslate"><span class="pre">filter</span></code> は <code class="docutils literal notranslate"><span class="pre">pos</span></code> を適用すると <code class="docutils literal notranslate"><span class="pre">True</span></code> が返る要素のみからなるイテレータを返します。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[3, 1, 7]
+</pre></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">filter</span></code> は、条件付き内包表記に対応しています。 同じ計算を以下のようにして行うことができます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span> <span class="k">if</span> <span class="n">pos</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[3, 1, 7]
+</pre></div></div>
+</div>
+</section>
+<section id="id6">
+<h2>練習<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>数のリスト <code class="docutils literal notranslate"><span class="pre">ln</span></code> と数 <code class="docutils literal notranslate"><span class="pre">n</span></code> を受け取って、<code class="docutils literal notranslate"><span class="pre">ln</span></code> の要素のうち、<code class="docutils literal notranslate"><span class="pre">n</span></code> より大きい個数を返す関数 <code class="docutils literal notranslate"><span class="pre">number_of_big_numbers(ln,</span> <span class="pre">n)</span></code> を、for文やwhile文を用いずに、<code class="docutils literal notranslate"><span class="pre">filter</span></code> を用いて定義してください。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">number_of_big_numbers</span><span class="p">(</span><span class="n">ln</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">number_of_big_numbers</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+False
+</pre></div></div>
+</div>
+</section>
+<section id="id7">
+<h2>練習<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>ファイル名 <code class="docutils literal notranslate"><span class="pre">file</span></code> と整数 <code class="docutils literal notranslate"><span class="pre">n</span></code> を受け取って、そのファイルをオープンし、 （改行文字も含めて）長さが <code class="docutils literal notranslate"><span class="pre">n</span></code> より長い行の数を返す関数 <code class="docutils literal notranslate"><span class="pre">number_of_long_lines(file,n)</span></code> を定義してください。 （ファイルは <code class="docutils literal notranslate"><span class="pre">encoding='utf-8'</span></code> でオープンしてください。）</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">number_of_long_lines</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<p>上のセルで解答を作成した後、以下のセルを実行し、実行結果が <code class="docutils literal notranslate"><span class="pre">True</span></code> になることを確認してください。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">number_of_long_lines</span><span class="p">(</span><span class="s1">&#39;jugemu.txt&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+False
+</pre></div></div>
+</div>
+</section>
+<section id="練習の解答">
+<h2>練習の解答<a class="headerlink" href="#練習の解答" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">max_value_key</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">max_abs</span><span class="p">(</span><span class="n">ln</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">abs</span><span class="p">,</span> <span class="n">ln</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">number_of_big_numbers</span><span class="p">(</span><span class="n">ln</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">&gt;</span><span class="n">n</span><span class="p">,</span> <span class="n">ln</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">number_of_long_lines</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&gt;</span><span class="n">n</span><span class="p">,</span> <span class="n">f</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Pythonプログラミング入門</a></h1>
+
+
+
+
+
+
+
+
+<p>
+  <a href="https://colab.research.google.com/github/utokyo-ipp/utokyo-ipp.github.io/blob/master/colab/6/6-2.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
+</p><h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-1.html">1-1. 数値演算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-2.html">1-2. 変数と関数の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-4.html">1-4. デバッグ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2/2-1.html">2-1. 文字列 (string)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2/2-2.html">2-2. リスト (list)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2/2-3.html">2-3. 条件分岐</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3/3-1.html">3-1. 辞書 (dictionary)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3/3-2.html">3-2. 繰り返し</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3/3-3.html">3-3. 関数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4/4-1.html">4-1. ファイル入出力の基本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4/4-2.html">4-2. イテレータ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4/4-3.html">4-3. コンピュータにおけるファイルやディレクトリの配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5/5-1.html">5-1. モジュールの使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5/5-2.html">5-2. モジュールの作り方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5/5-3.html">5-3. NumPyライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6-1.html">6-1. 内包表記</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6-2. 高階関数</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#max"><code class="docutils literal notranslate"><span class="pre">max</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sorted"><code class="docutils literal notranslate"><span class="pre">sorted</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ラムダ式">ラムダ式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#リストからイテラブルへ">リストからイテラブルへ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#練習">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#map"><code class="docutils literal notranslate"><span class="pre">map</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#filter"><code class="docutils literal notranslate"><span class="pre">filter</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#練習の解答">練習の解答</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6-3.html">6-3. クラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7/7-1.html">7-1. pandasライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7/7-2.html">7-2. scikit-learnライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/1-jupyter-notebook.html">▲Jupyter Notebook の使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/2-set.html">▲セット (set)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/3-recursion.html">▲再帰</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/3-visualization.html">▲簡単なデータの可視化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/4-csv.html">▲CSVファイルの入出力</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/5-bokeh.html">▲Bokehライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/5-command.html">▲Pythonスクリプトとコマンドライン実行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/5-matplotlib.html">▲Matplotlibライブラリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/5-re.html">▲正規表現</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index_of_terms.html">索引</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="6-1.html" title="previous chapter">6-1. 内包表記</a></li>
+      <li>Next: <a href="6-3.html" title="next chapter">6-3. クラス</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020–2021, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-159819977-1']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    
+  </body>
+</html>
