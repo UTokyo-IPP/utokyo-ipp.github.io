@@ -4,7 +4,7 @@
 <html lang="jp">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>7-1. pandasライブラリ &#8212; Pythonプログラミング入門  documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -14,8 +14,8 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="7-2. scikit-learnライブラリ" href="7-2.html" />
@@ -246,7 +246,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
@@ -298,8 +298,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
@@ -316,8 +315,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># リストからシリーズの作成</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># リストからシリーズの作成</span>
 <span class="n">s1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span>
 
@@ -340,9 +338,9 @@ div.rendered_html tbody tr:hover {
 1    1
 2    2
 dtype: int64
-0    0.497546
-1    0.827843
-2    0.235934
+0    0.155919
+1    0.040590
+2    0.842579
 dtype: float64
 0    boo
 1    foo
@@ -359,8 +357,7 @@ dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># 多次元リストからデータフレームの作成</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 多次元リストからデータフレームの作成</span>
 <span class="n">d1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">],[</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">]],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;c1&#39;</span><span class="p">,</span><span class="s1">&#39;c2&#39;</span><span class="p">,</span><span class="s1">&#39;c3&#39;</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">d1</span><span class="p">)</span>
 
@@ -385,10 +382,10 @@ dtype: object
 12   6   7   8
 13   9  10  11
          c1        c2        c3
-0  0.131654  0.072735  0.346133
-1  0.196040  0.786149  0.814613
-2  0.659657  0.509595  0.699008
-3  0.839516  0.646008  0.228299
+0  0.399834  0.712746  0.428730
+1  0.918278  0.579665  0.437314
+2  0.686534  0.361645  0.692042
+3  0.284798  0.081365  0.630376
   Name Initial
 0  boo       B
 1  foo       F
@@ -411,8 +408,7 @@ dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># CSVファイルの読み込み</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># CSVファイルの読み込み</span>
 <span class="n">iris_d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;iris.csv&#39;</span><span class="p">)</span>
 
 <span class="c1"># 先頭10行のデータを表示</span>
@@ -540,8 +536,7 @@ dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">iris_d</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="c1">#インデックスの情報</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">iris_d</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="c1">#インデックスの情報</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">iris_d</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="c1">#インデックスの長さ</span>
 </pre></div>
 </div>
@@ -571,8 +566,7 @@ RangeIndex(start=0, stop=150, step=1)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># データフレームの先頭5行のデータ</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># データフレームの先頭5行のデータ</span>
 <span class="n">iris_d</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -656,8 +650,7 @@ RangeIndex(start=0, stop=150, step=1)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># データフレームの終端5行のデータ</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># データフレームの終端5行のデータ</span>
 <span class="n">iris_d</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span>
 </pre></div>
 </div>
@@ -742,8 +735,7 @@ RangeIndex(start=0, stop=150, step=1)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># データフレームの&#39;species&#39;の列の先頭10行のデータ</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># データフレームの&#39;species&#39;の列の先頭10行のデータ</span>
 <span class="n">iris_d</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -772,8 +764,7 @@ Name: species, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># データフレームの&#39;sepal_length&#39;とspecies&#39;の列の先頭10行のデータ</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># データフレームの&#39;sepal_length&#39;とspecies&#39;の列の先頭10行のデータ</span>
 <span class="n">iris_d</span><span class="p">[[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span><span class="s1">&#39;species&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -867,8 +858,7 @@ Name: species, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># データフレームの2行のデータ</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># データフレームの2行のデータ</span>
 <span class="n">iris_d</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -880,7 +870,7 @@ Name: species, dtype: object
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 sepal_length       4.9
-sepal_width        3.0
+sepal_width          3
 petal_length       1.4
 petal_width        0.2
 species         setosa
@@ -891,8 +881,7 @@ Name: 1, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># データフレームの2行,2列目のデータ</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># データフレームの2行,2列目のデータ</span>
 <span class="n">iris_d</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -910,8 +899,7 @@ Name: 1, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># データフレームの1から5行目と1から2列目のデータ</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># データフレームの1から5行目と1から2列目のデータ</span>
 <span class="n">iris_d</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -978,8 +966,7 @@ Name: 1, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># データフレームの行インデックス5のデータ</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># データフレームの行インデックス5のデータ</span>
 <span class="n">iris_d</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1002,8 +989,7 @@ Name: 5, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># データフレームの行インデックス5と&#39;sepal_length&#39;と列のデータ</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># データフレームの行インデックス5と&#39;sepal_length&#39;と列のデータ</span>
 <span class="n">iris_d</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;sepal_length&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1021,8 +1007,7 @@ Name: 5, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># データフレームの行インデックス1から5と&#39;sepal_length&#39;とspecies&#39;の列のデータ</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># データフレームの行インデックス1から5と&#39;sepal_length&#39;とspecies&#39;の列のデータ</span>
 <span class="n">iris_d</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span><span class="s1">&#39;species&#39;</span><span class="p">]]</span>
 </pre></div>
 </div>
@@ -1093,8 +1078,7 @@ Name: 5, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># データフレームの&#39;sepal_length&#39;列の値が7より大きく、&#39;species&#39;列の値が3より小さいデータ</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># データフレームの&#39;sepal_length&#39;列の値が7より大きく、&#39;species&#39;列の値が3より小さいデータ</span>
 <span class="n">iris_d</span><span class="p">[(</span><span class="n">iris_d</span><span class="p">[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">7.0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">iris_d</span><span class="p">[</span><span class="s1">&#39;sepal_width&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">3.0</span><span class="p">)]</span>
 </pre></div>
 </div>
@@ -1174,8 +1158,7 @@ Name: 5, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># データフレームに&#39;mycolumn&#39;という列を追加</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># データフレームに&#39;mycolumn&#39;という列を追加</span>
 <span class="n">iris_d</span><span class="p">[</span><span class="s1">&#39;mycolumn&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">iris_d</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
 <span class="n">iris_d</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
@@ -1220,7 +1203,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.528410</td>
+      <td>0.344553</td>
     </tr>
     <tr>
       <th>1</th>
@@ -1229,7 +1212,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.823552</td>
+      <td>0.414366</td>
     </tr>
     <tr>
       <th>2</th>
@@ -1238,7 +1221,7 @@ Name: 5, dtype: object
       <td>1.3</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.597608</td>
+      <td>0.548023</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1247,7 +1230,7 @@ Name: 5, dtype: object
       <td>1.5</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.167526</td>
+      <td>0.908320</td>
     </tr>
     <tr>
       <th>4</th>
@@ -1256,7 +1239,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.085407</td>
+      <td>0.963215</td>
     </tr>
     <tr>
       <th>5</th>
@@ -1265,7 +1248,7 @@ Name: 5, dtype: object
       <td>1.7</td>
       <td>0.4</td>
       <td>setosa</td>
-      <td>0.969533</td>
+      <td>0.899296</td>
     </tr>
     <tr>
       <th>6</th>
@@ -1274,7 +1257,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.3</td>
       <td>setosa</td>
-      <td>0.386900</td>
+      <td>0.908529</td>
     </tr>
     <tr>
       <th>7</th>
@@ -1283,7 +1266,7 @@ Name: 5, dtype: object
       <td>1.5</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.673742</td>
+      <td>0.133910</td>
     </tr>
     <tr>
       <th>8</th>
@@ -1292,7 +1275,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.587866</td>
+      <td>0.300779</td>
     </tr>
     <tr>
       <th>9</th>
@@ -1301,7 +1284,7 @@ Name: 5, dtype: object
       <td>1.5</td>
       <td>0.1</td>
       <td>setosa</td>
-      <td>0.710872</td>
+      <td>0.041093</td>
     </tr>
   </tbody>
 </table>
@@ -1312,8 +1295,7 @@ Name: 5, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># データフレームから&#39;mycolumn&#39;という列を削除</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># データフレームから&#39;mycolumn&#39;という列を削除</span>
 <span class="k">del</span> <span class="n">iris_d</span><span class="p">[</span><span class="s1">&#39;mycolumn&#39;</span><span class="p">]</span>
 <span class="n">iris_d</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
@@ -1439,8 +1421,7 @@ Name: 5, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># データフレームに&#39;mycolumn&#39;という列を追加し新しいデータフレームを作成</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># データフレームに&#39;mycolumn&#39;という列を追加し新しいデータフレームを作成</span>
 <span class="n">myiris1</span> <span class="o">=</span> <span class="n">iris_d</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">mycolumn</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">iris_d</span><span class="o">.</span><span class="n">index</span><span class="p">)))</span>
 <span class="n">myiris1</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
@@ -1485,7 +1466,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.633680</td>
+      <td>0.236054</td>
     </tr>
     <tr>
       <th>1</th>
@@ -1494,7 +1475,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.784844</td>
+      <td>0.262237</td>
     </tr>
     <tr>
       <th>2</th>
@@ -1503,7 +1484,7 @@ Name: 5, dtype: object
       <td>1.3</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.103943</td>
+      <td>0.337256</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1512,7 +1493,7 @@ Name: 5, dtype: object
       <td>1.5</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.441457</td>
+      <td>0.475727</td>
     </tr>
     <tr>
       <th>4</th>
@@ -1521,7 +1502,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.242773</td>
+      <td>0.204825</td>
     </tr>
   </tbody>
 </table>
@@ -1532,8 +1513,7 @@ Name: 5, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># データフレームから&#39;mycolumn&#39;という列を削除し、新しいデータフレームを作成</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># データフレームから&#39;mycolumn&#39;という列を削除し、新しいデータフレームを作成</span>
 <span class="n">myiris2</span> <span class="o">=</span> <span class="n">myiris1</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;mycolumn&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">myiris2</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
@@ -1622,8 +1602,7 @@ Name: 5, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># 追加する行のデータフレーム</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 追加する行のデータフレーム</span>
 <span class="n">row</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;setosa&#39;</span><span class="p">]],</span> <span class="n">columns</span><span class="o">=</span><span class="n">iris_d</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 
 <span class="c1"># データフレームに行を追加し新しいデータフレームを作成</span>
@@ -1688,8 +1667,7 @@ Name: 5, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># データフレームから行インデックス150の行を削除し、新しいデータフレームを作成</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># データフレームから行インデックス150の行を削除し、新しいデータフレームを作成</span>
 <span class="n">myiris4</span> <span class="o">=</span> <span class="n">myiris4</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span>
 <span class="n">myiris4</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
 </pre></div>
@@ -1754,8 +1732,7 @@ Name: 5, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># iris_dデータフレームの4つ列の値に基づいて昇順にソート</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># iris_dデータフレームの4つ列の値に基づいて昇順にソート</span>
 <span class="n">sorted_iris</span> <span class="o">=</span> <span class="n">iris_d</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal_width&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_width&#39;</span><span class="p">])</span>
 <span class="n">sorted_iris</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
@@ -1881,8 +1858,7 @@ Name: 5, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># iris_dデータフレームの4つ列の値に基づいて降順にソート</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># iris_dデータフレームの4つ列の値に基づいて降順にソート</span>
 <span class="n">sorted_iris</span> <span class="o">=</span> <span class="n">iris_d</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal_width&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_width&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">sorted_iris</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
@@ -2012,8 +1988,7 @@ Name: 5, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># iris_dデータフレームの各数値列の要約統計量を表示</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># iris_dデータフレームの各数値列の要約統計量を表示</span>
 <span class="n">iris_d</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -2116,8 +2091,7 @@ Name: 5, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># iris_dデータフレームの先頭5行と最終5行を連結</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># iris_dデータフレームの先頭5行と最終5行を連結</span>
 <span class="n">concat_iris</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">iris_d</span><span class="p">[:</span><span class="mi">5</span><span class="p">],</span><span class="n">iris_d</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]])</span>
 <span class="n">concat_iris</span>
 </pre></div>
@@ -2243,8 +2217,7 @@ Name: 5, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># iris_dデータフレームの&#39;sepal_length&#39;列と&#39;species&#39;列を連結</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># iris_dデータフレームの&#39;sepal_length&#39;列と&#39;species&#39;列を連結</span>
 <span class="n">sepal_len</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">iris_d</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">]],</span><span class="n">iris_d</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">sepal_len</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
@@ -2340,8 +2313,7 @@ Name: 5, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># &#39;sepal_length&#39;と&#39;species&#39;列からなる3行のデータ</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># &#39;sepal_length&#39;と&#39;species&#39;列からなる3行のデータ</span>
 <span class="n">sepal_len</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">iris_d</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">51</span><span class="p">,</span><span class="mi">101</span><span class="p">],[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">]],</span><span class="n">iris_d</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">51</span><span class="p">,</span><span class="mi">101</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># &#39;sepal_width&#39;と&#39;species&#39;列からなる3行のデータ</span>
 <span class="n">sepal_wid</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">iris_d</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">51</span><span class="p">,</span><span class="mi">101</span><span class="p">],[</span><span class="s1">&#39;sepal_width&#39;</span><span class="p">]],</span><span class="n">iris_d</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">51</span><span class="p">,</span><span class="mi">101</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -2411,8 +2383,7 @@ Name: 5, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># iris_dデータフレームの&#39;species&#39;の値で行をグループ化</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># iris_dデータフレームの&#39;species&#39;の値で行をグループ化</span>
 <span class="n">iris_d</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2423,15 +2394,14 @@ Name: 5, dtype: object
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7fea47d1dd60&gt;
+&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7fad82476130&gt;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># グループごとの先頭5行を表示</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># グループごとの先頭5行を表示</span>
 <span class="n">iris_d</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2595,8 +2565,7 @@ Name: 5, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># グループごとの&#39;sepal_length&#39;列,&#39;sepal_width&#39;列の値の平均を表示</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># グループごとの&#39;sepal_length&#39;列,&#39;sepal_width&#39;列の値の平均を表示</span>
 <span class="n">iris_d</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">)[[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span><span class="s1">&#39;sepal_width&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -2679,14 +2648,16 @@ Name: 5, dtype: object
 
 
 <p>
-  <a href="https://colab.research.google.com/github/utokyo-ipp/utokyo-ipp.github.io/blob/master/colab/7/7-1.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
+  <a style="font-family: sans-serif; font-size: smaller; background: linear-gradient(to top, #353535 0%, #141414 100%); -webkit-font-smoothing: antialiased; font-weight: normal; text-shadow: rgb(0 0 0 / 40%) 0 -1px 0; padding: 2px 6px; color: #fff; text-decoration: none; border-radius: 4px; border: 1px solid #0d0d0d; box-shadow: inset 0 1px 1px 0 #8f8f8f;" href="https://github.com/utokyo-ipp/utokyo-ipp.github.io">View on GitHub</a>
+</p><p>
+  <a style="border-bottom: none;" href="https://colab.research.google.com/github/utokyo-ipp/utokyo-ipp.github.io/blob/master/colab/7/7-1.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
 </p><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-1.html">1-1. 数値演算</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-2.html">1-2. 変数と関数の基礎</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../1/1-4.html">1-4. デバッグ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-4.html">1-4. テストとデバッグ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2/2-1.html">2-1. 文字列 (string)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2/2-2.html">2-2. リスト (list)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2/2-3.html">2-3. 条件分岐</a></li>
@@ -2764,10 +2735,10 @@ Name: 5, dtype: object
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020–2021, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      &copy;2020–2022, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

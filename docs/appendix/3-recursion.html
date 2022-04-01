@@ -4,7 +4,7 @@
 <html lang="jp">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>▲再帰 &#8212; Pythonプログラミング入門  documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -14,8 +14,8 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="▲簡単なデータの可視化" href="3-visualization.html" />
@@ -246,7 +246,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
@@ -303,8 +303,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># 入力の文字列の接頭辞リストを返す関数prefixes</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 入力の文字列の接頭辞リストを返す関数prefixes</span>
 <span class="k">def</span> <span class="nf">prefixes</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">[]</span>
@@ -328,8 +327,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># 入力の文字列の接尾辞リストを返す関数suffixes</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 入力の文字列の接尾辞リストを返す関数suffixes</span>
 <span class="k">def</span> <span class="nf">suffixes</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">[]</span>
@@ -356,8 +354,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># 入力の底baseと冪指数exptからべき乗を計算する関数power</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 入力の底baseと冪指数exptからべき乗を計算する関数power</span>
 <span class="k">def</span> <span class="nf">power</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">expt</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">expt</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="c1"># exptが0ならば1を返す</span>
@@ -385,8 +382,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># べき乗の計算を繰り返し処理で行った例</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># べき乗の計算を繰り返し処理で行った例</span>
 <span class="k">def</span> <span class="nf">power</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">expt</span><span class="p">):</span>
     <span class="n">e</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">expt</span><span class="p">):</span>
@@ -411,8 +407,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># べき乗を計算する高速なアルゴリズム</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># べき乗を計算する高速なアルゴリズム</span>
 <span class="k">def</span> <span class="nf">power</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">expt</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">expt</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">1</span>
@@ -442,8 +437,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># マージソートを行い、比較回数 n を返す</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># マージソートを行い、比較回数 n を返す</span>
 <span class="k">def</span> <span class="nf">merge_sort_rec</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">work</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">if</span> <span class="n">r</span> <span class="o">-</span> <span class="n">l</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
@@ -489,8 +483,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">random</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
 <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)]</span>
 <span class="n">merge_sort</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
@@ -502,15 +495,14 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-536
+546
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">a</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span>
 </pre></div>
 </div>
 </div>
@@ -520,114 +512,113 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[67,
- 251,
- 307,
- 492,
- 645,
- 825,
- 1001,
- 1038,
- 1084,
- 1167,
- 1282,
- 1291,
- 1318,
- 1431,
- 1467,
- 1468,
- 1504,
- 1554,
- 1703,
- 1769,
- 1780,
- 1785,
- 2066,
- 2075,
- 2112,
- 2239,
- 2366,
- 2771,
- 2858,
- 2873,
- 3175,
- 3352,
- 3555,
- 3767,
- 3770,
- 3940,
- 4000,
- 4023,
- 4286,
- 4410,
- 4423,
- 4435,
- 4623,
- 4790,
- 4887,
- 4989,
- 5097,
- 5213,
- 5214,
- 5237,
- 5308,
- 5415,
- 5489,
- 5748,
- 5771,
- 5916,
- 6109,
- 6290,
- 6388,
- 6393,
- 6442,
- 6582,
- 6704,
- 6885,
- 6895,
- 6922,
- 6924,
- 6965,
- 7020,
- 7116,
- 7139,
- 7176,
- 7182,
- 7343,
- 7349,
- 7370,
- 7572,
- 7816,
- 7882,
- 8268,
- 8311,
- 8547,
- 8552,
- 8625,
- 8714,
- 8809,
- 8842,
- 9029,
- 9075,
- 9190,
- 9344,
- 9486,
- 9579,
- 9586,
- 9600,
- 9701,
- 9723,
- 9815,
- 9865,
- 9933]
+[29,
+ 388,
+ 480,
+ 504,
+ 608,
+ 630,
+ 687,
+ 736,
+ 760,
+ 898,
+ 1002,
+ 1040,
+ 1102,
+ 1181,
+ 1205,
+ 1311,
+ 1337,
+ 1396,
+ 1888,
+ 1948,
+ 2244,
+ 2269,
+ 2320,
+ 2387,
+ 2425,
+ 2437,
+ 2626,
+ 2863,
+ 2913,
+ 2947,
+ 2959,
+ 3223,
+ 3325,
+ 3408,
+ 3479,
+ 3559,
+ 3577,
+ 3620,
+ 3787,
+ 3846,
+ 3873,
+ 3887,
+ 3918,
+ 4217,
+ 4222,
+ 4279,
+ 4298,
+ 4528,
+ 4535,
+ 4577,
+ 4596,
+ 4605,
+ 4701,
+ 4701,
+ 4757,
+ 4875,
+ 5031,
+ 5483,
+ 5589,
+ 5729,
+ 5868,
+ 6011,
+ 6129,
+ 6147,
+ 6325,
+ 6342,
+ 6697,
+ 6773,
+ 6800,
+ 6839,
+ 6925,
+ 7120,
+ 7166,
+ 7195,
+ 7224,
+ 7406,
+ 7547,
+ 7633,
+ 7817,
+ 7963,
+ 7976,
+ 8387,
+ 8461,
+ 8624,
+ 8707,
+ 8748,
+ 9154,
+ 9393,
+ 9480,
+ 9483,
+ 9542,
+ 9608,
+ 9650,
+ 9688,
+ 9747,
+ 9799,
+ 9808,
+ 9830,
+ 9836,
+ 9879]
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -651,14 +642,16 @@ div.rendered_html tbody tr:hover {
 
 
 <p>
-  <a href="https://colab.research.google.com/github/utokyo-ipp/utokyo-ipp.github.io/blob/master/colab/appendix/3-recursion.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
+  <a style="font-family: sans-serif; font-size: smaller; background: linear-gradient(to top, #353535 0%, #141414 100%); -webkit-font-smoothing: antialiased; font-weight: normal; text-shadow: rgb(0 0 0 / 40%) 0 -1px 0; padding: 2px 6px; color: #fff; text-decoration: none; border-radius: 4px; border: 1px solid #0d0d0d; box-shadow: inset 0 1px 1px 0 #8f8f8f;" href="https://github.com/utokyo-ipp/utokyo-ipp.github.io">View on GitHub</a>
+</p><p>
+  <a style="border-bottom: none;" href="https://colab.research.google.com/github/utokyo-ipp/utokyo-ipp.github.io/blob/master/colab/appendix/3-recursion.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
 </p><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-1.html">1-1. 数値演算</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-2.html">1-2. 変数と関数の基礎</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../1/1-4.html">1-4. デバッグ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-4.html">1-4. テストとデバッグ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2/2-1.html">2-1. 文字列 (string)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2/2-2.html">2-2. リスト (list)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2/2-3.html">2-3. 条件分岐</a></li>
@@ -725,10 +718,10 @@ div.rendered_html tbody tr:hover {
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020–2021, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      &copy;2020–2022, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

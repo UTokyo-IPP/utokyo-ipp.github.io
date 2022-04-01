@@ -4,7 +4,7 @@
 <html lang="jp">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>4-3. コンピュータにおけるファイルやディレクトリの配置 &#8212; Pythonプログラミング入門  documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -14,8 +14,8 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="5-1. モジュールの使い方" href="../5/5-1.html" />
@@ -246,7 +246,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
@@ -296,42 +296,36 @@ div.rendered_html tbody tr:hover {
 <p>また、一番根っこにあたるデータを「ルート（根）」、先端にあたるデータを「リーフ（葉）」、その間にあるデータを「ノード（節）」と呼びます。</p>
 <p><img alt="fig/jupyterTreeIllust.png" src="../_images/jupyterTreeIllust.png" /></p>
 <p>データの保存においては、ファイルはリーフ（葉）に相当し、フォルダはノード（節）に相当します。 ルートはハードディスクやUSBメモリなど記録媒体自体に対応することが多いです。 ハードディスクに入っているファイルと、USBメモリに入っているファイルは、それぞれ違う木に属するデータということです。</p>
-<section id="カレントディレクトリ">
-<h2>カレントディレクトリ<a class="headerlink" href="#カレントディレクトリ" title="Permalink to this headline">¶</a></h2>
-<p>4-1で <code class="docutils literal notranslate"><span class="pre">sample.txt</span></code> という名前のファイルをオープンするときに、以下のように書きました。</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>f = open(&#39;sample.txt&#39;, &#39;r&#39;)
-</pre></div>
-</div>
-<p>このとき、この <code class="docutils literal notranslate"><span class="pre">sample.txt</span></code> というファイルはどこにあるのでしょうか？</p>
-<p>実は、プログラムを実行するときは、どこかのディレクトリを<strong>カレントディレクトリ</strong>としています。 Jupyter Notebook では、そのノートブックが置かれているディレクトリをカレントディレクトリとします。 Colaboratoryでも同様です。</p>
-<p><code class="docutils literal notranslate"><span class="pre">sample.txt</span></code> が、このノートブックと同じディレクトリの中に置かれているならば（実際、置かれています）、 上のようにして <code class="docutils literal notranslate"><span class="pre">sample.txt</span></code> を開くことができました。</p>
-<p>一方、<code class="docutils literal notranslate"><span class="pre">novel.txt</span></code> はこのノートブックと同じフォルダではなく、そこに置かれた <code class="docutils literal notranslate"><span class="pre">text</span></code> という名前のフォルダの中に 置かれているファイルです。 ですから、そのままファイル名だけを指定して開こうとすると以下のようにエラーが出て、ファイルのオープンに失敗します。</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>f = open(&#39;novel.txt&#39;, &#39;r&#39;, encoding=&#39;utf-8&#39;)
-</pre></div>
-</div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
-FileNotFoundError                         Traceback (most recent call last)
-&lt;ipython-input-1-6094f6eff0eb&gt; in &lt;module&gt;
-----&gt; 1 f = open(&#39;novel.txt&#39;, &#39;r&#39;, encoding=&#39;utf-8&#39;)
-
-FileNotFoundError: [Errno 2] No such file or directory: &#39;novel.txt&#39;
-</pre></div>
-</div>
-<p>ではどうやったら「カレントディレクトリの下の <code class="docutils literal notranslate"><span class="pre">text</span></code> の下」にある「<code class="docutils literal notranslate"><span class="pre">novel.txt</span></code>」を開けるのでしょうか？</p>
-<p>これは次のように行います。</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>f = open(&#39;text/novel.txt&#39;, &#39;r&#39;, encoding=&#39;utf-8&#39;)
-</pre></div>
-</div>
-<p>このようにすることによって、「カレントディレクトリの下の <code class="docutils literal notranslate"><span class="pre">text</span></code> の下にある <code class="docutils literal notranslate"><span class="pre">novel.txt</span></code> を開いてください」と指示することができます。</p>
-<p>これは、カレントディレクトリから「<code class="docutils literal notranslate"><span class="pre">novel.txt</span></code>」までの経路（行き方）を表したものなので<strong>パス</strong>とも呼びます。</p>
+<p>特にファイルの場所を意味するとき、フォルダのことを<strong>ディレクトリ</strong>と呼びます。</p>
+<section id="カレントワーキングディレクトリ">
+<h2>カレントワーキングディレクトリ<a class="headerlink" href="#カレントワーキングディレクトリ" title="Permalink to this headline">¶</a></h2>
+<p>プログラムは、必ずどこかのディレクトリで動いています。 このプログラムが動作しているディレクトリのことを、<strong>ワーキングディレクトリ</strong>（もしくは<strong>作業ディレクトリ</strong>）と呼びます。 通例、特にWindowsやmacOSでは、何らかのファイルをクリックしてアプリケーションが起動したとき、その開いたファイルのある場所がワーキングディレクトリになります。</p>
+<p>ワーキングディレクトリは、プログラムの実行中に変更できます。 Python上では <a class="reference external" href="https://docs.python.org/ja/3/library/os.html#os.chdir">os.chdir</a> を使うことで変更できます。</p>
+<p>プログラム実行中の現在のワーキングディレクトリのことを、<strong>カレントワーキングディレクトリ</strong>、もしくは単に<strong>カレントディレクトリ</strong>と呼びます。 カレントディレクトリは頻繁に利用するので、 <code class="docutils literal notranslate"><span class="pre">.</span></code> という特別な記号によって表現できます。 ## パス</p>
+<p>カレントディレクトリに置かれているファイルは、ファイル名を指定するだけで開くことができます。 だから、4-1で示したように、カレントディレクトリにある <code class="docutils literal notranslate"><span class="pre">sample.txt</span></code> は、ファイル名を指定するだけで開けます。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;text/novel.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;sample.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;_io.TextIOWrapper name=&#39;sample.txt&#39; mode=&#39;r&#39; encoding=&#39;utf-8&#39;&gt;
+</pre></div></div>
+</div>
+<p>一方、それ以外の場所にあるファイルについては、そのファイルのディレクトリまで含めて指定しなければ、開くことができません。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;novel.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -340,47 +334,99 @@ FileNotFoundError: [Errno 2] No such file or directory: &#39;novel.txt&#39;
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-二人の若い紳士が、すつかりイギリスの兵隊のかたちをして、ぴか／＼する鉄砲をかついで、白熊のやうな犬を二疋つれて、だいぶ山奥の、木の葉のかさ／＼したとこを、こんなことを云ひながら、あるいてをりました。
-「ぜんたい、こゝらの山は怪しからんね。鳥も獣も一疋も居やがらん。なんでも構はないから、早くタンタアーンと、やつて見たいもんだなあ。」
-「鹿の黄いろな横つ腹なんぞに、二三発お見舞まうしたら、ずゐぶん痛快だらうねえ。くる／＼まはつて、それからどたつと倒れるだらうねえ。」
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
+Input <span class="ansi-green-fg">In [2]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">open</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">novel.txt</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">r</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg">)</span>
+
+<span class="ansi-red-fg">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;novel.txt&#39;
+</pre></div></div>
+</div>
+<p>カレントディレクトリに存在しない <code class="docutils literal notranslate"><span class="pre">novel.txt</span></code> を開こうとしたので <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code> が生じました。 <code class="docutils literal notranslate"><span class="pre">novel.txt</span></code> は、<code class="docutils literal notranslate"><span class="pre">text</span></code> というディレクトリの中にあるので、それ明示するために、<code class="docutils literal notranslate"><span class="pre">/</span></code> で区切って、次のように指定します。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;text/novel.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;_io.TextIOWrapper name=&#39;text/novel.txt&#39; mode=&#39;r&#39; encoding=&#39;utf-8&#39;&gt;
+</pre></div></div>
+</div>
+<p>実は、カレントディレクトリにあるファイルが、ファイル名の指定だけで開けるのは、自動的に <code class="docutils literal notranslate"><span class="pre">./</span></code> が補われていたからでした。</p>
+<p><code class="docutils literal notranslate"><span class="pre">open</span></code> の第1引数に渡す文字列ような、ファイルやディレクトリの場所を指定する表記を、<strong>パス</strong>と呼びます。 パス（経路）と呼ぶのは、<code class="docutils literal notranslate"><span class="pre">/</span></code> 区切りで1歩ずつ次に進むディレクトリを指定することに由来しています。</p>
+<p>パスを記述する際、ルートディレクトリは <code class="docutils literal notranslate"><span class="pre">/</span></code> で表されます。 ルートディレクトリから始まるパスを、<strong>絶対パス</strong>と呼びます。 一方、カレントディレクトリからのパスを、<strong>相対パス</strong>と呼びます。 パス表記において <code class="docutils literal notranslate"><span class="pre">/</span></code> 以外から始まる場合は、自動的に先頭に <code class="docutils literal notranslate"><span class="pre">./</span></code> が補われて、相対パスとして扱われます。</p>
+<p>さて、<code class="docutils literal notranslate"><span class="pre">./text/</span></code> というパス表記は、カレントディレクトリにある一段下の <code class="docutils literal notranslate"><span class="pre">text</span></code> ディレクトリに進むことに対応します。 これに、一段上のディレクトリを表す <code class="docutils literal notranslate"><span class="pre">..</span></code> を組み合わせることで、より柔軟にパスを指定できます。</p>
+<p>たとえば、<code class="docutils literal notranslate"><span class="pre">./text/../</span></code> は <code class="docutils literal notranslate"><span class="pre">./</span></code> と同じディレクトリを指します。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;sample.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./text/../sample.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</pre></div></div>
+</div>
+<p>また、カレントディレクトリを <code class="docutils literal notranslate"><span class="pre">./text/</span></code> に変化させた後に、<code class="docutils literal notranslate"><span class="pre">sample.txt</span></code>を開くときには、<code class="docutils literal notranslate"><span class="pre">../sample.txt</span></code>と指定することができます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;./text&#39;</span><span class="p">)</span> <span class="c1"># 1段下の text に行く</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../sample.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span> <span class="c1"># 元のディレクトリに戻る</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 </pre></div></div>
 </div>
-</section>
-<section id="相対パスと絶対パス">
-<h2>相対パスと絶対パス<a class="headerlink" href="#相対パスと絶対パス" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">text/novel.txt</span></code> という表現では、カレントディレクトリから <code class="docutils literal notranslate"><span class="pre">novel.txt</span></code> までのパスを表しています。 ここで、カレントディレクトリはノートブックの場所になるので、 どの場所に置かれたノートブックを開いているかによってカレントディレクトリが変わり、 それに応じて、同じファイルでもパスが変わります。</p>
-<p>このようなパスの表現を<strong>相対パス</strong>と呼びます。</p>
-<p>一方、</p>
-<ul class="simple">
-<li><p>Windowsの場合: <code class="docutils literal notranslate"><span class="pre">C:\Users\hagiya\Douments\Python入門\novel1.txt</span></code></p></li>
-<li><p>macOSの場合: <code class="docutils literal notranslate"><span class="pre">/Users/hagiya/Documents/Python入門/novel1.txt</span></code></p></li>
-</ul>
-<p>のように、ルートからのパスを記した場合、 カレントディレクトリの場所に関わらず、常に同じファイルを指すことができます。</p>
-<p>このようなパスの表現を<strong>絶対パス</strong>と呼びます。</p>
-<p>ところで、カレントディレクトリより下にあるファイルは、 そこまでに入るディレクトリ名を（Windowsであっても）<code class="docutils literal notranslate"><span class="pre">/</span></code> で区切って書けばよいですが、 その下にないファイルを指すにはどうしたらよいでしょうか？</p>
-<p>たとえば下の図のようにカレントディレクトリが</p>
-<ul class="simple">
-<li><p>Windows: <code class="docutils literal notranslate"><span class="pre">C:\Users\hagiya\Douments\Python入門</span></code></p></li>
-<li><p>macOS: <code class="docutils literal notranslate"><span class="pre">/Users/hagiya/Documents/Python入門</span></code></p></li>
-</ul>
-<p>のとき、</p>
-<ul class="simple">
-<li><p>Windows: <code class="docutils literal notranslate"><span class="pre">C:\Users\hagiya\Douments\メディアプログラミング入門\imagelist.csv</span></code></p></li>
-<li><p>macOS: <code class="docutils literal notranslate"><span class="pre">/Users/hagiya/Douments/メディアプログラミング入門/imagelist.csv</span></code></p></li>
-</ul>
-<p>を開きたい場合はどうしたらよいでしょう？</p>
-<p><img alt="fig/jupyterTreeIllust2.png" src="../_images/jupyterTreeIllust2.png" /></p>
-<p>実は、1つ上のディレクトリを <code class="docutils literal notranslate"><span class="pre">..</span></code>（ピリオド2つ）で表現することができます。 上の例だと、</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>f = open(&#39;../メディアプログラミング入門/imagelist.csv&#39;, &#39;r&#39;)
-</pre></div>
-</div>
-<p>とすれば、</p>
-<ul class="simple">
-<li><p>Windows: <code class="docutils literal notranslate"><span class="pre">C:\Users\hagiya\Douments\メディアプログラミング入門\imagelist.csv</span></code></p></li>
-<li><p>macOS: <code class="docutils literal notranslate"><span class="pre">/Users/hagiya/Douments/メディアプログラミング入門/imagelist.csv</span></code></p></li>
-</ul>
-<p>を開くことができます。 <code class="docutils literal notranslate"><span class="pre">..</span></code> によって、<code class="docutils literal notranslate"><span class="pre">Python入門</span></code> から1段上の <code class="docutils literal notranslate"><span class="pre">Documents</span></code> に戻り、 そこから <code class="docutils literal notranslate"><span class="pre">メディアプログラミング入門</span></code> の下の <code class="docutils literal notranslate"><span class="pre">imagelist.csv</span></code> と辿っているわけです。</p>
 </section>
 <section id="木構造によるデータ表現">
 <h2>木構造によるデータ表現<a class="headerlink" href="#木構造によるデータ表現" title="Permalink to this headline">¶</a></h2>
@@ -394,8 +440,7 @@ FileNotFoundError: [Errno 2] No such file or directory: &#39;novel.txt&#39;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -419,14 +464,16 @@ FileNotFoundError: [Errno 2] No such file or directory: &#39;novel.txt&#39;
 
 
 <p>
-  <a href="https://colab.research.google.com/github/utokyo-ipp/utokyo-ipp.github.io/blob/master/colab/4/4-3.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
+  <a style="font-family: sans-serif; font-size: smaller; background: linear-gradient(to top, #353535 0%, #141414 100%); -webkit-font-smoothing: antialiased; font-weight: normal; text-shadow: rgb(0 0 0 / 40%) 0 -1px 0; padding: 2px 6px; color: #fff; text-decoration: none; border-radius: 4px; border: 1px solid #0d0d0d; box-shadow: inset 0 1px 1px 0 #8f8f8f;" href="https://github.com/utokyo-ipp/utokyo-ipp.github.io">View on GitHub</a>
+</p><p>
+  <a style="border-bottom: none;" href="https://colab.research.google.com/github/utokyo-ipp/utokyo-ipp.github.io/blob/master/colab/4/4-3.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
 </p><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-1.html">1-1. 数値演算</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-2.html">1-2. 変数と関数の基礎</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../1/1-4.html">1-4. デバッグ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-4.html">1-4. テストとデバッグ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2/2-1.html">2-1. 文字列 (string)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2/2-2.html">2-2. リスト (list)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2/2-3.html">2-3. 条件分岐</a></li>
@@ -436,8 +483,7 @@ FileNotFoundError: [Errno 2] No such file or directory: &#39;novel.txt&#39;
 <li class="toctree-l1"><a class="reference internal" href="4-1.html">4-1. ファイル入出力の基本</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4-2.html">4-2. イテレータ</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">4-3. コンピュータにおけるファイルやディレクトリの配置</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#カレントディレクトリ">カレントディレクトリ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#相対パスと絶対パス">相対パスと絶対パス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#カレントワーキングディレクトリ">カレントワーキングディレクトリ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#木構造によるデータ表現">木構造によるデータ表現</a></li>
 </ul>
 </li>
@@ -493,10 +539,10 @@ FileNotFoundError: [Errno 2] No such file or directory: &#39;novel.txt&#39;
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020–2021, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      &copy;2020–2022, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

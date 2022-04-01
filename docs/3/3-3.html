@@ -4,7 +4,7 @@
 <html lang="jp">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>3-3. 関数 &#8212; Pythonプログラミング入門  documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -14,8 +14,8 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="4-1. ファイル入出力の基本" href="../4/4-1.html" />
@@ -246,7 +246,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
@@ -305,8 +305,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#&#39;Hello&#39;を表示する関数greeting</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&#39;Hello&#39;を表示する関数greeting</span>
 <span class="k">def</span> <span class="nf">greeting</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
 </pre></div>
@@ -317,8 +316,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#関数greetingを呼び出し</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#関数greetingを呼び出し</span>
 <span class="n">greeting</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -346,8 +344,7 @@ Hello
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#引数greeting_localに渡された値を表示する関数greeting</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#引数greeting_localに渡された値を表示する関数greeting</span>
 <span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">greeting_local</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">greeting_local</span><span class="p">)</span>
 </pre></div>
@@ -358,8 +355,7 @@ Hello
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#関数greetingに文字列&#39;Hello&#39;を渡して呼び出し</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#関数greetingに文字列&#39;Hello&#39;を渡して呼び出し</span>
 <span class="n">greeting</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -384,8 +380,7 @@ Hello
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#引数greeting_localに渡された値を返す関数greeting</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#引数greeting_localに渡された値を返す関数greeting</span>
 <span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">greeting_local</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">greeting_local</span>
 
@@ -407,8 +402,7 @@ Hello
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#入力の平均を計算して返す関数average</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#入力の平均を計算して返す関数average</span>
 <span class="k">def</span> <span class="nf">average</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
     <span class="c1">#組み込み関数のsum()とlen()を利用</span>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
@@ -432,8 +426,7 @@ Hello
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#関数greetingの返値を変数greetに代入</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#関数greetingの返値を変数greetに代入</span>
 <span class="n">greet</span> <span class="o">=</span> <span class="n">greeting</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
 <span class="n">greet</span>
 </pre></div>
@@ -456,8 +449,7 @@ Hello
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#3つの引数それぞれに渡された値を表示する関数greeting</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#3つの引数それぞれに渡された値を表示する関数greeting</span>
 <span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">en</span><span class="p">,</span> <span class="n">fr</span><span class="p">,</span> <span class="n">de</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">en</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span> <span class="o">+</span> <span class="n">fr</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span> <span class="o">+</span> <span class="n">de</span><span class="p">)</span>
 
@@ -479,8 +471,7 @@ Hello, Bonjour, Guten Tag
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#文字列と数値を引数として受け取る関数greeting</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#文字列と数値を引数として受け取る関数greeting</span>
 <span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">en</span><span class="p">,</span> <span class="n">number</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
     <span class="c1">#文字列に数を掛け算すると、文字列を数の回だけ繰り返すことを指定します</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">en</span><span class="o">*</span><span class="n">number</span><span class="o">+</span><span class="s1">&#39;,&#39;</span><span class="o">+</span><span class="n">name</span><span class="p">)</span>
@@ -506,8 +497,7 @@ HelloHelloHello,World
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#引数greeting_localに渡された値を表示する関数greeting</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#引数greeting_localに渡された値を表示する関数greeting</span>
 <span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">greeting_local</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">greeting_local</span><span class="p">)</span>
 
@@ -533,10 +523,10 @@ Hello
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_4740/2879327650.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      6</span>
-<span class="ansi-green-intense-fg ansi-bold">      7</span> <span class="ansi-red-fg">#ローカル変数（関数greetingの引数）greeting_localを参照</span>
-<span class="ansi-green-fg">----&gt; 8</span><span class="ansi-red-fg"> </span>greeting_local
+Input <span class="ansi-green-fg">In [10]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> greeting(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">Hello</span><span style="color: rgb(175,0,0)">&#39;</span>)
+<span class="ansi-green-intense-fg ansi-bold">      7</span> <span style="color: rgb(95,135,135)">#ローカル変数（関数greetingの引数）greeting_localを参照</span>
+<span class="ansi-green-fg">----&gt; 8</span> <span class="ansi-yellow-bg">greeting_local</span>
 
 <span class="ansi-red-fg">NameError</span>: name &#39;greeting_local&#39; is not defined
 </pre></div></div>
@@ -546,8 +536,7 @@ Hello
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#グローバル変数greeting_globalの定義</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#グローバル変数greeting_globalの定義</span>
 <span class="n">greeting_global</span> <span class="o">=</span> <span class="s1">&#39;Hello&#39;</span>
 
 <span class="c1">#グローバル変数greeting_globalの値を表示する関数greeting</span>
@@ -583,8 +572,7 @@ Hello
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#グローバル変数greeting_globalと同じ名前の変数に値を代入する関数greeting</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#グローバル変数greeting_globalと同じ名前の変数に値を代入する関数greeting</span>
 <span class="k">def</span> <span class="nf">greeting</span><span class="p">():</span>
     <span class="n">greeting_global</span> <span class="o">=</span> <span class="s1">&#39;Bonjour&#39;</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">greeting_global</span><span class="p">)</span>
@@ -618,8 +606,7 @@ Bonjour
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">greeting</span><span class="p">():</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greeting</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">greeting_global</span><span class="p">)</span> <span class="c1"># 最初の参照</span>
     <span class="n">greeting_global</span> <span class="o">=</span> <span class="s1">&#39;Bonjour&#39;</span> <span class="c1"># ローカル変数の定義</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">greeting_global</span><span class="p">)</span>
@@ -635,17 +622,16 @@ Bonjour
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">UnboundLocalError</span>                         Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_4740/2511243068.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span>     print<span class="ansi-blue-fg">(</span>greeting_global<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span>
-<span class="ansi-green-fg">----&gt; 6</span><span class="ansi-red-fg"> </span>greeting<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+Input <span class="ansi-green-fg">In [13]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span>     greeting_global <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">Bonjour</span><span style="color: rgb(175,0,0)">&#39;</span> <span style="color: rgb(95,135,135)"># ローカル変数の定義</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span>     <span style="color: rgb(0,135,0)">print</span>(greeting_global)
+<span class="ansi-green-fg">----&gt; 6</span> <span class="ansi-yellow-bg">greeting</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
 
-<span class="ansi-green-fg">/tmp/ipykernel_4740/2511243068.py</span> in <span class="ansi-cyan-fg">greeting</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">def</span> greeting<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg">     </span>print<span class="ansi-blue-fg">(</span>greeting_global<span class="ansi-blue-fg">)</span> <span class="ansi-red-fg"># 最初の参照</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span>     greeting_global <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;Bonjour&#39;</span> <span class="ansi-red-fg"># ローカル変数の定義</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span>     print<span class="ansi-blue-fg">(</span>greeting_global<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span>
+Input <span class="ansi-green-fg">In [13]</span>, in <span class="ansi-cyan-fg">greeting</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">greeting</span>():
+<span class="ansi-green-fg">----&gt; 2</span>     <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">greeting_global</span>) <span style="color: rgb(95,135,135)"># 最初の参照</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span>     greeting_global <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">Bonjour</span><span style="color: rgb(175,0,0)">&#39;</span> <span style="color: rgb(95,135,135)"># ローカル変数の定義</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span>     <span style="color: rgb(0,135,0)">print</span>(greeting_global)
 
 <span class="ansi-red-fg">UnboundLocalError</span>: local variable &#39;greeting_global&#39; referenced before assignment
 </pre></div></div>
@@ -659,8 +645,7 @@ Bonjour
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#グローバル変数greeting_globalに値を代入する関数greeting</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#グローバル変数greeting_globalに値を代入する関数greeting</span>
 <span class="k">def</span> <span class="nf">greeting</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">greeting_global</span>
     <span class="n">greeting_global</span> <span class="o">=</span> <span class="s1">&#39;Bonjour&#39;</span>
@@ -701,8 +686,7 @@ Bonjour
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#文字列と数値を引数として受け取る関数greeting</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#文字列と数値を引数として受け取る関数greeting</span>
 <span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">en</span><span class="p">,</span> <span class="n">number</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">en</span><span class="o">*</span><span class="n">number</span><span class="o">+</span><span class="s1">&#39;,&#39;</span><span class="o">+</span><span class="n">name</span><span class="p">)</span>
 
@@ -724,8 +708,7 @@ HelloHello,Japan
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#位置引数とキーワード引数を組み合わせた関数greetingの呼び出し</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#位置引数とキーワード引数を組み合わせた関数greetingの呼び出し</span>
 <span class="n">greeting</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Japan&#39;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -748,8 +731,7 @@ HelloHello,Japan
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#引数の初期値（引数の変数enに対する&#39;Hello&#39;）を持つ関数greeting</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#引数の初期値（引数の変数enに対する&#39;Hello&#39;）を持つ関数greeting</span>
 <span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">en</span><span class="o">=</span><span class="s1">&#39;Hello&#39;</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">en</span><span class="o">+</span><span class="s1">&#39;, &#39;</span><span class="o">+</span><span class="n">name</span><span class="p">)</span>
 
@@ -774,8 +756,7 @@ Hello, World
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#可変長の引数を受け取り、それらを表示する関数greeting</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#可変長の引数を受け取り、それらを表示する関数greeting</span>
 <span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
 
@@ -797,8 +778,7 @@ Hello, World
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#リスト型オブジェクトgreeting_listを関数greetingに渡して呼び出し</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#リスト型オブジェクトgreeting_listを関数greetingに渡して呼び出し</span>
 <span class="n">greeting_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span><span class="s1">&#39;Bonjour&#39;</span><span class="p">,</span><span class="s1">&#39;Guten Tag&#39;</span><span class="p">]</span>
 <span class="n">greeting</span><span class="p">(</span><span class="o">*</span><span class="n">greeting_list</span><span class="p">)</span>
 </pre></div>
@@ -820,8 +800,7 @@ Hello, World
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#可変長のキーワード引数を受け取り、それらを表示する関数greeting</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#可変長のキーワード引数を受け取り、それらを表示する関数greeting</span>
 <span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
 
@@ -843,8 +822,7 @@ Hello, World
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#辞書型オブジェクトgreeting_dictを関数greetingに渡して呼び出し</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#辞書型オブジェクトgreeting_dictを関数greetingに渡して呼び出し</span>
 <span class="n">greeting_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;en&#39;</span><span class="p">:</span> <span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="s1">&#39;fr&#39;</span><span class="p">:</span> <span class="s1">&#39;Bonjour&#39;</span><span class="p">,</span> <span class="s1">&#39;de&#39;</span><span class="p">:</span> <span class="s1">&#39;Guten Tag&#39;</span><span class="p">}</span>
 <span class="n">greeting</span><span class="p">(</span><span class="o">**</span><span class="n">greeting_dict</span><span class="p">)</span>
 </pre></div>
@@ -869,8 +847,7 @@ Hello, World
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#位置引数、初期値を持つ引数、可変長引数、辞書型の可変長引数</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#位置引数、初期値を持つ引数、可変長引数、辞書型の可変長引数</span>
 <span class="c1">#それぞれを引数として受け取り、それらを表示する関数greeting</span>
 <span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">greet</span><span class="p">,</span> <span class="n">en</span><span class="o">=</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">greet</span><span class="p">)</span>
@@ -908,8 +885,7 @@ Hello
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#グローバル変数greeting_globalの定義と参照</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#グローバル変数greeting_globalの定義と参照</span>
 <span class="n">greeting_global</span> <span class="o">=</span> <span class="s1">&#39;Hello&#39;</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">greeting_global</span><span class="p">)</span>
 </pre></div>
@@ -928,8 +904,7 @@ str
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#グローバル変数greeting_globalと同名の関数の定義</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#グローバル変数greeting_globalと同名の関数の定義</span>
 <span class="c1">#変数greeting_globalは関数を参照する</span>
 <span class="k">def</span> <span class="nf">greeting_global</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is the greeting_global function&#39;</span><span class="p">)</span>
@@ -967,14 +942,16 @@ function
 
 
 <p>
-  <a href="https://colab.research.google.com/github/utokyo-ipp/utokyo-ipp.github.io/blob/master/colab/3/3-3.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
+  <a style="font-family: sans-serif; font-size: smaller; background: linear-gradient(to top, #353535 0%, #141414 100%); -webkit-font-smoothing: antialiased; font-weight: normal; text-shadow: rgb(0 0 0 / 40%) 0 -1px 0; padding: 2px 6px; color: #fff; text-decoration: none; border-radius: 4px; border: 1px solid #0d0d0d; box-shadow: inset 0 1px 1px 0 #8f8f8f;" href="https://github.com/utokyo-ipp/utokyo-ipp.github.io">View on GitHub</a>
+</p><p>
+  <a style="border-bottom: none;" href="https://colab.research.google.com/github/utokyo-ipp/utokyo-ipp.github.io/blob/master/colab/3/3-3.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
 </p><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-1.html">1-1. 数値演算</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-2.html">1-2. 変数と関数の基礎</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../1/1-4.html">1-4. デバッグ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-4.html">1-4. テストとデバッグ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2/2-1.html">2-1. 文字列 (string)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2/2-2.html">2-2. リスト (list)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2/2-3.html">2-3. 条件分岐</a></li>
@@ -1049,10 +1026,10 @@ function
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020–2021, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      &copy;2020–2022, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

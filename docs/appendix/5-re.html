@@ -4,7 +4,7 @@
 <html lang="jp">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>▲正規表現 &#8212; Pythonプログラミング入門  documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -14,8 +14,8 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="索引" href="../index_of_terms.html" />
@@ -246,7 +246,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
@@ -296,8 +296,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">re</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 </pre></div>
 </div>
 </div>
@@ -314,8 +313,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;abcde&#39;</span><span class="p">)</span> <span class="c1">#マッチする</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;abcde&#39;</span><span class="p">)</span> <span class="c1">#マッチする</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;ababc&#39;</span><span class="p">)</span> <span class="c1">#マッチしない</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
@@ -341,8 +339,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;abcde&#39;</span><span class="p">):</span> <span class="c1">#マッチする</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;abcde&#39;</span><span class="p">):</span> <span class="c1">#マッチする</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;正規表現abcが文字列abcdeにマッチする&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;正規表現abcが文字列abcdeにマッチしない&#39;</span><span class="p">)</span>
@@ -369,8 +366,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;ABCdef&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;ABCdef&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;ABC&#39;</span><span class="p">,</span> <span class="s1">&#39;abcdef&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
@@ -391,8 +387,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;ABCdef&#39;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;ABCdef&#39;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;ABC&#39;</span><span class="p">,</span> <span class="s1">&#39;abcdef&#39;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
@@ -428,8 +423,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;def&#39;</span><span class="p">,</span> <span class="s1">&#39;abcdef&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;def&#39;</span><span class="p">,</span> <span class="s1">&#39;abcdef&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;xyz&#39;</span><span class="p">,</span> <span class="s1">&#39;abcdef&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
@@ -454,8 +448,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;abcdef&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;abcdef&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;ababcd&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
@@ -479,8 +472,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;ABCdef&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;ABCdef&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;DEF&#39;</span><span class="p">,</span> <span class="s1">&#39;abcdef&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
@@ -517,8 +509,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;not&#39;</span><span class="p">,</span> <span class="s1">&#39;It is NOT me.&#39;</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;not&#39;</span><span class="p">,</span> <span class="s1">&#39;It is NOT me.&#39;</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;正規表現notが文字列It is NOT me.にマッチする&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;正規表現notが文字列It is NOT me.にマッチしない&#39;</span><span class="p">)</span>
@@ -543,8 +534,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;ababcd&#39;</span><span class="p">)</span>  <span class="c1">#キャレットなしだとマッチする</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;ababcd&#39;</span><span class="p">)</span>  <span class="c1">#キャレットなしだとマッチする</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;^abc&#39;</span><span class="p">,</span> <span class="s1">&#39;ababcd&#39;</span><span class="p">)</span> <span class="c1">#キャレットありだとマッチしない</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
@@ -576,8 +566,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;ab|de&#39;</span><span class="p">,</span> <span class="s1">&#39;bcdef&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;ab|de&#39;</span><span class="p">,</span> <span class="s1">&#39;bcdef&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;ab|de&#39;</span><span class="p">,</span> <span class="s1">&#39;abcdef&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
@@ -621,8 +610,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;a*&#39;</span><span class="p">,</span> <span class="s1">&#39;abcdef&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;a*&#39;</span><span class="p">,</span> <span class="s1">&#39;abcdef&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;a*&#39;</span><span class="p">,</span> <span class="s1">&#39;aabbcc&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
@@ -650,8 +638,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;abb*&#39;</span><span class="p">,</span> <span class="s1">&#39;abcdef&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;abb*&#39;</span><span class="p">,</span> <span class="s1">&#39;abcdef&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;abb*&#39;</span><span class="p">,</span> <span class="s1">&#39;aabbcc&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
@@ -661,8 +648,7 @@ None
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;hello*&#39;</span><span class="p">,</span> <span class="s1">&#39;Hi, good morning!&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -682,8 +668,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;ab|de&#39;</span><span class="p">,</span> <span class="s1">&#39;fgdeab&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;ab|de&#39;</span><span class="p">,</span> <span class="s1">&#39;fgdeab&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;(ab)|(de)&#39;</span><span class="p">,</span> <span class="s1">&#39;fgdeab&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
@@ -719,8 +704,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;a(bc|b)*&#39;</span><span class="p">,</span> <span class="s1">&#39;defabcxyz&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;a(bc|b)*&#39;</span><span class="p">,</span> <span class="s1">&#39;defabcxyz&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;a(bc|b)*&#39;</span><span class="p">,</span> <span class="s1">&#39;bbacbabbbbc&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
@@ -756,8 +740,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;abcde&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;abcde&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">reg1</span> <span class="o">=</span> <span class="s1">&#39;abc&#39;</span> <span class="c1"># 正規表現を文字列で記述する</span>
 <span class="n">match2</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">reg1</span><span class="p">,</span> <span class="s1">&#39;abcde&#39;</span><span class="p">)</span> <span class="c1">#match1と同じ結果になる</span>
@@ -779,8 +762,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;(I|i)t(&#39;s| is| was)&quot;</span><span class="p">,</span> <span class="s2">&quot;It was rainy yesterday, but it&#39;s fine today.&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;(I|i)t(&#39;s| is| was)&quot;</span><span class="p">,</span> <span class="s2">&quot;It was rainy yesterday, but it&#39;s fine today.&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">reg1</span> <span class="o">=</span> <span class="s1">&#39;(I|i)t&#39;</span> <span class="c1"># 正規表現の前半部分</span>
 <span class="n">reg2</span> <span class="o">=</span> <span class="s2">&quot;(&#39;s| is| was)&quot;</span> <span class="c1"># 正規表現の後半部分</span>
@@ -814,8 +796,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">...</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">...</span>
 <span class="k">def</span> <span class="nf">check_monthstr</span><span class="p">(</span><span class="n">str1</span><span class="p">):</span>
     <span class="o">...</span>
 </pre></div>
@@ -826,7 +807,7 @@ None
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_9427/3763894078.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Input </span><span class="ansi-green-fg">In [18]</span>
 <span class="ansi-red-fg">    import ...</span>
            ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -838,8 +819,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">check_monthstr</span><span class="p">(</span><span class="s1">&#39;10&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;10&#39;</span><span class="p">)</span> <span class="c1"># group()については後半に説明があります（オプショナル）</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">check_monthstr</span><span class="p">(</span><span class="s1">&#39;10&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;10&#39;</span><span class="p">)</span> <span class="c1"># group()については後半に説明があります（オプショナル）</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">check_monthstr</span><span class="p">(</span><span class="s1">&#39;mon1521vb&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">None</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">check_monthstr</span><span class="p">(</span><span class="s1">&#39;00an23&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">None</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">check_monthstr</span><span class="p">(</span><span class="s1">&#39;13302&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;02&#39;</span><span class="p">)</span>
@@ -853,11 +833,10 @@ None
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9427/479121597.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>check_monthstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;10&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>group<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;10&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-red-fg"># group()については後半に説明があります（オプショナル）</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>check_monthstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;mon1521vb&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>check_monthstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;00an23&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span>check_monthstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;13302&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>group<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;02&#39;</span><span class="ansi-blue-fg">)</span>
+Input <span class="ansi-green-fg">In [19]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">check_monthstr</span>(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">10</span><span style="color: rgb(175,0,0)">&#39;</span>)<span style="color: rgb(98,98,98)">.</span>group() <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">10</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(95,135,135)"># group()については後半に説明があります（オプショナル）</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span style="color: rgb(0,135,0)">print</span>(check_monthstr(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">mon1521vb</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span style="color: rgb(0,135,0)">print</span>(check_monthstr(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">00an23</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;check_monthstr&#39; is not defined
 </pre></div></div>
@@ -871,8 +850,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">...</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">...</span>
 <span class="k">def</span> <span class="nf">check_ACGTstr</span><span class="p">(</span><span class="n">str1</span><span class="p">):</span>
     <span class="o">...</span>
 </pre></div>
@@ -883,7 +861,7 @@ None
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_9427/390249491.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Input </span><span class="ansi-green-fg">In [20]</span>
 <span class="ansi-red-fg">    import ...</span>
            ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -895,8 +873,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">check_ACGTstr</span><span class="p">(</span><span class="s1">&#39;AcCGTAGCacATcGgAaaTtGCacT&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">check_ACGTstr</span><span class="p">(</span><span class="s1">&#39;AcCGTAGCacATcGgAaaTtGCacT&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">check_ACGTstr</span><span class="p">(</span><span class="s1">&#39;:ACaacgta24FgtGH&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">check_ACGTstr</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">)</span>
 </pre></div>
@@ -909,10 +886,10 @@ None
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9427/3681665936.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>check_ACGTstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;AcCGTAGCacATcGgAaaTtGCacT&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>check_ACGTstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;:ACaacgta24FgtGH&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>check_ACGTstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
+Input <span class="ansi-green-fg">In [21]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">check_ACGTstr</span>(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">AcCGTAGCacATcGgAaaTtGCacT</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">True</span>)
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span style="color: rgb(0,135,0)">print</span>(check_ACGTstr(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">:ACaacgta24FgtGH</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span style="color: rgb(0,135,0)">print</span>(check_ACGTstr(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;check_ACGTstr&#39; is not defined
 </pre></div></div>
@@ -931,8 +908,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">...</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">...</span>
 <span class="k">def</span> <span class="nf">check_timestr</span><span class="p">(</span><span class="n">str1</span><span class="p">):</span>
     <span class="o">...</span>
 </pre></div>
@@ -943,7 +919,7 @@ None
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_9427/159983618.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Input </span><span class="ansi-green-fg">In [22]</span>
 <span class="ansi-red-fg">    import ...</span>
            ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -955,8 +931,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">check_timestr</span><span class="p">(</span><span class="s1">&#39;10:23&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;10:23&#39;</span><span class="p">)</span> <span class="c1"># group()については後半に説明があります（オプショナル）</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">check_timestr</span><span class="p">(</span><span class="s1">&#39;10:23&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;10:23&#39;</span><span class="p">)</span> <span class="c1"># group()については後半に説明があります（オプショナル）</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">check_timestr</span><span class="p">(</span><span class="s1">&#39;time?1023&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">None</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">check_timestr</span><span class="p">(</span><span class="s1">&#39;time?11:23&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;11:23&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">check_timestr</span><span class="p">(</span><span class="s1">&#39;12:3xx1;23ah23:23&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">None</span><span class="p">)</span>
@@ -970,11 +945,10 @@ None
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9427/1589433981.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>check_timestr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;10:23&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>group<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;10:23&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-red-fg"># group()については後半に説明があります（オプショナル）</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>check_timestr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;time?1023&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>check_timestr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;time?11:23&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>group<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;11:23&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span>check_timestr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;12:3xx1;23ah23:23&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
+Input <span class="ansi-green-fg">In [23]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">check_timestr</span>(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">10:23</span><span style="color: rgb(175,0,0)">&#39;</span>)<span style="color: rgb(98,98,98)">.</span>group() <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">10:23</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(95,135,135)"># group()については後半に説明があります（オプショナル）</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span style="color: rgb(0,135,0)">print</span>(check_timestr(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">time?1023</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span style="color: rgb(0,135,0)">print</span>(check_timestr(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">time?11:23</span><span style="color: rgb(175,0,0)">&#39;</span>)<span style="color: rgb(98,98,98)">.</span>group() <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">11:23</span><span style="color: rgb(175,0,0)">&#39;</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;check_timestr&#39; is not defined
 </pre></div></div>
@@ -992,8 +966,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">...</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">...</span>
 <span class="k">def</span> <span class="nf">check_ipv4str</span><span class="p">(</span><span class="n">str1</span><span class="p">):</span>
     <span class="o">...</span>
 </pre></div>
@@ -1004,7 +977,7 @@ None
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_9427/19572505.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Input </span><span class="ansi-green-fg">In [24]</span>
 <span class="ansi-red-fg">    import ...</span>
            ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -1016,8 +989,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">check_ipv4str</span><span class="p">(</span><span class="s1">&#39;IP=255:255:255:255&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;255:255:255:255&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">check_ipv4str</span><span class="p">(</span><span class="s1">&#39;IP=255:255:255:255&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;255:255:255:255&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">check_ipv4str</span><span class="p">(</span><span class="s1">&#39;notIP=2x5:a5b:2c:255:14:444&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">None</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">check_ipv4str</span><span class="p">(</span><span class="s1">&#39;IP?=25:25:55:155&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">None</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">check_ipv4str</span><span class="p">(</span><span class="s1">&#39;IP?=255:255:255&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">None</span><span class="p">)</span>
@@ -1031,11 +1003,10 @@ None
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9427/2259691458.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>check_ipv4str<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;IP=255:255:255:255&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>group<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;255:255:255:255&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>check_ipv4str<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;notIP=2x5:a5b:2c:255:14:444&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>check_ipv4str<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;IP?=25:25:55:155&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span>check_ipv4str<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;IP?=255:255:255&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
+Input <span class="ansi-green-fg">In [25]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">check_ipv4str</span>(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">IP=255:255:255:255</span><span style="color: rgb(175,0,0)">&#39;</span>)<span style="color: rgb(98,98,98)">.</span>group() <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">255:255:255:255</span><span style="color: rgb(175,0,0)">&#39;</span>)
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span style="color: rgb(0,135,0)">print</span>(check_ipv4str(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">notIP=2x5:a5b:2c:255:14:444</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span style="color: rgb(0,135,0)">print</span>(check_ipv4str(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">IP?=25:25:55:155</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;check_ipv4str&#39; is not defined
 </pre></div></div>
@@ -1056,8 +1027,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">...</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">...</span>
 <span class="k">def</span> <span class="nf">check_monthdaystr</span><span class="p">(</span><span class="n">str1</span><span class="p">):</span>
     <span class="o">...</span>
 </pre></div>
@@ -1068,7 +1038,7 @@ None
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_9427/2570444019.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Input </span><span class="ansi-green-fg">In [26]</span>
 <span class="ansi-red-fg">    import ...</span>
            ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -1080,8 +1050,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">check_monthdaystr</span><span class="p">(</span><span class="s1">&#39;year11/31month11/30day15hour/27minute/sec&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;11/30&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">check_monthdaystr</span><span class="p">(</span><span class="s1">&#39;year11/31month11/30day15hour/27minute/sec&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;11/30&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">check_monthdaystr</span><span class="p">(</span><span class="s1">&#39;11/31&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">None</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">check_monthdaystr</span><span class="p">(</span><span class="s1">&#39;x02f/2d5ax&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">None</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">check_monthdaystr</span><span class="p">(</span><span class="s1">&#39;03/24&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;03/24&#39;</span><span class="p">)</span>
@@ -1095,11 +1064,10 @@ None
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9427/1893991142.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>check_monthdaystr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;year11/31month11/30day15hour/27minute/sec&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>group<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;11/30&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>check_monthdaystr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;11/31&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>check_monthdaystr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;x02f/2d5ax&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span>check_monthdaystr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;03/24&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>group<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;03/24&#39;</span><span class="ansi-blue-fg">)</span>
+Input <span class="ansi-green-fg">In [27]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">check_monthdaystr</span>(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">year11/31month11/30day15hour/27minute/sec</span><span style="color: rgb(175,0,0)">&#39;</span>)<span style="color: rgb(98,98,98)">.</span>group() <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">11/30</span><span style="color: rgb(175,0,0)">&#39;</span>)
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span style="color: rgb(0,135,0)">print</span>(check_monthdaystr(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">11/31</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span style="color: rgb(0,135,0)">print</span>(check_monthdaystr(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">x02f/2d5ax</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;check_monthdaystr&#39; is not defined
 </pre></div></div>
@@ -1112,15 +1080,13 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;[abc]&#39;</span><span class="p">,</span> <span class="s1">&#39;defabcxyz&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;[abc]&#39;</span><span class="p">,</span> <span class="s1">&#39;defabcxyz&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;[3456]&#39;</span><span class="p">,</span> <span class="s1">&#39;1234567890&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;ha[sd]&#39;</span><span class="p">,</span> <span class="s1">&#39;He has an apple and they have pineapples.&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1138,8 +1104,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;[def][abc]&#39;</span><span class="p">,</span> <span class="s1">&#39;defabcxyz&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;[def][abc]&#39;</span><span class="p">,</span> <span class="s1">&#39;defabcxyz&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;4[3456][3456]([3456]|[7890])&#39;</span><span class="p">,</span> <span class="s1">&#39;1234567890&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
@@ -1166,8 +1131,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;[a*]&#39;</span><span class="p">,</span> <span class="s1">&#39;aaaaaa&#39;</span><span class="p">)</span> <span class="c1"># a一文字にマッチ</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;[a*]&#39;</span><span class="p">,</span> <span class="s1">&#39;aaaaaa&#39;</span><span class="p">)</span> <span class="c1"># a一文字にマッチ</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;[a*]&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">)</span> <span class="c1"># *一文字にマッチ</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
@@ -1204,8 +1168,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;[a-c]&#39;</span><span class="p">,</span> <span class="s1">&#39;defabcxyz&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;[a-c]&#39;</span><span class="p">,</span> <span class="s1">&#39;defabcxyz&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;3[4-8]&#39;</span><span class="p">,</span> <span class="s1">&#39;1234567890&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
@@ -1229,8 +1192,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;[^abc]&#39;</span><span class="p">,</span> <span class="s1">&#39;abcdefxyz&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;[^abc]&#39;</span><span class="p">,</span> <span class="s1">&#39;abcdefxyz&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;[^def]&#39;</span><span class="p">,</span> <span class="s1">&#39;defabcxyz&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
@@ -1257,8 +1219,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;[d^ef]&#39;</span><span class="p">,</span> <span class="s1">&#39;defabcxyz&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;[d^ef]&#39;</span><span class="p">,</span> <span class="s1">&#39;defabcxyz&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;[d^ef]&#39;</span><span class="p">,</span> <span class="s1">&#39;a^bcdef&#39;</span><span class="p">)</span> <span class="c1"># キャレットにマッチする</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
@@ -1290,8 +1251,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">str1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;[346]&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;03-5454-68284&#39;</span><span class="p">)</span> <span class="c1">#3,4,6をxに置き換える</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">str1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;[346]&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;03-5454-68284&#39;</span><span class="p">)</span> <span class="c1">#3,4,6をxに置き換える</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">str1</span><span class="p">)</span>
 <span class="n">str1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;[.,:;!?]&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s2">&quot;He has three pets: a cat, a dog and a giraffe, doesn&#39;t he?&quot;</span><span class="p">)</span> <span class="c1">#句読点を削除する（空文字列に置き換える）</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">str1</span><span class="p">)</span>
@@ -1319,8 +1279,7 @@ accountname@test.ecc.u-tokyo.ac.jp
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[ \t\n][ \t\n]*&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;Hello,</span><span class="se">\n</span><span class="s1">    World!</span><span class="se">\t</span><span class="s1">How are you?&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[ \t\n][ \t\n]*&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;Hello,</span><span class="se">\n</span><span class="s1">    World!</span><span class="se">\t</span><span class="s1">How are you?&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1338,8 +1297,7 @@ accountname@test.ecc.u-tokyo.ac.jp
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&lt;[^&gt;]*&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;body&gt;</span><span class="se">\n</span><span class="s1">Click &lt;a href=&quot;a.href&quot;&gt;this&lt;/a&gt;</span><span class="se">\n</span><span class="s1">&lt;/body&gt;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&lt;[^&gt;]*&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;body&gt;</span><span class="se">\n</span><span class="s1">Click &lt;a href=&quot;a.href&quot;&gt;this&lt;/a&gt;</span><span class="se">\n</span><span class="s1">&lt;/body&gt;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1370,8 +1328,7 @@ accountname@test.ecc.u-tokyo.ac.jp
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">list1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s2">&quot;He has three pets a cat a dog and a giraffe doesn&#39;t he&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s2">&quot;He has three pets a cat a dog and a giraffe doesn&#39;t he&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
 <span class="n">list2</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^a-zA-Z][^a-zA-Z]*&#39;</span><span class="p">,</span> <span class="s1">&#39;Hello, World! How are you?&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">list2</span><span class="p">)</span>
@@ -1396,8 +1353,7 @@ accountname@test.ecc.u-tokyo.ac.jp
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="sa">r</span><span class="s1">&#39;hello*&#39;</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sa">r</span><span class="s1">&#39;hello*&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -1415,8 +1371,7 @@ accountname@test.ecc.u-tokyo.ac.jp
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="sa">r</span><span class="s1">&#39;[ \t\n]+&#39;</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sa">r</span><span class="s1">&#39;[ \t\n]+&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -1435,8 +1390,7 @@ accountname@test.ecc.u-tokyo.ac.jp
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="sa">r</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">t t/&#39;</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sa">r</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">t t/&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -1460,8 +1414,7 @@ accountname@test.ecc.u-tokyo.ac.jp
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">...</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">...</span>
 <span class="k">def</span> <span class="nf">get_engsentences</span><span class="p">():</span>
     <span class="o">...</span>
 </pre></div>
@@ -1472,7 +1425,7 @@ accountname@test.ecc.u-tokyo.ac.jp
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_9427/3360045867.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Input </span><span class="ansi-green-fg">In [41]</span>
 <span class="ansi-red-fg">    import ...</span>
            ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -1484,8 +1437,7 @@ accountname@test.ecc.u-tokyo.ac.jp
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">list1</span> <span class="o">=</span> <span class="n">get_engsentences</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span> <span class="o">=</span> <span class="n">get_engsentences</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">289</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;in&#39;</span><span class="p">)</span>
@@ -1500,12 +1452,10 @@ accountname@test.ecc.u-tokyo.ac.jp
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9427/400148248.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>list1 <span class="ansi-blue-fg">=</span> get_engsentences<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>len<span class="ansi-blue-fg">(</span>list1<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">289</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>list1<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;a&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span>list1<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">100</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;in&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> print<span class="ansi-blue-fg">(</span>list1<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">288</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;would&#39;</span><span class="ansi-blue-fg">)</span>
+Input <span class="ansi-green-fg">In [42]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span> list1 <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">get_engsentences</span>()
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span style="color: rgb(0,135,0)">print</span>(<span style="color: rgb(0,135,0)">len</span>(list1) <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(98,98,98)">289</span>)
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span style="color: rgb(0,135,0)">print</span>(list1[<span style="color: rgb(98,98,98)">0</span>] <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">a</span><span style="color: rgb(175,0,0)">&#39;</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;get_engsentences&#39; is not defined
 </pre></div></div>
@@ -1519,8 +1469,7 @@ accountname@test.ecc.u-tokyo.ac.jp
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">...</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">...</span>
 <span class="k">def</span> <span class="nf">get_engsentences2</span><span class="p">():</span>
     <span class="o">...</span>
 </pre></div>
@@ -1531,7 +1480,7 @@ accountname@test.ecc.u-tokyo.ac.jp
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_9427/2256989314.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Input </span><span class="ansi-green-fg">In [43]</span>
 <span class="ansi-red-fg">    import ...</span>
            ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -1543,8 +1492,7 @@ accountname@test.ecc.u-tokyo.ac.jp
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">list1</span> <span class="o">=</span> <span class="n">get_engsentences2</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span> <span class="o">=</span> <span class="n">get_engsentences2</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">149</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;proclaim&#39;</span><span class="p">)</span>
@@ -1559,12 +1507,10 @@ accountname@test.ecc.u-tokyo.ac.jp
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9427/1837623858.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>list1 <span class="ansi-blue-fg">=</span> get_engsentences2<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>len<span class="ansi-blue-fg">(</span>list1<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">149</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>list1<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;a&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span>list1<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">100</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;proclaim&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> print<span class="ansi-blue-fg">(</span>list1<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">148</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;would&#39;</span><span class="ansi-blue-fg">)</span>
+Input <span class="ansi-green-fg">In [44]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span> list1 <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">get_engsentences2</span>()
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span style="color: rgb(0,135,0)">print</span>(<span style="color: rgb(0,135,0)">len</span>(list1) <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(98,98,98)">149</span>)
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span style="color: rgb(0,135,0)">print</span>(list1[<span style="color: rgb(98,98,98)">0</span>] <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">a</span><span style="color: rgb(175,0,0)">&#39;</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;get_engsentences2&#39; is not defined
 </pre></div></div>
@@ -1578,8 +1524,7 @@ accountname@test.ecc.u-tokyo.ac.jp
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;colou?r&#39;</span><span class="p">,</span> <span class="s1">&#39;colour&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;colou?r&#39;</span><span class="p">,</span> <span class="s1">&#39;colour&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;colou?r&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
@@ -1600,8 +1545,7 @@ accountname@test.ecc.u-tokyo.ac.jp
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;boo+&#39;</span><span class="p">,</span> <span class="s1">&#39;boooo!&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;boo+&#39;</span><span class="p">,</span> <span class="s1">&#39;boooo!&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;boo+&#39;</span><span class="p">,</span> <span class="s1">&#39;bo!&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
@@ -1638,8 +1582,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;bo{3,5}&#39;</span><span class="p">,</span> <span class="s1">&#39;booooooo!&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;bo{3,5}&#39;</span><span class="p">,</span> <span class="s1">&#39;booooooo!&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;bo{3,5}&#39;</span><span class="p">,</span> <span class="s1">&#39;boo!&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
@@ -1673,8 +1616,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;3.*9&#39;</span><span class="p">,</span> <span class="s1">&#39;1234567890&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
@@ -1698,8 +1640,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;[.]&#39;</span><span class="p">,</span> <span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;[.]&#39;</span><span class="p">,</span> <span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;[.]&#39;</span><span class="p">,</span> <span class="s1">&#39;3.141592&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
@@ -1720,8 +1661,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;b</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;a        b       c       d&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;b</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;a        b       c       d&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1739,8 +1679,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;b\s&#39;</span><span class="p">,</span> <span class="s1">&#39;a        b       c       d&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;b\s&#39;</span><span class="p">,</span> <span class="s1">&#39;a        b       c       d&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;a\s\s\s&#39;</span><span class="p">,</span> <span class="s1">&#39;a    　 b     　c      d&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
@@ -1764,11 +1703,9 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;b\S&#39;</span><span class="p">,</span> <span class="s1">&#39;a        b       bc      d&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;b\S&#39;</span><span class="p">,</span> <span class="s1">&#39;a        b       bc      d&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1784,12 +1721,10 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;\w\w&#39;</span><span class="p">,</span> <span class="s1">&#39;abcde&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;\w\w&#39;</span><span class="p">,</span> <span class="s1">&#39;abcde&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;b\w*g&#39;</span><span class="p">,</span> <span class="s1">&#39;abcdefgh&#39;</span><span class="p">)</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1805,8 +1740,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;g\W*&#39;</span><span class="p">,</span> <span class="s1">&#39;ab defg  hi jklm no p&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;g\W*&#39;</span><span class="p">,</span> <span class="s1">&#39;ab defg  hi jklm no p&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;\W\w*\W&#39;</span><span class="p">,</span> <span class="s1">&#39;ab defg  hi jklm no p&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
@@ -1827,8 +1761,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;\d\d\d-\d\d\d\d&#39;</span><span class="p">,</span> <span class="s1">&#39;153-8902&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;\d\d\d-\d\d\d\d&#39;</span><span class="p">,</span> <span class="s1">&#39;153-8902&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;\d*-\d*&#39;</span><span class="p">,</span> <span class="s1">&#39;153-8902&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
@@ -1855,11 +1788,9 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;\D*&#39;</span><span class="p">,</span> <span class="s1">&#39;He has 10 apples.&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;\D*&#39;</span><span class="p">,</span> <span class="s1">&#39;He has 10 apples.&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1878,8 +1809,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">...</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">...</span>
 <span class="k">def</span> <span class="nf">sumnumbers</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
     <span class="o">...</span>
 </pre></div>
@@ -1890,7 +1820,7 @@ None
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_9427/2526788762.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Input </span><span class="ansi-green-fg">In [57]</span>
 <span class="ansi-red-fg">    import ...</span>
            ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -1902,8 +1832,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">sumnumbers</span><span class="p">(</span><span class="s1">&#39; 2  33 45, 67.9&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">156</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sumnumbers</span><span class="p">(</span><span class="s1">&#39; 2  33 45, 67.9&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">156</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1914,8 +1843,8 @@ None
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9427/939576310.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>sumnumbers<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39; 2  33 45, 67.9&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">156</span><span class="ansi-blue-fg">)</span>
+Input <span class="ansi-green-fg">In [58]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">sumnumbers</span>(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)"> 2  33 45, 67.9</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(98,98,98)">156</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;sumnumbers&#39; is not defined
 </pre></div></div>
@@ -1929,8 +1858,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">...</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">...</span>
 <span class="k">def</span> <span class="nf">check_ACGTstr</span><span class="p">(</span><span class="n">str1</span><span class="p">):</span>
     <span class="o">...</span>
 </pre></div>
@@ -1941,7 +1869,7 @@ None
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_9427/390249491.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Input </span><span class="ansi-green-fg">In [59]</span>
 <span class="ansi-red-fg">    import ...</span>
            ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -1953,8 +1881,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">check_ACGTstr</span><span class="p">(</span><span class="s1">&#39;AcCGTAGCacATcGgAaaTtGCacT&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">check_ACGTstr</span><span class="p">(</span><span class="s1">&#39;AcCGTAGCacATcGgAaaTtGCacT&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">check_ACGTstr</span><span class="p">(</span><span class="s1">&#39;:ACaacgta24FgtGH&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">check_ACGTstr</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">)</span>
 </pre></div>
@@ -1967,10 +1894,10 @@ None
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9427/3681665936.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>check_ACGTstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;AcCGTAGCacATcGgAaaTtGCacT&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>check_ACGTstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;:ACaacgta24FgtGH&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>check_ACGTstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
+Input <span class="ansi-green-fg">In [60]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">check_ACGTstr</span>(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">AcCGTAGCacATcGgAaaTtGCacT</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">True</span>)
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span style="color: rgb(0,135,0)">print</span>(check_ACGTstr(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">:ACaacgta24FgtGH</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span style="color: rgb(0,135,0)">print</span>(check_ACGTstr(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;check_ACGTstr&#39; is not defined
 </pre></div></div>
@@ -1984,8 +1911,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">...</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">...</span>
 <span class="k">def</span> <span class="nf">check_postalcode</span><span class="p">(</span><span class="n">str1</span><span class="p">):</span>
     <span class="o">...</span>
 </pre></div>
@@ -1996,7 +1922,7 @@ None
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_9427/1253453412.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Input </span><span class="ansi-green-fg">In [61]</span>
 <span class="ansi-red-fg">    import ...</span>
            ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -2008,8 +1934,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">check_postalcode</span><span class="p">(</span><span class="s1">&#39;113-8654&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">check_postalcode</span><span class="p">(</span><span class="s1">&#39;113-8654&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">check_postalcode</span><span class="p">(</span><span class="s1">&#39;119-110&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">check_postalcode</span><span class="p">(</span><span class="s1">&#39;abc-defg&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">check_postalcode</span><span class="p">(</span><span class="s1">&#39;〒153-0041&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">)</span>
@@ -2024,12 +1949,10 @@ None
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9427/1584138777.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>check_postalcode<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;113-8654&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>check_postalcode<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;119-110&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>check_postalcode<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;abc-defg&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span>check_postalcode<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;〒153-0041&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> print<span class="ansi-blue-fg">(</span>check_postalcode<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;113-86547&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
+Input <span class="ansi-green-fg">In [62]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">check_postalcode</span>(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">113-8654</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">True</span>)
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span style="color: rgb(0,135,0)">print</span>(check_postalcode(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">119-110</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span style="color: rgb(0,135,0)">print</span>(check_postalcode(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">abc-defg</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;check_postalcode&#39; is not defined
 </pre></div></div>
@@ -2043,8 +1966,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">...</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">...</span>
 <span class="k">def</span> <span class="nf">check_extension</span><span class="p">(</span><span class="n">str1</span><span class="p">):</span>
     <span class="o">...</span>
 </pre></div>
@@ -2055,7 +1977,7 @@ None
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_9427/3524781894.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Input </span><span class="ansi-green-fg">In [63]</span>
 <span class="ansi-red-fg">    import ...</span>
            ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -2067,8 +1989,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">check_extension</span><span class="p">(</span><span class="s1">&#39;24115&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">check_extension</span><span class="p">(</span><span class="s1">&#39;24115&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">check_extension</span><span class="p">(</span><span class="s1">&#39;46858&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">check_extension</span><span class="p">(</span><span class="s1">&#39;☎46666&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">check_extension</span><span class="p">(</span><span class="s1">&#39;467890&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">)</span>
@@ -2082,11 +2003,10 @@ None
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9427/3174993402.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>check_extension<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;24115&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>check_extension<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;46858&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>check_extension<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;☎46666&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span>check_extension<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;467890&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
+Input <span class="ansi-green-fg">In [64]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">check_extension</span>(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">24115</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">True</span>)
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span style="color: rgb(0,135,0)">print</span>(check_extension(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">46858</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span style="color: rgb(0,135,0)">print</span>(check_extension(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">☎46666</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;check_extension&#39; is not defined
 </pre></div></div>
@@ -2099,8 +2019,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;03(5454)6666&#39;</span><span class="p">,</span> <span class="s1">&#39;03(5454)6666&#39;</span><span class="p">)</span> <span class="c1">#電話番号。つけないと丸括弧として扱われないのでマッチしない</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;03(5454)6666&#39;</span><span class="p">,</span> <span class="s1">&#39;03(5454)6666&#39;</span><span class="p">)</span> <span class="c1">#電話番号。つけないと丸括弧として扱われないのでマッチしない</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;03(5454)6666&#39;</span><span class="p">,</span> <span class="s1">&#39;0354546666&#39;</span><span class="p">)</span> <span class="c1"># 括弧が含まれない文字列にマッチ</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="p">)</span>
@@ -2152,8 +2071,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">list1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;had&#39;</span><span class="p">,</span> <span class="s1">&#39;James while John had had had had had had had had had had had a better effect on the teacher.&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;had&#39;</span><span class="p">,</span> <span class="s1">&#39;James while John had had had had had had had had had had had a better effect on the teacher.&#39;</span><span class="p">)</span>
 <span class="c1">#James, while John had had &#39;had&#39;, had had &#39;had had&#39;; &#39;had had&#39; had had a better effect on the teacher.</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span> <span class="c1">#全てのhadを抜き出す</span>
 <span class="n">list1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;p[^ .]*&#39;</span><span class="p">,</span> <span class="s1">&#39;Peter Piper picked a peck of pickled peppers.&#39;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
@@ -2183,8 +2101,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;1:正規表現 had の結果：&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;1:正規表現 had の結果：&#39;</span><span class="p">)</span>
 <span class="n">iter1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="s1">&#39;had&#39;</span><span class="p">,</span> <span class="s1">&#39;James while John had had had had had had had had had had had a better effect on the teacher.&#39;</span><span class="p">)</span>
 <span class="c1">#James, while John had had &#39;had&#39;, had had &#39;had had&#39;; &#39;had had&#39; had had a better effect on the teacher.</span>
 <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">iter1</span><span class="p">:</span>
@@ -2234,8 +2151,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">re</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;03-5454-(\d\d\d\d)&#39;</span><span class="p">,</span> <span class="s1">&#39;03-5454-6666&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;マッチした文字列=&#39;</span><span class="p">,</span> <span class="n">match1</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="s1">&#39; キャプチャした文字列=&#39;</span><span class="p">,</span> <span class="n">match1</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># 内線番号の取得</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;([^@]*)@[^.]*(\.[^.]*)?\.u-tokyo\.ac\.jp&#39;</span><span class="p">,</span> <span class="s1">&#39;accountname@test.ecc.u-tokyo.ac.jp&#39;</span><span class="p">)</span> <span class="c1"># \.はピリオドを表します</span>
@@ -2244,8 +2160,7 @@ None
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;マッチした文字列=&#39;</span><span class="p">,</span> <span class="n">match1</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="s1">&#39; キャプチャした文字列=&#39;</span><span class="p">,</span> <span class="n">match1</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># アカウント名の取得</span>
 <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;href=</span><span class="se">\&quot;</span><span class="s2">([^</span><span class="se">\&quot;</span><span class="s2">]*)</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s1">&#39;&lt;a href=&quot;http://www.u-tokyo.ac.jp&quot; target=&quot;_blank&quot;&gt;U-Tokyo&lt;/a&gt;&#39;</span><span class="p">)</span><span class="c1"># \&quot;はダブルクォートを表します</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;マッチした文字列=&#39;</span><span class="p">,</span> <span class="n">match1</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="s1">&#39; キャプチャした文字列=&#39;</span><span class="p">,</span> <span class="n">match1</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># リンク先URLの取得</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -2264,8 +2179,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;03-5454-(\d\d\d\d)&#39;</span><span class="p">,</span> <span class="s1">&#39;03-5454-666&#39;</span><span class="p">)</span> <span class="c1">#マッチしない文字列</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;03-5454-(\d\d\d\d)&#39;</span><span class="p">,</span> <span class="s1">&#39;03-5454-666&#39;</span><span class="p">)</span> <span class="c1">#マッチしない文字列</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;マッチした文字列=&#39;</span><span class="p">,</span> <span class="n">match1</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="s1">&#39; キャプチャした文字列=&#39;</span><span class="p">,</span> <span class="n">match1</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -2277,9 +2191,9 @@ None
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9427/260316147.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> match1 <span class="ansi-blue-fg">=</span> re<span class="ansi-blue-fg">.</span>search<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;03-5454-(\d\d\d\d)&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;03-5454-666&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-red-fg">#マッチしない文字列</span>
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;マッチした文字列=&#39;</span><span class="ansi-blue-fg">,</span> match1<span class="ansi-blue-fg">.</span>group<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39; キャプチャした文字列=&#39;</span><span class="ansi-blue-fg">,</span> match1<span class="ansi-blue-fg">.</span>group<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+Input <span class="ansi-green-fg">In [69]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> match1 <span style="color: rgb(98,98,98)">=</span> re<span style="color: rgb(98,98,98)">.</span>search(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">03-5454-(</span><span style="color: rgb(175,0,0)">\</span><span style="color: rgb(175,0,0)">d</span><span style="color: rgb(175,0,0)">\</span><span style="color: rgb(175,0,0)">d</span><span style="color: rgb(175,0,0)">\</span><span style="color: rgb(175,0,0)">d</span><span style="color: rgb(175,0,0)">\</span><span style="color: rgb(175,0,0)">d)</span><span style="color: rgb(175,0,0)">&#39;</span>, <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">03-5454-666</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(95,135,135)">#マッチしない文字列</span>
+<span class="ansi-green-fg">----&gt; 2</span> <span style="color: rgb(0,135,0)">print</span>(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">マッチした文字列=</span><span style="color: rgb(175,0,0)">&#39;</span>, <span class="ansi-yellow-bg">match1</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">group</span>(<span style="color: rgb(98,98,98)">0</span>), <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)"> キャプチャした文字列=</span><span style="color: rgb(175,0,0)">&#39;</span>, match1<span style="color: rgb(98,98,98)">.</span>group(<span style="color: rgb(98,98,98)">1</span>))
 
 <span class="ansi-red-fg">AttributeError</span>: &#39;NoneType&#39; object has no attribute &#39;group&#39;
 </pre></div></div>
@@ -2289,8 +2203,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[70]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;03-5454-(\d\d\d\d)&#39;</span><span class="p">,</span> <span class="s1">&#39;03-5454-666&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;03-5454-(\d\d\d\d)&#39;</span><span class="p">,</span> <span class="s1">&#39;03-5454-666&#39;</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">match1</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;マッチした文字列=&#39;</span><span class="p">,</span> <span class="n">match1</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="s1">&#39; キャプチャした文字列=&#39;</span><span class="p">,</span> <span class="n">match1</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 <span class="k">else</span><span class="p">:</span>
@@ -2316,8 +2229,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">...</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">...</span>
 <span class="k">def</span> <span class="nf">check_ACGTstr</span><span class="p">(</span><span class="n">str1</span><span class="p">):</span>
     <span class="o">...</span>
 </pre></div>
@@ -2328,7 +2240,7 @@ None
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_9427/390249491.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Input </span><span class="ansi-green-fg">In [71]</span>
 <span class="ansi-red-fg">    import ...</span>
            ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -2340,8 +2252,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">check_ACGTstr</span><span class="p">(</span><span class="s1">&#39;AcCGTAGCacATcGgAaaTtGCacT&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">check_ACGTstr</span><span class="p">(</span><span class="s1">&#39;AcCGTAGCacATcGgAaaTtGCacT&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">check_ACGTstr</span><span class="p">(</span><span class="s1">&#39;:ACaacgta24FgtGH&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">check_ACGTstr</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">)</span>
 </pre></div>
@@ -2354,10 +2265,10 @@ None
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9427/3681665936.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>check_ACGTstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;AcCGTAGCacATcGgAaaTtGCacT&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>check_ACGTstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;:ACaacgta24FgtGH&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>check_ACGTstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
+Input <span class="ansi-green-fg">In [72]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">check_ACGTstr</span>(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">AcCGTAGCacATcGgAaaTtGCacT</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">True</span>)
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span style="color: rgb(0,135,0)">print</span>(check_ACGTstr(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">:ACaacgta24FgtGH</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span style="color: rgb(0,135,0)">print</span>(check_ACGTstr(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;check_ACGTstr&#39; is not defined
 </pre></div></div>
@@ -2379,8 +2290,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">...</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">...</span>
 <span class="k">def</span> <span class="nf">get_pos</span><span class="p">():</span>
     <span class="o">...</span>
 </pre></div>
@@ -2391,7 +2301,7 @@ None
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_9427/1340085115.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Input </span><span class="ansi-green-fg">In [73]</span>
 <span class="ansi-red-fg">    import ...</span>
            ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -2403,8 +2313,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">get_pos</span><span class="p">()[</span><span class="s1">&#39;They &#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;PRON&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">get_pos</span><span class="p">()[</span><span class="s1">&#39;They &#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;PRON&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">get_pos</span><span class="p">()[</span><span class="s1">&#39;know &#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;VERB&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2416,9 +2325,9 @@ None
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9427/2030927862.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>get_pos<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;They &#39;</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;PRON&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>get_pos<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;know &#39;</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;VERB&#39;</span><span class="ansi-blue-fg">)</span>
+Input <span class="ansi-green-fg">In [74]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">get_pos</span>()[<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">They </span><span style="color: rgb(175,0,0)">&#39;</span>] <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">PRON</span><span style="color: rgb(175,0,0)">&#39;</span>)
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span style="color: rgb(0,135,0)">print</span>(get_pos()[<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">know </span><span style="color: rgb(175,0,0)">&#39;</span>] <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">VERB</span><span style="color: rgb(175,0,0)">&#39;</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;get_pos&#39; is not defined
 </pre></div></div>
@@ -2430,8 +2339,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">re</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 <span class="k">def</span> <span class="nf">check_monthstr</span><span class="p">(</span><span class="n">str1</span><span class="p">):</span>
     <span class="n">reg_month</span> <span class="o">=</span> <span class="s1">&#39;((0(1|2|3|4|5|6|7|8|9))|10|11|12)&#39;</span> <span class="c1">#</span>
     <span class="c1">#reg_month = &#39;01|02|03|04|05|06|07|08|09|10|11|12&#39; # としてもよい</span>
@@ -2444,8 +2352,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[76]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">re</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 <span class="k">def</span> <span class="nf">check_timestr</span><span class="p">(</span><span class="n">str1</span><span class="p">):</span>
     <span class="n">reg_hour</span> <span class="o">=</span> <span class="s1">&#39;((0(0|1|2|3|4|5|6|7|8|9))|10|11)&#39;</span> <span class="c1">#「時」部分の正規表現</span>
     <span class="c1">#reg_hour = &#39;((0[0-9]|10|11)&#39; # 文字クラスを使ってと表すこともできます（文字クラスは後で学習します</span>
@@ -2462,8 +2369,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">re</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 <span class="k">def</span> <span class="nf">check_ipv4str</span><span class="p">(</span><span class="n">str1</span><span class="p">):</span>
     <span class="n">reg_0to9</span> <span class="o">=</span> <span class="s1">&#39;(0|1|2|3|4|5|6|7|8|9)&#39;</span> <span class="c1"># 0から9の数を表す正規表現</span>
     <span class="c1">#reg_0to9 = &#39;[0-9]&#39; # 文字クラスを使ってと表すこともできます（文字クラスは後で学習します</span>
@@ -2485,8 +2391,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">re</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 <span class="k">def</span> <span class="nf">check_monthdaystr</span><span class="p">(</span><span class="n">str1</span><span class="p">):</span>
     <span class="n">reg_month_31</span> <span class="o">=</span> <span class="s1">&#39;(01|03|05|07|08|10|12)&#39;</span> <span class="c1">#ddが01から31になるmm</span>
     <span class="n">reg_month_30</span> <span class="o">=</span> <span class="s1">&#39;(04|06|09|11)&#39;</span> <span class="c1">#ddが01から30になるmm</span>
@@ -2517,8 +2422,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[79]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">re</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 <span class="k">def</span> <span class="nf">sumnumbers</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
     <span class="n">numbers</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;[^0-9]+&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
     <span class="n">numbers</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
@@ -2533,8 +2437,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[80]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">re</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 <span class="k">def</span> <span class="nf">get_engsentences</span><span class="p">():</span>
     <span class="n">word_list</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># 結果を格納するリスト</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;text-sample.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -2555,8 +2458,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[81]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">re</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 <span class="k">def</span> <span class="nf">get_engsentences2</span><span class="p">():</span>
     <span class="n">word_dict</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># 重複する単語を削除する為に辞書を使ってみる</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;text-sample.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -2579,8 +2481,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[82]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">re</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 <span class="k">def</span> <span class="nf">check_ACGTstr</span><span class="p">(</span><span class="n">str1</span><span class="p">):</span>
     <span class="n">reg_ACGT</span> <span class="o">=</span> <span class="s1">&#39;(A|C|G|T)+&#39;</span> <span class="c1"># A,C,G,Tを表す正規表現  # +→* だと空文字列がマッチしてしまう</span>
     <span class="c1">#reg_ACGT = &#39;(A|C|G|T)(A|C|G|T)*&#39; # A,C,G,Tを表す正規表現</span>
@@ -2605,8 +2506,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[83]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">re</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 <span class="k">def</span> <span class="nf">check_postalcode</span><span class="p">(</span><span class="n">str1</span><span class="p">):</span>
     <span class="n">reg1</span> <span class="o">=</span> <span class="s1">&#39;[0-9]{3,3}-[0-9]{4,4}&#39;</span>
     <span class="c1">#reg1 = &#39;\d{3,3}-\d{4,4}&#39; #でも可</span>
@@ -2633,8 +2533,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[84]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">re</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 <span class="k">def</span> <span class="nf">check_extension</span><span class="p">(</span><span class="n">str1</span><span class="p">):</span>
     <span class="n">reg1</span> <span class="o">=</span> <span class="s1">&#39;2[0-9]{4,4}&#39;</span>
 <span class="c1">#    reg1 = &#39;2\d{4,4}&#39; #でも可</span>
@@ -2661,8 +2560,7 @@ None
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[85]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">re</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 <span class="k">def</span> <span class="nf">get_pos</span><span class="p">():</span>
     <span class="n">str_file</span> <span class="o">=</span> <span class="s1">&#39;B1S.xml&#39;</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">str_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -2698,14 +2596,16 @@ None
 
 
 <p>
-  <a href="https://colab.research.google.com/github/utokyo-ipp/utokyo-ipp.github.io/blob/master/colab/appendix/5-re.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
+  <a style="font-family: sans-serif; font-size: smaller; background: linear-gradient(to top, #353535 0%, #141414 100%); -webkit-font-smoothing: antialiased; font-weight: normal; text-shadow: rgb(0 0 0 / 40%) 0 -1px 0; padding: 2px 6px; color: #fff; text-decoration: none; border-radius: 4px; border: 1px solid #0d0d0d; box-shadow: inset 0 1px 1px 0 #8f8f8f;" href="https://github.com/utokyo-ipp/utokyo-ipp.github.io">View on GitHub</a>
+</p><p>
+  <a style="border-bottom: none;" href="https://colab.research.google.com/github/utokyo-ipp/utokyo-ipp.github.io/blob/master/colab/appendix/5-re.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
 </p><h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-1.html">1-1. 数値演算</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-2.html">1-2. 変数と関数の基礎</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../1/1-4.html">1-4. デバッグ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1/1-4.html">1-4. テストとデバッグ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2/2-1.html">2-1. 文字列 (string)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2/2-2.html">2-2. リスト (list)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../2/2-3.html">2-3. 条件分岐</a></li>
@@ -2790,10 +2690,10 @@ None
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020–2021, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      &copy;2020–2022, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>
