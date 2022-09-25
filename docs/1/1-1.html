@@ -19,7 +19,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="1-2. 変数と関数の基礎" href="1-2.html" />
-    <link rel="prev" title="1-0. Colaboratoryによるノートブックの使い方" href="1-0.html" />
+    <link rel="prev" title="1-0. Colaboratory (Colab) の使い方" href="1-0.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -778,6 +778,63 @@ True
 </pre></div></div>
 </div>
 </section>
+<section id="数値誤差">
+<h3>数値誤差<a class="headerlink" href="#数値誤差" title="Permalink to this headline">¶</a></h3>
+<p>浮動小数点数には、<strong>数値誤差</strong>が不可避です。 これは、有限のビット数で、無限に小さくなり得る小数刻みを表現しようとするためです。 （参照：<a class="reference external" href="https://ja.wikipedia.org/wiki/%E6%B5%AE%E5%8B%95%E5%B0%8F%E6%95%B0%E7%82%B9%E6%95%B0#%E3%82%A8%E3%83%A9%E3%83%BC%EF%BC%88%E8%AA%A4%E5%B7%AE%EF%BC%89">Wikipedia - 浮動小数点数</a>）</p>
+<p>Pythonでは、整数は無限桁で表現されるため、整数演算には誤差が生じません。 しかし、整数を実数に変換したときには、一般に誤差が生じます。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span><span class="o">**</span><span class="mi">60</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1000000000000000000000000000000000000000000000000000000000000
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">float</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">60</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1e+60
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">60</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+999999999999999949387135297074018866963645011013410073083904
+</pre></div></div>
+</div>
+<p>数え上げのような離散的な値を扱う時には、実数を経由せずに、整数のみで演算するようにしましょう。</p>
+</section>
 </section>
 <section id="演算子の優先順位と括弧">
 <h2>演算子の優先順位と括弧<a class="headerlink" href="#演算子の優先順位と括弧" title="Permalink to this headline">¶</a></h2>
@@ -786,7 +843,7 @@ True
 <p>なお、数式 <span class="math notranslate nohighlight">\(a(b-c)\)</span>、<span class="math notranslate nohighlight">\((a-b)(c-d)\)</span> は、それぞれ <span class="math notranslate nohighlight">\(a\)</span> と <span class="math notranslate nohighlight">\(b-c\)</span>、<span class="math notranslate nohighlight">\(a-b\)</span> と <span class="math notranslate nohighlight">\(c-d\)</span> の積を意味しますが、 コードでは、<code class="docutils literal notranslate"><span class="pre">a*(b-c)</span></code> や <code class="docutils literal notranslate"><span class="pre">(a-b)*(c-d)</span></code> のように積の演算子である <code class="docutils literal notranslate"><span class="pre">*</span></code> を明記する必要があることに注意してください。</p>
 <p>また、数や演算子の間には、自由に空白を入れることができます。（後でもう一度説明します。）</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span>
@@ -794,7 +851,7 @@ True
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -803,7 +860,7 @@ True
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">7</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span>
@@ -811,7 +868,7 @@ True
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -820,7 +877,7 @@ True
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">17</span> <span class="o">-</span> <span class="mi">17</span><span class="o">//</span><span class="mi">3</span><span class="o">*</span><span class="mi">3</span>
@@ -828,7 +885,7 @@ True
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -837,7 +894,7 @@ True
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">56</span> <span class="o">**</span> <span class="mi">4</span> <span class="o">**</span> <span class="mi">2</span>
@@ -845,7 +902,7 @@ True
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -854,7 +911,7 @@ True
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">56</span> <span class="o">**</span> <span class="mi">16</span>
@@ -862,7 +919,7 @@ True
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -872,7 +929,7 @@ True
 </div>
 <p>上の例では、<code class="docutils literal notranslate"><span class="pre">4**2</span></code> が先に評価されて、<code class="docutils literal notranslate"><span class="pre">56**16</span></code> が計算されます。 つまり、<code class="docutils literal notranslate"><span class="pre">x**y**z</span></code> = <code class="docutils literal notranslate"><span class="pre">x**(y**z)</span></code> が成り立ちます。 このことをもって、<code class="docutils literal notranslate"><span class="pre">**</span></code> は右に結合するといいます。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">16</span><span class="o">/</span><span class="mi">8</span><span class="o">/</span><span class="mi">2</span>
@@ -880,7 +937,7 @@ True
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -889,7 +946,7 @@ True
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">16</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
@@ -897,7 +954,7 @@ True
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -908,7 +965,7 @@ True
 <p>上の例では、<code class="docutils literal notranslate"><span class="pre">16/8</span></code> が先に評価されて、<code class="docutils literal notranslate"><span class="pre">2/2</span></code> が計算されます。 つまり、<code class="docutils literal notranslate"><span class="pre">x/y/z</span></code> = <code class="docutils literal notranslate"><span class="pre">(x/y)/z</span></code> が成り立ちます。 このことをもって、<code class="docutils literal notranslate"><span class="pre">/</span></code> は左に結合するといいます。</p>
 <p><code class="docutils literal notranslate"><span class="pre">*</span></code> と <code class="docutils literal notranslate"><span class="pre">/</span></code> をまぜても左に結合します。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span>
@@ -916,7 +973,7 @@ True
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -954,7 +1011,7 @@ True
 <h3>単項の <code class="docutils literal notranslate"><span class="pre">+</span></code> と <code class="docutils literal notranslate"><span class="pre">-</span></code><a class="headerlink" href="#単項の-+-と--" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">+</span></code> と <code class="docutils literal notranslate"><span class="pre">-</span></code> は、単項の演算子（<strong>単項演算子</strong>）としても使えます。 （これらの演算子の後に1つだけ数が書かれます。 前と後の両方に数が書かれる演算子は<strong>2項演算子</strong>と言います。）</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="mi">3</span>
@@ -962,7 +1019,7 @@ True
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -971,7 +1028,7 @@ True
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">+</span><span class="mi">3</span>
@@ -979,7 +1036,7 @@ True
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1002,7 +1059,7 @@ True
 <p>既に <code class="docutils literal notranslate"><span class="pre">7</span> <span class="pre">-</span> <span class="pre">2</span> <span class="pre">*</span> <span class="pre">3</span></code> のような例が出てきましたが、 演算子と数の間や、演算子と変数（後述）の間には、空白を入れることができます。 ここで<strong>空白</strong>とは、<strong>半角の空白</strong>のことで、英数字と同様に1バイトの文字コードに含まれているものです。</p>
 <p>複数の文字から成る演算子、たとえば <code class="docutils literal notranslate"><span class="pre">**</span></code> や <code class="docutils literal notranslate"><span class="pre">//</span></code> の間に空白を入れることはできません。 エラーになることでしょう。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span> <span class="o">**</span><span class="mi">2</span>
@@ -1010,7 +1067,7 @@ True
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1019,7 +1076,7 @@ True
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span><span class="o">*</span> <span class="o">*</span><span class="mi">2</span>
@@ -1031,7 +1088,7 @@ True
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  Input </span><span class="ansi-green-fg">In [36]</span>
+<span class="ansi-cyan-fg">  Input </span><span class="ansi-green-fg">In [39]</span>
 <span class="ansi-red-fg">    7* *2</span>
        ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -1042,7 +1099,7 @@ True
 <h3>全角の空白<a class="headerlink" href="#全角の空白" title="Permalink to this headline">¶</a></h3>
 <p>日本語文字コードである<strong>全角の空白</strong>は、空白とはみなされませんので注意してください。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span>　<span class="o">**</span><span class="mi">2</span>
@@ -1054,7 +1111,7 @@ True
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  Input </span><span class="ansi-green-fg">In [37]</span>
+<span class="ansi-cyan-fg">  Input </span><span class="ansi-green-fg">In [40]</span>
 <span class="ansi-red-fg">    7　**2</span>
      ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid character in identifier
@@ -1067,7 +1124,7 @@ True
 <h2>エラー<a class="headerlink" href="#エラー" title="Permalink to this headline">¶</a></h2>
 <p>色々と試していると、<strong>エラー</strong>が起こることもあったでしょう。 以下は典型的なエラーです。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span><span class="o">/</span><span class="mi">0</span>
@@ -1081,7 +1138,7 @@ True
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ZeroDivisionError</span>                         Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [38]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+Input <span class="ansi-green-fg">In [41]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg" style="color: rgb(98,98,98)">10</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">/</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">0</span>
 
 <span class="ansi-red-fg">ZeroDivisionError</span>: division by zero
@@ -1090,7 +1147,7 @@ Input <span class="ansi-green-fg">In [38]</span>, in <span class="ansi-cyan-fg">
 <p>このエラーは、ゼロによる割り算を行ったためです。 <strong>実行時エラー</strong>の典型的なものです。</p>
 <p>エラーが起こった場合は、修正して評価し直すことができます。 上の例で、0 をたとえば 3 に書き換えて評価し直してみてください。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span><span class="o">/</span>
@@ -1102,7 +1159,7 @@ Input <span class="ansi-green-fg">In [38]</span>, in <span class="ansi-cyan-fg">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  Input </span><span class="ansi-green-fg">In [39]</span>
+<span class="ansi-cyan-fg">  Input </span><span class="ansi-green-fg">In [42]</span>
 <span class="ansi-red-fg">    10/</span>
        ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -1114,7 +1171,7 @@ Input <span class="ansi-green-fg">In [38]</span>, in <span class="ansi-cyan-fg">
 <section id="数学関数（モジュールのインポート）">
 <h2>数学関数（モジュールのインポート）<a class="headerlink" href="#数学関数（モジュールのインポート）" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
@@ -1122,7 +1179,7 @@ Input <span class="ansi-green-fg">In [38]</span>, in <span class="ansi-cyan-fg">
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -1130,7 +1187,7 @@ Input <span class="ansi-green-fg">In [38]</span>, in <span class="ansi-cyan-fg">
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1141,7 +1198,7 @@ Input <span class="ansi-green-fg">In [38]</span>, in <span class="ansi-cyan-fg">
 <p>数学関係の各種の関数は、<strong>モジュール</strong>（<strong>ライブラリ</strong>）として提供されています。 これらの関数を使いたいときは、上のように、<code class="docutils literal notranslate"><span class="pre">import</span></code> で始まる <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span></code> というおまじないを一度唱えます。 そうしますと、<code class="docutils literal notranslate"><span class="pre">math</span></code> というライブラリが読み込まれて（<strong>インポート</strong>されて）、 <code class="docutils literal notranslate"><span class="pre">math.関数名</span></code> という形で関数を用いることができます。 上の例では、平方根を計算する <code class="docutils literal notranslate"><span class="pre">math.sqrt</span></code> という関数が用いられています。</p>
 <p>もう少し例をあげておきましょう。sinとcosは <code class="docutils literal notranslate"><span class="pre">math.sin</span></code> と <code class="docutils literal notranslate"><span class="pre">math.cos</span></code> で求まります。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -1149,7 +1206,7 @@ Input <span class="ansi-green-fg">In [38]</span>, in <span class="ansi-cyan-fg">
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1158,7 +1215,7 @@ Input <span class="ansi-green-fg">In [38]</span>, in <span class="ansi-cyan-fg">
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">pi</span>
@@ -1166,7 +1223,7 @@ Input <span class="ansi-green-fg">In [38]</span>, in <span class="ansi-cyan-fg">
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1177,7 +1234,7 @@ Input <span class="ansi-green-fg">In [38]</span>, in <span class="ansi-cyan-fg">
 <p><code class="docutils literal notranslate"><span class="pre">math.pi</span></code> は、円周率を値とする変数です。</p>
 <p>変数については後に説明されます。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
@@ -1185,7 +1242,7 @@ Input <span class="ansi-green-fg">In [38]</span>, in <span class="ansi-cyan-fg">
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1195,7 +1252,7 @@ Input <span class="ansi-green-fg">In [38]</span>, in <span class="ansi-cyan-fg">
 </div>
 <p>この結果は本当は 0 にならなければならないのですが、 数値誤差のためにこのようになっています。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
@@ -1203,7 +1260,7 @@ Input <span class="ansi-green-fg">In [38]</span>, in <span class="ansi-cyan-fg">
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1212,7 +1269,7 @@ Input <span class="ansi-green-fg">In [38]</span>, in <span class="ansi-cyan-fg">
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span>
@@ -1220,7 +1277,7 @@ Input <span class="ansi-green-fg">In [38]</span>, in <span class="ansi-cyan-fg">
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1265,7 +1322,7 @@ Input <span class="ansi-green-fg">In [38]</span>, in <span class="ansi-cyan-fg">
   <a style="border-bottom: none;" href="https://colab.research.google.com/github/utokyo-ipp/utokyo-ipp.github.io/blob/master/colab/1/1-1.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
 </p><h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1-0.html">1-0. Colaboratory (Colab) の使い方</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1-1. 数値演算</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#簡単な算術計算">簡単な算術計算</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#コメント">コメント</a></li>
@@ -1288,7 +1345,7 @@ Input <span class="ansi-green-fg">In [38]</span>, in <span class="ansi-cyan-fg">
 <li class="toctree-l1"><a class="reference internal" href="../3/3-2.html">3-2. 繰り返し</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../3/3-3.html">3-3. 関数</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4/4-1.html">4-1. ファイル入出力の基本</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../4/4-2.html">4-2. イテレータ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4/4-2.html">4-2. イテラブルとイテレータ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4/4-3.html">4-3. コンピュータにおけるファイルやディレクトリの配置</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../5/5-1.html">5-1. モジュールの使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../5/5-2.html">5-2. モジュールの作り方</a></li>
@@ -1314,7 +1371,7 @@ Input <span class="ansi-green-fg">In [38]</span>, in <span class="ansi-cyan-fg">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="1-0.html" title="previous chapter">1-0. Colaboratoryによるノートブックの使い方</a></li>
+      <li>Previous: <a href="1-0.html" title="previous chapter">1-0. Colaboratory (Colab) の使い方</a></li>
       <li>Next: <a href="1-2.html" title="next chapter">1-2. 変数と関数の基礎</a></li>
   </ul></li>
 </ul>

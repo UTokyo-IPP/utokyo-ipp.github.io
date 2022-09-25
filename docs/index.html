@@ -16,7 +16,7 @@
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1-0. Colaboratoryによるノートブックの使い方" href="1/1-0.html" />
+    <link rel="next" title="1-0. Colaboratory (Colab) の使い方" href="1/1-0.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -39,7 +39,7 @@
 <p>ノートブック全体に▲が付いているものもありますので注意してください。</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="1/1-0.html">1-0. Colaboratory (Colab) の使い方</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="1/1-0.html#Colaboratoryの立ち上げ">Colaboratoryの立ち上げ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1/1-0.html#ノートブックのアップロード">ノートブックのアップロード</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1/1-0.html#教材のオープン">教材のオープン</a></li>
@@ -224,14 +224,17 @@
 <li class="toctree-l2"><a class="reference internal" href="4/4-1.html#練習の解答">練習の解答</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="4/4-2.html">4-2. イテレータ</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="4/4-2.html#next"><code class="docutils literal notranslate"><span class="pre">next</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="4/4-2.html">4-2. イテラブルとイテレータ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="4/4-2.html#for文による繰り返しとファイルオブジェクト">for文による繰り返しとファイルオブジェクト</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4/4-2.html#練習">練習</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4/4-2.html#for文とイテラブルとイテレータ">for文とイテラブルとイテレータ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4/4-2.html#iter"><code class="docutils literal notranslate"><span class="pre">iter</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="4/4-2.html#id3">練習</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4/4-2.html#イテラブル">イテラブル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4/4-2.html#next"><code class="docutils literal notranslate"><span class="pre">next</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4/4-2.html#for文の仕組み">for文の仕組み</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4/4-2.html#イテレータは特殊なイテラブル">イテレータは特殊なイテラブル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4/4-2.html#ファイルオブジェクトはイテレータ">ファイルオブジェクトはイテレータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4/4-2.html#イテラブルはイテレータではない">イテラブルはイテレータではない</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4/4-2.html#イテレータを返す-enumerate">イテレータを返す <code class="docutils literal notranslate"><span class="pre">enumerate</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4/4-2.html#▲イテラブルとイテレータの定義">▲イテラブルとイテレータの定義</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4/4-2.html#練習の解答">練習の解答</a></li>
 </ul>
 </li>
@@ -465,7 +468,7 @@
   <a style="border-bottom: none;" href="https://colab.research.google.com/github/utokyo-ipp/utokyo-ipp.github.io/blob/master/colab/index.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
 </p><h3>Navigation</h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="1/1-0.html">1-0. Colaboratoryによるノートブックの使い方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1/1-0.html">1-0. Colaboratory (Colab) の使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1/1-1.html">1-1. 数値演算</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1/1-2.html">1-2. 変数と関数の基礎</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1/1-3.html">1-3. 論理・比較演算と条件分岐の基礎</a></li>
@@ -477,7 +480,7 @@
 <li class="toctree-l1"><a class="reference internal" href="3/3-2.html">3-2. 繰り返し</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3/3-3.html">3-3. 関数</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4/4-1.html">4-1. ファイル入出力の基本</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4/4-2.html">4-2. イテレータ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4/4-2.html">4-2. イテラブルとイテレータ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4/4-3.html">4-3. コンピュータにおけるファイルやディレクトリの配置</a></li>
 <li class="toctree-l1"><a class="reference internal" href="5/5-1.html">5-1. モジュールの使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="5/5-2.html">5-2. モジュールの作り方</a></li>
@@ -503,7 +506,7 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="#">Documentation overview</a><ul>
-      <li>Next: <a href="1/1-0.html" title="next chapter">1-0. Colaboratoryによるノートブックの使い方</a></li>
+      <li>Next: <a href="1/1-0.html" title="next chapter">1-0. Colaboratory (Colab) の使い方</a></li>
   </ul></li>
 </ul>
 </div>
