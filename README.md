@@ -1,6 +1,6 @@
 # Pythonプログラミング入門の教材
 
-東京大学における[「Pythonプログラミング入門」](https://sites.google.com/view/ut-python)の教材を提供する公開レポジトリ．
+東京大学における[「Pythonプログラミング入門」](https://utokyo-ipp.github.io/course/)の教材を提供する公開レポジトリ．
 
 ## 4つの形式
 
@@ -8,7 +8,7 @@
 * PDF版: <https://utokyo-ipp.github.io/IPP_textbook.pdf>
 * Colab版: <https://colab.research.google.com/github/utokyo-ipp/utokyo-ipp.github.io/blob/master/colab/index.ipynb>
   * HTML版にある ![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg) から対応するノートブックを開ける．
-* Jupyer版: <https://utokyo-ipp.github.io/IPP_textbook.zip>
+* Jupyter版: <https://utokyo-ipp.github.io/IPP_textbook.zip>
   * ローカルでipynbを実行するためのファイル一式．
 
 ## 本レポジトリの管理ポリシー
@@ -22,5 +22,5 @@
 
 ## ビルドとデプロイ
 
-Jupyer版をソースとして，他の形式がビルドされている．
+Jupyter版をソースとして，他の形式がビルドされている．
 ビルドとデプロイは，[ipynb_deployer](https://github.com/satoshigeyuki/ipynb_deployer)によって自動化されている．
