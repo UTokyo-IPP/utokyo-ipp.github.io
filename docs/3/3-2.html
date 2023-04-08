@@ -4,15 +4,18 @@
 <html lang="jp">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>3-2. 繰り返し &#8212; Pythonプログラミング入門  documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -36,256 +39,8 @@
 
           <div class="body" role="main">
             
-  
-<style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt *,
-div.nbinput.container div.input_area pre,
-div.nboutput.container div.output_area pre,
-div.nbinput.container div.input_area .highlight,
-div.nboutput.container div.output_area .highlight {
-    border: none;
-    padding: 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-div.nbinput.container > div[class*=highlight],
-div.nboutput.container > div[class*=highlight] {
-    margin: 0;
-}
-
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt * {
-    background: none;
-}
-
-div.nboutput.container div.output_area .highlight,
-div.nboutput.container div.output_area pre {
-    background: unset;
-}
-
-div.nboutput.container div.output_area div.highlight {
-    color: unset;  /* override Pygments text color */
-}
-
-/* avoid gaps between output lines */
-div.nboutput.container div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput.container,
-div.nboutput.container {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput.container,
-    div.nboutput.container {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput.container {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast.container {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput.container div.prompt pre {
-    color: #307FC1;
-}
-
-/* output prompt */
-div.nboutput.container div.prompt pre {
-    color: #BF5B3D;
-}
-
-/* all prompts */
-div.nbinput.container div.prompt,
-div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
-}
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
-@media (max-width: 540px) {
-    div.nbinput.container div.prompt,
-    div.nboutput.container div.prompt {
-        width: unset;
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput.container div.prompt.empty {
-        padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
-    }
-}
-
-/* disable scrollbars on prompts */
-div.nbinput.container div.prompt pre,
-div.nboutput.container div.prompt pre {
-    overflow: hidden;
-}
-
-/* input/output area */
-div.nbinput.container div.input_area,
-div.nboutput.container div.output_area {
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput.container div.input_area,
-    div.nboutput.container div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput.container div.input_area {
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    /*background: #f5f5f5;*/
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput.container div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput.container div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput.container div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-default-inverse-fg { color: #FFFFFF; }
-.ansi-default-inverse-bg { background-color: #000000; }
-
-.ansi-bold { font-weight: bold; }
-.ansi-underline { text-decoration: underline; }
-
-
-div.nbinput.container div.input_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight].math,
-div.nboutput.container div.output_area.rendered_html,
-div.nboutput.container div.output_area > div.output_javascript,
-div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
-    margin: 0;
-}
-
-/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
-div.nbinput.container div.input_area > div[class^='highlight'],
-div.nboutput.container div.output_area > div[class^='highlight']{
-    overflow-y: hidden;
-}
-
-/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt .copybtn {
-    display: none;
-}
-
-/* Some additional styling taken form the Jupyter notebook CSS */
-div.rendered_html table {
-  border: none;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: black;
-  font-size: 12px;
-  table-layout: fixed;
-}
-div.rendered_html thead {
-  border-bottom: 1px solid black;
-  vertical-align: bottom;
-}
-div.rendered_html tr,
-div.rendered_html th,
-div.rendered_html td {
-  text-align: right;
-  vertical-align: middle;
-  padding: 0.5em 0.5em;
-  line-height: normal;
-  white-space: normal;
-  max-width: none;
-  border: none;
-}
-div.rendered_html th {
-  font-weight: bold;
-}
-div.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-div.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
-</style>
-<section id="3-2.-繰り返し">
-<h1>3-2. 繰り返し<a class="headerlink" href="#3-2.-繰り返し" title="Permalink to this headline">¶</a></h1>
+  <section id="3-2.-繰り返し">
+<h1>3-2. 繰り返し<a class="headerlink" href="#3-2.-繰り返し" title="Permalink to this heading">¶</a></h1>
 <p>制御構造のうち<strong>繰り返し</strong>について説明します。</p>
 <p>参考:</p>
 <ul class="simple">
@@ -297,7 +52,7 @@ div.rendered_html tbody tr:hover {
 </ul>
 <p>繰り返しを行う制御構造 <code class="docutils literal notranslate"><span class="pre">for</span></code> や <code class="docutils literal notranslate"><span class="pre">while</span></code> によって、同じ処理の繰り返しを簡単にプログラムすることができます。</p>
 <section id="for文による繰り返し">
-<h2>for文による繰り返し<a class="headerlink" href="#for文による繰り返し" title="Permalink to this headline">¶</a></h2>
+<h2>for文による繰り返し<a class="headerlink" href="#for文による繰り返し" title="Permalink to this heading">¶</a></h2>
 <p>2-2で、リストと文字列に対するfor文の繰り返しについて説明しました。 Pythonにおける<strong>for文</strong>の一般的な文法は以下のとおりです。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for 変数 in 文字列・リスト・辞書など:
     実行文
@@ -444,7 +199,7 @@ a
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[&lt;matplotlib.lines.Line2D at 0x7fa6e667bd90&gt;]
+[&lt;matplotlib.lines.Line2D at 0x7fa2cb245ea0&gt;]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -482,7 +237,7 @@ a
 </div>
 </section>
 <section id="for文による繰り返しと辞書">
-<h2>for文による繰り返しと辞書<a class="headerlink" href="#for文による繰り返しと辞書" title="Permalink to this headline">¶</a></h2>
+<h2>for文による繰り返しと辞書<a class="headerlink" href="#for文による繰り返しと辞書" title="Permalink to this heading">¶</a></h2>
 <p>辞書の要素にわたって操作を繰り返したい場合もfor文を用います。 辞書 <code class="docutils literal notranslate"><span class="pre">dic1</span></code> の全てのキーを変数 <code class="docutils literal notranslate"><span class="pre">key</span></code> に代入しながら、<code class="docutils literal notranslate"><span class="pre">実行文</span></code> を繰り返すには次のように書きます。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for key in dic1:
     実行文
@@ -575,7 +330,7 @@ key: elephant value: 8
 </div>
 </section>
 <section id="練習">
-<h2>練習<a class="headerlink" href="#練習" title="Permalink to this headline">¶</a></h2>
+<h2>練習<a class="headerlink" href="#練習" title="Permalink to this heading">¶</a></h2>
 <p>辞書 <code class="docutils literal notranslate"><span class="pre">dic1</span></code> が引数として与えられたとき、次のような辞書 <code class="docutils literal notranslate"><span class="pre">dic2</span></code> を返す関数 <code class="docutils literal notranslate"><span class="pre">reverse_lookup2</span></code> を作成してください。ただし、 <code class="docutils literal notranslate"><span class="pre">dic1</span></code> のキー <code class="docutils literal notranslate"><span class="pre">key</span></code> の値が <code class="docutils literal notranslate"><span class="pre">value</span></code> である場合、 <code class="docutils literal notranslate"><span class="pre">dic2</span></code> には <code class="docutils literal notranslate"><span class="pre">value</span></code> というキーが登録されており、その値は <code class="docutils literal notranslate"><span class="pre">key</span></code> であるとします。また、 <code class="docutils literal notranslate"><span class="pre">dic1</span></code> は異なる2つのキーに対応する値は必ず異なるとします。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて <code class="docutils literal notranslate"><span class="pre">reverse_lookup2</span></code> を作成してください。</p>
 <div class="nbinput nblast docutils container">
@@ -606,7 +361,7 @@ False
 </div>
 </section>
 <section id="range">
-<h2><code class="docutils literal notranslate"><span class="pre">range</span></code><a class="headerlink" href="#range" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">range</span></code><a class="headerlink" href="#range" title="Permalink to this heading">¶</a></h2>
 <p>特定の回数の繰り返し処理が必要なときは、<code class="docutils literal notranslate"><span class="pre">range</span></code> 関数を用います。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for value in range(j):
     実行文
@@ -736,7 +491,7 @@ b
 </div>
 </section>
 <section id="id4">
-<h2>練習<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
 <p>引数で与えられる2つの整数 <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> 間（<code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> を含む）の整数の総和を返す関数 <code class="docutils literal notranslate"><span class="pre">sum_n</span></code> を for文を利用して作成してください。 たとえば、<code class="docutils literal notranslate"><span class="pre">sum_n(1,3)</span></code> の結果は <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">2</span> <span class="pre">+</span> <span class="pre">3</span> <span class="pre">=</span> <span class="pre">6</span></code> となります。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて <code class="docutils literal notranslate"><span class="pre">sum_n</span></code> を作成してください。</p>
 <div class="nbinput nblast docutils container">
@@ -767,7 +522,7 @@ False
 </div>
 </section>
 <section id="id5">
-<h2>練習<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h2>
 <p>整数 <code class="docutils literal notranslate"><span class="pre">int_size</span></code> を引数として取り、 長さが <code class="docutils literal notranslate"><span class="pre">int_size</span></code> であるリスト <code class="docutils literal notranslate"><span class="pre">ln</span></code> を返す関数 <code class="docutils literal notranslate"><span class="pre">construct_list</span></code> を作成してください。 ただし、 <code class="docutils literal notranslate"><span class="pre">ln</span></code> の <code class="docutils literal notranslate"><span class="pre">i</span></code> 番目の要素は <code class="docutils literal notranslate"><span class="pre">i</span></code> とします（<code class="docutils literal notranslate"><span class="pre">i</span></code> は 0 以上 <code class="docutils literal notranslate"><span class="pre">int_size-1</span></code> 以下の整数）。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて <code class="docutils literal notranslate"><span class="pre">construct_list(int_size)</span></code> を作成してください。</p>
 <div class="nbinput nblast docutils container">
@@ -798,7 +553,7 @@ False
 </div>
 </section>
 <section id="range-とリスト">
-<h2><code class="docutils literal notranslate"><span class="pre">range</span></code> とリスト<a class="headerlink" href="#range-とリスト" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">range</span></code> とリスト<a class="headerlink" href="#range-とリスト" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">range</span></code> 関数は整数列を返しますが、リストを返さないことに注意してください。 これは、繰り返し回数の大きな for文などで大きなリストを作ると無駄が大きくなるためです。</p>
 <p><code class="docutils literal notranslate"><span class="pre">range</span></code> 関数を利用して整数列のリストを生成するには、 以下のように <code class="docutils literal notranslate"><span class="pre">list</span></code> を関数として用いて、明示的にリスト化する必要があります。</p>
 <div class="nbinput docutils container">
@@ -820,7 +575,7 @@ False
 </div>
 </section>
 <section id="for文の入れ子">
-<h2>for文の<strong>入れ子</strong><a class="headerlink" href="#for文の入れ子" title="Permalink to this headline">¶</a></h2>
+<h2>for文の<strong>入れ子</strong><a class="headerlink" href="#for文の入れ子" title="Permalink to this heading">¶</a></h2>
 <p>for文を多重に<strong>入れ子</strong>（<strong>ネスト</strong>）して使うこともよくあります。 まずは次の例を実行してみてください。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
@@ -904,7 +659,7 @@ list1の 4 番目の要素（リスト）の 3 番目の要素 = l
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[&lt;matplotlib.lines.Line2D at 0x7fa6e652d280&gt;]
+[&lt;matplotlib.lines.Line2D at 0x7fa2cb02a2f0&gt;]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -916,7 +671,7 @@ list1の 4 番目の要素（リスト）の 3 番目の要素 = l
 </div>
 </section>
 <section id="id8">
-<h2>練習<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h2>
 <p>次のような関数 <code class="docutils literal notranslate"><span class="pre">sum_lists</span></code> を作成してください。</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">sum_lists</span></code> はリスト <code class="docutils literal notranslate"><span class="pre">list1</span></code> を引数とします。</p></li>
@@ -952,7 +707,7 @@ False
 </div>
 </section>
 <section id="id9">
-<h2>練習<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h2>
 <p>リスト <code class="docutils literal notranslate"><span class="pre">list1</span></code> と <code class="docutils literal notranslate"><span class="pre">list2</span></code> が引数として与えられたとき、次のようなリスト <code class="docutils literal notranslate"><span class="pre">list3</span></code> を返す関数 <code class="docutils literal notranslate"><span class="pre">sum_matrix</span></code> を作成してください。</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">list1</span></code>, <code class="docutils literal notranslate"><span class="pre">list2</span></code>, <code class="docutils literal notranslate"><span class="pre">list3</span></code> は、3つの要素を持ちます。</p></li>
@@ -988,7 +743,7 @@ False
 </div>
 </section>
 <section id="for文の計算量">
-<h2>for文の<strong>計算量</strong><a class="headerlink" href="#for文の計算量" title="Permalink to this headline">¶</a></h2>
+<h2>for文の<strong>計算量</strong><a class="headerlink" href="#for文の計算量" title="Permalink to this heading">¶</a></h2>
 <p>山口和紀編「情報」第2版（東京大学出版会）には、「<strong>計算量</strong>とは、 アルゴリズムをもとにしたプログラムの実行時間を見積もるための指標である。」と書かれています。 さらに、「この見積もりは<strong>計算量のオーダー</strong>と呼ばれる非常におおまかな尺度で考える。」と書かれています。 （太字は引用時に追加しました。）</p>
 <p>たとえば、リストに対するfor文</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for x in リスト:
@@ -1050,7 +805,7 @@ False
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-86.54269694948692
+88.72375455117242
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1067,7 +822,7 @@ False
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-98.73374895034651
+98.86562023035471
 </pre></div></div>
 </div>
 <p>10000個の場合は相当に時間がかかることがわかります。 これは、<code class="docutils literal notranslate"><span class="pre">variance</span></code> のfor文の中で <code class="docutils literal notranslate"><span class="pre">average</span></code> を呼んでいるためです。 見かけ上は一重ループなのですが、<code class="docutils literal notranslate"><span class="pre">average</span></code> の中にもループがあるため、 二重ループと同じ時間がかかります。 したがって、10000個の場合は、100個の場合に比べて10000倍時間がかかります。</p>
@@ -1099,7 +854,7 @@ False
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-86.54269694948692
+88.72375455117242
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1116,13 +871,13 @@ False
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-98.73374895034651
+98.86562023035471
 </pre></div></div>
 </div>
 <p>10000個の場合でも一瞬で実行が終わったことでしょう。 この場合、一重のループを2回実行しているだけだからです。</p>
 </section>
 <section id="enumerate">
-<h2><code class="docutils literal notranslate"><span class="pre">enumerate</span></code><a class="headerlink" href="#enumerate" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">enumerate</span></code><a class="headerlink" href="#enumerate" title="Permalink to this heading">¶</a></h2>
 <p>for文の繰り返し処理では、要素の順序を把握したいことがあります。 これまで学んだ方法では以下のように書けます。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>i = 0
 for val in some_list:
@@ -1161,7 +916,7 @@ for val in some_list:
 </div>
 </section>
 <section id="in">
-<h2><code class="docutils literal notranslate"><span class="pre">in</span></code><a class="headerlink" href="#in" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">in</span></code><a class="headerlink" href="#in" title="Permalink to this heading">¶</a></h2>
 <p>Pythonでは <code class="docutils literal notranslate"><span class="pre">for</span></code> ループでリストを展開する <code class="docutils literal notranslate"><span class="pre">in</span></code> とは別に、 2-2 で説明したように、リスト内の要素の有無を検査する <code class="docutils literal notranslate"><span class="pre">in</span></code> 演算子と <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code> 演算子が定義されています。 以下のように、<code class="docutils literal notranslate"><span class="pre">if</span></code> 文の条件に <code class="docutils literal notranslate"><span class="pre">in</span></code> が出現した場合、for文とは動作が異なるので注意してください。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>colors = [&#39;red&#39;, &#39;green&#39;, &#39;blue&#39;]
 color = &#39;red&#39;
@@ -1172,7 +927,7 @@ if color in colors:
 </div>
 </section>
 <section id="while文による繰り返し">
-<h2>while文による繰り返し<a class="headerlink" href="#while文による繰り返し" title="Permalink to this headline">¶</a></h2>
+<h2>while文による繰り返し<a class="headerlink" href="#while文による繰り返し" title="Permalink to this heading">¶</a></h2>
 <p><strong>while文</strong>では <code class="docutils literal notranslate"><span class="pre">while</span></code> の後の条件式が <code class="docutils literal notranslate"><span class="pre">False</span></code> となるまで、実行文グループを繰り返します。</p>
 <p>下記のプログラムでは、<span class="math notranslate nohighlight">\(\sum_{x=1}^{10}x\)</span> が <code class="docutils literal notranslate"><span class="pre">total</span></code> の値となります。</p>
 <div class="nbinput docutils container">
@@ -1220,7 +975,7 @@ if color in colors:
 </div>
 </section>
 <section id="制御構造とreturn文">
-<h2>制御構造とreturn文<a class="headerlink" href="#制御構造とreturn文" title="Permalink to this headline">¶</a></h2>
+<h2>制御構造とreturn文<a class="headerlink" href="#制御構造とreturn文" title="Permalink to this heading">¶</a></h2>
 <p><strong>return文</strong>は1-2で説明したように関数を終了し、値を返す（返値）機能を持ちます。 <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code> といった制御構造の中でreturn文が実行された場合、 ただちに関数の処理を終了し、その後の処理は行われません。</p>
 <p>以下の関数 <code class="docutils literal notranslate"><span class="pre">simple_lsearch</span></code> は与えられたリスト、<code class="docutils literal notranslate"><span class="pre">lst</span></code> に <code class="docutils literal notranslate"><span class="pre">myitem</span></code> と等しいものがあれば <code class="docutils literal notranslate"><span class="pre">True</span></code> を、なければ <code class="docutils literal notranslate"><span class="pre">False</span></code> を返します。</p>
 <ul class="simple">
@@ -1242,7 +997,7 @@ if color in colors:
 </div>
 </section>
 <section id="break文">
-<h2><strong>break文</strong><a class="headerlink" href="#break文" title="Permalink to this headline">¶</a></h2>
+<h2><strong>break文</strong><a class="headerlink" href="#break文" title="Permalink to this heading">¶</a></h2>
 <p><strong>break文</strong>は、 for文もしくはwhile文の実行文グループで利用可能です。 break文は実行中のプログラムで最も内側の繰り返し処理を中断し、そのループを終了させる目的で利用されます。 以下のプログラムは、初項 <code class="docutils literal notranslate"><span class="pre">256</span></code>、公比 1/2、の等比級数の和を求めるものです。 ただし、総和が <code class="docutils literal notranslate"><span class="pre">500</span></code> をこえれば打ち切られます。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
@@ -1270,8 +1025,8 @@ if color in colors:
 </div>
 </section>
 <section id="id11">
-<h2>練習<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
-<p>文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> と <code class="docutils literal notranslate"><span class="pre">str2</span></code> が引数として与えられたとき、 <code class="docutils literal notranslate"><span class="pre">str2</span></code> が <code class="docutils literal notranslate"><span class="pre">str1</span></code> を部分文字列として含むかどうか判定する関数 <code class="docutils literal notranslate"><span class="pre">simple_match</span></code> を作成してください。 具体的には、<code class="docutils literal notranslate"><span class="pre">str2</span></code> を含む場合、 その部分文字列が開始される <code class="docutils literal notranslate"><span class="pre">str1</span></code> のインデックスを返値として返してください。 <code class="docutils literal notranslate"><span class="pre">str2</span></code> を含まない場合、 <code class="docutils literal notranslate"><span class="pre">-1</span></code> を返してください。 ただし、<code class="docutils literal notranslate"><span class="pre">simple_match</span></code> の中で文字列のメソッドやモジュール（正規表現など）を使ってはいけません。</p>
+<h2>練習<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h2>
+<p>文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> と <code class="docutils literal notranslate"><span class="pre">str2</span></code> が引数として与えられたとき、 <code class="docutils literal notranslate"><span class="pre">str1</span></code> が <code class="docutils literal notranslate"><span class="pre">str2</span></code> を部分文字列として含むかどうか判定する関数 <code class="docutils literal notranslate"><span class="pre">simple_match</span></code> を作成してください。 具体的には、<code class="docutils literal notranslate"><span class="pre">str2</span></code> を含む場合、 その部分文字列が開始される <code class="docutils literal notranslate"><span class="pre">str1</span></code> のインデックスを返値として返してください。 <code class="docutils literal notranslate"><span class="pre">str2</span></code> を含まない場合、 <code class="docutils literal notranslate"><span class="pre">-1</span></code> を返してください。 ただし、<code class="docutils literal notranslate"><span class="pre">simple_match</span></code> の中で文字列のメソッドやモジュール（正規表現など）を使ってはいけません。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて <code class="docutils literal notranslate"><span class="pre">simple_match</span></code> を作成してください。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
@@ -1307,7 +1062,7 @@ False
 </div>
 </section>
 <section id="continue文">
-<h2><strong>continue文</strong><a class="headerlink" href="#continue文" title="Permalink to this headline">¶</a></h2>
+<h2><strong>continue文</strong><a class="headerlink" href="#continue文" title="Permalink to this heading">¶</a></h2>
 <p>continue文はbreak文同様に、<code class="docutils literal notranslate"><span class="pre">for</span></code> および <code class="docutils literal notranslate"><span class="pre">while</span></code> ループの実行文グループで利用可能です。 continue文は実行中のプログラムで最も内側の繰り返し処理を中断し、次のループの繰り返しの処理を開始します。</p>
 <p>下記のプログラムでは、<code class="docutils literal notranslate"><span class="pre">colors</span></code> リストの <code class="docutils literal notranslate"><span class="pre">'black'</span></code> は印字されませんが <code class="docutils literal notranslate"><span class="pre">'white'</span></code> は印字されます。</p>
 <div class="nbinput docutils container">
@@ -1335,7 +1090,7 @@ white
 </div>
 </section>
 <section id="▲for文とwhile文における-else">
-<h2>▲for文とwhile文における <code class="docutils literal notranslate"><span class="pre">else</span></code><a class="headerlink" href="#▲for文とwhile文における-else" title="Permalink to this headline">¶</a></h2>
+<h2>▲for文とwhile文における <code class="docutils literal notranslate"><span class="pre">else</span></code><a class="headerlink" href="#▲for文とwhile文における-else" title="Permalink to this heading">¶</a></h2>
 <p>for文およびwhile文では <code class="docutils literal notranslate"><span class="pre">else</span></code> を書くこともできます。 この実行文グループは、ループの最後に一度だけ実行されます。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
@@ -1366,7 +1121,7 @@ white
 <p>for文およびwhile文の <code class="docutils literal notranslate"><span class="pre">else</span></code> ブロックの内容は <code class="docutils literal notranslate"><span class="pre">continue</span></code> で終了したときは実行されますが、一方で <code class="docutils literal notranslate"><span class="pre">break</span></code> でループを終了したときは実行されません。</p>
 </section>
 <section id="pass文">
-<h2><strong>pass文</strong><a class="headerlink" href="#pass文" title="Permalink to this headline">¶</a></h2>
+<h2><strong>pass文</strong><a class="headerlink" href="#pass文" title="Permalink to this heading">¶</a></h2>
 <p>Pythonでは空の実行文グループは許されていません。 一方で、空白のコードブロックを用いることでプログラムが読みやすくなる場合があります。 たとえば以下の、<code class="docutils literal notranslate"><span class="pre">if</span></code> … <code class="docutils literal notranslate"><span class="pre">elif</span></code> … <code class="docutils literal notranslate"><span class="pre">else</span></code> プログラムはエラーとなります。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
@@ -1389,10 +1144,10 @@ white
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  Input </span><span class="ansi-green-fg">In [46]</span>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_6296/1323054308.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">6</span>
 <span class="ansi-red-fg">    elif 0 &lt; x &lt; 5:</span>
     ^
-<span class="ansi-red-fg">IndentationError</span><span class="ansi-red-fg">:</span> expected an indented block
+<span class="ansi-red-fg">IndentationError</span><span class="ansi-red-fg">:</span> expected an indented block after &#39;elif&#39; statement on line 4
 
 </pre></div></div>
 </div>
@@ -1424,7 +1179,7 @@ x is positive
 </div>
 </section>
 <section id="id12">
-<h2>練習<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h2>
 <p>以下のプログラムでは1秒おきに <code class="docutils literal notranslate"><span class="pre">print</span></code> が永久に実行されます。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>from time import sleep
 
@@ -1444,7 +1199,7 @@ while True:
 </div>
 </section>
 <section id="id13">
-<h2>練習<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id13" title="Permalink to this heading">¶</a></h2>
 <p>英語の文章からなる文字列 <code class="docutils literal notranslate"><span class="pre">str_engsentence</span></code> が引数として与えられたとき、 <code class="docutils literal notranslate"><span class="pre">str_engsentence</span></code> 中に含まれる3文字以上の全ての英単語を要素とするリストを返す関数 <code class="docutils literal notranslate"><span class="pre">collect_engwords</span></code> を作成してください。ただし、同じ単語を重複して含んでいて構いません。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて <code class="docutils literal notranslate"><span class="pre">collect_engwords(str_engsentence)</span></code> を作成してください。</p>
 <div class="nbinput nblast docutils container">
@@ -1476,7 +1231,7 @@ False
 </div>
 </section>
 <section id="id14">
-<h2>練習<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id14" title="Permalink to this heading">¶</a></h2>
 <p>2つの同じ大きさのリストが引数として与えられたとき、 2つのリストの奇数インデックスの要素を入れ替えて、 その結果得られる2つのリストをタプルにして返す関数 <code class="docutils literal notranslate"><span class="pre">swap_lists</span></code> を作成してください （ただし、0 は偶数として扱うものとします）。 与えられたリストは破壊しても構いません。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて <code class="docutils literal notranslate"><span class="pre">swap_lists(ln1,</span> <span class="pre">ln2)</span></code> を作成してください。</p>
 <div class="nbinput nblast docutils container">
@@ -1507,7 +1262,7 @@ False
 </div>
 </section>
 <section id="id15">
-<h2>練習<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id15" title="Permalink to this heading">¶</a></h2>
 <p>文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> を引数として取り、 <code class="docutils literal notranslate"><span class="pre">str1</span></code> の中に含まれる大文字の数を返す関数 <code class="docutils literal notranslate"><span class="pre">count_capitalletters</span></code> を作成してください。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて <code class="docutils literal notranslate"><span class="pre">count_capitalletters(str1)</span></code> を作成してください。</p>
 <div class="nbinput nblast docutils container">
@@ -1538,7 +1293,7 @@ False
 </div>
 </section>
 <section id="id16">
-<h2>練習<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id16" title="Permalink to this heading">¶</a></h2>
 <p>長さが 3 の倍数である文字列 <code class="docutils literal notranslate"><span class="pre">str_augc</span></code> が引数として与えられたとき、 <code class="docutils literal notranslate"><span class="pre">str_augc</span></code> を長さ 3 の文字列に区切り、それらを順に格納したリストを返す関数 <code class="docutils literal notranslate"><span class="pre">identify_codons</span></code> を作成してください。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて <code class="docutils literal notranslate"><span class="pre">identify_codons(str_augc)</span></code> を作成してください。</p>
 <div class="nbinput nblast docutils container">
@@ -1569,7 +1324,7 @@ False
 </div>
 </section>
 <section id="id17">
-<h2>練習<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id17" title="Permalink to this heading">¶</a></h2>
 <p>正の整数 <code class="docutils literal notranslate"><span class="pre">int1</span></code> が引数として与えられたとき、 <code class="docutils literal notranslate"><span class="pre">int1</span></code> の値の下桁から3桁毎にコンマ (<code class="docutils literal notranslate"><span class="pre">,</span></code>) を入れた文字列を返す関数 <code class="docutils literal notranslate"><span class="pre">add_commas</span></code> を作成してください。 ただし、数の先頭にコンマを入れる必要はありません。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて <code class="docutils literal notranslate"><span class="pre">add_commas</span></code> を作成してください。</p>
 <div class="nbinput nblast docutils container">
@@ -1606,7 +1361,7 @@ False
 </div>
 </section>
 <section id="id18">
-<h2>練習<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id18" title="Permalink to this heading">¶</a></h2>
 <p>リスト <code class="docutils literal notranslate"><span class="pre">list1</span></code> が引数として与えられ、次のような文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> を返す関数 <code class="docutils literal notranslate"><span class="pre">sum_strings</span></code> を作成してください。</p>
 <p><code class="docutils literal notranslate"><span class="pre">list1</span></code> は <code class="docutils literal notranslate"><span class="pre">k</span></code> 個の要素を持つとします（ただし、<code class="docutils literal notranslate"><span class="pre">k</span></code> は正の整数）。 <code class="docutils literal notranslate"><span class="pre">list1</span></code> の要素が文字列でなければ文字列に変換してください。 その上で、<code class="docutils literal notranslate"><span class="pre">list1</span></code> の1番目から <code class="docutils literal notranslate"><span class="pre">k-2</span></code> 番目の各要素の後ろにコンマとスペースからなる文字列 <code class="docutils literal notranslate"><span class="pre">',</span> <span class="pre">'</span></code> を加え、 <code class="docutils literal notranslate"><span class="pre">k-1</span></code> 番目の要素の後ろには、<code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">and</span> <span class="pre">'</span></code> を加え、1番目から <code class="docutils literal notranslate"><span class="pre">k</span></code> 番目までの要素を繋げた文字列を <code class="docutils literal notranslate"><span class="pre">str1</span></code> とします。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて <code class="docutils literal notranslate"><span class="pre">sum_strings</span></code> を作成してください。</p>
@@ -1642,7 +1397,7 @@ False
 </div>
 </section>
 <section id="id19">
-<h2>練習<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id19" title="Permalink to this heading">¶</a></h2>
 <p>辞書 <code class="docutils literal notranslate"><span class="pre">dic1</span></code> と長さ 10 以下の文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> が引数として与えられたとき、 以下のように <code class="docutils literal notranslate"><span class="pre">dic1</span></code> を変更する関数 <code class="docutils literal notranslate"><span class="pre">handle_collision2</span></code> を作成してください。 ただし、<code class="docutils literal notranslate"><span class="pre">dic1</span></code> のキーは、1 以上 10 以下の整数、キーに対応する値は文字列とします。</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">dic1</span></code> に <code class="docutils literal notranslate"><span class="pre">str1</span></code> の長さ <code class="docutils literal notranslate"><span class="pre">n</span></code> がキーとして登録されていない場合、<code class="docutils literal notranslate"><span class="pre">dic1</span></code> に キー <code class="docutils literal notranslate"><span class="pre">n</span></code>、<code class="docutils literal notranslate"><span class="pre">n</span></code> に対応する値 <code class="docutils literal notranslate"><span class="pre">str1</span></code> を登録します。</p></li>
@@ -1688,7 +1443,7 @@ True
 </div>
 </section>
 <section id="id20">
-<h2>練習<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id20" title="Permalink to this heading">¶</a></h2>
 <p>整数を最初の要素、文字列をその次の要素とするリスト（これを子リストと呼びます）を要素とするリスト <code class="docutils literal notranslate"><span class="pre">list1</span></code> が引数として与えられたとき、次のような辞書 <code class="docutils literal notranslate"><span class="pre">dic1</span></code> を返す関数 <code class="docutils literal notranslate"><span class="pre">handle_collision3</span></code> を作成してください。</p>
 <ul class="simple">
 <li><p>各子リスト <code class="docutils literal notranslate"><span class="pre">list2</span></code> に対して、<code class="docutils literal notranslate"><span class="pre">dic1</span></code> のキーは <code class="docutils literal notranslate"><span class="pre">list2</span></code> の最初の要素である整数とし、そのキーに対応する値は次の要素である文字列とします。</p></li>
@@ -1723,7 +1478,7 @@ False
 </div>
 </section>
 <section id="練習の解答">
-<h2>練習の解答<a class="headerlink" href="#練習の解答" title="Permalink to this headline">¶</a></h2>
+<h2>練習の解答<a class="headerlink" href="#練習の解答" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
 </pre></div>
@@ -1827,7 +1582,7 @@ False
 </div>
 </section>
 <section id="練習の解説">
-<h2>練習の解説<a class="headerlink" href="#練習の解説" title="Permalink to this headline">¶</a></h2>
+<h2>練習の解説<a class="headerlink" href="#練習の解説" title="Permalink to this heading">¶</a></h2>
 <p>下のセルは、繰り返し回数として <code class="docutils literal notranslate"><span class="pre">count</span></code> 変数を利用した解答例です。回数を理解しやすくするため <code class="docutils literal notranslate"><span class="pre">print()</span></code> 関数で <code class="docutils literal notranslate"><span class="pre">count</span></code> 変数も印字しています。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[70]:
@@ -1864,7 +1619,7 @@ Yeah! 9
 </div>
 </section>
 <section id="id23">
-<h2>練習の解答<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h2>
+<h2>練習の解答<a class="headerlink" href="#id23" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
 </pre></div>
@@ -2029,6 +1784,8 @@ Yeah! 9
 <p>
   <a style="font-family: sans-serif; font-size: smaller; background: linear-gradient(to top, #353535 0%, #141414 100%); -webkit-font-smoothing: antialiased; font-weight: normal; text-shadow: rgb(0 0 0 / 40%) 0 -1px 0; padding: 2px 6px; color: #fff; text-decoration: none; border-radius: 4px; border: 1px solid #0d0d0d; box-shadow: inset 0 1px 1px 0 #8f8f8f;" href="https://github.com/utokyo-ipp/utokyo-ipp.github.io">View on GitHub</a>
 </p><p>
+  <a style="font-family: sans-serif; font-size: smaller; background: linear-gradient(to top, #ff1e00 0%, #de1e00 100%); -webkit-font-smoothing: antialiased; font-weight: normal; text-shadow: rgb(0 0 0 / 40%) 0 -1px 0; padding: 2px 6px; color: #fff; text-decoration: none; border-radius: 4px; border: 1px solid #0d0d0d; box-shadow: inset 0 1px 1px 0 #ff8e70;" href="https://utokyo-ipp.github.io/IPP_textbook.pdf">View PDF</a>
+</p><p>
   <a style="border-bottom: none;" href="https://colab.research.google.com/github/utokyo-ipp/utokyo-ipp.github.io/blob/master/colab/3/3-2.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
 </p><h3>Navigation</h3>
 <ul class="current">
@@ -2079,7 +1836,7 @@ Yeah! 9
 <li class="toctree-l1"><a class="reference internal" href="3-3.html">3-3. 関数</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4/4-1.html">4-1. ファイル入出力の基本</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4/4-2.html">4-2. イテラブルとイテレータ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../4/4-3.html">4-3. コンピュータにおけるファイルやディレクトリの配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4/4-3.html">4-3. ディレクトリと木構造</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../5/5-1.html">5-1. モジュールの使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../5/5-2.html">5-2. モジュールの作り方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../5/5-3.html">5-3. NumPyライブラリ</a></li>
@@ -2118,7 +1875,7 @@ Yeah! 9
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -2132,10 +1889,10 @@ Yeah! 9
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020–2022, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      &copy;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.2.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

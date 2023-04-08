@@ -4,15 +4,18 @@
 <html lang="jp">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>3-3. 関数 &#8212; Pythonプログラミング入門  documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -36,263 +39,15 @@
 
           <div class="body" role="main">
             
-  
-<style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt *,
-div.nbinput.container div.input_area pre,
-div.nboutput.container div.output_area pre,
-div.nbinput.container div.input_area .highlight,
-div.nboutput.container div.output_area .highlight {
-    border: none;
-    padding: 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-div.nbinput.container > div[class*=highlight],
-div.nboutput.container > div[class*=highlight] {
-    margin: 0;
-}
-
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt * {
-    background: none;
-}
-
-div.nboutput.container div.output_area .highlight,
-div.nboutput.container div.output_area pre {
-    background: unset;
-}
-
-div.nboutput.container div.output_area div.highlight {
-    color: unset;  /* override Pygments text color */
-}
-
-/* avoid gaps between output lines */
-div.nboutput.container div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput.container,
-div.nboutput.container {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput.container,
-    div.nboutput.container {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput.container {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast.container {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput.container div.prompt pre {
-    color: #307FC1;
-}
-
-/* output prompt */
-div.nboutput.container div.prompt pre {
-    color: #BF5B3D;
-}
-
-/* all prompts */
-div.nbinput.container div.prompt,
-div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
-}
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
-@media (max-width: 540px) {
-    div.nbinput.container div.prompt,
-    div.nboutput.container div.prompt {
-        width: unset;
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput.container div.prompt.empty {
-        padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
-    }
-}
-
-/* disable scrollbars on prompts */
-div.nbinput.container div.prompt pre,
-div.nboutput.container div.prompt pre {
-    overflow: hidden;
-}
-
-/* input/output area */
-div.nbinput.container div.input_area,
-div.nboutput.container div.output_area {
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput.container div.input_area,
-    div.nboutput.container div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput.container div.input_area {
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    /*background: #f5f5f5;*/
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput.container div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput.container div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput.container div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-default-inverse-fg { color: #FFFFFF; }
-.ansi-default-inverse-bg { background-color: #000000; }
-
-.ansi-bold { font-weight: bold; }
-.ansi-underline { text-decoration: underline; }
-
-
-div.nbinput.container div.input_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight].math,
-div.nboutput.container div.output_area.rendered_html,
-div.nboutput.container div.output_area > div.output_javascript,
-div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
-    margin: 0;
-}
-
-/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
-div.nbinput.container div.input_area > div[class^='highlight'],
-div.nboutput.container div.output_area > div[class^='highlight']{
-    overflow-y: hidden;
-}
-
-/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt .copybtn {
-    display: none;
-}
-
-/* Some additional styling taken form the Jupyter notebook CSS */
-div.rendered_html table {
-  border: none;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: black;
-  font-size: 12px;
-  table-layout: fixed;
-}
-div.rendered_html thead {
-  border-bottom: 1px solid black;
-  vertical-align: bottom;
-}
-div.rendered_html tr,
-div.rendered_html th,
-div.rendered_html td {
-  text-align: right;
-  vertical-align: middle;
-  padding: 0.5em 0.5em;
-  line-height: normal;
-  white-space: normal;
-  max-width: none;
-  border: none;
-}
-div.rendered_html th {
-  font-weight: bold;
-}
-div.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-div.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
-</style>
-<section id="3-3.-関数">
-<h1>3-3. 関数<a class="headerlink" href="#3-3.-関数" title="Permalink to this headline">¶</a></h1>
+  <section id="3-3.-関数">
+<h1>3-3. 関数<a class="headerlink" href="#3-3.-関数" title="Permalink to this heading">¶</a></h1>
 <p>関数について改めて説明します。</p>
 <p>参考:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.python.org/ja/3/tutorial/controlflow.html#defining-functions">https://docs.python.org/ja/3/tutorial/controlflow.html#defining-functions</a></p></li>
 </ul>
 <section id="関数の定義">
-<h2>関数の定義<a class="headerlink" href="#関数の定義" title="Permalink to this headline">¶</a></h2>
+<h2>関数の定義<a class="headerlink" href="#関数の定義" title="Permalink to this heading">¶</a></h2>
 <p><strong>関数</strong>は処理（手続きの流れ）をまとめた再利用可能なコードです。関数には以下の特徴があります。</p>
 <ul class="simple">
 <li><p>名前を持つ。</p></li>
@@ -338,7 +93,7 @@ Hello
 <p><strong>関数本体</strong>はインデントした上で、処理や手続きの流れを記述します。</p>
 </section>
 <section id="引数">
-<h2>引数<a class="headerlink" href="#引数" title="Permalink to this headline">¶</a></h2>
+<h2>引数<a class="headerlink" href="#引数" title="Permalink to this heading">¶</a></h2>
 <p>関数を定義する際に、ヘッダの括弧の中に関数へ渡す変数の一覧を記述します。 これらの変数は関数の<strong>ローカル変数</strong>となります。 ローカル変数とはプログラムの一部（ここでは関数内）でのみ利用可能な変数です。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -372,7 +127,7 @@ Hello
 <p>実引数のことを引数と呼ぶこともありますので、注意してください。</p>
 </section>
 <section id="返値">
-<h2>返値<a class="headerlink" href="#返値" title="Permalink to this headline">¶</a></h2>
+<h2>返値<a class="headerlink" href="#返値" title="Permalink to this heading">¶</a></h2>
 <p>関数は受け取った引数を元に処理を行い、その結果の<strong>返値</strong>（1-2で説明済み）を返すことができます。</p>
 <p>返値は、<code class="docutils literal notranslate"><span class="pre">return</span></code> で定義します。関数の返値がない場合は、<code class="docutils literal notranslate"><span class="pre">None</span></code> が返されます。 <code class="docutils literal notranslate"><span class="pre">return</span></code> が実行されると、関数の処理はそこで終了するため、次に文があっても実行はされません。 また、ループなどの繰り返し処理の途中でも <code class="docutils literal notranslate"><span class="pre">return</span></code> が実行されると処理は終了します。 関数の処理が最後まで実行され、返値がない場合は最後に <code class="docutils literal notranslate"><span class="pre">return</span></code> を実行したことと同じになります。</p>
 <p><code class="docutils literal notranslate"><span class="pre">return</span></code> の後に式がない場合は、<code class="docutils literal notranslate"><span class="pre">None</span></code> が返されます。 （<code class="docutils literal notranslate"><span class="pre">return</span></code> が実行されずに関数の最後まで来たときも同様です。） <code class="docutils literal notranslate"><span class="pre">return</span></code> を式なしで実行することで、関数の処理を途中で抜けることができます。 また、このような関数は、与えられた配列を破壊的に変更するなど、 呼び出した側に何らかの変化を及ぼす際にも用いられます。</p>
@@ -443,7 +198,7 @@ Hello
 </div>
 </section>
 <section id="複数の引数">
-<h2>複数の引数<a class="headerlink" href="#複数の引数" title="Permalink to this headline">¶</a></h2>
+<h2>複数の引数<a class="headerlink" href="#複数の引数" title="Permalink to this heading">¶</a></h2>
 <p>関数は任意の数の引数を受け取ることができます。 複数の引数を受け取る場合は、引数をコンマで区切ります。 これらの引数名は重複しないようにしましょう。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
@@ -491,7 +246,7 @@ HelloHelloHello,World
 </div>
 </section>
 <section id="変数とスコープ">
-<h2>変数とスコープ<a class="headerlink" href="#変数とスコープ" title="Permalink to this headline">¶</a></h2>
+<h2>変数とスコープ<a class="headerlink" href="#変数とスコープ" title="Permalink to this heading">¶</a></h2>
 <p>関数の引数や関数内で定義される変数はローカル変数のため、それらの変数は関数の外からは参照できません。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
@@ -523,10 +278,10 @@ Hello
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [10]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> greeting(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">Hello</span><span style="color: rgb(175,0,0)">&#39;</span>)
-<span class="ansi-green-intense-fg ansi-bold">      7</span> <span style="color: rgb(95,135,135)">#ローカル変数（関数greetingの引数）greeting_localを参照</span>
-<span class="ansi-green-fg">----&gt; 8</span> <span class="ansi-yellow-bg">greeting_local</span>
+<span class="ansi-green-fg">/tmp/ipykernel_6993/415745769.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span>
+<span class="ansi-green-intense-fg ansi-bold">      7</span> <span class="ansi-red-fg">#ローカル変数（関数greetingの引数）greeting_localを参照</span>
+<span class="ansi-green-fg">----&gt; 8</span><span class="ansi-red-fg"> </span>greeting_local
 
 <span class="ansi-red-fg">NameError</span>: name &#39;greeting_local&#39; is not defined
 </pre></div></div>
@@ -622,16 +377,17 @@ Bonjour
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">UnboundLocalError</span>                         Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [13]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span>     greeting_global <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">Bonjour</span><span style="color: rgb(175,0,0)">&#39;</span> <span style="color: rgb(95,135,135)"># ローカル変数の定義</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span>     <span style="color: rgb(0,135,0)">print</span>(greeting_global)
-<span class="ansi-green-fg">----&gt; 6</span> <span class="ansi-yellow-bg">greeting</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">/tmp/ipykernel_6993/1083173024.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span>     print<span class="ansi-blue-fg">(</span>greeting_global<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span>
+<span class="ansi-green-fg">----&gt; 6</span><span class="ansi-red-fg"> </span>greeting<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 
-Input <span class="ansi-green-fg">In [13]</span>, in <span class="ansi-cyan-fg">greeting</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">greeting</span>():
-<span class="ansi-green-fg">----&gt; 2</span>     <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">greeting_global</span>) <span style="color: rgb(95,135,135)"># 最初の参照</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span>     greeting_global <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">Bonjour</span><span style="color: rgb(175,0,0)">&#39;</span> <span style="color: rgb(95,135,135)"># ローカル変数の定義</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span>     <span style="color: rgb(0,135,0)">print</span>(greeting_global)
+<span class="ansi-green-fg">/tmp/ipykernel_6993/1083173024.py</span> in <span class="ansi-cyan-fg">greeting</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">def</span> greeting<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg">     </span>print<span class="ansi-blue-fg">(</span>greeting_global<span class="ansi-blue-fg">)</span> <span class="ansi-red-fg"># 最初の参照</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span>     greeting_global <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;Bonjour&#39;</span> <span class="ansi-red-fg"># ローカル変数の定義</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span>     print<span class="ansi-blue-fg">(</span>greeting_global<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span>
 
 <span class="ansi-red-fg">UnboundLocalError</span>: local variable &#39;greeting_global&#39; referenced before assignment
 </pre></div></div>
@@ -639,7 +395,7 @@ Input <span class="ansi-green-fg">In [13]</span>, in <span class="ansi-cyan-fg">
 <p>最初の <code class="docutils literal notranslate"><span class="pre">greeting_global</span></code> の参照でエラーになります。 これは、関数内に <code class="docutils literal notranslate"><span class="pre">greeting_global</span></code> の定義があると、 その関数内どの場所でも <code class="docutils literal notranslate"><span class="pre">greeting_global</span></code> がローカル変数として参照されるためです。 最初の参照時には、ローカル変数の <code class="docutils literal notranslate"><span class="pre">greeting_global</span></code> が未定義なので、エラーが生じます。</p>
 <p>このように、グローバル変数と同じ名前のローカル変数を使おうとするのは間違いの元です。 グローバル変数と名前が衝突しないように、ローカル変数を定義しましょう。</p>
 <section id="▲-global-宣言">
-<h3>▲ global 宣言<a class="headerlink" href="#▲-global-宣言" title="Permalink to this headline">¶</a></h3>
+<h3>▲ global 宣言<a class="headerlink" href="#▲-global-宣言" title="Permalink to this heading">¶</a></h3>
 <p>関数内ではグローバル変数が更新されないのが基本です。 しかし、どうしても関数内でグローバル変数を更新したいときには、 <code class="docutils literal notranslate"><span class="pre">global</span></code> 宣言を使って更新したいグローバル変数を指定します。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
@@ -679,7 +435,7 @@ Bonjour
 </section>
 </section>
 <section id="▲キーワード引数">
-<h2>▲キーワード引数<a class="headerlink" href="#▲キーワード引数" title="Permalink to this headline">¶</a></h2>
+<h2>▲キーワード引数<a class="headerlink" href="#▲キーワード引数" title="Permalink to this heading">¶</a></h2>
 <p>上記の一般的な引数（位置引数とも呼ばれます）では、 事前に定義した引数の順番に従って、関数は引数を受け取る必要があります。</p>
 <p>キーワード付き引数（<strong>キーワード引数</strong>）を使うと、関数は引数の変数名とその値の組みを受け取ることができます。 その際、引数は順不同で関数に渡すことができます。</p>
 <div class="nbinput docutils container">
@@ -723,7 +479,7 @@ HelloHello,Japan
 </div>
 </section>
 <section id="▲引数の初期値">
-<h2>▲引数の初期値<a class="headerlink" href="#▲引数の初期値" title="Permalink to this headline">¶</a></h2>
+<h2>▲引数の初期値<a class="headerlink" href="#▲引数の初期値" title="Permalink to this heading">¶</a></h2>
 <p>関数を呼び出す際に、引数が渡されない場合に、<strong>初期値</strong>を引数として渡すことができます。</p>
 <p>初期値のある引数に値を渡したら、関数はその引数の初期値の代わりに渡された値を受け取ります。</p>
 <p>初期値を持つ引数は、位置引数の後に指定する必要があります。</p>
@@ -750,7 +506,7 @@ Hello, World
 </div>
 </section>
 <section id="▲可変長引数">
-<h2>▲可変長引数<a class="headerlink" href="#▲可変長引数" title="Permalink to this headline">¶</a></h2>
+<h2>▲可変長引数<a class="headerlink" href="#▲可変長引数" title="Permalink to this heading">¶</a></h2>
 <p>仮引数の前に <code class="docutils literal notranslate"><span class="pre">*</span></code> を付けて関数を定義すると、複数の引数をタプルとして受け取ることができます。 呼び出す側は、引数の個数を変えることができます。 一般に、個数が可変の引数は<strong>可変長引数</strong>と呼ばれます。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
@@ -794,7 +550,7 @@ Hello, World
 </div>
 </section>
 <section id="▲辞書型の可変長引数">
-<h2>▲辞書型の可変長引数<a class="headerlink" href="#▲辞書型の可変長引数" title="Permalink to this headline">¶</a></h2>
+<h2>▲辞書型の可変長引数<a class="headerlink" href="#▲辞書型の可変長引数" title="Permalink to this heading">¶</a></h2>
 <p>仮引数の前に <code class="docutils literal notranslate"><span class="pre">**</span></code> を付けて関数を定義すると、複数のキーワード引数を辞書として受け取ることができます。辞書として受け取られる引数は、<strong>辞書型の可変長引数</strong>と呼ばれます。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
@@ -838,7 +594,7 @@ Hello, World
 </div>
 </section>
 <section id="▲引数の順番">
-<h2>▲引数の順番<a class="headerlink" href="#▲引数の順番" title="Permalink to this headline">¶</a></h2>
+<h2>▲引数の順番<a class="headerlink" href="#▲引数の順番" title="Permalink to this heading">¶</a></h2>
 <p>位置引数、初期値を持つ引数、可変長引数、辞書型の可変長引数は、同時に指定することができますが、 その際、これらの順番で指定する必要があります。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def 関数名(位置引数, 初期値を持つ引数, 可変長引数, 辞書型の可変長引数)
 </pre></div>
@@ -879,7 +635,7 @@ Hello
 </div>
 </section>
 <section id="▲変数としての関数">
-<h2>▲変数としての関数<a class="headerlink" href="#▲変数としての関数" title="Permalink to this headline">¶</a></h2>
+<h2>▲変数としての関数<a class="headerlink" href="#▲変数としての関数" title="Permalink to this heading">¶</a></h2>
 <p>関数は変数でもあります。既存の変数と同じ名前の関数を定義すると、 元の変数はその新たな関数を参照するものとして変更されます。 一方、既存の関数と同じ名前の変数を定義すると、元の関数名の変数はその新たな変数を参照するものとして変更されます。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
@@ -944,6 +700,8 @@ function
 <p>
   <a style="font-family: sans-serif; font-size: smaller; background: linear-gradient(to top, #353535 0%, #141414 100%); -webkit-font-smoothing: antialiased; font-weight: normal; text-shadow: rgb(0 0 0 / 40%) 0 -1px 0; padding: 2px 6px; color: #fff; text-decoration: none; border-radius: 4px; border: 1px solid #0d0d0d; box-shadow: inset 0 1px 1px 0 #8f8f8f;" href="https://github.com/utokyo-ipp/utokyo-ipp.github.io">View on GitHub</a>
 </p><p>
+  <a style="font-family: sans-serif; font-size: smaller; background: linear-gradient(to top, #ff1e00 0%, #de1e00 100%); -webkit-font-smoothing: antialiased; font-weight: normal; text-shadow: rgb(0 0 0 / 40%) 0 -1px 0; padding: 2px 6px; color: #fff; text-decoration: none; border-radius: 4px; border: 1px solid #0d0d0d; box-shadow: inset 0 1px 1px 0 #ff8e70;" href="https://utokyo-ipp.github.io/IPP_textbook.pdf">View PDF</a>
+</p><p>
   <a style="border-bottom: none;" href="https://colab.research.google.com/github/utokyo-ipp/utokyo-ipp.github.io/blob/master/colab/3/3-3.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
 </p><h3>Navigation</h3>
 <ul class="current">
@@ -973,7 +731,7 @@ function
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../4/4-1.html">4-1. ファイル入出力の基本</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4/4-2.html">4-2. イテラブルとイテレータ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../4/4-3.html">4-3. コンピュータにおけるファイルやディレクトリの配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4/4-3.html">4-3. ディレクトリと木構造</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../5/5-1.html">5-1. モジュールの使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../5/5-2.html">5-2. モジュールの作り方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../5/5-3.html">5-3. NumPyライブラリ</a></li>
@@ -1012,7 +770,7 @@ function
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -1026,10 +784,10 @@ function
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020–2022, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      &copy;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.2.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

@@ -4,15 +4,18 @@
 <html lang="jp">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>4-1. ファイル入出力の基本 &#8212; Pythonプログラミング入門  documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -36,263 +39,15 @@
 
           <div class="body" role="main">
             
-  
-<style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt *,
-div.nbinput.container div.input_area pre,
-div.nboutput.container div.output_area pre,
-div.nbinput.container div.input_area .highlight,
-div.nboutput.container div.output_area .highlight {
-    border: none;
-    padding: 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-div.nbinput.container > div[class*=highlight],
-div.nboutput.container > div[class*=highlight] {
-    margin: 0;
-}
-
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt * {
-    background: none;
-}
-
-div.nboutput.container div.output_area .highlight,
-div.nboutput.container div.output_area pre {
-    background: unset;
-}
-
-div.nboutput.container div.output_area div.highlight {
-    color: unset;  /* override Pygments text color */
-}
-
-/* avoid gaps between output lines */
-div.nboutput.container div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput.container,
-div.nboutput.container {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput.container,
-    div.nboutput.container {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput.container {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast.container {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput.container div.prompt pre {
-    color: #307FC1;
-}
-
-/* output prompt */
-div.nboutput.container div.prompt pre {
-    color: #BF5B3D;
-}
-
-/* all prompts */
-div.nbinput.container div.prompt,
-div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
-}
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
-@media (max-width: 540px) {
-    div.nbinput.container div.prompt,
-    div.nboutput.container div.prompt {
-        width: unset;
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput.container div.prompt.empty {
-        padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
-    }
-}
-
-/* disable scrollbars on prompts */
-div.nbinput.container div.prompt pre,
-div.nboutput.container div.prompt pre {
-    overflow: hidden;
-}
-
-/* input/output area */
-div.nbinput.container div.input_area,
-div.nboutput.container div.output_area {
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput.container div.input_area,
-    div.nboutput.container div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput.container div.input_area {
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    /*background: #f5f5f5;*/
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput.container div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput.container div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput.container div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-default-inverse-fg { color: #FFFFFF; }
-.ansi-default-inverse-bg { background-color: #000000; }
-
-.ansi-bold { font-weight: bold; }
-.ansi-underline { text-decoration: underline; }
-
-
-div.nbinput.container div.input_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight].math,
-div.nboutput.container div.output_area.rendered_html,
-div.nboutput.container div.output_area > div.output_javascript,
-div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
-    margin: 0;
-}
-
-/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
-div.nbinput.container div.input_area > div[class^='highlight'],
-div.nboutput.container div.output_area > div[class^='highlight']{
-    overflow-y: hidden;
-}
-
-/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt .copybtn {
-    display: none;
-}
-
-/* Some additional styling taken form the Jupyter notebook CSS */
-div.rendered_html table {
-  border: none;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: black;
-  font-size: 12px;
-  table-layout: fixed;
-}
-div.rendered_html thead {
-  border-bottom: 1px solid black;
-  vertical-align: bottom;
-}
-div.rendered_html tr,
-div.rendered_html th,
-div.rendered_html td {
-  text-align: right;
-  vertical-align: middle;
-  padding: 0.5em 0.5em;
-  line-height: normal;
-  white-space: normal;
-  max-width: none;
-  border: none;
-}
-div.rendered_html th {
-  font-weight: bold;
-}
-div.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-div.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
-</style>
-<section id="4-1.-ファイル入出力の基本">
-<h1>4-1. ファイル入出力の基本<a class="headerlink" href="#4-1.-ファイル入出力の基本" title="Permalink to this headline">¶</a></h1>
+  <section id="4-1.-ファイル入出力の基本">
+<h1>4-1. ファイル入出力の基本<a class="headerlink" href="#4-1.-ファイル入出力の基本" title="Permalink to this heading">¶</a></h1>
 <p>ファイル入出力の基本について説明します。</p>
 <p>参考</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.python.org/ja/3/tutorial/inputoutput.html#reading-and-writing-files">https://docs.python.org/ja/3/tutorial/inputoutput.html#reading-and-writing-files</a></p></li>
 </ul>
 <section id="ファイルのオープン">
-<h2>ファイルのオープン<a class="headerlink" href="#ファイルのオープン" title="Permalink to this headline">¶</a></h2>
+<h2>ファイルのオープン<a class="headerlink" href="#ファイルのオープン" title="Permalink to this heading">¶</a></h2>
 <p><strong>ファイル</strong>から文字列を読み込んだり、ファイルに書き込んだりするには、 まず、<code class="docutils literal notranslate"><span class="pre">open()</span></code> という関数によってファイルを<strong>オープン</strong>する（開く）必要があります。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -314,7 +69,7 @@ div.rendered_html tbody tr:hover {
 <p>モードの詳細は<a class="reference external" href="https://docs.python.org/ja/3/library/functions.html#open">公式ドキュメント</a>を参照。</p>
 </section>
 <section id="ファイルのクローズ">
-<h2>ファイルのクローズ<a class="headerlink" href="#ファイルのクローズ" title="Permalink to this headline">¶</a></h2>
+<h2>ファイルのクローズ<a class="headerlink" href="#ファイルのクローズ" title="Permalink to this heading">¶</a></h2>
 <p>ファイルオブジェクトを使い終わったら、原則として、<code class="docutils literal notranslate"><span class="pre">close()</span></code> メソッドを呼び出して、<strong>クローズ</strong>する（閉じる）必要があります。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -328,7 +83,7 @@ div.rendered_html tbody tr:hover {
 <p><code class="docutils literal notranslate"><span class="pre">close()</span></code> の呼び出しは重要ですが、忘れがちなものでもあります。 後述するwith文を使うのが安全です。</p>
 </section>
 <section id="行の読み込み">
-<h2>行の読み込み<a class="headerlink" href="#行の読み込み" title="Permalink to this headline">¶</a></h2>
+<h2>行の読み込み<a class="headerlink" href="#行の読み込み" title="Permalink to this heading">¶</a></h2>
 <p>ファイルオブジェクトには、<code class="docutils literal notranslate"><span class="pre">readline()</span></code> というメソッドを適用することができます。 ファイルから新たに1行を読んで文字列として返します。 この「1行」というのは、正確には、ファイルの先頭もしくは改行文字の次の文字から、ファイルの終わりもしくは改行文字までの文字列です。 1行は必ずしも改行文字で終わらないという点に注意して下さい。</p>
 <p>ファイルの終わりに来たとき、<code class="docutils literal notranslate"><span class="pre">readline()</span></code> は <code class="docutils literal notranslate"><span class="pre">''</span></code> という空文字列を返します。</p>
 <p>以下のようにして <code class="docutils literal notranslate"><span class="pre">readline()</span></code> を使ってファイルを行単位で読んでみましょう。</p>
@@ -420,7 +175,7 @@ div.rendered_html tbody tr:hover {
 <p><code class="docutils literal notranslate"><span class="pre">readline()</span></code> メソッドの呼び出しは、ファイルオブジェクトを消費します。 改めて読み出したいときには、再度オープンして新しいオブジェクトを使ってください。</p>
 </section>
 <section id="練習">
-<h2>練習<a class="headerlink" href="#練習" title="Permalink to this headline">¶</a></h2>
+<h2>練習<a class="headerlink" href="#練習" title="Permalink to this heading">¶</a></h2>
 <p>文字列 <code class="docutils literal notranslate"><span class="pre">name</span></code> をファイル名とするファイルの最後の行を文字列として返す関数 <code class="docutils literal notranslate"><span class="pre">last_line(name)</span></code> を定義してください。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
@@ -450,7 +205,7 @@ False
 </div>
 </section>
 <section id="ファイル全体の読み込み">
-<h2>ファイル全体の読み込み<a class="headerlink" href="#ファイル全体の読み込み" title="Permalink to this headline">¶</a></h2>
+<h2>ファイル全体の読み込み<a class="headerlink" href="#ファイル全体の読み込み" title="Permalink to this heading">¶</a></h2>
 <p>ファイル全体を一括で読み込んで、1つの文字列を取得したいときには、<code class="docutils literal notranslate"><span class="pre">read()</span></code> メソッドを利用します。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
@@ -499,7 +254,7 @@ False
 <p><code class="docutils literal notranslate"><span class="pre">read()</span></code> メソッドは、内部的には <code class="docutils literal notranslate"><span class="pre">readline()</span></code> メソッドを呼んでいます。 したがって、<code class="docutils literal notranslate"><span class="pre">read()</span></code> メソッドも同様にファイルオブジェクトを消費します。</p>
 </section>
 <section id="id7">
-<h2>練習<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h2>
 <p>文字列 <code class="docutils literal notranslate"><span class="pre">name</span></code> をファイル名とするファイルをオープンして、 <code class="docutils literal notranslate"><span class="pre">read()</span></code> メソッドによってファイル全体を文字列として読み込み、 その文字数を返す関数 <code class="docutils literal notranslate"><span class="pre">number_of_characters(name)</span></code> を作成してください。</p>
 <p>注意：<code class="docutils literal notranslate"><span class="pre">return</span></code> する前にファイルをクローズすることを忘れないようにしてください。</p>
 <div class="nbinput nblast docutils container">
@@ -530,7 +285,7 @@ False
 </div>
 </section>
 <section id="編集中のファイルの動作">
-<h2>編集中のファイルの動作<a class="headerlink" href="#編集中のファイルの動作" title="Permalink to this headline">¶</a></h2>
+<h2>編集中のファイルの動作<a class="headerlink" href="#編集中のファイルの動作" title="Permalink to this heading">¶</a></h2>
 <p>プログラムでファイルを開くと、そのプログラム内でそのファイルを閉じるまでは、他のプログラムでそのファイルを編集することはできません。</p>
 <p>下のセルを実行した後で、Windowsならエクスプローラ、macOSならFinderで上のファイルを探して、削除してみてください。 「ファイルを閉じてから再実行してください。（Windowsの場合）」といったメッセージが出て、削除ができないはずです。</p>
 <div class="nbinput nblast docutils container">
@@ -552,7 +307,7 @@ False
 </div>
 </section>
 <section id="ファイルに対するwith文">
-<h2>ファイルに対するwith文<a class="headerlink" href="#ファイルに対するwith文" title="Permalink to this headline">¶</a></h2>
+<h2>ファイルに対するwith文<a class="headerlink" href="#ファイルに対するwith文" title="Permalink to this heading">¶</a></h2>
 <p>ファイルのオブジェクトは、with文に指定することができます。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>with ファイルオブジェクト as 変数:
     ...
@@ -583,7 +338,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 </div>
 </section>
 <section id="ファイルへの書き込み">
-<h2>ファイルへの書き込み<a class="headerlink" href="#ファイルへの書き込み" title="Permalink to this headline">¶</a></h2>
+<h2>ファイルへの書き込み<a class="headerlink" href="#ファイルへの書き込み" title="Permalink to this heading">¶</a></h2>
 <p>ファイルへの書き込みは、<code class="docutils literal notranslate"><span class="pre">print</span></code> 関数を使って行えます。 <code class="docutils literal notranslate"><span class="pre">file</span></code> 引数に書き込み先のファイルオブジェクトを指定します。 <code class="docutils literal notranslate"><span class="pre">file</span></code> は3.3で説明されているキーワード引数と呼ばれる引数ですので、 以下のように <code class="docutils literal notranslate"><span class="pre">file=...</span></code> という形で指定します。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
@@ -630,9 +385,9 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 <p>このコードは、<code class="docutils literal notranslate"><span class="pre">sample.txt</span></code> を <code class="docutils literal notranslate"><span class="pre">sample.txt.bak</span></code> にコピーします。</p>
 </section>
 <section id="id10">
-<h2>練習<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h2>
 <p>2つのファイル名 <code class="docutils literal notranslate"><span class="pre">infile</span></code>, <code class="docutils literal notranslate"><span class="pre">outfile</span></code> を引数として、<code class="docutils literal notranslate"><span class="pre">infile</span></code> の半角英文字を全て大文字にした結果を <code class="docutils literal notranslate"><span class="pre">outfile</span></code> に書き込む <code class="docutils literal notranslate"><span class="pre">file_upper(infile,</span> <span class="pre">outfile)</span></code> という関数を作成してください。</p>
-<p>なお、半角英文字の小文字を大文字に変換するには <code class="docutils literal notranslate"><span class="pre">upper()</span></code> というメソッドが使えます。 たとえば <code class="docutils literal notranslate"><span class="pre">line</span></code> という名前の変数に半角文字列が入っている場合、<code class="docutils literal notranslate"><span class="pre">line.upper()</span></code> とすれば小文字に変換した文字列を返します。</p>
+<p>なお、半角英文字の小文字を大文字に変換するには <code class="docutils literal notranslate"><span class="pre">upper()</span></code> というメソッドが使えます。 たとえば <code class="docutils literal notranslate"><span class="pre">line</span></code> という名前の変数に半角文字列が入っている場合、<code class="docutils literal notranslate"><span class="pre">line.upper()</span></code> とすれば大文字に変換した文字列を返します。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
@@ -662,18 +417,18 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [24]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span>     <span style="color: rgb(0,135,0)">print</span>(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">hello</span><span style="color: rgb(175,0,0)">&#39;</span>, <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">world</span><span style="color: rgb(175,0,0)">&#39;</span>, file<span style="color: rgb(98,98,98)">=</span>f)
-<span class="ansi-green-intense-fg ansi-bold">      3</span> file_upper(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">print-test.txt</span><span style="color: rgb(175,0,0)">&#39;</span>, <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">print-test-upper.txt</span><span style="color: rgb(175,0,0)">&#39;</span>)
-<span class="ansi-green-fg">----&gt; 4</span> <span class="ansi-bold" style="color: rgb(0,135,0)">with</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">open</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">print-test-upper.txt</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">r</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg">)</span> <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> f:
-<span class="ansi-green-intense-fg ansi-bold">      5</span>     <span style="color: rgb(0,135,0)">print</span>(f<span style="color: rgb(98,98,98)">.</span>read() <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">HELLO WORLD</span><span class="ansi-bold" style="color: rgb(175,95,0)">\n</span><span style="color: rgb(175,0,0)">&#39;</span>)
+<span class="ansi-green-fg">/tmp/ipykernel_7280/305307884.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span>     print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;hello&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;world&#39;</span><span class="ansi-blue-fg">,</span> file<span class="ansi-blue-fg">=</span>f<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> file_upper<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;print-test.txt&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;print-test-upper.txt&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">----&gt; 4</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">with</span> open<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;print-test-upper.txt&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;r&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">as</span> f<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span>     print<span class="ansi-blue-fg">(</span>f<span class="ansi-blue-fg">.</span>read<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;HELLO WORLD\n&#39;</span><span class="ansi-blue-fg">)</span>
 
 <span class="ansi-red-fg">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;print-test-upper.txt&#39;
 </pre></div></div>
 </div>
 </section>
 <section id="ファイルの読み書きにおける文字コード指定">
-<h2>ファイルの読み書きにおける文字コード指定<a class="headerlink" href="#ファイルの読み書きにおける文字コード指定" title="Permalink to this headline">¶</a></h2>
+<h2>ファイルの読み書きにおける文字コード指定<a class="headerlink" href="#ファイルの読み書きにおける文字コード指定" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">open</span></code> でファイルを開くと、通常そのファイルをテキストモードで開きます（テキストモード以外にバイナリモードもあります）。</p>
 <p>テキストモードでファイルを開くときは、さらに特定の<strong>文字コード</strong>によってそのファイルを開こうとします。 文字コードを指定しないと、デフォルトの文字コードでそのファイルを開こうとしますが、 この文字コードがファイルを書き込む際に指定したものと異なる場合、エラーが出たり文字化けしてしまいます。</p>
 <p>デフォルトの文字コードは、WindowsはShift_JIS、macOSやLinuxはUTF-8になっていることが多いです。 UTF-8で文字を記録されたファイルをWindowsで、ただ <code class="docutils literal notranslate"><span class="pre">open('utf-8.txt',</span> <span class="pre">'w')</span></code> のように文字コードを指定せずに開くとエラーが出ます。 同じく、Shift_JISで文字を記録されたファイルをmacOSで <code class="docutils literal notranslate"><span class="pre">open('shift_jis.txt',</span> <span class="pre">'w')</span></code> として開くとエラーが出ます。</p>
@@ -699,20 +454,19 @@ Input <span class="ansi-green-fg">In [24]</span>, in <span class="ansi-cyan-fg">
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">UnicodeDecodeError</span>                        Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [25]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span style="color: rgb(95,135,135)"># macOSならこちらでエラー</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-bold" style="color: rgb(0,135,0)">with</span> <span style="color: rgb(0,135,0)">open</span>(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">shift_jis.txt</span><span style="color: rgb(175,0,0)">&#39;</span>, <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">r</span><span style="color: rgb(175,0,0)">&#39;</span>) <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> f:
-<span class="ansi-green-fg">----&gt; 3</span>     <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">f</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">read</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>)
-<span class="ansi-green-intense-fg ansi-bold">      5</span> <span style="color: rgb(95,135,135)"># Windowsならこちらでエラー</span>
-<span class="ansi-green-intense-fg ansi-bold">      6</span> <span class="ansi-bold" style="color: rgb(0,135,0)">with</span> <span style="color: rgb(0,135,0)">open</span>(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">utf-8.txt</span><span style="color: rgb(175,0,0)">&#39;</span>, <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">r</span><span style="color: rgb(175,0,0)">&#39;</span>) <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> f:
+<span class="ansi-green-fg">/tmp/ipykernel_7280/1730420542.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># macOSならこちらでエラー</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">with</span> open<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;shift_jis.txt&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;r&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">as</span> f<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg">     </span>print<span class="ansi-blue-fg">(</span>f<span class="ansi-blue-fg">.</span>read<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> <span class="ansi-red-fg"># Windowsならこちらでエラー</span>
 
-File <span class="ansi-green-fg">/usr/lib/python3.8/codecs.py:322</span>, in <span class="ansi-cyan-fg">BufferedIncrementalDecoder.decode</span><span class="ansi-blue-fg">(self, input, final)</span>
-<span class="ansi-green-intense-fg ansi-bold">    319</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">decode</span>(<span style="color: rgb(0,135,0)">self</span>, <span style="color: rgb(0,135,0)">input</span>, final<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">False</span>):
-<span class="ansi-green-intense-fg ansi-bold">    320</span>     <span style="color: rgb(95,135,135)"># decode input (taking the buffer into account)</span>
-<span class="ansi-green-intense-fg ansi-bold">    321</span>     data <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>buffer <span style="color: rgb(98,98,98)">+</span> <span style="color: rgb(0,135,0)">input</span>
-<span class="ansi-green-fg">--&gt; 322</span>     (result, consumed) <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_buffer_decode</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">data</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">errors</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">final</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    323</span>     <span style="color: rgb(95,135,135)"># keep undecoded input until the next call</span>
-<span class="ansi-green-intense-fg ansi-bold">    324</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>buffer <span style="color: rgb(98,98,98)">=</span> data[consumed:]
+<span class="ansi-green-fg">/usr/lib/python3.10/codecs.py</span> in <span class="ansi-cyan-fg">decode</span><span class="ansi-blue-fg">(self, input, final)</span>
+<span class="ansi-green-intense-fg ansi-bold">    320</span>         <span class="ansi-red-fg"># decode input (taking the buffer into account)</span>
+<span class="ansi-green-intense-fg ansi-bold">    321</span>         data <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>buffer <span class="ansi-blue-fg">+</span> input
+<span class="ansi-green-fg">--&gt; 322</span><span class="ansi-red-fg">         </span><span class="ansi-blue-fg">(</span>result<span class="ansi-blue-fg">,</span> consumed<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_buffer_decode<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>errors<span class="ansi-blue-fg">,</span> final<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    323</span>         <span class="ansi-red-fg"># keep undecoded input until the next call</span>
+<span class="ansi-green-intense-fg ansi-bold">    324</span>         self<span class="ansi-blue-fg">.</span>buffer <span class="ansi-blue-fg">=</span> data<span class="ansi-blue-fg">[</span>consumed<span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">]</span>
 
 <span class="ansi-red-fg">UnicodeDecodeError</span>: &#39;utf-8&#39; codec can&#39;t decode byte 0x82 in position 0: invalid start byte
 </pre></div></div>
@@ -752,7 +506,7 @@ File <span class="ansi-green-fg">/usr/lib/python3.8/codecs.py:322</span>, in <sp
 </div>
 </section>
 <section id="改行文字の削除">
-<h2>改行文字の削除<a class="headerlink" href="#改行文字の削除" title="Permalink to this headline">¶</a></h2>
+<h2>改行文字の削除<a class="headerlink" href="#改行文字の削除" title="Permalink to this heading">¶</a></h2>
 <p>ファイルをテキストモードで開いて <code class="docutils literal notranslate"><span class="pre">read()</span></code> や <code class="docutils literal notranslate"><span class="pre">readline()</span></code> を呼び出すと、 <code class="docutils literal notranslate"><span class="pre">str</span></code> 型の文字列として読み込まれます。</p>
 <p>文字列の末尾にある改行文字の削除には、2-1で紹介した <code class="docutils literal notranslate"><span class="pre">rstrip</span></code> メソッドが使えます。 ただし、無引数で呼び出すと、改行文字以外の空白文字もまとめて削除されます。</p>
 <div class="nbinput docutils container">
@@ -831,7 +585,7 @@ File <span class="ansi-green-fg">/usr/lib/python3.8/codecs.py:322</span>, in <sp
 </div>
 </section>
 <section id="練習の解答">
-<h2>練習の解答<a class="headerlink" href="#練習の解答" title="Permalink to this headline">¶</a></h2>
+<h2>練習の解答<a class="headerlink" href="#練習の解答" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
@@ -911,6 +665,8 @@ File <span class="ansi-green-fg">/usr/lib/python3.8/codecs.py:322</span>, in <sp
 <p>
   <a style="font-family: sans-serif; font-size: smaller; background: linear-gradient(to top, #353535 0%, #141414 100%); -webkit-font-smoothing: antialiased; font-weight: normal; text-shadow: rgb(0 0 0 / 40%) 0 -1px 0; padding: 2px 6px; color: #fff; text-decoration: none; border-radius: 4px; border: 1px solid #0d0d0d; box-shadow: inset 0 1px 1px 0 #8f8f8f;" href="https://github.com/utokyo-ipp/utokyo-ipp.github.io">View on GitHub</a>
 </p><p>
+  <a style="font-family: sans-serif; font-size: smaller; background: linear-gradient(to top, #ff1e00 0%, #de1e00 100%); -webkit-font-smoothing: antialiased; font-weight: normal; text-shadow: rgb(0 0 0 / 40%) 0 -1px 0; padding: 2px 6px; color: #fff; text-decoration: none; border-radius: 4px; border: 1px solid #0d0d0d; box-shadow: inset 0 1px 1px 0 #ff8e70;" href="https://utokyo-ipp.github.io/IPP_textbook.pdf">View PDF</a>
+</p><p>
   <a style="border-bottom: none;" href="https://colab.research.google.com/github/utokyo-ipp/utokyo-ipp.github.io/blob/master/colab/4/4-1.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
 </p><h3>Navigation</h3>
 <ul class="current">
@@ -942,7 +698,7 @@ File <span class="ansi-green-fg">/usr/lib/python3.8/codecs.py:322</span>, in <sp
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="4-2.html">4-2. イテラブルとイテレータ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4-3.html">4-3. コンピュータにおけるファイルやディレクトリの配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4-3.html">4-3. ディレクトリと木構造</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../5/5-1.html">5-1. モジュールの使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../5/5-2.html">5-2. モジュールの作り方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../5/5-3.html">5-3. NumPyライブラリ</a></li>
@@ -981,7 +737,7 @@ File <span class="ansi-green-fg">/usr/lib/python3.8/codecs.py:322</span>, in <sp
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -995,10 +751,10 @@ File <span class="ansi-green-fg">/usr/lib/python3.8/codecs.py:322</span>, in <sp
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020–2022, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      &copy;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.2.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

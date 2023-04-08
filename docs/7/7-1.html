@@ -4,15 +4,18 @@
 <html lang="jp">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>7-1. pandasライブラリ &#8212; Pythonプログラミング入門  documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -36,256 +39,8 @@
 
           <div class="body" role="main">
             
-  
-<style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt *,
-div.nbinput.container div.input_area pre,
-div.nboutput.container div.output_area pre,
-div.nbinput.container div.input_area .highlight,
-div.nboutput.container div.output_area .highlight {
-    border: none;
-    padding: 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-div.nbinput.container > div[class*=highlight],
-div.nboutput.container > div[class*=highlight] {
-    margin: 0;
-}
-
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt * {
-    background: none;
-}
-
-div.nboutput.container div.output_area .highlight,
-div.nboutput.container div.output_area pre {
-    background: unset;
-}
-
-div.nboutput.container div.output_area div.highlight {
-    color: unset;  /* override Pygments text color */
-}
-
-/* avoid gaps between output lines */
-div.nboutput.container div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput.container,
-div.nboutput.container {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput.container,
-    div.nboutput.container {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput.container {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast.container {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput.container div.prompt pre {
-    color: #307FC1;
-}
-
-/* output prompt */
-div.nboutput.container div.prompt pre {
-    color: #BF5B3D;
-}
-
-/* all prompts */
-div.nbinput.container div.prompt,
-div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
-}
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
-@media (max-width: 540px) {
-    div.nbinput.container div.prompt,
-    div.nboutput.container div.prompt {
-        width: unset;
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput.container div.prompt.empty {
-        padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
-    }
-}
-
-/* disable scrollbars on prompts */
-div.nbinput.container div.prompt pre,
-div.nboutput.container div.prompt pre {
-    overflow: hidden;
-}
-
-/* input/output area */
-div.nbinput.container div.input_area,
-div.nboutput.container div.output_area {
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput.container div.input_area,
-    div.nboutput.container div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput.container div.input_area {
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    /*background: #f5f5f5;*/
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput.container div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput.container div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput.container div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-default-inverse-fg { color: #FFFFFF; }
-.ansi-default-inverse-bg { background-color: #000000; }
-
-.ansi-bold { font-weight: bold; }
-.ansi-underline { text-decoration: underline; }
-
-
-div.nbinput.container div.input_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight].math,
-div.nboutput.container div.output_area.rendered_html,
-div.nboutput.container div.output_area > div.output_javascript,
-div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
-    margin: 0;
-}
-
-/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
-div.nbinput.container div.input_area > div[class^='highlight'],
-div.nboutput.container div.output_area > div[class^='highlight']{
-    overflow-y: hidden;
-}
-
-/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt .copybtn {
-    display: none;
-}
-
-/* Some additional styling taken form the Jupyter notebook CSS */
-div.rendered_html table {
-  border: none;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: black;
-  font-size: 12px;
-  table-layout: fixed;
-}
-div.rendered_html thead {
-  border-bottom: 1px solid black;
-  vertical-align: bottom;
-}
-div.rendered_html tr,
-div.rendered_html th,
-div.rendered_html td {
-  text-align: right;
-  vertical-align: middle;
-  padding: 0.5em 0.5em;
-  line-height: normal;
-  white-space: normal;
-  max-width: none;
-  border: none;
-}
-div.rendered_html th {
-  font-weight: bold;
-}
-div.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-div.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
-</style>
-<section id="7-1.-pandasライブラリ">
-<h1>7-1. pandasライブラリ<a class="headerlink" href="#7-1.-pandasライブラリ" title="Permalink to this headline">¶</a></h1>
+  <section id="7-1.-pandasライブラリ">
+<h1>7-1. pandasライブラリ<a class="headerlink" href="#7-1.-pandasライブラリ" title="Permalink to this heading">¶</a></h1>
 <p>pandasライブラリについて説明します。</p>
 <p>参考</p>
 <ul class="simple">
@@ -304,12 +59,12 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <section id="シリーズとデータフレーム">
-<h2>シリーズとデータフレーム<a class="headerlink" href="#シリーズとデータフレーム" title="Permalink to this headline">¶</a></h2>
+<h2>シリーズとデータフレーム<a class="headerlink" href="#シリーズとデータフレーム" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> モジュールは、リスト、配列や辞書などのデータを<strong>シリーズ</strong> (<code class="docutils literal notranslate"><span class="pre">Series</span></code>) あるいは<strong>データフレーム</strong> (<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>) のオブジェクトとして保持します。シリーズは列、データフレームは複数の列で構成されます。シリーズやデータフレームの行は<strong>インデックス</strong> <code class="docutils literal notranslate"><span class="pre">index</span></code> で管理され、インデックスには <code class="docutils literal notranslate"><span class="pre">0</span></code>
 から始まる番号、または任意のラベルが付けられています。インデックスが番号の場合は、シリーズやデータフレームはそれぞれNumPyの配列、2次元配列とみなすことができます。また、インデックスがラベルの場合は、ラベルをキー、各行を値とした辞書としてシリーズやデータフレームをみなすことができます。</p>
 </section>
 <section id="シリーズ-(Series)-の作成">
-<h2>シリーズ (<code class="docutils literal notranslate"><span class="pre">Series</span></code>) の作成<a class="headerlink" href="#シリーズ-(Series)-の作成" title="Permalink to this headline">¶</a></h2>
+<h2>シリーズ (<code class="docutils literal notranslate"><span class="pre">Series</span></code>) の作成<a class="headerlink" href="#シリーズ-(Series)-の作成" title="Permalink to this heading">¶</a></h2>
 <p>シリーズのオブジェクトは、以下のように、リスト、配列や辞書から作成することができます。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -338,9 +93,9 @@ div.rendered_html tbody tr:hover {
 1    1
 2    2
 dtype: int64
-0    0.573580
-1    0.179151
-2    0.564181
+0    0.270325
+1    0.010021
+2    0.444723
 dtype: float64
 0    boo
 1    foo
@@ -351,7 +106,7 @@ dtype: object
 <p>以下では、シリーズ（列）より一般的なデータフレームの操作と機能について説明していきますが、データフレームオブジェクトの多くの操作や機能はシリーズオブジェクトにも適用できます。</p>
 </section>
 <section id="データフレーム-(DataFrame)-の作成">
-<h2>データフレーム (<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>) の作成<a class="headerlink" href="#データフレーム-(DataFrame)-の作成" title="Permalink to this headline">¶</a></h2>
+<h2>データフレーム (<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>) の作成<a class="headerlink" href="#データフレーム-(DataFrame)-の作成" title="Permalink to this heading">¶</a></h2>
 <p>データフレームのオブジェクトは、以下のように、リスト、配列や辞書から作成することができます。行のラベルは、<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> の <code class="docutils literal notranslate"><span class="pre">index</span></code> 引数で指定できますが、以下のデータフレーム作成の例、<code class="docutils literal notranslate"><span class="pre">d2</span></code>, <code class="docutils literal notranslate"><span class="pre">d3</span></code>、 では同インデックスを省略しているため、<code class="docutils literal notranslate"><span class="pre">0</span></code> から始まるインデックス番号がラベルとして行に自動的に付けられます。列のラベルは <code class="docutils literal notranslate"><span class="pre">columns</span></code> 引数で指定します。辞書からデータフレームを作成する際は、<code class="docutils literal notranslate"><span class="pre">columns</span></code> 引数で列の順番を指定することになります。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -382,10 +137,10 @@ dtype: object
 12   6   7   8
 13   9  10  11
          c1        c2        c3
-0  0.178211  0.069714  0.828445
-1  0.916761  0.057249  0.770027
-2  0.811984  0.292524  0.497402
-3  0.166516  0.536547  0.510446
+0  0.251836  0.986706  0.393204
+1  0.909639  0.789078  0.301258
+2  0.799745  0.584313  0.096064
+3  0.187984  0.329873  0.914793
   Name Initial
 0  boo       B
 1  foo       F
@@ -394,7 +149,7 @@ dtype: object
 </div>
 </section>
 <section id="CSVファイルからのデータフレームの作成">
-<h2>CSVファイルからのデータフレームの作成<a class="headerlink" href="#CSVファイルからのデータフレームの作成" title="Permalink to this headline">¶</a></h2>
+<h2>CSVファイルからのデータフレームの作成<a class="headerlink" href="#CSVファイルからのデータフレームの作成" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> モジュールの <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> 関数を用いて、以下のように<strong>CSVファイル</strong>を読み込んで、データフレームのオブジェクトを作成することができます。<code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> 関数の <code class="docutils literal notranslate"><span class="pre">encoding</span></code> 引数にはファイルの文字コードを指定します。CSVファイル <code class="docutils literal notranslate"><span class="pre">iris.csv</span></code> には、以下のようにアヤメの種類 (species) と花弁 (petal)・がく片 (sepal) の長さ (length) と幅 (width) のデータが含まれています。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sepal_length, sepal_width, petal_length, petal_width, species
 5.1, 3.5, 1.4, 0.2, setosa
@@ -560,7 +315,7 @@ RangeIndex(start=0, stop=150, step=1)
 </div>
 </section>
 <section id="データの参照">
-<h2>データの参照<a class="headerlink" href="#データの参照" title="Permalink to this headline">¶</a></h2>
+<h2>データの参照<a class="headerlink" href="#データの参照" title="Permalink to this heading">¶</a></h2>
 <p>シリーズやデータフレームでは、行の位置（行は <code class="docutils literal notranslate"><span class="pre">0</span></code> から始まります）を<strong>スライス</strong>として指定することで任意の行を抽出することができます。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -852,7 +607,7 @@ Name: species, dtype: object
 </div></div>
 </div>
 <section id="iloc-と-loc">
-<h3><code class="docutils literal notranslate"><span class="pre">iloc</span></code> と <code class="docutils literal notranslate"><span class="pre">loc</span></code><a class="headerlink" href="#iloc-と-loc" title="Permalink to this headline">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">iloc</span></code> と <code class="docutils literal notranslate"><span class="pre">loc</span></code><a class="headerlink" href="#iloc-と-loc" title="Permalink to this heading">¶</a></h3>
 <p>データフレームオブジェクトの <code class="docutils literal notranslate"><span class="pre">iloc</span></code> 属性を用いると、NumPyの多次元配列のスライスと同様に、行と列の位置を指定して任意の行と列を抽出することができます。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
@@ -870,7 +625,7 @@ Name: species, dtype: object
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 sepal_length       4.9
-sepal_width          3
+sepal_width        3.0
 petal_length       1.4
 petal_width        0.2
 species         setosa
@@ -1072,7 +827,7 @@ Name: 5, dtype: object
 </section>
 </section>
 <section id="データの条件取り出し">
-<h2>データの条件取り出し<a class="headerlink" href="#データの条件取り出し" title="Permalink to this headline">¶</a></h2>
+<h2>データの条件取り出し<a class="headerlink" href="#データの条件取り出し" title="Permalink to this heading">¶</a></h2>
 <p>データフレームの列の指定と併せて条件を指定することで、条件にあった行からなるデータフレームを抽出することができます。NumPyの多次元配列の<strong>真理値配列によるインデックスアクセス</strong>と同様に、条件式のブール演算では、<code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code> の代わりに <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code>, <code class="docutils literal notranslate"><span class="pre">~</span></code> を用います。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
@@ -1152,7 +907,7 @@ Name: 5, dtype: object
 </div>
 </section>
 <section id="列の追加と削除">
-<h2>列の追加と削除<a class="headerlink" href="#列の追加と削除" title="Permalink to this headline">¶</a></h2>
+<h2>列の追加と削除<a class="headerlink" href="#列の追加と削除" title="Permalink to this heading">¶</a></h2>
 <p>データフレームに列を追加する場合は、以下のように、追加したい新たな列名を指定し、値を代入すると新たな列を追加できます。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
@@ -1203,7 +958,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.394501</td>
+      <td>0.790490</td>
     </tr>
     <tr>
       <th>1</th>
@@ -1212,7 +967,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.039743</td>
+      <td>0.276621</td>
     </tr>
     <tr>
       <th>2</th>
@@ -1221,7 +976,7 @@ Name: 5, dtype: object
       <td>1.3</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.111175</td>
+      <td>0.702027</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1230,7 +985,7 @@ Name: 5, dtype: object
       <td>1.5</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.159312</td>
+      <td>0.550238</td>
     </tr>
     <tr>
       <th>4</th>
@@ -1239,7 +994,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.261381</td>
+      <td>0.389507</td>
     </tr>
     <tr>
       <th>5</th>
@@ -1248,7 +1003,7 @@ Name: 5, dtype: object
       <td>1.7</td>
       <td>0.4</td>
       <td>setosa</td>
-      <td>0.532583</td>
+      <td>0.508873</td>
     </tr>
     <tr>
       <th>6</th>
@@ -1257,7 +1012,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.3</td>
       <td>setosa</td>
-      <td>0.631778</td>
+      <td>0.130579</td>
     </tr>
     <tr>
       <th>7</th>
@@ -1266,7 +1021,7 @@ Name: 5, dtype: object
       <td>1.5</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.103445</td>
+      <td>0.088512</td>
     </tr>
     <tr>
       <th>8</th>
@@ -1275,7 +1030,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.870462</td>
+      <td>0.856883</td>
     </tr>
     <tr>
       <th>9</th>
@@ -1284,7 +1039,7 @@ Name: 5, dtype: object
       <td>1.5</td>
       <td>0.1</td>
       <td>setosa</td>
-      <td>0.514541</td>
+      <td>0.847559</td>
     </tr>
   </tbody>
 </table>
@@ -1466,7 +1221,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.607589</td>
+      <td>0.573157</td>
     </tr>
     <tr>
       <th>1</th>
@@ -1475,7 +1230,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.220067</td>
+      <td>0.236973</td>
     </tr>
     <tr>
       <th>2</th>
@@ -1484,7 +1239,7 @@ Name: 5, dtype: object
       <td>1.3</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.468254</td>
+      <td>0.827205</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1493,7 +1248,7 @@ Name: 5, dtype: object
       <td>1.5</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.228256</td>
+      <td>0.947021</td>
     </tr>
     <tr>
       <th>4</th>
@@ -1502,7 +1257,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.476542</td>
+      <td>0.364269</td>
     </tr>
   </tbody>
 </table>
@@ -1596,7 +1351,7 @@ Name: 5, dtype: object
 </div>
 </section>
 <section id="行の追加と削除">
-<h2>行の追加と削除<a class="headerlink" href="#行の追加と削除" title="Permalink to this headline">¶</a></h2>
+<h2>行の追加と削除<a class="headerlink" href="#行の追加と削除" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> モジュールの <code class="docutils literal notranslate"><span class="pre">append()</span></code> メソッドを用いると、データフレームに新たな行を追加することができます。以下では、<code class="docutils literal notranslate"><span class="pre">iris_d</span></code> データフレームの最終行に新たな行を追加しています。<code class="docutils literal notranslate"><span class="pre">ignore_index</span></code> 引数を <code class="docutils literal notranslate"><span class="pre">True</span></code> にすると追加した行に新たなインデックス番号がつけられます。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
@@ -1726,7 +1481,7 @@ Name: 5, dtype: object
 </div>
 </section>
 <section id="データの並び替え">
-<h2>データの並び替え<a class="headerlink" href="#データの並び替え" title="Permalink to this headline">¶</a></h2>
+<h2>データの並び替え<a class="headerlink" href="#データの並び替え" title="Permalink to this heading">¶</a></h2>
 <p>データフレームオブジェクトの <code class="docutils literal notranslate"><span class="pre">sort_index()</span></code> メソッドで、データフレームのインデックスに基づくソートができます。また、<code class="docutils literal notranslate"><span class="pre">sort_values()</span></code> メソッドで、任意の列の値によるソートができます。列は複数指定することもできます。いずれのメソッドでも、<code class="docutils literal notranslate"><span class="pre">inplace</span></code> 引数により、ソートにより新しいデータフレームを作成する (<code class="docutils literal notranslate"><span class="pre">False</span></code>) か、元のデータフレームを更新する (<code class="docutils literal notranslate"><span class="pre">True</span></code>) を指定できます。デフォルトは <code class="docutils literal notranslate"><span class="pre">inplace</span></code> は <code class="docutils literal notranslate"><span class="pre">False</span></code> になっており、これらのメソッドは新しいデータフレームを作成します。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
@@ -1981,7 +1736,7 @@ Name: 5, dtype: object
 </div>
 </section>
 <section id="データの統計量">
-<h2>データの統計量<a class="headerlink" href="#データの統計量" title="Permalink to this headline">¶</a></h2>
+<h2>データの統計量<a class="headerlink" href="#データの統計量" title="Permalink to this heading">¶</a></h2>
 <p>データフレームオブジェクトの <code class="docutils literal notranslate"><span class="pre">describe()</span></code> メソッドで、データフレームの各列の要約統計量を求めることができます。要約統計量には平均、標準偏差、最大値、最小値などが含まれます。その他の統計量を求める <code class="docutils literal notranslate"><span class="pre">pandas</span></code> モジュールのメソッドは以下を参照してください。</p>
 <p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/frame.html#computations-descriptive-stats">pandasでの統計量計算</a></p>
 <div class="nbinput docutils container">
@@ -2085,7 +1840,7 @@ Name: 5, dtype: object
 </div>
 </section>
 <section id="▲データの連結">
-<h2>▲データの連結<a class="headerlink" href="#▲データの連結" title="Permalink to this headline">¶</a></h2>
+<h2>▲データの連結<a class="headerlink" href="#▲データの連結" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> モジュールの <code class="docutils literal notranslate"><span class="pre">concat()</span></code> 関数を用いると、データフレームを連結して新たなデータフレームを作成することができます。以下では、<code class="docutils literal notranslate"><span class="pre">iris_d</span></code> データフレームの先頭5行と最終5行を連結して、新しいデータフレームを作成しています。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
@@ -2307,7 +2062,7 @@ Name: 5, dtype: object
 </div>
 </section>
 <section id="▲データの結合">
-<h2>▲データの結合<a class="headerlink" href="#▲データの結合" title="Permalink to this headline">¶</a></h2>
+<h2>▲データの結合<a class="headerlink" href="#▲データの結合" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> モジュールの <code class="docutils literal notranslate"><span class="pre">merge()</span></code> 関数を用いると、任意の列の値をキーとして異なるデータフレームを結合することができます。結合のキーとする列名は <code class="docutils literal notranslate"><span class="pre">on</span></code> 引数で指定します。以下では、<code class="docutils literal notranslate"><span class="pre">species</span></code> の列の値をキーに、2つのデータフレーム、<code class="docutils literal notranslate"><span class="pre">sepal_len</span></code>, <code class="docutils literal notranslate"><span class="pre">sepal_wid</span></code>、を結合して新しいデータフレーム <code class="docutils literal notranslate"><span class="pre">sepal</span></code> を作成しています。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
@@ -2377,7 +2132,7 @@ Name: 5, dtype: object
 </div>
 </section>
 <section id="▲データのグループ化">
-<h2>▲データのグループ化<a class="headerlink" href="#▲データのグループ化" title="Permalink to this headline">¶</a></h2>
+<h2>▲データのグループ化<a class="headerlink" href="#▲データのグループ化" title="Permalink to this heading">¶</a></h2>
 <p>データフレームオブジェクトの <code class="docutils literal notranslate"><span class="pre">groupby()</span></code> メソッドを使うと、データフレームの任意の列の値に基づいて、同じ値を持つ行をグループにまとめることができます。列は複数指定することもできます。<code class="docutils literal notranslate"><span class="pre">groupby()</span></code> メソッドを適用するとグループ化オブジェクト (<code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code>) が作成されますが、データフレームと同様の操作を多く適用することができます。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
@@ -2394,7 +2149,7 @@ Name: 5, dtype: object
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f45645d1e50&gt;
+&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f420ce528c0&gt;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -2624,7 +2379,7 @@ Name: 5, dtype: object
 </div>
 </section>
 <section id="▲欠損値、時系列データの処理">
-<h2>▲欠損値、時系列データの処理<a class="headerlink" href="#▲欠損値、時系列データの処理" title="Permalink to this headline">¶</a></h2>
+<h2>▲欠損値、時系列データの処理<a class="headerlink" href="#▲欠損値、時系列データの処理" title="Permalink to this heading">¶</a></h2>
 <p>pandasでは、データ分析における欠損値、時系列データの処理を支援するための便利な機能が提供されています。詳細は以下を参照してください。</p>
 <p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/missing_data.html#missing-data">欠損値の処理</a></p>
 <p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/timeseries.html">時系列データの処理</a></p>
@@ -2650,6 +2405,8 @@ Name: 5, dtype: object
 <p>
   <a style="font-family: sans-serif; font-size: smaller; background: linear-gradient(to top, #353535 0%, #141414 100%); -webkit-font-smoothing: antialiased; font-weight: normal; text-shadow: rgb(0 0 0 / 40%) 0 -1px 0; padding: 2px 6px; color: #fff; text-decoration: none; border-radius: 4px; border: 1px solid #0d0d0d; box-shadow: inset 0 1px 1px 0 #8f8f8f;" href="https://github.com/utokyo-ipp/utokyo-ipp.github.io">View on GitHub</a>
 </p><p>
+  <a style="font-family: sans-serif; font-size: smaller; background: linear-gradient(to top, #ff1e00 0%, #de1e00 100%); -webkit-font-smoothing: antialiased; font-weight: normal; text-shadow: rgb(0 0 0 / 40%) 0 -1px 0; padding: 2px 6px; color: #fff; text-decoration: none; border-radius: 4px; border: 1px solid #0d0d0d; box-shadow: inset 0 1px 1px 0 #ff8e70;" href="https://utokyo-ipp.github.io/IPP_textbook.pdf">View PDF</a>
+</p><p>
   <a style="border-bottom: none;" href="https://colab.research.google.com/github/utokyo-ipp/utokyo-ipp.github.io/blob/master/colab/7/7-1.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colaboratory"></a>
 </p><h3>Navigation</h3>
 <ul class="current">
@@ -2666,7 +2423,7 @@ Name: 5, dtype: object
 <li class="toctree-l1"><a class="reference internal" href="../3/3-3.html">3-3. 関数</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4/4-1.html">4-1. ファイル入出力の基本</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../4/4-2.html">4-2. イテラブルとイテレータ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../4/4-3.html">4-3. コンピュータにおけるファイルやディレクトリの配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4/4-3.html">4-3. ディレクトリと木構造</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../5/5-1.html">5-1. モジュールの使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../5/5-2.html">5-2. モジュールの作り方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../5/5-3.html">5-3. NumPyライブラリ</a></li>
@@ -2721,7 +2478,7 @@ Name: 5, dtype: object
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -2735,10 +2492,10 @@ Name: 5, dtype: object
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020–2022, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      &copy;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.2.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>
