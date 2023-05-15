@@ -159,7 +159,7 @@
 <p>データセットの各行は1つの花のデータに対応しており、行数はデータセットの花データの総数を表します。また、1列目から4列目までの各列は花の特徴（特徴量）に対応しています。scikit-learnでは、このデータと<strong>特徴量</strong>からなる2次元配列（行列）をNumPy配列または <code class="docutils literal notranslate"><span class="pre">pandas</span></code> のデータフレームに格納し、入力データとして処理します。5列目は、教師あり学習におけるデータのラベルに対応しており、ここでは各花データの花の種類（全部で3種類）を表しています。ラベルは通常1次元でデータの数だけの長さを持ち、NumPy配列または
 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> のシリーズに格納します。先に述べた通り、ラベルが連続値であれば回帰、ラベルが離散値であれば分類の問題となります。機械学習では、特徴量からこのラベルを予測することになります。</p>
 <p>アイリスデータセットはscikit-learnが持つデータセットにも含まれており、<code class="docutils literal notranslate"><span class="pre">load_iris</span></code> 関数によりアイリスデータセットの特徴量データとラベルデータを以下のようにNumPyの配列として取得することもできます。この時、ラベルは数値 (<code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code>) に置き換えられています。</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
@@ -169,43 +169,6 @@
 <span class="n">y_iris</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9988/603653253.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>datasets <span class="ansi-green-fg">import</span> load_iris
-<span class="ansi-green-intense-fg ansi-bold">      2</span> iris <span class="ansi-blue-fg">=</span> load_iris<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> X_iris <span class="ansi-blue-fg">=</span> iris<span class="ansi-blue-fg">.</span>data
-<span class="ansi-green-intense-fg ansi-bold">      4</span> y_iris <span class="ansi-blue-fg">=</span> iris<span class="ansi-blue-fg">.</span>target
-
-<span class="ansi-green-fg">~/.local/lib/python3.10/site-packages/sklearn/__init__.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     80</span>     <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span> <span class="ansi-green-fg">import</span> _distributor_init  <span class="ansi-red-fg"># noqa: F401</span>
-<span class="ansi-green-intense-fg ansi-bold">     81</span>     <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span> <span class="ansi-green-fg">import</span> __check_build  <span class="ansi-red-fg"># noqa: F401</span>
-<span class="ansi-green-fg">---&gt; 82</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>base <span class="ansi-green-fg">import</span> clone
-<span class="ansi-green-intense-fg ansi-bold">     83</span>     <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>utils<span class="ansi-blue-fg">.</span>_show_versions <span class="ansi-green-fg">import</span> show_versions
-<span class="ansi-green-intense-fg ansi-bold">     84</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.10/site-packages/sklearn/base.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     15</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span> <span class="ansi-green-fg">import</span> __version__
-<span class="ansi-green-intense-fg ansi-bold">     16</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>_config <span class="ansi-green-fg">import</span> get_config
-<span class="ansi-green-fg">---&gt; 17</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>utils <span class="ansi-green-fg">import</span> _IS_32BIT
-<span class="ansi-green-intense-fg ansi-bold">     18</span> from .utils._tags import (
-<span class="ansi-green-intense-fg ansi-bold">     19</span>     _DEFAULT_TAGS<span class="ansi-blue-fg">,</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.10/site-packages/sklearn/utils/__init__.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     20</span> <span class="ansi-green-fg">import</span> warnings
-<span class="ansi-green-intense-fg ansi-bold">     21</span> <span class="ansi-green-fg">import</span> numpy <span class="ansi-green-fg">as</span> np
-<span class="ansi-green-fg">---&gt; 22</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> scipy<span class="ansi-blue-fg">.</span>sparse <span class="ansi-green-fg">import</span> issparse
-<span class="ansi-green-intense-fg ansi-bold">     23</span>
-<span class="ansi-green-intense-fg ansi-bold">     24</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>murmurhash <span class="ansi-green-fg">import</span> murmurhash3_32
-
-<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
-</pre></div></div>
 </div>
 </section>
 <section id="モデル学習の基礎">
@@ -264,48 +227,19 @@
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9988/3853790156.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>linear_model <span class="ansi-green-fg">import</span> LogisticRegression
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>model_selection <span class="ansi-green-fg">import</span> train_test_split
-<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>metrics <span class="ansi-green-fg">import</span> accuracy_score
-<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>datasets <span class="ansi-green-fg">import</span> load_iris
-<span class="ansi-green-intense-fg ansi-bold">      5</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.10/site-packages/sklearn/__init__.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     80</span>     <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span> <span class="ansi-green-fg">import</span> _distributor_init  <span class="ansi-red-fg"># noqa: F401</span>
-<span class="ansi-green-intense-fg ansi-bold">     81</span>     <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span> <span class="ansi-green-fg">import</span> __check_build  <span class="ansi-red-fg"># noqa: F401</span>
-<span class="ansi-green-fg">---&gt; 82</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>base <span class="ansi-green-fg">import</span> clone
-<span class="ansi-green-intense-fg ansi-bold">     83</span>     <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>utils<span class="ansi-blue-fg">.</span>_show_versions <span class="ansi-green-fg">import</span> show_versions
-<span class="ansi-green-intense-fg ansi-bold">     84</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.10/site-packages/sklearn/base.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     15</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span> <span class="ansi-green-fg">import</span> __version__
-<span class="ansi-green-intense-fg ansi-bold">     16</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>_config <span class="ansi-green-fg">import</span> get_config
-<span class="ansi-green-fg">---&gt; 17</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>utils <span class="ansi-green-fg">import</span> _IS_32BIT
-<span class="ansi-green-intense-fg ansi-bold">     18</span> from .utils._tags import (
-<span class="ansi-green-intense-fg ansi-bold">     19</span>     _DEFAULT_TAGS<span class="ansi-blue-fg">,</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.10/site-packages/sklearn/utils/__init__.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     20</span> <span class="ansi-green-fg">import</span> warnings
-<span class="ansi-green-intense-fg ansi-bold">     21</span> <span class="ansi-green-fg">import</span> numpy <span class="ansi-green-fg">as</span> np
-<span class="ansi-green-fg">---&gt; 22</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> scipy<span class="ansi-blue-fg">.</span>sparse <span class="ansi-green-fg">import</span> issparse
-<span class="ansi-green-intense-fg ansi-bold">     23</span>
-<span class="ansi-green-intense-fg ansi-bold">     24</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>murmurhash <span class="ansi-green-fg">import</span> murmurhash3_32
-
-<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
+0.9777777777777777
 </pre></div></div>
 </div>
 </section>
 <section id="練習">
 <h2>練習<a class="headerlink" href="#練習" title="Permalink to this heading">¶</a></h2>
 <p>アイリスデータセットの2つの特徴量、<code class="docutils literal notranslate"><span class="pre">petal_length</span></code> と <code class="docutils literal notranslate"><span class="pre">petal_width</span></code>、から2つの花の種類、<code class="docutils literal notranslate"><span class="pre">versicolor</span></code> か <code class="docutils literal notranslate"><span class="pre">virginica</span></code>、を予測するモデルをロジスティック回帰を用いて学習し、その予測精度を評価してください。以下では <code class="docutils literal notranslate"><span class="pre">pandas</span></code> データフレームの <code class="docutils literal notranslate"><span class="pre">values</span></code> 属性を用いてNumPy配列を取得しています。</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
@@ -321,44 +255,6 @@
 <span class="c1">###  your code here</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9988/3409229359.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>linear_model <span class="ansi-green-fg">import</span> LogisticRegression
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>model_selection <span class="ansi-green-fg">import</span> train_test_split
-<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>metrics <span class="ansi-green-fg">import</span> accuracy_score
-<span class="ansi-green-intense-fg ansi-bold">      4</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> iris <span class="ansi-blue-fg">=</span> pd<span class="ansi-blue-fg">.</span>read_csv<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;iris.csv&#39;</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.10/site-packages/sklearn/__init__.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     80</span>     <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span> <span class="ansi-green-fg">import</span> _distributor_init  <span class="ansi-red-fg"># noqa: F401</span>
-<span class="ansi-green-intense-fg ansi-bold">     81</span>     <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span> <span class="ansi-green-fg">import</span> __check_build  <span class="ansi-red-fg"># noqa: F401</span>
-<span class="ansi-green-fg">---&gt; 82</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>base <span class="ansi-green-fg">import</span> clone
-<span class="ansi-green-intense-fg ansi-bold">     83</span>     <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>utils<span class="ansi-blue-fg">.</span>_show_versions <span class="ansi-green-fg">import</span> show_versions
-<span class="ansi-green-intense-fg ansi-bold">     84</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.10/site-packages/sklearn/base.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     15</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span> <span class="ansi-green-fg">import</span> __version__
-<span class="ansi-green-intense-fg ansi-bold">     16</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>_config <span class="ansi-green-fg">import</span> get_config
-<span class="ansi-green-fg">---&gt; 17</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>utils <span class="ansi-green-fg">import</span> _IS_32BIT
-<span class="ansi-green-intense-fg ansi-bold">     18</span> from .utils._tags import (
-<span class="ansi-green-intense-fg ansi-bold">     19</span>     _DEFAULT_TAGS<span class="ansi-blue-fg">,</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.10/site-packages/sklearn/utils/__init__.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     20</span> <span class="ansi-green-fg">import</span> warnings
-<span class="ansi-green-intense-fg ansi-bold">     21</span> <span class="ansi-green-fg">import</span> numpy <span class="ansi-green-fg">as</span> np
-<span class="ansi-green-fg">---&gt; 22</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> scipy<span class="ansi-blue-fg">.</span>sparse <span class="ansi-green-fg">import</span> issparse
-<span class="ansi-green-intense-fg ansi-bold">     23</span>
-<span class="ansi-green-intense-fg ansi-bold">     24</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>murmurhash <span class="ansi-green-fg">import</span> murmurhash3_32
-
-<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
-</pre></div></div>
 </div>
 <p>上記のコードが完成したら、以下のコードを実行して、2つの特徴量、<code class="docutils literal notranslate"><span class="pre">petal_length</span></code> と <code class="docutils literal notranslate"><span class="pre">petal_width</span></code>、から2つの花の種類、<code class="docutils literal notranslate"><span class="pre">versicolor</span></code> か <code class="docutils literal notranslate"><span class="pre">virginica</span></code>、を分類するための決定境界を可視化してみてください。<code class="docutils literal notranslate"><span class="pre">model</span></code> は上記の練習で学習されたモデルとします。決定境界は、学習の結果得られた、特徴量の空間においてラベル（クラス）間を分離する境界を表しています。</p>
 <div class="nbinput docutils container">
@@ -384,18 +280,8 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9988/2808266089.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> get_ipython<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>run_line_magic<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;matplotlib&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;inline&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span>
-<span class="ansi-green-fg">----&gt; 5</span><span class="ansi-red-fg"> </span>w2 <span class="ansi-blue-fg">=</span> model<span class="ansi-blue-fg">.</span>coef_<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">      6</span> w1 <span class="ansi-blue-fg">=</span> model<span class="ansi-blue-fg">.</span>coef_<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">      7</span> w0 <span class="ansi-blue-fg">=</span> model<span class="ansi-blue-fg">.</span>intercept_<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span>
-
-<span class="ansi-red-fg">NameError</span>: name &#39;model&#39; is not defined
-</pre></div></div>
+<img alt="../_images/7_7-2_14_0.png" src="../_images/7_7-2_14_0.png" />
+</div>
 </div>
 </section>
 <section id="教師あり学習・回帰の例">
@@ -441,41 +327,12 @@
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9988/519235982.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>linear_model <span class="ansi-green-fg">import</span> LinearRegression
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>metrics <span class="ansi-green-fg">import</span> mean_squared_error
-<span class="ansi-green-intense-fg ansi-bold">      3</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-red-fg"># 訓練データとテストデータに分割</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> X_train<span class="ansi-blue-fg">,</span> X_test<span class="ansi-blue-fg">,</span> y_train<span class="ansi-blue-fg">,</span> y_test <span class="ansi-blue-fg">=</span> train_test_split<span class="ansi-blue-fg">(</span>X<span class="ansi-blue-fg">,</span> y<span class="ansi-blue-fg">,</span> test_size<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">0.3</span><span class="ansi-blue-fg">,</span> random_state<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.10/site-packages/sklearn/__init__.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     80</span>     <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span> <span class="ansi-green-fg">import</span> _distributor_init  <span class="ansi-red-fg"># noqa: F401</span>
-<span class="ansi-green-intense-fg ansi-bold">     81</span>     <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span> <span class="ansi-green-fg">import</span> __check_build  <span class="ansi-red-fg"># noqa: F401</span>
-<span class="ansi-green-fg">---&gt; 82</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>base <span class="ansi-green-fg">import</span> clone
-<span class="ansi-green-intense-fg ansi-bold">     83</span>     <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>utils<span class="ansi-blue-fg">.</span>_show_versions <span class="ansi-green-fg">import</span> show_versions
-<span class="ansi-green-intense-fg ansi-bold">     84</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.10/site-packages/sklearn/base.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     15</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span> <span class="ansi-green-fg">import</span> __version__
-<span class="ansi-green-intense-fg ansi-bold">     16</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>_config <span class="ansi-green-fg">import</span> get_config
-<span class="ansi-green-fg">---&gt; 17</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>utils <span class="ansi-green-fg">import</span> _IS_32BIT
-<span class="ansi-green-intense-fg ansi-bold">     18</span> from .utils._tags import (
-<span class="ansi-green-intense-fg ansi-bold">     19</span>     _DEFAULT_TAGS<span class="ansi-blue-fg">,</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.10/site-packages/sklearn/utils/__init__.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     20</span> <span class="ansi-green-fg">import</span> warnings
-<span class="ansi-green-intense-fg ansi-bold">     21</span> <span class="ansi-green-fg">import</span> numpy <span class="ansi-green-fg">as</span> np
-<span class="ansi-green-fg">---&gt; 22</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> scipy<span class="ansi-blue-fg">.</span>sparse <span class="ansi-green-fg">import</span> issparse
-<span class="ansi-green-intense-fg ansi-bold">     23</span>
-<span class="ansi-green-intense-fg ansi-bold">     24</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>murmurhash <span class="ansi-green-fg">import</span> murmurhash3_32
-
-<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
+0.03974445760904277
 </pre></div></div>
 </div>
 <p>以下では、線形回帰モデルにより学習された <code class="docutils literal notranslate"><span class="pre">petal_length</span></code> と <code class="docutils literal notranslate"><span class="pre">petal_width</span></code> の関係を表す回帰式を可視化しています。学習された回帰式が実際のデータに適合していることがわかります。</p>
@@ -495,18 +352,8 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9988/3937188003.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> x_plot<span class="ansi-blue-fg">=</span>np<span class="ansi-blue-fg">.</span>linspace<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">7</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> X_plot<span class="ansi-blue-fg">=</span>x_plot<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">,</span>np<span class="ansi-blue-fg">.</span>newaxis<span class="ansi-blue-fg">]</span>
-<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg"> </span>y_plot<span class="ansi-blue-fg">=</span>model<span class="ansi-blue-fg">.</span>predict<span class="ansi-blue-fg">(</span>X_plot<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> plt<span class="ansi-blue-fg">.</span>scatter<span class="ansi-blue-fg">(</span>X<span class="ansi-blue-fg">,</span>y<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> plt<span class="ansi-blue-fg">.</span>plot<span class="ansi-blue-fg">(</span>x_plot<span class="ansi-blue-fg">,</span>y_plot<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">;</span>
-
-<span class="ansi-red-fg">NameError</span>: name &#39;model&#39; is not defined
-</pre></div></div>
+<img alt="../_images/7_7-2_20_0.png" src="../_images/7_7-2_20_0.png" />
+</div>
 </div>
 </section>
 <section id="教師なし学習・クラスタリングの例">
@@ -533,43 +380,21 @@
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/home/sato/.local/lib/python3.10/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9988/2096794077.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>cluster <span class="ansi-green-fg">import</span> KMeans
-<span class="ansi-green-intense-fg ansi-bold">      2</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> iris <span class="ansi-blue-fg">=</span> pd<span class="ansi-blue-fg">.</span>read_csv<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;iris.csv&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> X_iris<span class="ansi-blue-fg">=</span>iris<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;petal_length&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;petal_width&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">.</span>values
-<span class="ansi-green-intense-fg ansi-bold">      5</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.10/site-packages/sklearn/__init__.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     80</span>     <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span> <span class="ansi-green-fg">import</span> _distributor_init  <span class="ansi-red-fg"># noqa: F401</span>
-<span class="ansi-green-intense-fg ansi-bold">     81</span>     <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span> <span class="ansi-green-fg">import</span> __check_build  <span class="ansi-red-fg"># noqa: F401</span>
-<span class="ansi-green-fg">---&gt; 82</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>base <span class="ansi-green-fg">import</span> clone
-<span class="ansi-green-intense-fg ansi-bold">     83</span>     <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>utils<span class="ansi-blue-fg">.</span>_show_versions <span class="ansi-green-fg">import</span> show_versions
-<span class="ansi-green-intense-fg ansi-bold">     84</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.10/site-packages/sklearn/base.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     15</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span> <span class="ansi-green-fg">import</span> __version__
-<span class="ansi-green-intense-fg ansi-bold">     16</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>_config <span class="ansi-green-fg">import</span> get_config
-<span class="ansi-green-fg">---&gt; 17</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>utils <span class="ansi-green-fg">import</span> _IS_32BIT
-<span class="ansi-green-intense-fg ansi-bold">     18</span> from .utils._tags import (
-<span class="ansi-green-intense-fg ansi-bold">     19</span>     _DEFAULT_TAGS<span class="ansi-blue-fg">,</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.10/site-packages/sklearn/utils/__init__.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     20</span> <span class="ansi-green-fg">import</span> warnings
-<span class="ansi-green-intense-fg ansi-bold">     21</span> <span class="ansi-green-fg">import</span> numpy <span class="ansi-green-fg">as</span> np
-<span class="ansi-green-fg">---&gt; 22</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> scipy<span class="ansi-blue-fg">.</span>sparse <span class="ansi-green-fg">import</span> issparse
-<span class="ansi-green-intense-fg ansi-bold">     23</span>
-<span class="ansi-green-intense-fg ansi-bold">     24</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>murmurhash <span class="ansi-green-fg">import</span> murmurhash3_32
-
-<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
-</pre></div></div>
+<img alt="../_images/7_7-2_22_1.png" src="../_images/7_7-2_22_1.png" />
+</div>
 </div>
 <p>3つのクラスタと3つの花の種類の分布を2つの特徴量、<code class="docutils literal notranslate"><span class="pre">petal_lengh</span></code> と <code class="docutils literal notranslate"><span class="pre">petal_width</span></code>、の空間で比較してみると、クラスタと花の種類には対応があり、2つの特徴量から花の種類をクラスタとしてグループ分けできていることがわかります。以下では可視化に <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> モジュールを用いています。</p>
 <div class="nbinput docutils container">
@@ -582,54 +407,25 @@
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/7_7-2_24_0.png" src="../_images/7_7-2_24_0.png" />
+</div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9988/3997255364.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">import</span> seaborn <span class="ansi-green-fg">as</span> sns
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>sns<span class="ansi-blue-fg">.</span>lmplot<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;petal_length&#39;</span><span class="ansi-blue-fg">,</span>y<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;petal_width&#39;</span><span class="ansi-blue-fg">,</span>hue<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;cluster&#39;</span><span class="ansi-blue-fg">,</span>data<span class="ansi-blue-fg">=</span>iris<span class="ansi-blue-fg">,</span>fit_reg<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">;</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> sns<span class="ansi-blue-fg">.</span>lmplot<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;petal_length&#39;</span><span class="ansi-blue-fg">,</span>y<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;petal_width&#39;</span><span class="ansi-blue-fg">,</span>hue<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;species&#39;</span><span class="ansi-blue-fg">,</span>data<span class="ansi-blue-fg">=</span>iris<span class="ansi-blue-fg">,</span>fit_reg<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">;</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.10/site-packages/seaborn/regression.py</span> in <span class="ansi-cyan-fg">lmplot</span><span class="ansi-blue-fg">(data, x, y, hue, col, row, palette, col_wrap, height, aspect, markers, sharex, sharey, hue_order, col_order, row_order, legend, legend_out, x_estimator, x_bins, x_ci, scatter, fit_reg, ci, n_boot, units, seed, order, logistic, lowess, robust, logx, x_partial, y_partial, truncate, x_jitter, y_jitter, scatter_kws, line_kws, facet_kws)</span>
-<span class="ansi-green-intense-fg ansi-bold">    593</span>     need_cols <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span>x<span class="ansi-blue-fg">,</span> y<span class="ansi-blue-fg">,</span> hue<span class="ansi-blue-fg">,</span> col<span class="ansi-blue-fg">,</span> row<span class="ansi-blue-fg">,</span> units<span class="ansi-blue-fg">,</span> x_partial<span class="ansi-blue-fg">,</span> y_partial<span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">    594</span>     cols <span class="ansi-blue-fg">=</span> np<span class="ansi-blue-fg">.</span>unique<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span>a <span class="ansi-green-fg">for</span> a <span class="ansi-green-fg">in</span> need_cols <span class="ansi-green-fg">if</span> a <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>tolist<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">--&gt; 595</span><span class="ansi-red-fg">     </span>data <span class="ansi-blue-fg">=</span> data<span class="ansi-blue-fg">[</span>cols<span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">    596</span>
-<span class="ansi-green-intense-fg ansi-bold">    597</span>     <span class="ansi-red-fg"># Initialize the grid</span>
-
-<span class="ansi-green-fg">/usr/lib/python3/dist-packages/pandas/core/frame.py</span> in <span class="ansi-cyan-fg">__getitem__</span><span class="ansi-blue-fg">(self, key)</span>
-<span class="ansi-green-intense-fg ansi-bold">   3462</span>             <span class="ansi-green-fg">if</span> is_iterator<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">   3463</span>                 key <span class="ansi-blue-fg">=</span> list<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">-&gt; 3464</span><span class="ansi-red-fg">             </span>indexer <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>loc<span class="ansi-blue-fg">.</span>_get_listlike_indexer<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">,</span> axis<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">   3465</span>
-<span class="ansi-green-intense-fg ansi-bold">   3466</span>         <span class="ansi-red-fg"># take() does not accept boolean indexers</span>
-
-<span class="ansi-green-fg">/usr/lib/python3/dist-packages/pandas/core/indexing.py</span> in <span class="ansi-cyan-fg">_get_listlike_indexer</span><span class="ansi-blue-fg">(self, key, axis)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1312</span>             keyarr<span class="ansi-blue-fg">,</span> indexer<span class="ansi-blue-fg">,</span> new_indexer <span class="ansi-blue-fg">=</span> ax<span class="ansi-blue-fg">.</span>_reindex_non_unique<span class="ansi-blue-fg">(</span>keyarr<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1313</span>
-<span class="ansi-green-fg">-&gt; 1314</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>_validate_read_indexer<span class="ansi-blue-fg">(</span>keyarr<span class="ansi-blue-fg">,</span> indexer<span class="ansi-blue-fg">,</span> axis<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1315</span>
-<span class="ansi-green-intense-fg ansi-bold">   1316</span>         if needs_i8_conversion(ax.dtype) or isinstance(
-
-<span class="ansi-green-fg">/usr/lib/python3/dist-packages/pandas/core/indexing.py</span> in <span class="ansi-cyan-fg">_validate_read_indexer</span><span class="ansi-blue-fg">(self, key, indexer, axis)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1375</span>
-<span class="ansi-green-intense-fg ansi-bold">   1376</span>             not_found <span class="ansi-blue-fg">=</span> list<span class="ansi-blue-fg">(</span>ensure_index<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">[</span>missing_mask<span class="ansi-blue-fg">.</span>nonzero<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">.</span>unique<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">-&gt; 1377</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> KeyError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">f&#34;{not_found} not in index&#34;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1378</span>
-<span class="ansi-green-intense-fg ansi-bold">   1379</span>
-
-<span class="ansi-red-fg">KeyError</span>: &#34;[&#39;cluster&#39;] not in index&#34;
-</pre></div></div>
+<img alt="../_images/7_7-2_24_1.png" src="../_images/7_7-2_24_1.png" />
+</div>
 </div>
 </section>
 <section id="id10">
 <h2>練習<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h2>
 <p>アイリスデータセットの2つの特徴量、<code class="docutils literal notranslate"><span class="pre">sepal_length</span></code> と <code class="docutils literal notranslate"><span class="pre">sepal_width</span></code>、を元に、<code class="docutils literal notranslate"><span class="pre">KMeans</span></code> モデルを用いて花のデータをクラスタリングしてください。クラスタの数は任意に設定してください。</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
@@ -645,44 +441,6 @@
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9988/380178660.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>cluster <span class="ansi-green-fg">import</span> KMeans
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">import</span> pandas <span class="ansi-green-fg">as</span> pd
-<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-green-fg">import</span> matplotlib<span class="ansi-blue-fg">.</span>pyplot <span class="ansi-green-fg">as</span> plt
-<span class="ansi-green-intense-fg ansi-bold">      4</span> get_ipython<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>run_line_magic<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;matplotlib&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;inline&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.10/site-packages/sklearn/__init__.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     80</span>     <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span> <span class="ansi-green-fg">import</span> _distributor_init  <span class="ansi-red-fg"># noqa: F401</span>
-<span class="ansi-green-intense-fg ansi-bold">     81</span>     <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span> <span class="ansi-green-fg">import</span> __check_build  <span class="ansi-red-fg"># noqa: F401</span>
-<span class="ansi-green-fg">---&gt; 82</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>base <span class="ansi-green-fg">import</span> clone
-<span class="ansi-green-intense-fg ansi-bold">     83</span>     <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>utils<span class="ansi-blue-fg">.</span>_show_versions <span class="ansi-green-fg">import</span> show_versions
-<span class="ansi-green-intense-fg ansi-bold">     84</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.10/site-packages/sklearn/base.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     15</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span> <span class="ansi-green-fg">import</span> __version__
-<span class="ansi-green-intense-fg ansi-bold">     16</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>_config <span class="ansi-green-fg">import</span> get_config
-<span class="ansi-green-fg">---&gt; 17</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>utils <span class="ansi-green-fg">import</span> _IS_32BIT
-<span class="ansi-green-intense-fg ansi-bold">     18</span> from .utils._tags import (
-<span class="ansi-green-intense-fg ansi-bold">     19</span>     _DEFAULT_TAGS<span class="ansi-blue-fg">,</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.10/site-packages/sklearn/utils/__init__.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     20</span> <span class="ansi-green-fg">import</span> warnings
-<span class="ansi-green-intense-fg ansi-bold">     21</span> <span class="ansi-green-fg">import</span> numpy <span class="ansi-green-fg">as</span> np
-<span class="ansi-green-fg">---&gt; 22</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> scipy<span class="ansi-blue-fg">.</span>sparse <span class="ansi-green-fg">import</span> issparse
-<span class="ansi-green-intense-fg ansi-bold">     23</span>
-<span class="ansi-green-intense-fg ansi-bold">     24</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>murmurhash <span class="ansi-green-fg">import</span> murmurhash3_32
-
-<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
-</pre></div></div>
-</div>
 </section>
 <section id="教師なし学習・次元削減の例">
 <h2>教師なし学習・次元削減の例<a class="headerlink" href="#教師なし学習・次元削減の例" title="Permalink to this heading">¶</a></h2>
@@ -690,7 +448,7 @@
 <p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html">PCAクラス</a></p>
 <p>特徴量データ (<code class="docutils literal notranslate"><span class="pre">X_irist</span></code>) を用意し、引数 <code class="docutils literal notranslate"><span class="pre">n_components</span></code> にハイパーパラメータとして削減後の次元数、ここでは <code class="docutils literal notranslate"><span class="pre">2</span></code>、を指定して <code class="docutils literal notranslate"><span class="pre">PCA</span></code> クラスのインスタンスを作成しています。そして、<code class="docutils literal notranslate"><span class="pre">fit()</span></code> メソッドによりモデルをデータに適合させ、<code class="docutils literal notranslate"><span class="pre">transform()</span></code> メソッドを用いて4つの特徴量を2次元に削減した特徴量データ (<code class="docutils literal notranslate"><span class="pre">X_2d</span></code>) を取得しています。</p>
 <p>学習された各次元の値を元のデータセットのデータフレームに列として追加し、データセットを削減して得られた次元の空間において、データセットを花の種類ごとに異なる色で可視化しています。削減された次元の空間において、花の種類をグループ分けできていることがわかります。</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
@@ -704,44 +462,6 @@
 <span class="n">X_2d</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_iris</span><span class="p">)</span> <span class="c1"># 次元削減</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9988/3062394146.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>decomposition <span class="ansi-green-fg">import</span> PCA
-<span class="ansi-green-intense-fg ansi-bold">      2</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> iris <span class="ansi-blue-fg">=</span> pd<span class="ansi-blue-fg">.</span>read_csv<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;iris.csv&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> X_iris<span class="ansi-blue-fg">=</span>iris<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;sepal_length&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;sepal_width&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;petal_length&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;petal_width&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">.</span>values
-<span class="ansi-green-intense-fg ansi-bold">      5</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.10/site-packages/sklearn/__init__.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     80</span>     <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span> <span class="ansi-green-fg">import</span> _distributor_init  <span class="ansi-red-fg"># noqa: F401</span>
-<span class="ansi-green-intense-fg ansi-bold">     81</span>     <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span> <span class="ansi-green-fg">import</span> __check_build  <span class="ansi-red-fg"># noqa: F401</span>
-<span class="ansi-green-fg">---&gt; 82</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>base <span class="ansi-green-fg">import</span> clone
-<span class="ansi-green-intense-fg ansi-bold">     83</span>     <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>utils<span class="ansi-blue-fg">.</span>_show_versions <span class="ansi-green-fg">import</span> show_versions
-<span class="ansi-green-intense-fg ansi-bold">     84</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.10/site-packages/sklearn/base.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     15</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span> <span class="ansi-green-fg">import</span> __version__
-<span class="ansi-green-intense-fg ansi-bold">     16</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>_config <span class="ansi-green-fg">import</span> get_config
-<span class="ansi-green-fg">---&gt; 17</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>utils <span class="ansi-green-fg">import</span> _IS_32BIT
-<span class="ansi-green-intense-fg ansi-bold">     18</span> from .utils._tags import (
-<span class="ansi-green-intense-fg ansi-bold">     19</span>     _DEFAULT_TAGS<span class="ansi-blue-fg">,</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.10/site-packages/sklearn/utils/__init__.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     20</span> <span class="ansi-green-fg">import</span> warnings
-<span class="ansi-green-intense-fg ansi-bold">     21</span> <span class="ansi-green-fg">import</span> numpy <span class="ansi-green-fg">as</span> np
-<span class="ansi-green-fg">---&gt; 22</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> scipy<span class="ansi-blue-fg">.</span>sparse <span class="ansi-green-fg">import</span> issparse
-<span class="ansi-green-intense-fg ansi-bold">     23</span>
-<span class="ansi-green-intense-fg ansi-bold">     24</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>murmurhash <span class="ansi-green-fg">import</span> murmurhash3_32
-
-<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
-</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
@@ -758,17 +478,8 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9988/3434736213.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">import</span> seaborn <span class="ansi-green-fg">as</span> sns
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>iris<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;pca1&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">=</span>X_2d<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> iris<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;pca2&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">=</span>X_2d<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> sns<span class="ansi-blue-fg">.</span>lmplot<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;pca1&#39;</span><span class="ansi-blue-fg">,</span>y<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;pca2&#39;</span><span class="ansi-blue-fg">,</span>hue<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;species&#39;</span><span class="ansi-blue-fg">,</span>data<span class="ansi-blue-fg">=</span>iris<span class="ansi-blue-fg">,</span>fit_reg<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">;</span>
-
-<span class="ansi-red-fg">NameError</span>: name &#39;X_2d&#39; is not defined
-</pre></div></div>
+<img alt="../_images/7_7-2_29_0.png" src="../_images/7_7-2_29_0.png" />
+</div>
 </div>
 </section>
 <section id="練習の解答例">
@@ -796,41 +507,12 @@
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9988/748094946.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>linear_model <span class="ansi-green-fg">import</span> LogisticRegression
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>model_selection <span class="ansi-green-fg">import</span> train_test_split
-<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>metrics <span class="ansi-green-fg">import</span> accuracy_score
-<span class="ansi-green-intense-fg ansi-bold">      4</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> iris <span class="ansi-blue-fg">=</span> pd<span class="ansi-blue-fg">.</span>read_csv<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;iris.csv&#39;</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.10/site-packages/sklearn/__init__.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     80</span>     <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span> <span class="ansi-green-fg">import</span> _distributor_init  <span class="ansi-red-fg"># noqa: F401</span>
-<span class="ansi-green-intense-fg ansi-bold">     81</span>     <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span> <span class="ansi-green-fg">import</span> __check_build  <span class="ansi-red-fg"># noqa: F401</span>
-<span class="ansi-green-fg">---&gt; 82</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>base <span class="ansi-green-fg">import</span> clone
-<span class="ansi-green-intense-fg ansi-bold">     83</span>     <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>utils<span class="ansi-blue-fg">.</span>_show_versions <span class="ansi-green-fg">import</span> show_versions
-<span class="ansi-green-intense-fg ansi-bold">     84</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.10/site-packages/sklearn/base.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     15</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span> <span class="ansi-green-fg">import</span> __version__
-<span class="ansi-green-intense-fg ansi-bold">     16</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>_config <span class="ansi-green-fg">import</span> get_config
-<span class="ansi-green-fg">---&gt; 17</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>utils <span class="ansi-green-fg">import</span> _IS_32BIT
-<span class="ansi-green-intense-fg ansi-bold">     18</span> from .utils._tags import (
-<span class="ansi-green-intense-fg ansi-bold">     19</span>     _DEFAULT_TAGS<span class="ansi-blue-fg">,</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.10/site-packages/sklearn/utils/__init__.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     20</span> <span class="ansi-green-fg">import</span> warnings
-<span class="ansi-green-intense-fg ansi-bold">     21</span> <span class="ansi-green-fg">import</span> numpy <span class="ansi-green-fg">as</span> np
-<span class="ansi-green-fg">---&gt; 22</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> scipy<span class="ansi-blue-fg">.</span>sparse <span class="ansi-green-fg">import</span> issparse
-<span class="ansi-green-intense-fg ansi-bold">     23</span>
-<span class="ansi-green-intense-fg ansi-bold">     24</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>murmurhash <span class="ansi-green-fg">import</span> murmurhash3_32
-
-<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
+0.9666666666666667
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -854,43 +536,21 @@
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/home/sato/.local/lib/python3.10/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  warnings.warn(
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9988/1195802778.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>cluster <span class="ansi-green-fg">import</span> KMeans
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">import</span> pandas <span class="ansi-green-fg">as</span> pd
-<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-green-fg">import</span> matplotlib<span class="ansi-blue-fg">.</span>pyplot <span class="ansi-green-fg">as</span> plt
-<span class="ansi-green-intense-fg ansi-bold">      4</span> get_ipython<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>run_line_magic<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;matplotlib&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;inline&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.10/site-packages/sklearn/__init__.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     80</span>     <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span> <span class="ansi-green-fg">import</span> _distributor_init  <span class="ansi-red-fg"># noqa: F401</span>
-<span class="ansi-green-intense-fg ansi-bold">     81</span>     <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span> <span class="ansi-green-fg">import</span> __check_build  <span class="ansi-red-fg"># noqa: F401</span>
-<span class="ansi-green-fg">---&gt; 82</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>base <span class="ansi-green-fg">import</span> clone
-<span class="ansi-green-intense-fg ansi-bold">     83</span>     <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>utils<span class="ansi-blue-fg">.</span>_show_versions <span class="ansi-green-fg">import</span> show_versions
-<span class="ansi-green-intense-fg ansi-bold">     84</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.10/site-packages/sklearn/base.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     15</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span> <span class="ansi-green-fg">import</span> __version__
-<span class="ansi-green-intense-fg ansi-bold">     16</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>_config <span class="ansi-green-fg">import</span> get_config
-<span class="ansi-green-fg">---&gt; 17</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>utils <span class="ansi-green-fg">import</span> _IS_32BIT
-<span class="ansi-green-intense-fg ansi-bold">     18</span> from .utils._tags import (
-<span class="ansi-green-intense-fg ansi-bold">     19</span>     _DEFAULT_TAGS<span class="ansi-blue-fg">,</span>
-
-<span class="ansi-green-fg">~/.local/lib/python3.10/site-packages/sklearn/utils/__init__.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     20</span> <span class="ansi-green-fg">import</span> warnings
-<span class="ansi-green-intense-fg ansi-bold">     21</span> <span class="ansi-green-fg">import</span> numpy <span class="ansi-green-fg">as</span> np
-<span class="ansi-green-fg">---&gt; 22</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> scipy<span class="ansi-blue-fg">.</span>sparse <span class="ansi-green-fg">import</span> issparse
-<span class="ansi-green-intense-fg ansi-bold">     23</span>
-<span class="ansi-green-intense-fg ansi-bold">     24</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>murmurhash <span class="ansi-green-fg">import</span> murmurhash3_32
-
-<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
-</pre></div></div>
+<img alt="../_images/7_7-2_32_1.png" src="../_images/7_7-2_32_1.png" />
+</div>
 </div>
 </section>
 </section>

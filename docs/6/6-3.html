@@ -123,7 +123,7 @@ __main__.HelloForEver
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;__main__.HelloForEver at 0x7fb5fab42dd0&gt;
+&lt;__main__.HelloForEver at 0x7f04e1842500&gt;
 </pre></div></div>
 </div>
 <p>このオブジェクトに対して、<code class="docutils literal notranslate"><span class="pre">readline</span></code> というメソッドを呼び出すことができます。</p>
@@ -461,12 +461,12 @@ Hello.
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">StopIteration</span>                             Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9436/3057831025.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_7186/3057831025.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      4</span>
 <span class="ansi-green-intense-fg ansi-bold">      5</span> f <span class="ansi-blue-fg">=</span> EmptyFile<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">----&gt; 6</span><span class="ansi-red-fg"> </span>next<span class="ansi-blue-fg">(</span>f<span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">/tmp/ipykernel_9436/1163340223.py</span> in <span class="ansi-cyan-fg">__next__</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-fg">/tmp/ipykernel_7186/1163340223.py</span> in <span class="ansi-cyan-fg">__next__</span><span class="ansi-blue-fg">(self)</span>
 <span class="ansi-green-intense-fg ansi-bold">      5</span>         line <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>readline<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">      6</span>         <span class="ansi-green-fg">if</span> line <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;&#39;</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-fg">----&gt; 7</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> StopIteration
@@ -510,18 +510,18 @@ Hello.
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9436/4213257317.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_7186/4213257317.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> f <span class="ansi-blue-fg">=</span> StringFileIterator<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;abc&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>list<span class="ansi-blue-fg">(</span>f<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;abc&#39;</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">&#39;abc&#39;</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">&#39;abc&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">/tmp/ipykernel_9436/1163340223.py</span> in <span class="ansi-cyan-fg">__next__</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-fg">/tmp/ipykernel_7186/1163340223.py</span> in <span class="ansi-cyan-fg">__next__</span><span class="ansi-blue-fg">(self)</span>
 <span class="ansi-green-intense-fg ansi-bold">      3</span>         <span class="ansi-green-fg">return</span> self
 <span class="ansi-green-intense-fg ansi-bold">      4</span>     <span class="ansi-green-fg">def</span> __next__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-fg">----&gt; 5</span><span class="ansi-red-fg">         </span>line <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>readline<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">      6</span>         <span class="ansi-green-fg">if</span> line <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;&#39;</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">      7</span>             <span class="ansi-green-fg">raise</span> StopIteration
 
-<span class="ansi-green-fg">/tmp/ipykernel_9436/4030001423.py</span> in <span class="ansi-cyan-fg">readline</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-fg">/tmp/ipykernel_7186/4030001423.py</span> in <span class="ansi-cyan-fg">readline</span><span class="ansi-blue-fg">(self)</span>
 <span class="ansi-green-intense-fg ansi-bold">      3</span>         self<span class="ansi-blue-fg">.</span>n <span class="ansi-blue-fg">=</span> n
 <span class="ansi-green-intense-fg ansi-bold">      4</span>     <span class="ansi-green-fg">def</span> readline<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-fg">----&gt; 5</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>n <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">:</span>

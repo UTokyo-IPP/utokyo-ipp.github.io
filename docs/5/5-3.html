@@ -292,7 +292,7 @@ list
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/tmp/ipykernel_8225/2398807576.py:1: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray.
+/tmp/ipykernel_5975/2398807576.py:1: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray.
   print(np.array([[1,2],[3]])) # 行の長さが異なる場合
 </pre></div></div>
 </div>
@@ -505,9 +505,9 @@ array([[0, 1, 2],
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[0.70897236 0.32076604 0.48671875 0.69496996]
-[[0.0561397  0.75059256 0.04833269]
- [0.76002441 0.69378741 0.99163405]]
+[0.2003102  0.99391596 0.64797726 0.13216584]
+[[0.19389852 0.35031623 0.5681748 ]
+ [0.67388629 0.51693913 0.6346073 ]]
 </pre></div></div>
 </div>
 <p>この他にも、<code class="docutils literal notranslate"><span class="pre">numpy.random.randn()</span></code>・<code class="docutils literal notranslate"><span class="pre">numpy.random.binomial()</span></code>・<code class="docutils literal notranslate"><span class="pre">numpy.random.poisson()</span></code> は、それぞれ、正規分布・二項分布・ポアソン分布の乱数からなる配列を生成します。</p>
@@ -759,7 +759,7 @@ False
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_8225/2878747097.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">/tmp/ipykernel_5975/2878747097.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> a <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">4</span><span class="ansi-blue-fg">]</span>
 <span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>a<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg"> </span>a<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">:</span><span class="ansi-cyan-fg">4</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> <span class="ansi-cyan-fg">6</span>
