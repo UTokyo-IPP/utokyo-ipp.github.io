@@ -1,21 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="jp">
+<html lang="jp" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>5-2. モジュールの作り方 &#8212; Pythonプログラミング入門  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
     <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=3ff7d7a7"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -26,8 +23,9 @@
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -40,7 +38,7 @@
           <div class="body" role="main">
             
   <section id="5-2.-モジュールの作り方">
-<h1>5-2. モジュールの作り方<a class="headerlink" href="#5-2.-モジュールの作り方" title="Permalink to this heading">¶</a></h1>
+<h1>5-2. モジュールの作り方<a class="headerlink" href="#5-2.-モジュールの作り方" title="Link to this heading">¶</a></h1>
 <p>モジュールの作り方について説明します。</p>
 <p>参考</p>
 <ul class="simple">
@@ -49,18 +47,18 @@
 </ul>
 <p>Pythonではプログラムを<strong>モジュール</strong>という単位で、複数のファイルに分割することができます。 通例、一度定義した便利な関数などを別のプログラムで再利用するときには、再利用される部分をモジュールとして切り出します。 プログラムが大きくなると、このように複数のファイルに分割した方が開発や保守が簡単になります。</p>
 <section id="モジュールファイル">
-<h2>モジュールファイル<a class="headerlink" href="#モジュールファイル" title="Permalink to this heading">¶</a></h2>
+<h2>モジュールファイル<a class="headerlink" href="#モジュールファイル" title="Link to this heading">¶</a></h2>
 <p>本授業で扱ってきたノートブックファイル（拡張子 <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>）は、コードセル（Codeセル）にPythonソースコード、Markdownセルに文書を持ち、内部的に出力結果も保存しています。 一方、モジュールファイル（拡張子 <code class="docutils literal notranslate"><span class="pre">.py</span></code>）は、Pythonソースコードのみを含んだファイルです。</p>
 <p>モジュールファイルを作るときには、Jupyter Notebook におけるコードセルの内容のみをファイルに記述することになります。</p>
 <p>モジュールファイルの文字コードはUTF-8であることが<a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#source-file-encoding">公式に推奨されています</a>。 原則としてUTF-8でエンコードして保存してください。</p>
 <section id="ノートブックファイルをモジュールファイルに変換する">
-<h3>ノートブックファイルをモジュールファイルに変換する<a class="headerlink" href="#ノートブックファイルをモジュールファイルに変換する" title="Permalink to this heading">¶</a></h3>
+<h3>ノートブックファイルをモジュールファイルに変換する<a class="headerlink" href="#ノートブックファイルをモジュールファイルに変換する" title="Link to this heading">¶</a></h3>
 <p>本授業で利用しているノートブックファイルを <code class="docutils literal notranslate"><span class="pre">.py</span></code> としてセーブするには、 「ファイル」メニューの「.py をダウンロード」項目を選択します。</p>
 <p>そうすると、コードセルだけがプログラム行として有効になり、その他の行はコメントアウトされたモジュールファイルがダウンロードできます。 ダウンロード先はブラウザによって定まりますが、ダウンロードフォルダになることが一般的でしょう。</p>
 <p>この方法では、全てのコードセルの内容を一度に実行するプログラムとして保存されます。 ノートブックのようにセル単位の実行するわけではないことに注意する必要があります。</p>
 </section>
 <section id="モジュールファイルをアップロードする">
-<h3>モジュールファイルをアップロードする<a class="headerlink" href="#モジュールファイルをアップロードする" title="Permalink to this heading">¶</a></h3>
+<h3>モジュールファイルをアップロードする<a class="headerlink" href="#モジュールファイルをアップロードする" title="Link to this heading">¶</a></h3>
 <p>次に、ダウンロードしたモジュールファイルをColaboratoryで使うには、 Colaboratoryの実行環境の中のファイルシステムのカレントディレクトリに モジュールファイルをアップロードする必要があります。 このためには、以下のセルを実行してください。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -76,7 +74,7 @@
 </section>
 </section>
 <section id="自作モジュールの使い方">
-<h2>自作モジュールの使い方<a class="headerlink" href="#自作モジュールの使い方" title="Permalink to this heading">¶</a></h2>
+<h2>自作モジュールの使い方<a class="headerlink" href="#自作モジュールの使い方" title="Link to this heading">¶</a></h2>
 <p>モジュールで定義されている関数を利用するには、<code class="docutils literal notranslate"><span class="pre">import</span></code> を用いて <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">モジュール名</span></code> と書きます。 <strong>モジュール名</strong>は、モジュールファイル名から拡張子 <code class="docutils literal notranslate"><span class="pre">.py</span></code> を除いたものです。</p>
 <p>すると、モジュールで定義されている関数は <code class="docutils literal notranslate"><span class="pre">モジュール名.関数名</span></code> によって参照できます。</p>
 <p>次の関数が記述された <code class="docutils literal notranslate"><span class="pre">factorial.py</span></code> というモジュールを読み込む場合を説明します。 ただし、読み込み元と同じディレクトリに <code class="docutils literal notranslate"><span class="pre">factorial.py</span></code> が存在すると仮定します。</p>
@@ -166,7 +164,7 @@ def fact(n):
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <h1 class="logo"><a href="../index.html">Pythonプログラミング入門</a></h1>
 
@@ -232,7 +230,7 @@ def fact(n):
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -240,7 +238,7 @@ def fact(n):
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -255,18 +253,18 @@ def fact(n):
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      &#169;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.2.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
       
     </div>
 
     
 
     
-    <script type="text/javascript">
+    <script>
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-159819977-1']);
@@ -275,8 +273,8 @@ def fact(n):
       _gaq.push(['_trackPageview']);
 
       (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var ga = document.createElement('script'); ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
 

@@ -1,21 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="jp">
+<html lang="jp" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>▲再帰 &#8212; Pythonプログラミング入門  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
     <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=3ff7d7a7"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -26,8 +23,9 @@
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -40,7 +38,7 @@
           <div class="body" role="main">
             
   <section id="▲再帰">
-<h1>▲再帰<a class="headerlink" href="#▲再帰" title="Permalink to this heading">¶</a></h1>
+<h1>▲再帰<a class="headerlink" href="#▲再帰" title="Link to this heading">¶</a></h1>
 <p><strong>再帰</strong>について説明します。</p>
 <p>関数の<strong>再帰呼び出し</strong>とは、定義しようとしている関数を、その定義の中で呼び出すことです。 定義の中で直接呼び出す場合に限らず、他の関数を経由して間接的に呼び出す場合も、再帰呼び出しに含まれます。 再帰呼び出しを行う関数を、<strong>再帰関数</strong>といいます。</p>
 <p>再帰関数は、<strong>分割統治</strong>アルゴリズムの記述に適しています。 分割統治とは、問題を容易に解ける小さな粒度まで分割していき、 個々の小さな問題を解いて、その部分解を合成することで問題全体を解くような方法を指します。 分割統治の考え方は、関数型プログラミングにおいてもよく用いられます。 再帰関数による分割統治の典型的な形は、次の通りです。</p>
@@ -53,7 +51,7 @@
 </div>
 <p>以下で、再帰関数を使った処理の例をいくつか見ていきましょう。</p>
 <section id="再帰関数の例：接頭辞リストと接尾辞リスト">
-<h2>再帰関数の例：接頭辞リストと接尾辞リスト<a class="headerlink" href="#再帰関数の例：接頭辞リストと接尾辞リスト" title="Permalink to this heading">¶</a></h2>
+<h2>再帰関数の例：接頭辞リストと接尾辞リスト<a class="headerlink" href="#再帰関数の例：接頭辞リストと接尾辞リスト" title="Link to this heading">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -104,7 +102,7 @@
 </div>
 </section>
 <section id="再帰関数の例：べき乗の計算">
-<h2>再帰関数の例：べき乗の計算<a class="headerlink" href="#再帰関数の例：べき乗の計算" title="Permalink to this heading">¶</a></h2>
+<h2>再帰関数の例：べき乗の計算<a class="headerlink" href="#再帰関数の例：べき乗の計算" title="Link to this heading">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -186,7 +184,7 @@
 </div>
 </section>
 <section id="再帰関数の例：マージソート">
-<h2>再帰関数の例：マージソート<a class="headerlink" href="#再帰関数の例：マージソート" title="Permalink to this heading">¶</a></h2>
+<h2>再帰関数の例：マージソート<a class="headerlink" href="#再帰関数の例：マージソート" title="Link to this heading">¶</a></h2>
 <p>マージソートは、典型的な分割統治アルゴリズムで、以下のように再帰関数で実装することができます。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -250,7 +248,7 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-546
+537
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -267,106 +265,106 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[77,
- 209,
- 219,
- 479,
- 591,
- 624,
- 827,
- 1113,
- 1179,
- 1199,
- 1383,
- 1699,
- 1842,
- 1896,
- 1955,
- 2165,
- 2477,
- 2543,
- 2814,
- 2866,
- 2867,
- 2902,
- 2985,
- 2995,
- 3131,
- 3327,
- 3376,
- 3707,
- 3712,
- 3870,
- 3978,
- 4013,
- 4019,
- 4093,
- 4106,
- 4178,
- 4286,
- 4291,
- 4417,
- 4552,
- 4555,
- 4865,
+[60,
+ 152,
+ 170,
+ 181,
+ 729,
+ 838,
+ 883,
+ 904,
+ 998,
+ 1015,
+ 1051,
+ 1279,
+ 1507,
+ 1658,
+ 2118,
+ 2199,
+ 2241,
+ 2255,
+ 2260,
+ 2320,
+ 2386,
+ 2484,
+ 2633,
+ 3024,
+ 3150,
+ 3441,
+ 3547,
+ 3614,
+ 3641,
+ 3656,
+ 3834,
+ 3844,
+ 3880,
+ 4340,
+ 4430,
+ 4486,
+ 4603,
+ 4640,
+ 4771,
+ 4785,
+ 4823,
+ 4905,
+ 4940,
  5067,
- 5119,
- 5156,
- 5161,
  5192,
- 5250,
- 5355,
- 5426,
- 5569,
- 5652,
- 5784,
- 5901,
- 5920,
- 6278,
- 6454,
- 6492,
- 6516,
- 6704,
- 6706,
- 6838,
- 6958,
- 7076,
- 7093,
- 7109,
- 7174,
- 7187,
- 7346,
- 7492,
- 7509,
- 7517,
- 7535,
- 7584,
- 7589,
- 7689,
- 7839,
- 7886,
- 7903,
- 7941,
- 7951,
- 8023,
- 8245,
- 8313,
- 8348,
- 8406,
- 8407,
- 8430,
- 8504,
- 8618,
- 8719,
- 8777,
- 9245,
- 9255,
- 9340,
- 9443,
- 9547,
- 9558,
- 9589,
- 9844]
+ 5278,
+ 5314,
+ 5377,
+ 5561,
+ 5655,
+ 5817,
+ 5846,
+ 5979,
+ 6063,
+ 6136,
+ 6145,
+ 6267,
+ 6276,
+ 6367,
+ 6515,
+ 6626,
+ 6859,
+ 6940,
+ 7140,
+ 7195,
+ 7218,
+ 7240,
+ 7341,
+ 7353,
+ 7479,
+ 7530,
+ 7598,
+ 7668,
+ 7684,
+ 7718,
+ 7718,
+ 7907,
+ 7998,
+ 8021,
+ 8167,
+ 8244,
+ 8283,
+ 8470,
+ 8579,
+ 8680,
+ 8745,
+ 8787,
+ 8891,
+ 9081,
+ 9311,
+ 9345,
+ 9357,
+ 9410,
+ 9452,
+ 9570,
+ 9723,
+ 9747,
+ 9847,
+ 9946,
+ 9991]
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -385,7 +383,7 @@
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <h1 class="logo"><a href="../index.html">Pythonプログラミング入門</a></h1>
 
@@ -452,7 +450,7 @@
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -460,7 +458,7 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -475,18 +473,18 @@
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      &#169;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.2.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
       
     </div>
 
     
 
     
-    <script type="text/javascript">
+    <script>
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-159819977-1']);
@@ -495,8 +493,8 @@
       _gaq.push(['_trackPageview']);
 
       (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var ga = document.createElement('script'); ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
 

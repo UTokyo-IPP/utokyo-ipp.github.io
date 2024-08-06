@@ -1,21 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="jp">
+<html lang="jp" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>7-2. scikit-learnライブラリ &#8212; Pythonプログラミング入門  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
     <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=3ff7d7a7"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -26,8 +23,9 @@
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -40,7 +38,7 @@
           <div class="body" role="main">
             
   <section id="7-2.-scikit-learnライブラリ">
-<h1>7-2. scikit-learnライブラリ<a class="headerlink" href="#7-2.-scikit-learnライブラリ" title="Permalink to this heading">¶</a></h1>
+<h1>7-2. scikit-learnライブラリ<a class="headerlink" href="#7-2.-scikit-learnライブラリ" title="Link to this heading">¶</a></h1>
 <p>scikit-learnライブラリについて説明します。</p>
 <p>参考</p>
 <ul class="simple">
@@ -57,19 +55,19 @@
 <p><strong>scikit-learn</strong>ライブラリには分類、回帰、クラスタリング、次元削減、前処理、モデル選択などの機械学習の処理を行うためのモジュールが含まれています。以下では、scikit-learnライブラリのモジュールの基本的な使い方について説明します。</p>
 <p><strong>以下の説明ではscikit-learnライブラリのバージョン0.22以降を想定しています。</strong> Anaconda （Individual Edition 2020.02）では同0.22がインストールされています。colaboratoryでも同0.22以降が使用可能です。</p>
 <section id="機械学習について">
-<h2>機械学習について<a class="headerlink" href="#機械学習について" title="Permalink to this heading">¶</a></h2>
+<h2>機械学習について<a class="headerlink" href="#機械学習について" title="Link to this heading">¶</a></h2>
 <p><strong>機械学習</strong>では、観察されたデータをよく表すようにモデルのパラメータの調整を行います。パラメータを調整することでモデルをデータに適合させるので、「学習」と呼ばれます。学習されたモデルを使って、新たに観測されたデータに対して予測を行うことが可能になります。</p>
 </section>
 <section id="教師あり学習">
-<h2>教師あり学習<a class="headerlink" href="#教師あり学習" title="Permalink to this heading">¶</a></h2>
+<h2>教師あり学習<a class="headerlink" href="#教師あり学習" title="Link to this heading">¶</a></h2>
 <p>機械学習において、観測されたデータの特徴（特徴量）に対して、そのデータに関するラベルが存在する時、<strong>教師あり学習</strong>と呼びます。教師あり学習では、ラベルを教師として、データからそのラベルを予測するようなモデルを学習することになります。この時、ラベルが連続値であれば回帰、ラベルが離散値であれば分類の問題となります。</p>
 </section>
 <section id="教師なし学習">
-<h2>教師なし学習<a class="headerlink" href="#教師なし学習" title="Permalink to this heading">¶</a></h2>
+<h2>教師なし学習<a class="headerlink" href="#教師なし学習" title="Link to this heading">¶</a></h2>
 <p>ラベルが存在せず、観測されたデータの特徴のみからそのデータセットの構造やパターンをよく表すようなモデルを学習することを<strong>教師なし学習</strong>と呼びます。クラスタリングや次元削減は教師なし学習です。クラスタリングでは、観測されたデータをクラスタと呼ばれる集合にグループ分けします。次元削減では、データの特徴をより簡潔に（低い次元で）表現します。</p>
 </section>
 <section id="データ">
-<h2>データ<a class="headerlink" href="#データ" title="Permalink to this heading">¶</a></h2>
+<h2>データ<a class="headerlink" href="#データ" title="Link to this heading">¶</a></h2>
 <p>機械学習に用いるデータセットは、データフレームあるいは2次元の配列として表すことができます。行はデータセットの個々のデータを表し、列はデータが持つ特徴を表します。以下では、例として <code class="docutils literal notranslate"><span class="pre">pandas</span></code> モジュールの説明で用いたアイリスデータセットを表示しています。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -172,7 +170,7 @@
 </div>
 </section>
 <section id="モデル学習の基礎">
-<h2>モデル学習の基礎<a class="headerlink" href="#モデル学習の基礎" title="Permalink to this heading">¶</a></h2>
+<h2>モデル学習の基礎<a class="headerlink" href="#モデル学習の基礎" title="Link to this heading">¶</a></h2>
 <p>scikit-learnでは、以下の手順でデータからモデルの学習を行います。</p>
 <ul class="simple">
 <li><p>使用するモデルのクラスの選択</p></li>
@@ -194,7 +192,7 @@
 </ul>
 </section>
 <section id="教師あり学習・分類の例">
-<h2>教師あり学習・分類の例<a class="headerlink" href="#教師あり学習・分類の例" title="Permalink to this heading">¶</a></h2>
+<h2>教師あり学習・分類の例<a class="headerlink" href="#教師あり学習・分類の例" title="Link to this heading">¶</a></h2>
 <p>以下では、アイリスデータセットを用いて花の4つの特徴から3つの花の種類を分類する手続きを示しています。scikit-learnでは、全てのモデルはPythonクラスとして実装されており、ここでは分類を行うモデルの1つである<strong>ロジスティック回帰</strong> (<code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code>) クラスをインポートしています。</p>
 <p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">LogisticRegressionクラス</a></p>
 <p><code class="docutils literal notranslate"><span class="pre">train_test_split()</span></code> はデータセットを訓練データとテストデータに分割するための関数、<code class="docutils literal notranslate"><span class="pre">accuracy_score()</span></code> はモデルの予測精度を評価するための関数です。</p>
@@ -226,6 +224,15 @@
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/jmori/Projects/utpython/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1247: FutureWarning: &#39;multi_class&#39; was deprecated in version 1.5 and will be removed in 1.7. From then on, it will always use &#39;multinomial&#39;. Leave it to its default value to avoid this warning.
+  warnings.warn(
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -237,7 +244,7 @@
 </div>
 </section>
 <section id="練習">
-<h2>練習<a class="headerlink" href="#練習" title="Permalink to this heading">¶</a></h2>
+<h2>練習<a class="headerlink" href="#練習" title="Link to this heading">¶</a></h2>
 <p>アイリスデータセットの2つの特徴量、<code class="docutils literal notranslate"><span class="pre">petal_length</span></code> と <code class="docutils literal notranslate"><span class="pre">petal_width</span></code>、から2つの花の種類、<code class="docutils literal notranslate"><span class="pre">versicolor</span></code> か <code class="docutils literal notranslate"><span class="pre">virginica</span></code>、を予測するモデルをロジスティック回帰を用いて学習し、その予測精度を評価してください。以下では <code class="docutils literal notranslate"><span class="pre">pandas</span></code> データフレームの <code class="docutils literal notranslate"><span class="pre">values</span></code> 属性を用いてNumPy配列を取得しています。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -285,7 +292,7 @@
 </div>
 </section>
 <section id="教師あり学習・回帰の例">
-<h2>教師あり学習・回帰の例<a class="headerlink" href="#教師あり学習・回帰の例" title="Permalink to this heading">¶</a></h2>
+<h2>教師あり学習・回帰の例<a class="headerlink" href="#教師あり学習・回帰の例" title="Link to this heading">¶</a></h2>
 <p>以下では、アイリスデータセットを用いて花の特徴の1つ、<code class="docutils literal notranslate"><span class="pre">petal_length</span></code>、からもう1つの特徴、<code class="docutils literal notranslate"><span class="pre">petal_width</span></code>、を回帰する手続きを示しています。この時、<code class="docutils literal notranslate"><span class="pre">petal_length</span></code> は特徴量、<code class="docutils literal notranslate"><span class="pre">petal_width</span></code> は連続値のラベルとなっています。まず、<code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> の散布図を用いて <code class="docutils literal notranslate"><span class="pre">petal_length</span></code> と <code class="docutils literal notranslate"><span class="pre">petal_width</span></code> の関係を可視化してみましょう。関係があるといえそうでしょうか。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -332,7 +339,7 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-0.03974445760904277
+np.float64(0.03974445760904273)
 </pre></div></div>
 </div>
 <p>以下では、線形回帰モデルにより学習された <code class="docutils literal notranslate"><span class="pre">petal_length</span></code> と <code class="docutils literal notranslate"><span class="pre">petal_width</span></code> の関係を表す回帰式を可視化しています。学習された回帰式が実際のデータに適合していることがわかります。</p>
@@ -357,7 +364,7 @@
 </div>
 </section>
 <section id="教師なし学習・クラスタリングの例">
-<h2>教師なし学習・クラスタリングの例<a class="headerlink" href="#教師なし学習・クラスタリングの例" title="Permalink to this heading">¶</a></h2>
+<h2>教師なし学習・クラスタリングの例<a class="headerlink" href="#教師なし学習・クラスタリングの例" title="Link to this heading">¶</a></h2>
 <p>以下では、アイリスデータセットを用いて花の2つの特徴量、<code class="docutils literal notranslate"><span class="pre">petal_lenghとpetal_width</span></code>、を元に花のデータをクラスタリングする手続きを示しています。ここでは<strong>クラスタリング</strong>を行うモデルの1つである <code class="docutils literal notranslate"><span class="pre">KMeans</span></code> クラスをインポートしています。</p>
 <p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html">KMeansクラス</a></p>
 <p>特徴量データ (<code class="docutils literal notranslate"><span class="pre">X_irist</span></code>) を用意し、引数 <code class="docutils literal notranslate"><span class="pre">n_clusters</span></code> にハイパーパラメータとしてクラスタ数、ここでは <code class="docutils literal notranslate"><span class="pre">3</span></code>、を指定して <code class="docutils literal notranslate"><span class="pre">KMeans</span></code> クラスのインスタンスを作成しています。そして、<code class="docutils literal notranslate"><span class="pre">fit()</span></code> メソッドによりモデルをデータに適合させ、<code class="docutils literal notranslate"><span class="pre">predict()</span></code> メソッドを用いて各データが所属するクラスタの情報 (<code class="docutils literal notranslate"><span class="pre">y_km</span></code>) を取得しています。</p>
@@ -380,20 +387,11 @@
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/home/sato/.local/lib/python3.10/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
-  warnings.warn(
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/7_7-2_22_1.png" src="../_images/7_7-2_22_1.png" />
+<img alt="../_images/7_7-2_22_0.png" src="../_images/7_7-2_22_0.png" />
 </div>
 </div>
 <p>3つのクラスタと3つの花の種類の分布を2つの特徴量、<code class="docutils literal notranslate"><span class="pre">petal_lengh</span></code> と <code class="docutils literal notranslate"><span class="pre">petal_width</span></code>、の空間で比較してみると、クラスタと花の種類には対応があり、2つの特徴量から花の種類をクラスタとしてグループ分けできていることがわかります。以下では可視化に <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> モジュールを用いています。</p>
@@ -423,7 +421,7 @@
 </div>
 </section>
 <section id="id10">
-<h2>練習<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h2>
 <p>アイリスデータセットの2つの特徴量、<code class="docutils literal notranslate"><span class="pre">sepal_length</span></code> と <code class="docutils literal notranslate"><span class="pre">sepal_width</span></code>、を元に、<code class="docutils literal notranslate"><span class="pre">KMeans</span></code> モデルを用いて花のデータをクラスタリングしてください。クラスタの数は任意に設定してください。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
@@ -443,7 +441,7 @@
 </div>
 </section>
 <section id="教師なし学習・次元削減の例">
-<h2>教師なし学習・次元削減の例<a class="headerlink" href="#教師なし学習・次元削減の例" title="Permalink to this heading">¶</a></h2>
+<h2>教師なし学習・次元削減の例<a class="headerlink" href="#教師なし学習・次元削減の例" title="Link to this heading">¶</a></h2>
 <p>以下では、アイリスデータセットを用いて花の4つの特徴量を元に花のデータを<strong>次元削減</strong>する手続きを示しています。ここでは次元削減を行うモデルの1つである <code class="docutils literal notranslate"><span class="pre">PCA</span></code> クラスをインポートしています。</p>
 <p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html">PCAクラス</a></p>
 <p>特徴量データ (<code class="docutils literal notranslate"><span class="pre">X_irist</span></code>) を用意し、引数 <code class="docutils literal notranslate"><span class="pre">n_components</span></code> にハイパーパラメータとして削減後の次元数、ここでは <code class="docutils literal notranslate"><span class="pre">2</span></code>、を指定して <code class="docutils literal notranslate"><span class="pre">PCA</span></code> クラスのインスタンスを作成しています。そして、<code class="docutils literal notranslate"><span class="pre">fit()</span></code> メソッドによりモデルをデータに適合させ、<code class="docutils literal notranslate"><span class="pre">transform()</span></code> メソッドを用いて4つの特徴量を2次元に削減した特徴量データ (<code class="docutils literal notranslate"><span class="pre">X_2d</span></code>) を取得しています。</p>
@@ -483,7 +481,7 @@
 </div>
 </section>
 <section id="練習の解答例">
-<h2>練習の解答例<a class="headerlink" href="#練習の解答例" title="Permalink to this heading">¶</a></h2>
+<h2>練習の解答例<a class="headerlink" href="#練習の解答例" title="Link to this heading">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
@@ -505,6 +503,15 @@
 <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_model</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/jmori/Projects/utpython/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1247: FutureWarning: &#39;multi_class&#39; was deprecated in version 1.5 and will be removed in 1.7. From then on, it will always use &#39;multinomial&#39;. Leave it to its default value to avoid this warning.
+  warnings.warn(
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
@@ -536,20 +543,11 @@
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/home/sato/.local/lib/python3.10/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to &#39;auto&#39; in 1.4. Set the value of `n_init` explicitly to suppress the warning
-  warnings.warn(
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/7_7-2_32_1.png" src="../_images/7_7-2_32_1.png" />
+<img alt="../_images/7_7-2_32_0.png" src="../_images/7_7-2_32_0.png" />
 </div>
 </div>
 </section>
@@ -560,7 +558,7 @@
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <h1 class="logo"><a href="../index.html">Pythonプログラミング入門</a></h1>
 
@@ -636,7 +634,7 @@
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -644,7 +642,7 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -659,18 +657,18 @@
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      &#169;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.2.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
       
     </div>
 
     
 
     
-    <script type="text/javascript">
+    <script>
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-159819977-1']);
@@ -679,8 +677,8 @@
       _gaq.push(['_trackPageview']);
 
       (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var ga = document.createElement('script'); ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
 

@@ -1,21 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="jp">
+<html lang="jp" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>▲正規表現 &#8212; Pythonプログラミング入門  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
     <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=3ff7d7a7"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -26,8 +23,9 @@
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -40,7 +38,7 @@
           <div class="body" role="main">
             
   <section id="▲正規表現">
-<h1>▲正規表現<a class="headerlink" href="#▲正規表現" title="Permalink to this heading">¶</a></h1>
+<h1>▲正規表現<a class="headerlink" href="#▲正規表現" title="Link to this heading">¶</a></h1>
 <p>正規表現について説明します。</p>
 <p>参考</p>
 <ul class="simple">
@@ -56,7 +54,7 @@
 </div>
 </div>
 <section id="正規表現の基本">
-<h2>正規表現の基本<a class="headerlink" href="#正規表現の基本" title="Permalink to this heading">¶</a></h2>
+<h2>正規表現の基本<a class="headerlink" href="#正規表現の基本" title="Link to this heading">¶</a></h2>
 <p>正規表現とは、文字列の<strong>パターン</strong>を表す式です。 文字列が正規表現に<strong>マッチする</strong>とは、文字列が正規表現の表すパターンに適合していることを意味します。 また、正規表現が文字列にマッチするという言い方もします。</p>
 <p>たとえば、正規表現 <code class="docutils literal notranslate"><span class="pre">abc</span></code> は文字列 <code class="docutils literal notranslate"><span class="pre">abcde</span></code> （の部分文字列 <code class="docutils literal notranslate"><span class="pre">abc</span></code>）にマッチします。</p>
 <p>正規表現に文字列がマッチしているかどうかを調べることのできる関数に <code class="docutils literal notranslate"><span class="pre">match</span></code> があります。</p>
@@ -540,7 +538,7 @@ None
 </div>
 </section>
 <section id="練習">
-<h2>練習<a class="headerlink" href="#練習" title="Permalink to this heading">¶</a></h2>
+<h2>練習<a class="headerlink" href="#練習" title="Link to this heading">¶</a></h2>
 <p>文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> を引数として取り、 <code class="docutils literal notranslate"><span class="pre">str1</span></code> の中に「月を表す文字列」が含まれているかどうか調べて、含まれていればマッチしたときのmatchオブジェクトを、含まれいなければ <code class="docutils literal notranslate"><span class="pre">None</span></code> を返す関数 <code class="docutils literal notranslate"><span class="pre">check_monthstr</span></code> を作成してください。 ただし、「月を表す文字列」 は次のような文字列とします。</p>
 <ol class="arabic simple">
 <li><p>長さ2の <code class="docutils literal notranslate"><span class="pre">mm</span></code> という文字列</p></li>
@@ -562,7 +560,7 @@ None
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_9499/3763894078.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[18], line 1</span>
 <span class="ansi-red-fg">    import ...</span>
            ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -588,18 +586,17 @@ None
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9499/972111060.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>check_monthstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;10&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>group<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;10&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-red-fg"># group()については後半に説明があります（オプショナル）</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>check_monthstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;mon1521vb&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>check_monthstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;00an23&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span>check_monthstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;13302&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>group<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;02&#39;</span><span class="ansi-blue-fg">)</span>
+Cell <span class="ansi-green-fg">In[19], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">check_monthstr</span>(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">10</span><span style="color: rgb(175,0,0)">&#39;</span>)<span style="color: rgb(98,98,98)">.</span>group() <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">10</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(95,135,135)"># group()については後半に説明があります（オプショナル）</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span style="color: rgb(0,135,0)">print</span>(check_monthstr(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">mon1521vb</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span style="color: rgb(0,135,0)">print</span>(check_monthstr(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">00an23</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;check_monthstr&#39; is not defined
 </pre></div></div>
 </div>
 </section>
 <section id="id4">
-<h2>練習<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
 <p>文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> を引数として取り、 <code class="docutils literal notranslate"><span class="pre">str1</span></code> を構成する文字列が <code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">C</span></code>, <code class="docutils literal notranslate"><span class="pre">G</span></code>, <code class="docutils literal notranslate"><span class="pre">T</span></code> の4種類の文字以外の文字を含むかどうか調べて、これら以外を含む場合は <code class="docutils literal notranslate"><span class="pre">False</span></code> を、そうでない場合は <code class="docutils literal notranslate"><span class="pre">True</span></code> を返す関数 <code class="docutils literal notranslate"><span class="pre">check_ACGTstr</span></code> を作成してください。 ただし、大文字と小文字は区別しません。また、空列の場合は <code class="docutils literal notranslate"><span class="pre">False</span></code> を返してください。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて解答してください。</p>
 <div class="nbinput docutils container">
@@ -617,7 +614,7 @@ None
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_9499/390249491.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[20], line 1</span>
 <span class="ansi-red-fg">    import ...</span>
            ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -642,17 +639,17 @@ None
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9499/3681665936.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>check_ACGTstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;AcCGTAGCacATcGgAaaTtGCacT&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>check_ACGTstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;:ACaacgta24FgtGH&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>check_ACGTstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
+Cell <span class="ansi-green-fg">In[21], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">check_ACGTstr</span>(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">AcCGTAGCacATcGgAaaTtGCacT</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">True</span>)
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span style="color: rgb(0,135,0)">print</span>(check_ACGTstr(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">:ACaacgta24FgtGH</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span style="color: rgb(0,135,0)">print</span>(check_ACGTstr(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;check_ACGTstr&#39; is not defined
 </pre></div></div>
 </div>
 </section>
 <section id="id5">
-<h2>練習<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
 <p>文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> を引数として取り、 <code class="docutils literal notranslate"><span class="pre">str1</span></code> の中に「時刻を表す文字列」が含まれているかどうか調べて、含まれていればマッチしたときのmatchオブジェクトを、含まれいなければ <code class="docutils literal notranslate"><span class="pre">None</span></code> を返す関数 <code class="docutils literal notranslate"><span class="pre">check_timestr</span></code> を作成してください。 ただし、「時刻を表す文字列」 は次のような文字列とします。</p>
 <ol class="arabic simple">
 <li><p>長さ5の <code class="docutils literal notranslate"><span class="pre">hh:mm</span></code> という文字列であり、12時間表示で時間を表す。</p></li>
@@ -675,7 +672,7 @@ None
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_9499/159983618.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[22], line 1</span>
 <span class="ansi-red-fg">    import ...</span>
            ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -701,18 +698,17 @@ None
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9499/1469717633.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>check_timestr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;10:23&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>group<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;10:23&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-red-fg"># group()については後半に説明があります（オプショナル）</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>check_timestr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;time?1023&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>check_timestr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;time?11:23&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>group<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;11:23&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span>check_timestr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;12:3xx1;23ah23:23&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
+Cell <span class="ansi-green-fg">In[23], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">check_timestr</span>(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">10:23</span><span style="color: rgb(175,0,0)">&#39;</span>)<span style="color: rgb(98,98,98)">.</span>group() <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">10:23</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(95,135,135)"># group()については後半に説明があります（オプショナル）</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span style="color: rgb(0,135,0)">print</span>(check_timestr(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">time?1023</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span style="color: rgb(0,135,0)">print</span>(check_timestr(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">time?11:23</span><span style="color: rgb(175,0,0)">&#39;</span>)<span style="color: rgb(98,98,98)">.</span>group() <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">11:23</span><span style="color: rgb(175,0,0)">&#39;</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;check_timestr&#39; is not defined
 </pre></div></div>
 </div>
 </section>
 <section id="id6">
-<h2>練習<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h2>
 <p>文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> を引数として取り、<code class="docutils literal notranslate"><span class="pre">str1</span></code> の中に「IPv4を表す文字列」が含まれているかどうか調べて、含まれていればマッチしたときのmatchオブジェクトを、含まれいなければ <code class="docutils literal notranslate"><span class="pre">None</span></code> を返す関数 <code class="docutils literal notranslate"><span class="pre">check_ipv4str</span></code> を作成してください。 ただし、「IPv4を表す文字列」 は次のような文字列とします。</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">aaa:bbb:ccc:ddd</span></code> という形式の長さ15の文字列</p></li>
@@ -734,7 +730,7 @@ None
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_9499/19572505.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[24], line 1</span>
 <span class="ansi-red-fg">    import ...</span>
            ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -760,18 +756,17 @@ None
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9499/2259691458.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>check_ipv4str<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;IP=255:255:255:255&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>group<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;255:255:255:255&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>check_ipv4str<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;notIP=2x5:a5b:2c:255:14:444&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>check_ipv4str<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;IP?=25:25:55:155&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span>check_ipv4str<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;IP?=255:255:255&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
+Cell <span class="ansi-green-fg">In[25], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">check_ipv4str</span>(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">IP=255:255:255:255</span><span style="color: rgb(175,0,0)">&#39;</span>)<span style="color: rgb(98,98,98)">.</span>group() <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">255:255:255:255</span><span style="color: rgb(175,0,0)">&#39;</span>)
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span style="color: rgb(0,135,0)">print</span>(check_ipv4str(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">notIP=2x5:a5b:2c:255:14:444</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span style="color: rgb(0,135,0)">print</span>(check_ipv4str(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">IP?=25:25:55:155</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;check_ipv4str&#39; is not defined
 </pre></div></div>
 </div>
 </section>
 <section id="id7">
-<h2>練習<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h2>
 <p>文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> を引数として取り、 <code class="docutils literal notranslate"><span class="pre">str1</span></code> の中に「月と日を表す文字列」が含まれているかどうか調べて、含まれていればマッチしたときのmatchオブジェクトを、含まれいなければ <code class="docutils literal notranslate"><span class="pre">None</span></code> を返す関数 <code class="docutils literal notranslate"><span class="pre">check_monthdaystr</span></code> を作成してください。 ただし、「月と日を表す文字列」 は次のような文字列とします。</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">mm/dd</span></code> という長さ5の文字列</p></li>
@@ -796,7 +791,7 @@ None
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_9499/2570444019.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[26], line 1</span>
 <span class="ansi-red-fg">    import ...</span>
            ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -822,18 +817,17 @@ None
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9499/1893991142.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>check_monthdaystr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;year11/31month11/30day15hour/27minute/sec&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>group<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;11/30&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>check_monthdaystr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;11/31&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>check_monthdaystr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;x02f/2d5ax&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span>check_monthdaystr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;03/24&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>group<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;03/24&#39;</span><span class="ansi-blue-fg">)</span>
+Cell <span class="ansi-green-fg">In[27], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">check_monthdaystr</span>(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">year11/31month11/30day15hour/27minute/sec</span><span style="color: rgb(175,0,0)">&#39;</span>)<span style="color: rgb(98,98,98)">.</span>group() <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">11/30</span><span style="color: rgb(175,0,0)">&#39;</span>)
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span style="color: rgb(0,135,0)">print</span>(check_monthdaystr(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">11/31</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span style="color: rgb(0,135,0)">print</span>(check_monthdaystr(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">x02f/2d5ax</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;check_monthdaystr&#39; is not defined
 </pre></div></div>
 </div>
 </section>
 <section id="文字クラス">
-<h2>文字クラス<a class="headerlink" href="#文字クラス" title="Permalink to this heading">¶</a></h2>
+<h2>文字クラス<a class="headerlink" href="#文字クラス" title="Link to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">[abc]</span></code> は <code class="docutils literal notranslate"><span class="pre">a|b|c</span></code> と同じ意味の正規表現です。この角括弧を用いた表記は、<strong>文字クラス</strong>と呼ばれます。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
@@ -996,10 +990,10 @@ None
 </div>
 </section>
 <section id="正規表現に関する基本的な関数">
-<h2>正規表現に関する基本的な関数<a class="headerlink" href="#正規表現に関する基本的な関数" title="Permalink to this heading">¶</a></h2>
+<h2>正規表現に関する基本的な関数<a class="headerlink" href="#正規表現に関する基本的な関数" title="Link to this heading">¶</a></h2>
 <p>上で紹介した正規表現を利用してマッチする文字列が存在するかどうかを調べるだけではなく、マッチした文字列に対して色々な処理を加えることができます。以下では2つの基本的な関数を紹介します。</p>
 <section id="sub">
-<h3><code class="docutils literal notranslate"><span class="pre">sub</span></code><a class="headerlink" href="#sub" title="Permalink to this heading">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">sub</span></code><a class="headerlink" href="#sub" title="Link to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">sub</span></code> は、<code class="docutils literal notranslate"><span class="pre">正規表現R</span></code> にマッチする <code class="docutils literal notranslate"><span class="pre">文字列A</span></code> 中の全ての文字列を、指定した <code class="docutils literal notranslate"><span class="pre">文字列B</span></code> で置き換えることができます。</p>
 <p>具体的には次のようにすると、</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>re.sub(正規表現R, 置換する文字列B, 元になる文字列A)
@@ -1019,7 +1013,7 @@ None
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
@@ -1027,6 +1021,17 @@ None
 0x-5x5x-x828x
 He has three pets a cat a dog and a giraffe doesn&#39;t he
 accountname@test.ecc.u-tokyo.ac.jp
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\(&#39;
+&lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\(&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/2703320260.py:5: SyntaxWarning: invalid escape sequence &#39;\(&#39;
+  str1 = re.sub(&#39;\(a\)|あっとまーく|＠&#39;, &#39;@&#39;, &#39;accountnameあっとまーくtest.ecc.u-tokyo.ac.jp&#39;) # スパム回避の文字列を@に置き換える
 </pre></div></div>
 </div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>re.sub(r&#39;[ \t\n][ \t\n]*&#39;, &#39; &#39;, str1)
@@ -1072,7 +1077,7 @@ accountname@test.ecc.u-tokyo.ac.jp
 <p><code class="docutils literal notranslate"><span class="pre">r'&lt;[^&gt;]*&gt;'</span></code> という正規表現は、<code class="docutils literal notranslate"><span class="pre">&lt;</span></code> の後に <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> 以外の文字の繰り返しがあって最後に <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> が来るというパターンを表します。</p>
 </section>
 <section id="re.split">
-<h3><code class="docutils literal notranslate"><span class="pre">re.split</span></code><a class="headerlink" href="#re.split" title="Permalink to this heading">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">re.split</span></code><a class="headerlink" href="#re.split" title="Link to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">split</span></code> は、<code class="docutils literal notranslate"><span class="pre">正規表現R</span></code> にマッチする文字列を区切り文字（デリミタ）として、<code class="docutils literal notranslate"><span class="pre">文字列A</span></code> を分割します。分割された文字列がリストに格納されて返値となります。</p>
 <p>具体的には次のように用います。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>re.split(正規表現R, 元になる文字列A)
@@ -1106,7 +1111,7 @@ accountname@test.ecc.u-tokyo.ac.jp
 <p>この例のように、返されたリストに空文字列が含まれる場合がありますので、注意してください。</p>
 </section>
 <section id="r-を付ける理由">
-<h3><code class="docutils literal notranslate"><span class="pre">r</span></code> を付ける理由<a class="headerlink" href="#r-を付ける理由" title="Permalink to this heading">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">r</span></code> を付ける理由<a class="headerlink" href="#r-を付ける理由" title="Link to this heading">¶</a></h3>
 <p>さて、以上のような正規表現は、<code class="docutils literal notranslate"><span class="pre">'hello*'</span></code> のようにPythonの文字列として <code class="docutils literal notranslate"><span class="pre">re.split</span></code> や <code class="docutils literal notranslate"><span class="pre">re.sub</span></code> などの関数に与えればよいのですが、 以下のように文字列の前に <code class="docutils literal notranslate"><span class="pre">r</span></code> を付けることが推奨されます。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
@@ -1166,7 +1171,7 @@ accountname@test.ecc.u-tokyo.ac.jp
 </section>
 </section>
 <section id="id10">
-<h2>練習<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h2>
 <p>英語の文書が保存された <code class="docutils literal notranslate"><span class="pre">text-sample.txt</span></code> というファイルから読み込み、出現する単語のリストを返す関数 <code class="docutils literal notranslate"><span class="pre">get_engsentences</span></code> を作成してください。 ただし、<strong>重複する単語を削除してはいけません</strong>が、空文字列は除きます。また、リストは返す前に中身を昇順に並べ替えてください。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて解答してください。</p>
 <div class="nbinput docutils container">
@@ -1184,7 +1189,7 @@ accountname@test.ecc.u-tokyo.ac.jp
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_9499/3360045867.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[41], line 1</span>
 <span class="ansi-red-fg">    import ...</span>
            ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -1211,19 +1216,17 @@ accountname@test.ecc.u-tokyo.ac.jp
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9499/400148248.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>list1 <span class="ansi-blue-fg">=</span> get_engsentences<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>len<span class="ansi-blue-fg">(</span>list1<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">289</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>list1<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;a&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span>list1<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">100</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;in&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> print<span class="ansi-blue-fg">(</span>list1<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">288</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;would&#39;</span><span class="ansi-blue-fg">)</span>
+Cell <span class="ansi-green-fg">In[42], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> list1 <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">get_engsentences</span>()
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span style="color: rgb(0,135,0)">print</span>(<span style="color: rgb(0,135,0)">len</span>(list1) <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(98,98,98)">289</span>)
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span style="color: rgb(0,135,0)">print</span>(list1[<span style="color: rgb(98,98,98)">0</span>] <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">a</span><span style="color: rgb(175,0,0)">&#39;</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;get_engsentences&#39; is not defined
 </pre></div></div>
 </div>
 </section>
 <section id="id11">
-<h2>練習<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h2>
 <p>英語の文書が保存された <code class="docutils literal notranslate"><span class="pre">text-sample.txt</span></code> というファイルから読み込み、出現する単語のリストを返す関数 <code class="docutils literal notranslate"><span class="pre">get_engsentences2</span></code> を作成してください。 ただし、空文字列は除きます。また、リストは返す前に中身を昇順に並べ替えてください。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて解答してください。</p>
 <div class="nbinput docutils container">
@@ -1241,7 +1244,7 @@ accountname@test.ecc.u-tokyo.ac.jp
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_9499/2256989314.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[43], line 1</span>
 <span class="ansi-red-fg">    import ...</span>
            ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -1268,19 +1271,17 @@ accountname@test.ecc.u-tokyo.ac.jp
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9499/1837623858.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>list1 <span class="ansi-blue-fg">=</span> get_engsentences2<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>len<span class="ansi-blue-fg">(</span>list1<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">149</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>list1<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;a&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span>list1<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">100</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;proclaim&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> print<span class="ansi-blue-fg">(</span>list1<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">148</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;would&#39;</span><span class="ansi-blue-fg">)</span>
+Cell <span class="ansi-green-fg">In[44], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> list1 <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">get_engsentences2</span>()
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span style="color: rgb(0,135,0)">print</span>(<span style="color: rgb(0,135,0)">len</span>(list1) <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(98,98,98)">149</span>)
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span style="color: rgb(0,135,0)">print</span>(list1[<span style="color: rgb(98,98,98)">0</span>] <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">a</span><span style="color: rgb(175,0,0)">&#39;</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;get_engsentences2&#39; is not defined
 </pre></div></div>
 </div>
 </section>
 <section id="その他の反復演算">
-<h2>その他の反復演算<a class="headerlink" href="#その他の反復演算" title="Permalink to this heading">¶</a></h2>
+<h2>その他の反復演算<a class="headerlink" href="#その他の反復演算" title="Link to this heading">¶</a></h2>
 <p>閉包以外の反復演算を説明します。</p>
 <p><code class="docutils literal notranslate"><span class="pre">a?</span></code> は、正規表現 <code class="docutils literal notranslate"><span class="pre">a</span></code> を高々1回反復する文字列とマッチします。たとえば、<code class="docutils literal notranslate"><span class="pre">a(bc)?</span></code> は <code class="docutils literal notranslate"><span class="pre">a|abc</span></code> と同じ意味の正規表現です。</p>
 <div class="nbinput docutils container">
@@ -1372,7 +1373,7 @@ None
 </div>
 </section>
 <section id="メタ文字">
-<h2>メタ文字<a class="headerlink" href="#メタ文字" title="Permalink to this heading">¶</a></h2>
+<h2>メタ文字<a class="headerlink" href="#メタ文字" title="Link to this heading">¶</a></h2>
 <p>以下では、良く使うメタ文字（特殊文字）を紹介します。</p>
 <p><code class="docutils literal notranslate"><span class="pre">.</span></code>（ピリオド）は、あらゆる文字にマッチします。</p>
 <div class="nbinput docutils container">
@@ -1451,7 +1452,7 @@ None
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
@@ -1459,6 +1460,25 @@ None
 &lt;re.Match object; span=(2, 4), match=&#39;b\t&#39;&gt;
 &lt;re.Match object; span=(0, 4), match=&#39;a\t\u3000 &#39;&gt;
 &lt;re.Match object; span=(4, 7), match=&#39;b\t\u3000&#39;&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+&lt;&gt;:3: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+&lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+&lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+&lt;&gt;:3: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+&lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/1235538076.py:1: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+  match1 = re.search(&#39;b\s&#39;, &#39;a      b       c       d&#39;)
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/1235538076.py:3: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+  match1 = re.search(&#39;a\s\s\s&#39;, &#39;a  　 b     　c      d&#39;)
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/1235538076.py:5: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+  match1 = re.search(&#39;b\s*&#39;, &#39;a     　 b     　c      d&#39;)
 </pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">\S</span></code> は <code class="docutils literal notranslate"><span class="pre">\s</span></code> 以外の全ての文字を表します。</p>
@@ -1471,12 +1491,23 @@ None
 <br/></pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 &lt;re.Match object; span=(4, 6), match=&#39;bc&#39;&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\S&#39;
+&lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\S&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/3290421489.py:1: SyntaxWarning: invalid escape sequence &#39;\S&#39;
+  match1 = re.search(&#39;b\S&#39;, &#39;a      b       bc      d&#39;)
 </pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">\w</span></code> は <code class="docutils literal notranslate"><span class="pre">[a-zA-Z0-9_]</span></code> と同じ意味です。</p>
@@ -1490,12 +1521,27 @@ None
 <br/></pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 &lt;re.Match object; span=(0, 2), match=&#39;ab&#39;&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\w&#39;
+&lt;&gt;:3: SyntaxWarning: invalid escape sequence &#39;\w&#39;
+&lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\w&#39;
+&lt;&gt;:3: SyntaxWarning: invalid escape sequence &#39;\w&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/3891737031.py:1: SyntaxWarning: invalid escape sequence &#39;\w&#39;
+  match1 = re.search(&#39;\w\w&#39;, &#39;abcde&#39;)
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/3891737031.py:3: SyntaxWarning: invalid escape sequence &#39;\w&#39;
+  match1 = re.search(&#39;b\w*g&#39;, &#39;abcdefgh&#39;)
 </pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">\W</span></code> は <code class="docutils literal notranslate"><span class="pre">\w</span></code> 以外の全ての文字を表します。すなわち、<code class="docutils literal notranslate"><span class="pre">[^a-zA-Z0-9_]</span></code> と同じ意味です。</p>
@@ -1510,13 +1556,28 @@ None
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 &lt;re.Match object; span=(6, 9), match=&#39;g  &#39;&gt;
 &lt;re.Match object; span=(2, 8), match=&#39; defg &#39;&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\W&#39;
+&lt;&gt;:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
+&lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\W&#39;
+&lt;&gt;:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/3446286968.py:1: SyntaxWarning: invalid escape sequence &#39;\W&#39;
+  match1 = re.search(&#39;g\W*&#39;, &#39;ab defg  hi jklm no p&#39;)
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/3446286968.py:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
+  match1 = re.search(&#39;\W\w*\W&#39;, &#39;ab defg  hi jklm no p&#39;)
 </pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">\d</span></code> は <code class="docutils literal notranslate"><span class="pre">[0-9]</span></code> と同じ意味です。</p>
@@ -1535,7 +1596,7 @@ None
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
@@ -1544,6 +1605,29 @@ None
 &lt;re.Match object; span=(0, 8), match=&#39;153-8902&#39;&gt;
 &lt;re.Match object; span=(0, 12), match=&#39;03-5454-6828&#39;&gt;
 &lt;re.Match object; span=(0, 12), match=&#39;03-5454-6828&#39;&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+&lt;&gt;:3: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+&lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+&lt;&gt;:7: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+&lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+&lt;&gt;:3: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+&lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+&lt;&gt;:7: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/3067726332.py:1: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+  match1 = re.search(&#39;\d\d\d-\d\d\d\d&#39;, &#39;153-8902&#39;)
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/3067726332.py:3: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+  match1 = re.search(&#39;\d*-\d*&#39;, &#39;153-8902&#39;)
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/3067726332.py:5: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+  match1 = re.search(&#39;\d\d-\d\d\d\d-\d\d\d\d&#39;, &#39;03-5454-6828&#39;)
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/3067726332.py:7: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+  match1 = re.search(&#39;\d*-\d*-\d*&#39;, &#39;03-5454-6828&#39;)
 </pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">\D</span></code> は <code class="docutils literal notranslate"><span class="pre">\d</span></code> 以外の全ての文字を表します。すなわち、<code class="docutils literal notranslate"><span class="pre">[^0-9]</span></code> と同じ意味です。</p>
@@ -1556,7 +1640,7 @@ None
 <br/></pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
@@ -1564,9 +1648,20 @@ None
 &lt;re.Match object; span=(0, 7), match=&#39;He has &#39;&gt;
 </pre></div></div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\D&#39;
+&lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\D&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/174792290.py:1: SyntaxWarning: invalid escape sequence &#39;\D&#39;
+  match1 = re.search(&#39;\D*&#39;, &#39;He has 10 apples.&#39;)
+</pre></div></div>
+</div>
 </section>
 <section id="id14">
-<h2>練習<a class="headerlink" href="#id14" title="Permalink to this heading">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id14" title="Link to this heading">¶</a></h2>
 <p>文字列から数字列を切り出して、それを整数とみなして足し合せた結果を整数として返す関数 <code class="docutils literal notranslate"><span class="pre">sumnumbers</span></code> を定義してください。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
@@ -1583,7 +1678,7 @@ None
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_9499/2526788762.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[57], line 1</span>
 <span class="ansi-red-fg">    import ...</span>
            ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -1606,15 +1701,15 @@ None
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9499/939576310.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>sumnumbers<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39; 2  33 45, 67.9&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">156</span><span class="ansi-blue-fg">)</span>
+Cell <span class="ansi-green-fg">In[58], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">sumnumbers</span>(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)"> 2  33 45, 67.9</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(98,98,98)">156</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;sumnumbers&#39; is not defined
 </pre></div></div>
 </div>
 </section>
 <section id="id15">
-<h2>練習<a class="headerlink" href="#id15" title="Permalink to this heading">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id15" title="Link to this heading">¶</a></h2>
 <p>文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> を引数として取り、<code class="docutils literal notranslate"><span class="pre">str1</span></code> を構成する文字列が <code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">C</span></code>, <code class="docutils literal notranslate"><span class="pre">G</span></code>, <code class="docutils literal notranslate"><span class="pre">T</span></code> の4種類の文字以外の文字を含むかどうか調べて、これら以外を含む場合は <code class="docutils literal notranslate"><span class="pre">False</span></code>、そうでない場合は <code class="docutils literal notranslate"><span class="pre">True</span></code> を返す関数 <code class="docutils literal notranslate"><span class="pre">check_ACGTstr</span></code> を作成してください。 ただし、大文字と小文字は区別しません。また、空列の場合は <code class="docutils literal notranslate"><span class="pre">False</span></code> を返してください。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて解答してください。</p>
 <div class="nbinput docutils container">
@@ -1632,7 +1727,7 @@ None
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_9499/390249491.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[59], line 1</span>
 <span class="ansi-red-fg">    import ...</span>
            ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -1657,17 +1752,17 @@ None
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9499/3681665936.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>check_ACGTstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;AcCGTAGCacATcGgAaaTtGCacT&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>check_ACGTstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;:ACaacgta24FgtGH&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>check_ACGTstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
+Cell <span class="ansi-green-fg">In[60], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">check_ACGTstr</span>(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">AcCGTAGCacATcGgAaaTtGCacT</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">True</span>)
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span style="color: rgb(0,135,0)">print</span>(check_ACGTstr(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">:ACaacgta24FgtGH</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span style="color: rgb(0,135,0)">print</span>(check_ACGTstr(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;check_ACGTstr&#39; is not defined
 </pre></div></div>
 </div>
 </section>
 <section id="id16">
-<h2>練習<a class="headerlink" href="#id16" title="Permalink to this heading">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id16" title="Link to this heading">¶</a></h2>
 <p>文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> を引数として取り、 <code class="docutils literal notranslate"><span class="pre">str1</span></code> を構成する文字列が「日本の郵便番号」を表す文字列になっている場合は、 <code class="docutils literal notranslate"><span class="pre">True</span></code> を返し、そうでない場合は <code class="docutils literal notranslate"><span class="pre">False</span></code> を返す関数 <code class="docutils literal notranslate"><span class="pre">check_postalcode</span></code> を作成してください。 ただし、「日本の郵便番号」は <code class="docutils literal notranslate"><span class="pre">abc-defg</span></code> という形になっており、<code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code>, <code class="docutils literal notranslate"><span class="pre">d</span></code>, <code class="docutils literal notranslate"><span class="pre">e</span></code>, <code class="docutils literal notranslate"><span class="pre">d</span></code>, <code class="docutils literal notranslate"><span class="pre">f</span></code>, <code class="docutils literal notranslate"><span class="pre">g</span></code> はそれぞれ <code class="docutils literal notranslate"><span class="pre">0</span></code> から <code class="docutils literal notranslate"><span class="pre">9</span></code> までの値になっています。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて解答してください。</p>
 <div class="nbinput docutils container">
@@ -1685,7 +1780,7 @@ None
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_9499/1253453412.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[61], line 1</span>
 <span class="ansi-red-fg">    import ...</span>
            ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -1712,19 +1807,17 @@ None
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9499/3705937207.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>check_postalcode<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;113-8654&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>check_postalcode<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;119-110&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>check_postalcode<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;abc-defg&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span>check_postalcode<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;〒153-0041&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> print<span class="ansi-blue-fg">(</span>check_postalcode<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;113-86547&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
+Cell <span class="ansi-green-fg">In[62], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">check_postalcode</span>(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">113-8654</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">True</span>)
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span style="color: rgb(0,135,0)">print</span>(check_postalcode(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">119-110</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span style="color: rgb(0,135,0)">print</span>(check_postalcode(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">abc-defg</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;check_postalcode&#39; is not defined
 </pre></div></div>
 </div>
 </section>
 <section id="id17">
-<h2>練習<a class="headerlink" href="#id17" title="Permalink to this heading">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id17" title="Link to this heading">¶</a></h2>
 <p>文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> を引数として取り、<code class="docutils literal notranslate"><span class="pre">str1</span></code> を構成する文字列が「本郷の内線番号」を表す文字列になっている場合は、 <code class="docutils literal notranslate"><span class="pre">True</span></code> を返し、そうでない場合は <code class="docutils literal notranslate"><span class="pre">False</span></code> を返す関数 <code class="docutils literal notranslate"><span class="pre">check_extension</span></code> を作成してください。 ただし、「本郷の内線番号」は <code class="docutils literal notranslate"><span class="pre">2abcd</span></code> という形になっており、<code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code>, <code class="docutils literal notranslate"><span class="pre">d</span></code> はそれぞれ <code class="docutils literal notranslate"><span class="pre">0</span></code> から <code class="docutils literal notranslate"><span class="pre">9</span></code> までの値になっています。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて解答してください。</p>
 <div class="nbinput docutils container">
@@ -1742,7 +1835,7 @@ None
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_9499/3524781894.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[63], line 1</span>
 <span class="ansi-red-fg">    import ...</span>
            ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -1768,18 +1861,17 @@ None
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9499/4097704152.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>check_extension<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;24115&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>check_extension<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;46858&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>check_extension<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;☎46666&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span>check_extension<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;467890&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
+Cell <span class="ansi-green-fg">In[64], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">check_extension</span>(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">24115</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">True</span>)
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span style="color: rgb(0,135,0)">print</span>(check_extension(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">46858</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span style="color: rgb(0,135,0)">print</span>(check_extension(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">☎46666</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;check_extension&#39; is not defined
 </pre></div></div>
 </div>
 </section>
 <section id="正規表現のエスケープシーケンス">
-<h2>正規表現のエスケープシーケンス<a class="headerlink" href="#正規表現のエスケープシーケンス" title="Permalink to this heading">¶</a></h2>
+<h2>正規表現のエスケープシーケンス<a class="headerlink" href="#正規表現のエスケープシーケンス" title="Link to this heading">¶</a></h2>
 <p>丸括弧 <code class="docutils literal notranslate"><span class="pre">()</span></code> や演算子 (<code class="docutils literal notranslate"><span class="pre">|</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>) など正規表現の中で特殊な役割を果たす記号のマッチを行いたい場合、文字列のエスケープシーケンスのように <code class="docutils literal notranslate"><span class="pre">\</span></code> を前につけてやる必要があります。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
@@ -1804,7 +1896,7 @@ None
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
@@ -1819,15 +1911,34 @@ None
 &lt;re.Match object; span=(0, 8), match=&#39;|ω・`）チラ &#39;&gt;
 </pre></div></div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\(&#39;
+&lt;&gt;:11: SyntaxWarning: invalid escape sequence &#39;\*&#39;
+&lt;&gt;:15: SyntaxWarning: invalid escape sequence &#39;\|&#39;
+&lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\(&#39;
+&lt;&gt;:11: SyntaxWarning: invalid escape sequence &#39;\*&#39;
+&lt;&gt;:15: SyntaxWarning: invalid escape sequence &#39;\|&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/4112574947.py:5: SyntaxWarning: invalid escape sequence &#39;\(&#39;
+  match1 = re.search(&#39;03\(5454\)6666&#39;, &#39;03(5454)6666&#39;) # \(と\)で左右の丸括弧として扱われるのでマッチする
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/4112574947.py:11: SyntaxWarning: invalid escape sequence &#39;\*&#39;
+  match1 = re.search(&#39;3\*4\+5=17&#39;, &#39;3*4+5=17&#39;) #意図した文字列にマッチ
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/4112574947.py:15: SyntaxWarning: invalid escape sequence &#39;\|&#39;
+  match1 = re.search(&#39;\|ω・`）チラ &#39;, &#39;|ω・`）チラ &#39;) #意図した文字列にマッチ
+</pre></div></div>
+</div>
 <p>特殊な意味を持つ記号は次の14個です。</p>
 <p><code class="docutils literal notranslate"><span class="pre">.</span> <span class="pre">^</span> <span class="pre">$</span> <span class="pre">*</span> <span class="pre">+</span> <span class="pre">?</span> <span class="pre">{</span> <span class="pre">}</span> <span class="pre">[</span> <span class="pre">]</span> <span class="pre">\</span> <span class="pre">|</span> <span class="pre">(</span> <span class="pre">)</span></code></p>
 <p>これらの特殊記号が含まれる場合（かつ意図したマッチの結果が得られない場合）には、エスケープシーケンスを使う（エスケープする）べき（可能性がある）ことも考慮に入れておいてください。</p>
 </section>
 <section id="正規表現に関する関数とメソッド">
-<h2>正規表現に関する関数とメソッド<a class="headerlink" href="#正規表現に関する関数とメソッド" title="Permalink to this heading">¶</a></h2>
+<h2>正規表現に関する関数とメソッド<a class="headerlink" href="#正規表現に関する関数とメソッド" title="Link to this heading">¶</a></h2>
 <p>以下では更に幾つかの関数とメソッドを紹介します。</p>
 <section id="findall">
-<h3><code class="docutils literal notranslate"><span class="pre">findall</span></code><a class="headerlink" href="#findall" title="Permalink to this heading">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">findall</span></code><a class="headerlink" href="#findall" title="Link to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">findall</span></code> は、<code class="docutils literal notranslate"><span class="pre">正規表現R</span></code> にマッチする <code class="docutils literal notranslate"><span class="pre">文字列A</span></code> 中の全ての文字列を、リストに格納して返します。</p>
 <p>具体的には次のように実行します。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>re.findall(正規表現R, 文字列A)
@@ -1856,7 +1967,7 @@ None
 </div>
 </section>
 <section id="finditer">
-<h3><code class="docutils literal notranslate"><span class="pre">finditer</span></code><a class="headerlink" href="#finditer" title="Permalink to this heading">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">finditer</span></code><a class="headerlink" href="#finditer" title="Link to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">finditer</span></code> は、<code class="docutils literal notranslate"><span class="pre">正規表現R</span></code> にマッチする <code class="docutils literal notranslate"><span class="pre">文字列A</span></code> 中の全ての matchオブジェクトを、特殊なリスト（のようなもの）に格納して返します。</p>
 <p>具体的には次のように実行します。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>re.finditer(正規表現R, 文字列A)
@@ -1907,7 +2018,7 @@ None
 </div>
 </section>
 <section id="group">
-<h3><code class="docutils literal notranslate"><span class="pre">group</span></code><a class="headerlink" href="#group" title="Permalink to this heading">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">group</span></code><a class="headerlink" href="#group" title="Link to this heading">¶</a></h3>
 <p>matchオブジェクトのメソッド <code class="docutils literal notranslate"><span class="pre">group</span></code> は、正規表現にマッチした文字列を（部分的に）取り出します。正規表現内に丸括弧を用いると、括弧内の正規表現とマッチした文字列を取得できるようになっています。なお、<code class="docutils literal notranslate"><span class="pre">group</span></code> によるこの操作を、括弧内の文字列を<strong>キャプチャ</strong>するといいます。</p>
 <p><code class="docutils literal notranslate"><span class="pre">i</span></code> 番目のキャプチャした値を取得するには次のようにします。<code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">0</span></code> の場合は、マッチした文字列全体を取得できます。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>matchオブジェクト.group(i)
@@ -1929,7 +2040,7 @@ None
 <br/></pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
@@ -1938,6 +2049,25 @@ None
 マッチした文字列= accountname@test.ecc.u-tokyo.ac.jp  キャプチャした文字列= accountname
 マッチした文字列= accountname@test.u-tokyo.ac.jp  キャプチャした文字列= accountname
 マッチした文字列= href=&#34;http://www.u-tokyo.ac.jp&#34;  キャプチャした文字列= http://www.u-tokyo.ac.jp
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&lt;&gt;:2: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+&lt;&gt;:4: SyntaxWarning: invalid escape sequence &#39;\.&#39;
+&lt;&gt;:6: SyntaxWarning: invalid escape sequence &#39;\.&#39;
+&lt;&gt;:2: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+&lt;&gt;:4: SyntaxWarning: invalid escape sequence &#39;\.&#39;
+&lt;&gt;:6: SyntaxWarning: invalid escape sequence &#39;\.&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/2781033459.py:2: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+  match1 = re.search(&#39;03-5454-(\d\d\d\d)&#39;, &#39;03-5454-6666&#39;)
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/2781033459.py:4: SyntaxWarning: invalid escape sequence &#39;\.&#39;
+  match1 = re.search(&#39;([^@]*)@[^.]*(\.[^.]*)?\.u-tokyo\.ac\.jp&#39;, &#39;accountname@test.ecc.u-tokyo.ac.jp&#39;) # \.はピリオドを表します
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/2781033459.py:6: SyntaxWarning: invalid escape sequence &#39;\.&#39;
+  match1 = re.search(&#39;([^@]*)@[^.]*(\.[^.]*)?\.u-tokyo\.ac\.jp&#39;, &#39;accountname@test.u-tokyo.ac.jp&#39;) # \.はピリオドを表します
 </pre></div></div>
 </div>
 <p>マッチに失敗した場合は、matchオブジェクトが返らずに <code class="docutils literal notranslate"><span class="pre">None</span></code> が返るので、それを確かめずに <code class="docutils literal notranslate"><span class="pre">group</span></code> を使おうとするとエラーが出ますので注意してください。</p>
@@ -1950,6 +2080,19 @@ None
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+&lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/778018344.py:1: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+  match1 = re.search(&#39;03-5454-(\d\d\d\d)&#39;, &#39;03-5454-666&#39;) #マッチしない文字列
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/778018344.py:1: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+  match1 = re.search(&#39;03-5454-(\d\d\d\d)&#39;, &#39;03-5454-666&#39;) #マッチしない文字列
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
@@ -1957,9 +2100,9 @@ None
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9499/778018344.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> match1 <span class="ansi-blue-fg">=</span> re<span class="ansi-blue-fg">.</span>search<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;03-5454-(\d\d\d\d)&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;03-5454-666&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-red-fg">#マッチしない文字列</span>
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;マッチした文字列=&#39;</span><span class="ansi-blue-fg">,</span> match1<span class="ansi-blue-fg">.</span>group<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39; キャプチャした文字列=&#39;</span><span class="ansi-blue-fg">,</span> match1<span class="ansi-blue-fg">.</span>group<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+Cell <span class="ansi-green-fg">In[69], line 2</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> match1 <span style="color: rgb(98,98,98)">=</span> re<span style="color: rgb(98,98,98)">.</span>search(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">03-5454-(</span><span style="color: rgb(175,0,0)">\</span><span style="color: rgb(175,0,0)">d</span><span style="color: rgb(175,0,0)">\</span><span style="color: rgb(175,0,0)">d</span><span style="color: rgb(175,0,0)">\</span><span style="color: rgb(175,0,0)">d</span><span style="color: rgb(175,0,0)">\</span><span style="color: rgb(175,0,0)">d)</span><span style="color: rgb(175,0,0)">&#39;</span>, <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">03-5454-666</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(95,135,135)">#マッチしない文字列</span>
+<span class="ansi-green-fg">----&gt; 2</span> <span style="color: rgb(0,135,0)">print</span>(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">マッチした文字列=</span><span style="color: rgb(175,0,0)">&#39;</span>, <span class="ansi-yellow-bg">match1</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">group</span>(<span style="color: rgb(98,98,98)">0</span>), <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)"> キャプチャした文字列=</span><span style="color: rgb(175,0,0)">&#39;</span>, match1<span style="color: rgb(98,98,98)">.</span>group(<span style="color: rgb(98,98,98)">1</span>))
 
 <span class="ansi-red-fg">AttributeError</span>: &#39;NoneType&#39; object has no attribute &#39;group&#39;
 </pre></div></div>
@@ -1977,7 +2120,7 @@ None
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
@@ -1985,10 +2128,21 @@ None
 マッチしていません
 </pre></div></div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+&lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/971918040.py:1: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+  match1 = re.search(&#39;03-5454-(\d\d\d\d)&#39;, &#39;03-5454-666&#39;)
+</pre></div></div>
+</div>
 </section>
 </section>
 <section id="id20">
-<h2>練習<a class="headerlink" href="#id20" title="Permalink to this heading">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id20" title="Link to this heading">¶</a></h2>
 <p>文字列 <code class="docutils literal notranslate"><span class="pre">str1</span></code> を引数として取り、<code class="docutils literal notranslate"><span class="pre">str1</span></code> を構成する文字列が <code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">C</span></code>, <code class="docutils literal notranslate"><span class="pre">G</span></code>, <code class="docutils literal notranslate"><span class="pre">T</span></code> の4種類の文字以外の文字を含むかどうか調べて、これら以外を含む場合は <code class="docutils literal notranslate"><span class="pre">False</span></code> を、そうでない場合は <code class="docutils literal notranslate"><span class="pre">True</span></code> を返す関数 <code class="docutils literal notranslate"><span class="pre">check_ACGTstr</span></code> を作成してください。 ただし、大文字と小文字は区別しません。また、空列の場合は <code class="docutils literal notranslate"><span class="pre">False</span></code> を返してください。</p>
 <p>以下のセルの <code class="docutils literal notranslate"><span class="pre">...</span></code> のところを書き換えて解答してください。</p>
 <div class="nbinput docutils container">
@@ -2006,7 +2160,7 @@ None
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_9499/390249491.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[71], line 1</span>
 <span class="ansi-red-fg">    import ...</span>
            ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -2031,17 +2185,17 @@ None
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9499/3681665936.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>check_ACGTstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;AcCGTAGCacATcGgAaaTtGCacT&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>check_ACGTstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;:ACaacgta24FgtGH&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span>check_ACGTstr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
+Cell <span class="ansi-green-fg">In[72], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">check_ACGTstr</span>(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">AcCGTAGCacATcGgAaaTtGCacT</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">True</span>)
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span style="color: rgb(0,135,0)">print</span>(check_ACGTstr(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">:ACaacgta24FgtGH</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span style="color: rgb(0,135,0)">print</span>(check_ACGTstr(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">==</span> <span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;check_ACGTstr&#39; is not defined
 </pre></div></div>
 </div>
 </section>
 <section id="id21">
-<h2>練習<a class="headerlink" href="#id21" title="Permalink to this heading">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id21" title="Link to this heading">¶</a></h2>
 <p>xmlファイル B1S.xml は <a class="reference external" href="http://www.natcorp.ox.ac.uk">http://www.natcorp.ox.ac.uk</a> から入手できるイギリス英語のコーパスのファイルです。</p>
 <p>B1S.xmlに含まれるwタグで囲まれる英単語をキー <code class="docutils literal notranslate"><span class="pre">key</span></code> に、その wタグの属性posの値を <code class="docutils literal notranslate"><span class="pre">key</span></code> の値とする辞書を返す関数 <code class="docutils literal notranslate"><span class="pre">get_pos</span></code> を作成してください。ただし、一般にwタグは、次のような形式で記述されます。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;w pos=&quot;PRON&quot; （ &gt; 記号以外の何らかの文字列）&gt;（英単語） &lt;/w&gt;
@@ -2067,7 +2221,7 @@ None
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_9499/1340085115.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[73], line 1</span>
 <span class="ansi-red-fg">    import ...</span>
            ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -2091,16 +2245,16 @@ None
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9499/2030927862.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>get_pos<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;They &#39;</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;PRON&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> print<span class="ansi-blue-fg">(</span>get_pos<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;know &#39;</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;VERB&#39;</span><span class="ansi-blue-fg">)</span>
+Cell <span class="ansi-green-fg">In[74], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">get_pos</span>()[<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">They </span><span style="color: rgb(175,0,0)">&#39;</span>] <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">PRON</span><span style="color: rgb(175,0,0)">&#39;</span>)
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span style="color: rgb(0,135,0)">print</span>(get_pos()[<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">know </span><span style="color: rgb(175,0,0)">&#39;</span>] <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">VERB</span><span style="color: rgb(175,0,0)">&#39;</span>)
 
 <span class="ansi-red-fg">NameError</span>: name &#39;get_pos&#39; is not defined
 </pre></div></div>
 </div>
 </section>
 <section id="練習の解答">
-<h2>練習の解答<a class="headerlink" href="#練習の解答" title="Permalink to this heading">¶</a></h2>
+<h2>練習の解答<a class="headerlink" href="#練習の解答" title="Link to this heading">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
 </pre></div>
@@ -2126,7 +2280,7 @@ None
     <span class="c1">#reg_min = &#39;([0-5][0-9])&#39; # 文字クラスを使ってと表すこともできます（文字クラスは後で学習します</span>
     <span class="n">reg_time</span> <span class="o">=</span> <span class="n">reg_hour</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span> <span class="o">+</span> <span class="n">reg_min</span> <span class="c1"># 時部分と分部分を、「:」を挟んで結合した新しい正規表現</span>
     <span class="c1">#print(reg_time)</span>
-    <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">reg3</span><span class="p">,</span> <span class="n">str1</span><span class="p">)</span> <span class="c1"># 文字列を「含む」なので、（matchではなく）searchを使う</span>
+    <span class="n">match1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">reg_time</span><span class="p">,</span> <span class="n">str1</span><span class="p">)</span> <span class="c1"># 文字列を「含む」なので、（matchではなく）searchを使う</span>
     <span class="k">return</span> <span class="n">match1</span>
 </pre></div>
 </div>
@@ -2350,7 +2504,7 @@ None
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <h1 class="logo"><a href="../index.html">Pythonプログラミング入門</a></h1>
 
@@ -2435,7 +2589,7 @@ None
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -2443,7 +2597,7 @@ None
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -2458,18 +2612,18 @@ None
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      &#169;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.2.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
       
     </div>
 
     
 
     
-    <script type="text/javascript">
+    <script>
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-159819977-1']);
@@ -2478,8 +2632,8 @@ None
       _gaq.push(['_trackPageview']);
 
       (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var ga = document.createElement('script'); ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
 

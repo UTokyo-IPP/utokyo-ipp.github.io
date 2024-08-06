@@ -1,21 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="jp">
+<html lang="jp" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>1-0. Colaboratory (Colab) の使い方 &#8212; Pythonプログラミング入門  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
     <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=3ff7d7a7"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -26,8 +23,9 @@
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -40,17 +38,17 @@
           <div class="body" role="main">
             
   <section id="1-0.-Colaboratory-(Colab)-の使い方">
-<h1>1-0. Colaboratory (Colab) の使い方<a class="headerlink" href="#1-0.-Colaboratory-(Colab)-の使い方" title="Permalink to this heading">¶</a></h1>
+<h1>1-0. Colaboratory (Colab) の使い方<a class="headerlink" href="#1-0.-Colaboratory-(Colab)-の使い方" title="Link to this heading">¶</a></h1>
 <p>Colaboratory（通称 Colab）によるノートブックの操作方法について説明します。</p>
 <section id="Colaboratoryの立ち上げ">
-<h2>Colaboratoryの立ち上げ<a class="headerlink" href="#Colaboratoryの立ち上げ" title="Permalink to this heading">¶</a></h2>
+<h2>Colaboratoryの立ち上げ<a class="headerlink" href="#Colaboratoryの立ち上げ" title="Link to this heading">¶</a></h2>
 <p>ブラウザにGoogleアカウント（個人でもECCSでもどちらでもよい）でログインした後に、以下のURLを開いてください。</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://colab.research.google.com/">https://colab.research.google.com/</a></p></li>
 </ul>
 </section>
 <section id="ノートブックのアップロード">
-<h2>ノートブックのアップロード<a class="headerlink" href="#ノートブックのアップロード" title="Permalink to this heading">¶</a></h2>
+<h2>ノートブックのアップロード<a class="headerlink" href="#ノートブックのアップロード" title="Link to this heading">¶</a></h2>
 <p>Colaboratoryを立ち上げると、以下のようにノートブックを指定することが求められますので、 「アップロード」のタブを選択してください。</p>
 <p><img alt="colab1.png" src="../_images/colab1.png" /></p>
 <p>そして、アップロードすべきファイルを指定してください。</p>
@@ -60,25 +58,25 @@
 <p>なお、ノートブックには <code class="docutils literal notranslate"><span class="pre">ipynb</span></code> という拡張子（エクステンション）が付いています。</p>
 </section>
 <section id="教材のオープン">
-<h2>教材のオープン<a class="headerlink" href="#教材のオープン" title="Permalink to this heading">¶</a></h2>
+<h2>教材のオープン<a class="headerlink" href="#教材のオープン" title="Link to this heading">¶</a></h2>
 <p>HTML版の教材の「Open in Colab」をクリックしたり、 Google Drive上の教材を直接Colabratoryでオープンした場合、 指定したノートブックがオープンされますが、ノートブックを操作した結果は Google Drive上に保存されません。 ノートブックの上方にある「ドライブにコピー」のボタンを押せば、 自分のGoogle Drive上にノートブックのコピーが作られてオープンされます。 ノートブックを操作した結果はコピーに保存されます。</p>
 </section>
 <section id="ノートブックのダウンロード">
-<h2>ノートブックのダウンロード<a class="headerlink" href="#ノートブックのダウンロード" title="Permalink to this heading">¶</a></h2>
+<h2>ノートブックのダウンロード<a class="headerlink" href="#ノートブックのダウンロード" title="Link to this heading">¶</a></h2>
 <p>Google Drive 上のノートブックをパソコンにダウンロードするには、 Colaboratoryのファイルメニューで「.ipynb をダウンロード」を選択します。</p>
 <p><img alt="colab4.png" src="../_images/colab4.png" /></p>
 </section>
 <section id="ノートブックのアップロード（再び）">
-<h2>ノートブックのアップロード（再び）<a class="headerlink" href="#ノートブックのアップロード（再び）" title="Permalink to this heading">¶</a></h2>
+<h2>ノートブックのアップロード（再び）<a class="headerlink" href="#ノートブックのアップロード（再び）" title="Link to this heading">¶</a></h2>
 <p>最初のノートブックを開いた後に、別のノートブックを開くには、Colaboratoryのファイルメニューで 「ノートブックをアップロード」を選択してください。</p>
 <p><img alt="colaboratory.png" src="../_images/colaboratory.png" /></p>
 </section>
 <section id="ノートブックの作成">
-<h2>ノートブックの作成<a class="headerlink" href="#ノートブックの作成" title="Permalink to this heading">¶</a></h2>
+<h2>ノートブックの作成<a class="headerlink" href="#ノートブックの作成" title="Link to this heading">¶</a></h2>
 <p>また、ノートブックを新たに作成するには、Colaboratoryのファイルメニューで 「ノートブックを新規作成」を選択してください。 <code class="docutils literal notranslate"><span class="pre">Untitled0.ipynb</span></code> という名前のノートブックが作られます。 上方に表示されたタイトルをクリックすれば名前を変更することができます。</p>
 </section>
 <section id="ノートブックの操作">
-<h2>ノートブックの操作<a class="headerlink" href="#ノートブックの操作" title="Permalink to this heading">¶</a></h2>
+<h2>ノートブックの操作<a class="headerlink" href="#ノートブックの操作" title="Link to this heading">¶</a></h2>
 <p>ノートブックの上方のタイトルの下には、「ファイル」や「編集」などのメニュー、 その下には「+ コード」と「+ テキスト」というボタンが表示されています。</p>
 <p>Ctrl+s（Macの場合は Cmd+s）を入力することによって、 編集・操作中のノートブックを Google Drive のファイルにセーブできます。 なお、ノートブックは適当なタイミングでオートセーブされます。 ファイルメニューの右に「すべての変更を保存しました」と表示されていれば、 Ctrl+s を入力する必要はありません。</p>
 <p>以下の参考文献は、Jupyter Notebook に関する一般的な解説です。 jupyterコマンドを起動してブラウザでノートブックを使うのと、 Google Colaboratory によりノートブックを使うのでは、 インタフェースが大分異なっていることに注意してください。</p>
@@ -87,7 +85,7 @@
 </ul>
 </section>
 <section id="セル">
-<h2>セル<a class="headerlink" href="#セル" title="Permalink to this heading">¶</a></h2>
+<h2>セル<a class="headerlink" href="#セル" title="Link to this heading">¶</a></h2>
 <p>ノートブックはセルから成り立っています。</p>
 <p>主に次の二種類のセルを使います。</p>
 <ul class="simple">
@@ -104,7 +102,7 @@
 </div>
 </section>
 <section id="セルの編集">
-<h2>セルの編集<a class="headerlink" href="#セルの編集" title="Permalink to this heading">¶</a></h2>
+<h2>セルの編集<a class="headerlink" href="#セルの編集" title="Link to this heading">¶</a></h2>
 <p>Codeセル上のプレイボタンでないところにマウスカーソルを移動しクリックすると、 Codeセルが選択され、文字カーソルが表示されて、セルの編集が可能になります。 Ctrlの付かない文字はそのまま挿入されます。</p>
 <p>以下のような編集コマンドが使えます。</p>
 <ul class="simple">
@@ -117,7 +115,7 @@
 <p>Codeセルが選択されているとき、Shift+Enter（もしくはShift+Return）を入力すると、 セルの中のコードが実行されて、次のセルが選択されます。</p>
 </section>
 <section id="練習">
-<h2>練習<a class="headerlink" href="#練習" title="Permalink to this heading">¶</a></h2>
+<h2>練習<a class="headerlink" href="#練習" title="Link to this heading">¶</a></h2>
 <p>次のCodeセルを選択して <code class="docutils literal notranslate"><span class="pre">10/3</span></code> と入力して実行してください。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -130,13 +128,13 @@
 <p>Codeセルの実行が終了し、別のセルが選択されると、 セルの左端は <code class="docutils literal notranslate"><span class="pre">[2]</span></code> のようになり、<code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code> の中に番号が入ります。 この番号は、そのCodeセルが何番目に実行されたかを示すもので、 Codeセルが実行されるたびに1ずつ増えます。 同じセルを続けて実行すれば、この番号は1ずつ増えるでしょう。</p>
 </section>
 <section id="セルの挿入">
-<h2>セルの挿入<a class="headerlink" href="#セルの挿入" title="Permalink to this heading">¶</a></h2>
+<h2>セルの挿入<a class="headerlink" href="#セルの挿入" title="Link to this heading">¶</a></h2>
 <p>Codeセルを新たに挿入するには、 ファイルメニューの下の「+ コード」ボタンを押します。 現在選択されているセルの下にCodeセルが挿入されます。</p>
 <p>たとえば、このMarkdownセルを選択してから、 「+ コード」ボタンを押してみてください。 このMarkdownセルを選択するには、マウスカーソルをここに持って来て クリックすればよいです。説明の全体が四角で囲まれるはずです。</p>
 <p>Markdownセルを新たに挿入するには、 ファイルメニューの下の「+ テキスト」ボタンを押します。 なお、ここではMarkdownセルの説明は行っていません。</p>
 </section>
 <section id="セルの実行が止まらないとき">
-<h2>セルの実行が止まらないとき<a class="headerlink" href="#セルの実行が止まらないとき" title="Permalink to this heading">¶</a></h2>
+<h2>セルの実行が止まらないとき<a class="headerlink" href="#セルの実行が止まらないとき" title="Link to this heading">¶</a></h2>
 <p>Codeセルの左端の●の中に□が表示され、 その周りをノの字が回り続けているならば、セルのコードは実行中です。 いつまでたってもコードの実行が終了しない場合は、 そのアイコンを押して、コードの実行を強制終了してください。 ●の中に□が表示されたアイコンはストップボタンを意味します。</p>
 <p>たとえば、次のような例です。 プレイボタンを押し実行中であることを確かめてから、 ストップボタンを押してください。</p>
 <div class="nbinput nblast docutils container">
@@ -150,11 +148,11 @@
 </div>
 </section>
 <section id="セルの操作">
-<h2>セルの操作<a class="headerlink" href="#セルの操作" title="Permalink to this heading">¶</a></h2>
+<h2>セルの操作<a class="headerlink" href="#セルの操作" title="Link to this heading">¶</a></h2>
 <p>セルを選択するとセルの右上に色々なボタンが表示されます。 これらを押すことにより、セルの削除、セルの移動、コピーペーストなど、 セルに対する各種の操作を行うことができます。</p>
 </section>
 <section id="ノートブックの参照">
-<h2>ノートブックの参照<a class="headerlink" href="#ノートブックの参照" title="Permalink to this heading">¶</a></h2>
+<h2>ノートブックの参照<a class="headerlink" href="#ノートブックの参照" title="Link to this heading">¶</a></h2>
 <p>Colaboratoryが使用するノードブックは Google Drive 上にあります。 右上の「共有」のボタンを押すことにより、 ノートブックの共有設定を変えることができます。 その上で、ノートブックが表示されているブラウザ上のURLを伝えることにより、 教員やTAにノートブックを見せることができます。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -172,7 +170,7 @@
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <h1 class="logo"><a href="../index.html">Pythonプログラミング入門</a></h1>
 
@@ -250,7 +248,7 @@
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -258,7 +256,7 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -273,18 +271,18 @@
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      &#169;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.2.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
       
     </div>
 
     
 
     
-    <script type="text/javascript">
+    <script>
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-159819977-1']);
@@ -293,8 +291,8 @@
       _gaq.push(['_trackPageview']);
 
       (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var ga = document.createElement('script'); ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
 

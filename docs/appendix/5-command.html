@@ -1,21 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="jp">
+<html lang="jp" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>▲Pythonスクリプトとコマンドライン実行 &#8212; Pythonプログラミング入門  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
     <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=3ff7d7a7"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -26,8 +23,9 @@
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -40,7 +38,7 @@
           <div class="body" role="main">
             
   <section id="▲Pythonスクリプトとコマンドライン実行">
-<h1>▲Pythonスクリプトとコマンドライン実行<a class="headerlink" href="#▲Pythonスクリプトとコマンドライン実行" title="Permalink to this heading">¶</a></h1>
+<h1>▲Pythonスクリプトとコマンドライン実行<a class="headerlink" href="#▲Pythonスクリプトとコマンドライン実行" title="Link to this heading">¶</a></h1>
 <p>Pythonスクリプトとコマンドライン実行について説明します。</p>
 <p>参考</p>
 <ul class="simple">
@@ -81,10 +79,10 @@ a1 contains the value of 10
 <p>ここで、<code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code> は、シェルのプロンプト（コマンド入力を促す記号）を意味します。 後に示す具体例を見るとわかるように、環境によっては <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> であったり、<code class="docutils literal notranslate"><span class="pre">$</span></code> であったりします。</p>
 <p>このようにスクリプトをシェルから実行することを、<strong>コマンドライン実行</strong>と呼びます。</p>
 <section id="コマンドライン実行の具体例">
-<h2>コマンドライン実行の具体例<a class="headerlink" href="#コマンドライン実行の具体例" title="Permalink to this heading">¶</a></h2>
+<h2>コマンドライン実行の具体例<a class="headerlink" href="#コマンドライン実行の具体例" title="Link to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">sample.py</span></code> をコマンドライン実行する具体例を、実行環境毎に説明します。</p>
 <section id="Jupyter-Notebook-での実行方法">
-<h3>Jupyter Notebook での実行方法<a class="headerlink" href="#Jupyter-Notebook-での実行方法" title="Permalink to this heading">¶</a></h3>
+<h3>Jupyter Notebook での実行方法<a class="headerlink" href="#Jupyter-Notebook-での実行方法" title="Link to this heading">¶</a></h3>
 <p>ファイルマネージャ画面で、</p>
 <p>New ⇒ Terminal</p>
 <p>を選択すると、ターミナルのタブが生成されます。</p>
@@ -96,7 +94,7 @@ a1 contains the value of 10
 <p>Jupyter Notebook 上で開かれるターミナルは、環境によって違います。 デフォルトでは、Windows 10 ではPowerShellが起動し、macOSならばbashが起動するでしょう。</p>
 </section>
 <section id="Windowsでの実行方法">
-<h3>Windowsでの実行方法<a class="headerlink" href="#Windowsでの実行方法" title="Permalink to this heading">¶</a></h3>
+<h3>Windowsでの実行方法<a class="headerlink" href="#Windowsでの実行方法" title="Link to this heading">¶</a></h3>
 <p>以下をクリックすれば、ターミナルが開いて <code class="docutils literal notranslate"><span class="pre">python</span></code> をコマンドとして実行できます。</p>
 <p>Start メニュー ⇒ Anaonda3(64-bit) ⇒ Anaconda Prompt</p>
 <p><img alt="fig/sample-py-win-1.png" src="../_images/sample_py_win_1.png" /></p>
@@ -107,7 +105,7 @@ a1 contains the value of 10
 <p><img alt="fig/sample-py-win-3.png" src="../_images/sample_py_win_3.png" /></p>
 </section>
 <section id="macOS-での実行方法">
-<h3>macOS での実行方法<a class="headerlink" href="#macOS-での実行方法" title="Permalink to this heading">¶</a></h3>
+<h3>macOS での実行方法<a class="headerlink" href="#macOS-での実行方法" title="Link to this heading">¶</a></h3>
 <p>Application ⇒ Utilities ⇒ Terminal.app を起動します。</p>
 <p>アプリケーション ⇒ ユーティリティ ⇒ ターミナル.app を起動します。（日本語の場合）</p>
 <p><img alt="fig/sample-py-mac-1.png" src="../_images/sample_py_mac_1.png" /></p>
@@ -119,7 +117,7 @@ a1 contains the value of 10
 </section>
 </section>
 <section id="コマンドライン引数">
-<h2>コマンドライン引数<a class="headerlink" href="#コマンドライン引数" title="Permalink to this heading">¶</a></h2>
+<h2>コマンドライン引数<a class="headerlink" href="#コマンドライン引数" title="Link to this heading">¶</a></h2>
 <p>コマンドライン実行時には、実行スクリプト名の後に、文字列を書き込むことにより、実行スクリプトへ引数を与えることができます。 この引数のことを、<strong>コマンドライン引数</strong>と呼びます。</p>
 <p>たとえば、<code class="docutils literal notranslate"><span class="pre">argsprint.py</span></code> というスクリプトファイルをコマンドライン実行することを考えます。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; python argsprint.py
@@ -140,23 +138,23 @@ print(sys.argv) # リスト sys.argv の中身を印字
 <p>このような <code class="docutils literal notranslate"><span class="pre">argsprint.py</span></code> を先の例のように実行すると、以下の画像のような結果が得られます。リスト <code class="docutils literal notranslate"><span class="pre">sys.argv</span></code> に2番目の要素として文字列 <code class="docutils literal notranslate"><span class="pre">firstvalue</span></code> が、3番目の要素として文字列 <code class="docutils literal notranslate"><span class="pre">secondvalue</span></code> が、4番目の要素として文字列 <code class="docutils literal notranslate"><span class="pre">thirdvalue</span></code> が格納されていることを確認してください。また、リストの最初の要素には、実行したスクリプト名（ここでは <code class="docutils literal notranslate"><span class="pre">argsprint.py</span></code>）が格納されることに注意してください。</p>
 <p><img alt="fig/argsprint.png" src="../_images/argsprint.png" /></p>
 <section id="練習">
-<h3>練習<a class="headerlink" href="#練習" title="Permalink to this heading">¶</a></h3>
+<h3>練習<a class="headerlink" href="#練習" title="Link to this heading">¶</a></h3>
 <p>上記に従って <code class="docutils literal notranslate"><span class="pre">argsprint.py</span></code> ファイルを作成して、引数を変更したり、引数の数を増やしたり減らしたりして、表示がどう変わるか調べてください。</p>
 </section>
 <section id="id4">
-<h3>練習<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
+<h3>練習<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
 <p>コマンドライン実行時に、コマンドライン引数の1番目を印字 (print) する <code class="docutils literal notranslate"><span class="pre">arg1.py</span></code> を作成せよ。</p>
 </section>
 <section id="id5">
-<h3>練習<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
+<h3>練習<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
 <p>コマンドライン実行時に、スクリプト名を印字する <code class="docutils literal notranslate"><span class="pre">scriptname.py</span></code> を作成してください。</p>
 </section>
 <section id="id6">
-<h3>練習<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h3>
+<h3>練習<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
 <p>コマンドライン実行時に、コマンドライン引数の数を印字する <code class="docutils literal notranslate"><span class="pre">numargs.py</span></code> を作成してください。</p>
 </section>
 <section id="id7">
-<h3>練習<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h3>
+<h3>練習<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
 <p>コマンドライン引数として与えられた任意個の整数の和を印字する <code class="docutils literal notranslate"><span class="pre">sum.py</span></code> を作成してください。</p>
 <p>たとえば、次のように実行すると、</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; python sum.py 1 2 3
@@ -203,7 +201,7 @@ print(sys.argv) # リスト sys.argv の中身を印字
 </section>
 </section>
 <section id="モジュールのコマンドライン実行">
-<h2>モジュールのコマンドライン実行<a class="headerlink" href="#モジュールのコマンドライン実行" title="Permalink to this heading">¶</a></h2>
+<h2>モジュールのコマンドライン実行<a class="headerlink" href="#モジュールのコマンドライン実行" title="Link to this heading">¶</a></h2>
 <p>さて、モジュールファイルは、それ自体が単独で実行可能であると述べました。 つまり、Pythonソースファイルは、モジュールとしてインポートされる場合と、スクリプトとしてコマンドライン実行される場合の2通りが考えられるわけです。</p>
 <p>あるモジュールが、インポートされたのか、スクリプトとしてコマンドライン実行されたのかは、プログラム中の <code class="docutils literal notranslate"><span class="pre">__name__</span></code> という組み込み変数を参照することで区別できます。</p>
 <p>具体的には、モジュール <code class="docutils literal notranslate"><span class="pre">mod.py</span></code> がコマンドライン実行されたとき、<code class="docutils literal notranslate"><span class="pre">__name__</span></code> の値は <code class="docutils literal notranslate"><span class="pre">'__main__'</span></code> になります。 一方、<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">mod</span></code> されたとき、<code class="docutils literal notranslate"><span class="pre">__name__</span></code> の値は <code class="docutils literal notranslate"><span class="pre">'mod'</span></code> になります。</p>
@@ -245,9 +243,9 @@ if __name__ == &#39;__main__&#39;:
 <p>コマンドライン実行したときには、<code class="docutils literal notranslate"><span class="pre">fact()</span></code> が正しく計算されているかテストした結果が印字されます。 このテストコードは、ライブラリモジュールとしてimportして利用するときには実行されません。 このようにすると、1つのPythonソースファイルの中で、ライブラリ実装とテストをひとまとめにできて、保守しやすくなります。</p>
 </section>
 <section id="ソースファイル先頭部分にある宣言">
-<h2>ソースファイル先頭部分にある宣言<a class="headerlink" href="#ソースファイル先頭部分にある宣言" title="Permalink to this heading">¶</a></h2>
+<h2>ソースファイル先頭部分にある宣言<a class="headerlink" href="#ソースファイル先頭部分にある宣言" title="Link to this heading">¶</a></h2>
 <section id="文字コード宣言">
-<h3>文字コード宣言<a class="headerlink" href="#文字コード宣言" title="Permalink to this heading">¶</a></h3>
+<h3>文字コード宣言<a class="headerlink" href="#文字コード宣言" title="Link to this heading">¶</a></h3>
 <p>PythonソースコードはUTF-8で記述することが<a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#source-file-encoding">公式に推奨されています</a>。</p>
 <p>しかし、特にWindows環境では、歴史的事情からShift_JIS (shift_jis) が使われることがあります。 このとき、Pythonソースファイルの先頭部分には、次のような<strong>文字コード宣言</strong>が必要です。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># -*- coding: shift_jis -*-
@@ -257,7 +255,7 @@ if __name__ == &#39;__main__&#39;:
 <p>なお、UTF-8で記述されている場合には、文字コード宣言を記述しないことが<a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#source-file-encoding">公式に推奨されています</a>。</p>
 </section>
 <section id="shebang">
-<h3>shebang<a class="headerlink" href="#shebang" title="Permalink to this heading">¶</a></h3>
+<h3>shebang<a class="headerlink" href="#shebang" title="Link to this heading">¶</a></h3>
 <p>Unix環境（macOSを含む）では、スクリプトファイルの先頭行には、そのスクリプトを実行するコマンドを指定できるようになっています。 この先頭行のことは、<strong>shebang</strong>と呼ばれます。</p>
 <p>Unix環境でPythonスクリプトに用いられる標準的なshebangは次です。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#!/usr/bin/env python3
@@ -272,7 +270,7 @@ if __name__ == &#39;__main__&#39;:
 </section>
 </section>
 <section id="練習の解答">
-<h2>練習の解答<a class="headerlink" href="#練習の解答" title="Permalink to this heading">¶</a></h2>
+<h2>練習の解答<a class="headerlink" href="#練習の解答" title="Link to this heading">¶</a></h2>
 <p>各セルのコードを保存した <code class="docutils literal notranslate"><span class="pre">.py</span></code> ファイルが解答です。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -307,7 +305,7 @@ if __name__ == &#39;__main__&#39;:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-/home/sato/.local/lib/python3.10/site-packages/ipykernel_launcher.py
+/Users/jmori/Projects/utpython/lib/python3.12/site-packages/ipykernel_launcher.py
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -349,11 +347,11 @@ if __name__ == &#39;__main__&#39;:
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_9015/2860029703.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> s <span class="ansi-blue-fg">=</span> <span class="ansi-cyan-fg">0</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-green-fg">for</span> v <span class="ansi-green-fg">in</span> sys<span class="ansi-blue-fg">.</span>argv<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">----&gt; 5</span><span class="ansi-red-fg">     </span>s <span class="ansi-blue-fg">+=</span> int<span class="ansi-blue-fg">(</span>v<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      6</span> print<span class="ansi-blue-fg">(</span>s<span class="ansi-blue-fg">)</span>
+Cell <span class="ansi-green-fg">In[7], line 5</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> s <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(98,98,98)">0</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> v <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> sys<span style="color: rgb(98,98,98)">.</span>argv[<span style="color: rgb(98,98,98)">1</span>:]:
+<span class="ansi-green-fg">----&gt; 5</span>     s <span style="color: rgb(98,98,98)">+</span><span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">int</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">v</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span> <span style="color: rgb(0,135,0)">print</span>(s)
 
 <span class="ansi-red-fg">ValueError</span>: invalid literal for int() with base 10: &#39;-f&#39;
 </pre></div></div>
@@ -366,7 +364,7 @@ if __name__ == &#39;__main__&#39;:
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <h1 class="logo"><a href="../index.html">Pythonプログラミング入門</a></h1>
 
@@ -435,7 +433,7 @@ if __name__ == &#39;__main__&#39;:
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -443,7 +441,7 @@ if __name__ == &#39;__main__&#39;:
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -458,18 +456,18 @@ if __name__ == &#39;__main__&#39;:
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      &#169;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.2.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
       
     </div>
 
     
 
     
-    <script type="text/javascript">
+    <script>
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-159819977-1']);
@@ -478,8 +476,8 @@ if __name__ == &#39;__main__&#39;:
       _gaq.push(['_trackPageview']);
 
       (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var ga = document.createElement('script'); ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
 

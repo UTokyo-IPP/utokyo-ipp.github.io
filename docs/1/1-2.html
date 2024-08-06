@@ -1,21 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="jp">
+<html lang="jp" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>1-2. 変数と関数の基礎 &#8212; Pythonプログラミング入門  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
     <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=3ff7d7a7"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -26,8 +23,9 @@
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -40,7 +38,7 @@
           <div class="body" role="main">
             
   <section id="1-2.-変数と関数の基礎">
-<h1>1-2. 変数と関数の基礎<a class="headerlink" href="#1-2.-変数と関数の基礎" title="Permalink to this heading">¶</a></h1>
+<h1>1-2. 変数と関数の基礎<a class="headerlink" href="#1-2.-変数と関数の基礎" title="Link to this heading">¶</a></h1>
 <p>変数と関数の基礎について説明します。</p>
 <p>参考</p>
 <ul class="simple">
@@ -49,7 +47,7 @@
 <li><p><a class="reference external" href="https://docs.python.org/ja/3/library/functions.html#print">https://docs.python.org/ja/3/library/functions.html#print</a></p></li>
 </ul>
 <section id="変数">
-<h2>変数<a class="headerlink" href="#変数" title="Permalink to this heading">¶</a></h2>
+<h2>変数<a class="headerlink" href="#変数" title="Link to this heading">¶</a></h2>
 <p>プログラミング言語における<strong>変数</strong>とは、値に名前を付ける仕組みであり、名前はその値を指し示すことになります。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -153,7 +151,7 @@ NameError: name &#39;BMI&#39; is not defined
 </div>
 <p>以降では、単純のため、変数が指し示す値を、変数の値として説明していきます。</p>
 <section id="代入文">
-<h3>代入文<a class="headerlink" href="#代入文" title="Permalink to this heading">¶</a></h3>
+<h3>代入文<a class="headerlink" href="#代入文" title="Link to this heading">¶</a></h3>
 <p>変数定義に用いた <code class="docutils literal notranslate"><span class="pre">=</span></code> による構文を、Pythonでは<strong>代入文</strong> (<strong>assignment statement</strong>) と呼びます。 そして、代入文を実行することを<strong>代入</strong> (<strong>assignment</strong>) と言います。 代入文は、<code class="docutils literal notranslate"><span class="pre">=</span></code> の左辺に右辺の式の評価結果の値を割り当てる文です。 上記の例のように、左辺が変数の場合には、代入文は変数定義と解釈されます。</p>
 <p>代入文は、右辺を評価した後に左辺に割り当てるという順番に従います。右辺に出現する変数が左辺に出て来てもかまいません。</p>
 <div class="nbinput nblast docutils container">
@@ -186,7 +184,7 @@ NameError: name &#39;BMI&#39; is not defined
 <p><strong>注意</strong>： 数学における代入は、substitution（置換）であり、プログラミング言語における代入 (assignment) とは異なります。代入という単語よりも、assignment（割り当て）という単語で概念を覚えましょう。</p>
 </section>
 <section id="累積代入文">
-<h3>累積代入文<a class="headerlink" href="#累積代入文" title="Permalink to this heading">¶</a></h3>
+<h3>累積代入文<a class="headerlink" href="#累積代入文" title="Link to this heading">¶</a></h3>
 <p>上の例のように変数の値を減らす操作は、次のような<strong>累算代入文</strong> (<strong>augmented assignment statement</strong>) を使って簡潔に記述することができます。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
@@ -217,7 +215,7 @@ NameError: name &#39;BMI&#39; is not defined
 </section>
 </section>
 <section id="関数の定義と返値">
-<h2>関数の定義と返値<a class="headerlink" href="#関数の定義と返値" title="Permalink to this heading">¶</a></h2>
+<h2>関数の定義と返値<a class="headerlink" href="#関数の定義と返値" title="Link to this heading">¶</a></h2>
 <p>前述のように、変数の値が変わるたびにBMIの式を入力するのは面倒です。以下では、身長 <code class="docutils literal notranslate"><span class="pre">height</span></code> と体重 <code class="docutils literal notranslate"><span class="pre">weight</span></code> をもらって、BMIを計算する<strong>関数</strong> <code class="docutils literal notranslate"><span class="pre">bmi</span></code> を定義してみましょう。関数を定義すると、BMIの式の再入力を省けて便利です。</p>
 <p>次のような形式で、<strong>関数定義</strong>を記述できます。</p>
 <p>関数定義など、複数行のコードセルには、<strong>行番号</strong>を振るのがよいかもしれません。行番号を振るかどうかは、コマンドモードでエルの文字（大文字でも小文字でもよいです）を入力することによって、スイッチできます。行番号があるかないかは、コードの実行には影響しません。</p>
@@ -311,11 +309,11 @@ NameError: name &#39;BMI&#39; is not defined
 <p>なお、<code class="docutils literal notranslate"><span class="pre">return</span></code> の後に式を書かないと、何も返されなかったことを表現するために、「何もない」ことを表す <code class="docutils literal notranslate"><span class="pre">None</span></code> という特別な値が返ります。 （<code class="docutils literal notranslate"><span class="pre">None</span></code> という値は色々なところで現れることでしょう。）</p>
 <p>return文に到達せずに関数定義本体の最後まで行ってしまったときも、<code class="docutils literal notranslate"><span class="pre">None</span></code> という値が返ります。</p>
 <section id="予約語">
-<h3>予約語<a class="headerlink" href="#予約語" title="Permalink to this heading">¶</a></h3>
+<h3>予約語<a class="headerlink" href="#予約語" title="Link to this heading">¶</a></h3>
 <p>Pythonでの <code class="docutils literal notranslate"><span class="pre">def</span></code> や <code class="docutils literal notranslate"><span class="pre">return</span></code> は、関数定義やreturn文の始まりを記述するための特別な記号であり、それ以外の用途に用いることができません。 このように構文上で役割が予約されている語は、<strong>予約語</strong>と呼ばれます。 Codeセルの構文ハイライトで（太字緑色などで）強調されるものが予約語だと覚えておけば大体問題ありません。</p>
 </section>
 <section id="練習-ft_to_cm">
-<h3>練習 <code class="docutils literal notranslate"><span class="pre">ft_to_cm</span></code><a class="headerlink" href="#練習-ft_to_cm" title="Permalink to this heading">¶</a></h3>
+<h3>練習 <code class="docutils literal notranslate"><span class="pre">ft_to_cm</span></code><a class="headerlink" href="#練習-ft_to_cm" title="Link to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">f</span></code> フィート <code class="docutils literal notranslate"><span class="pre">i</span></code> インチをセンチメートルに変換する関数 <code class="docutils literal notranslate"><span class="pre">ft_to_cm(f,i)</span></code> を定義してください。 ただし、1 フィート = 12 インチ = 30.48 cm としてよい。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
@@ -343,16 +341,16 @@ NameError: name &#39;BMI&#39; is not defined
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_767/651702340.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">assert</span> round<span class="ansi-blue-fg">(</span>ft_to_cm<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">5</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">-</span> <span class="ansi-cyan-fg">157.48</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">0</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">assert</span> round<span class="ansi-blue-fg">(</span>ft_to_cm<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">5</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">-</span> <span class="ansi-cyan-fg">195.58</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">0</span>
+Cell <span class="ansi-green-fg">In[18], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">assert</span> <span style="color: rgb(0,135,0)">round</span>(<span class="ansi-yellow-bg">ft_to_cm</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">5</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">2</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">-</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">157.48</span>, <span style="color: rgb(98,98,98)">6</span>) <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(98,98,98)">0</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-bold" style="color: rgb(0,135,0)">assert</span> <span style="color: rgb(0,135,0)">round</span>(ft_to_cm(<span style="color: rgb(98,98,98)">6</span>, <span style="color: rgb(98,98,98)">5</span>) <span style="color: rgb(98,98,98)">-</span> <span style="color: rgb(98,98,98)">195.58</span>, <span style="color: rgb(98,98,98)">6</span>) <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(98,98,98)">0</span>
 
 <span class="ansi-red-fg">TypeError</span>: unsupported operand type(s) for -: &#39;NoneType&#39; and &#39;float&#39;
 </pre></div></div>
 </div>
 </section>
 <section id="練習-quadratic">
-<h3>練習 <code class="docutils literal notranslate"><span class="pre">quadratic</span></code><a class="headerlink" href="#練習-quadratic" title="Permalink to this heading">¶</a></h3>
+<h3>練習 <code class="docutils literal notranslate"><span class="pre">quadratic</span></code><a class="headerlink" href="#練習-quadratic" title="Link to this heading">¶</a></h3>
 <p>二次関数 <span class="math notranslate nohighlight">\(f(x) = ax^2+bx+c\)</span> の値を求める <code class="docutils literal notranslate"><span class="pre">quadratic(a,b,c,x)</span></code> を定義してください。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
@@ -380,9 +378,9 @@ NameError: name &#39;BMI&#39; is not defined
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">AssertionError</span>                            Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_767/2102554972.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">assert</span> quadratic<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">16</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">assert</span> quadratic<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">5</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">7</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">12</span>
+Cell <span class="ansi-green-fg">In[20], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">assert</span> quadratic(<span style="color: rgb(98,98,98)">1</span>, <span style="color: rgb(98,98,98)">2</span>, <span style="color: rgb(98,98,98)">1</span>, <span style="color: rgb(98,98,98)">3</span>) <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(98,98,98)">16</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-bold" style="color: rgb(0,135,0)">assert</span> quadratic(<span style="color: rgb(98,98,98)">1</span>, <span style="color: rgb(98,98,98)">-</span><span style="color: rgb(98,98,98)">5</span>, <span style="color: rgb(98,98,98)">-</span><span style="color: rgb(98,98,98)">2</span>, <span style="color: rgb(98,98,98)">7</span>) <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(98,98,98)">12</span>
 
 <span class="ansi-red-fg">AssertionError</span>:
 </pre></div></div>
@@ -390,7 +388,7 @@ NameError: name &#39;BMI&#39; is not defined
 </section>
 </section>
 <section id="ローカル変数">
-<h2>ローカル変数<a class="headerlink" href="#ローカル変数" title="Permalink to this heading">¶</a></h2>
+<h2>ローカル変数<a class="headerlink" href="#ローカル変数" title="Link to this heading">¶</a></h2>
 <p>次の関数は、ヘロンの公式によって、 与えられた三辺の長さに対して三角形の面積を返すものです。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
@@ -442,8 +440,8 @@ NameError: name &#39;BMI&#39; is not defined
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_767/1028141915.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>s
+Cell <span class="ansi-green-fg">In[23], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">s</span>
 
 <span class="ansi-red-fg">NameError</span>: name &#39;s&#39; is not defined
 </pre></div></div>
@@ -486,7 +484,7 @@ NameError: name &#39;BMI&#39; is not defined
 </div>
 </section>
 <section id="print">
-<h2><code class="docutils literal notranslate"><span class="pre">print</span></code><a class="headerlink" href="#print" title="Permalink to this heading">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">print</span></code><a class="headerlink" href="#print" title="Link to this heading">¶</a></h2>
 <p>上の例で、ローカル変数は関数の返値を計算するのに使われますが、それが定義されている関数の外からは参照することができません。</p>
 <p>ローカル変数の値など、関数の実行途中の状況を確認するには、 <code class="docutils literal notranslate"><span class="pre">print</span></code> というPythonが最初から用意してくれている関数（<strong>組み込み関数</strong>）を用いることができます。この <code class="docutils literal notranslate"><span class="pre">print</span></code> を関数内から呼び出すことでローカル変数の値を確認できます。</p>
 <p><code class="docutils literal notranslate"><span class="pre">print</span></code> は任意個の引数を取ることができ、コンマ <code class="docutils literal notranslate"><span class="pre">,</span></code> の区切りには空白文字が出力されます。引数を与えずに呼び出した場合には、改行のみを出力します。</p>
@@ -530,7 +528,7 @@ The value of s is 1.5
 <p>なお、以降の説明では、 <code class="docutils literal notranslate"><span class="pre">print</span></code> 関数を呼び出して値を出力することを「<strong>印字</strong>する」と表現します。</p>
 </section>
 <section id="print-と-return">
-<h2><code class="docutils literal notranslate"><span class="pre">print</span></code> と <code class="docutils literal notranslate"><span class="pre">return</span></code><a class="headerlink" href="#print-と-return" title="Permalink to this heading">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">print</span></code> と <code class="docutils literal notranslate"><span class="pre">return</span></code><a class="headerlink" href="#print-と-return" title="Link to this heading">¶</a></h2>
 <p>関数が値を返すことを期待されている場合は、必ず <code class="docutils literal notranslate"><span class="pre">return</span></code> を使ってください。</p>
 <p>関数内で値を印字しても、関数の返値として利用することはできません。</p>
 <p>たとえば <code class="docutils literal notranslate"><span class="pre">heron</span></code> を以下のように定義すると、<code class="docutils literal notranslate"><span class="pre">heron(1,1,1)</span> <span class="pre">*</span> <span class="pre">2</span></code> のような計算ができなくなります。</p>
@@ -547,7 +545,7 @@ The value of s is 1.5
 <p>のように書いても駄目です。<code class="docutils literal notranslate"><span class="pre">print</span></code> 関数は <code class="docutils literal notranslate"><span class="pre">None</span></code> という値を返しますので、これでは関数は常に <code class="docutils literal notranslate"><span class="pre">None</span></code> という値を返してしまいます。</p>
 </section>
 <section id="コメントと空行">
-<h2>コメントと空行<a class="headerlink" href="#コメントと空行" title="Permalink to this heading">¶</a></h2>
+<h2>コメントと空行<a class="headerlink" href="#コメントと空行" title="Link to this heading">¶</a></h2>
 <p><strong>コメント</strong>については既に説明しましたが、 関数定義にはコメントを付加して、後から読んでもわかるようにしましょう。</p>
 <p>コメントだけの行は<strong>空行</strong>（空白のみから成る行）と同じに扱われます。</p>
 <p>関数定義の中に空行を自由に入れることができますので、 長い関数定義には、区切りとなるところに空行を入れるのがよいでしょう。</p>
@@ -568,7 +566,7 @@ The value of s is 1.5
 </div>
 </section>
 <section id="関数の参照の書き方">
-<h2>関数の参照の書き方<a class="headerlink" href="#関数の参照の書き方" title="Permalink to this heading">¶</a></h2>
+<h2>関数の参照の書き方<a class="headerlink" href="#関数の参照の書き方" title="Link to this heading">¶</a></h2>
 <p>関数は、</p>
 <p>　　関数 <code class="docutils literal notranslate"><span class="pre">heron</span></code> は、三角形の三辺の長さをもらって三角形の面積を返します。</p>
 <p>というように、名前だけで参照することもありますが、</p>
@@ -580,7 +578,7 @@ The value of s is 1.5
 <p>関数には引数がゼロ個のものがあるのですが、<code class="docutils literal notranslate"><span class="pre">heron()</span></code> と参照するとき、 <code class="docutils literal notranslate"><span class="pre">heron</span></code> は必ずしも引数の数がゼロ個ではないことに注意してください。</p>
 <p>後に学習するメソッドという関数の親戚に対しても同様の記法が用いられます。</p>
 <section id="練習-qe_disc-qe_solution1-qe_solution1">
-<h3>練習 <code class="docutils literal notranslate"><span class="pre">qe_disc</span></code> <code class="docutils literal notranslate"><span class="pre">qe_solution1</span></code> <code class="docutils literal notranslate"><span class="pre">qe_solution1</span></code><a class="headerlink" href="#練習-qe_disc-qe_solution1-qe_solution1" title="Permalink to this heading">¶</a></h3>
+<h3>練習 <code class="docutils literal notranslate"><span class="pre">qe_disc</span></code> <code class="docutils literal notranslate"><span class="pre">qe_solution1</span></code> <code class="docutils literal notranslate"><span class="pre">qe_solution1</span></code><a class="headerlink" href="#練習-qe_disc-qe_solution1-qe_solution1" title="Link to this heading">¶</a></h3>
 <p>二次方程式 <span class="math notranslate nohighlight">\(ax^2 + bx + c = 0\)</span> に関して以下のような関数を定義してください。</p>
 <ol class="arabic simple">
 <li><p>判別式 <span class="math notranslate nohighlight">\(b^2 - 4ac\)</span> を求める <code class="docutils literal notranslate"><span class="pre">qe_disc(a,b,c)</span></code></p></li>
@@ -626,12 +624,10 @@ The value of s is 1.5
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">AssertionError</span>                            Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_767/2182455849.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">assert</span> qe_disc<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">0</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">assert</span> qe_disc<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">5</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">1</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-green-fg">assert</span> round<span class="ansi-blue-fg">(</span>qe_solution1<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">-</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">0</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-green-fg">assert</span> round<span class="ansi-blue-fg">(</span>qe_solution2<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">-</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">0</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> <span class="ansi-green-fg">assert</span> round<span class="ansi-blue-fg">(</span>qe_solution1<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">5</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">-</span> <span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">0</span>
+Cell <span class="ansi-green-fg">In[30], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">assert</span> qe_disc(<span style="color: rgb(98,98,98)">1</span>, <span style="color: rgb(98,98,98)">-</span><span style="color: rgb(98,98,98)">2</span>, <span style="color: rgb(98,98,98)">1</span>) <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(98,98,98)">0</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-bold" style="color: rgb(0,135,0)">assert</span> qe_disc(<span style="color: rgb(98,98,98)">1</span>, <span style="color: rgb(98,98,98)">-</span><span style="color: rgb(98,98,98)">5</span>, <span style="color: rgb(98,98,98)">6</span>) <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(98,98,98)">1</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-bold" style="color: rgb(0,135,0)">assert</span> <span style="color: rgb(0,135,0)">round</span>(qe_solution1(<span style="color: rgb(98,98,98)">1</span>, <span style="color: rgb(98,98,98)">-</span><span style="color: rgb(98,98,98)">2</span>, <span style="color: rgb(98,98,98)">1</span>) <span style="color: rgb(98,98,98)">-</span> <span style="color: rgb(98,98,98)">1</span>, <span style="color: rgb(98,98,98)">6</span>) <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(98,98,98)">0</span>
 
 <span class="ansi-red-fg">AssertionError</span>:
 </pre></div></div>
@@ -639,7 +635,7 @@ The value of s is 1.5
 </section>
 </section>
 <section id="▲グローバル変数">
-<h2>▲グローバル変数<a class="headerlink" href="#▲グローバル変数" title="Permalink to this heading">¶</a></h2>
+<h2>▲グローバル変数<a class="headerlink" href="#▲グローバル変数" title="Link to this heading">¶</a></h2>
 <p>Pythonでは、関数の中で代入が行われない変数は、グローバル変数とみなされます。</p>
 <p><strong>グローバル変数</strong>とは、関数の外（<strong>トップレベル</strong>もしくは<strong>モジュールレベル</strong>と呼ばれます）で定義される変数のことです。</p>
 <p>グローバル変数は、関数の中から参照することができます。</p>
@@ -841,7 +837,7 @@ The value of s is 1.5
 <p>関数の引数もローカル変数の一種と考えられ、グローバル変数とは別ものです。</p>
 </section>
 <section id="練習の解答">
-<h2>練習の解答<a class="headerlink" href="#練習の解答" title="Permalink to this heading">¶</a></h2>
+<h2>練習の解答<a class="headerlink" href="#練習の解答" title="Link to this heading">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
@@ -885,7 +881,7 @@ The value of s is 1.5
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <h1 class="logo"><a href="../index.html">Pythonプログラミング入門</a></h1>
 
@@ -958,7 +954,7 @@ The value of s is 1.5
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -966,7 +962,7 @@ The value of s is 1.5
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -981,18 +977,18 @@ The value of s is 1.5
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      &#169;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.2.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
       
     </div>
 
     
 
     
-    <script type="text/javascript">
+    <script>
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-159819977-1']);
@@ -1001,8 +997,8 @@ The value of s is 1.5
       _gaq.push(['_trackPageview']);
 
       (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var ga = document.createElement('script'); ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
 

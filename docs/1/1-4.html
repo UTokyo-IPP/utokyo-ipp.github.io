@@ -1,21 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="jp">
+<html lang="jp" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>1-4. テストとデバッグ &#8212; Pythonプログラミング入門  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
     <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=3ff7d7a7"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -26,8 +23,9 @@
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -40,14 +38,14 @@
           <div class="body" role="main">
             
   <section id="1-4.-テストとデバッグ">
-<h1>1-4. テストとデバッグ<a class="headerlink" href="#1-4.-テストとデバッグ" title="Permalink to this heading">¶</a></h1>
+<h1>1-4. テストとデバッグ<a class="headerlink" href="#1-4.-テストとデバッグ" title="Link to this heading">¶</a></h1>
 <p>テストとデバッグについて説明します。</p>
 <p>参考</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.python.org/ja/3/tutorial/errors.html">https://docs.python.org/ja/3/tutorial/errors.html</a></p></li>
 </ul>
 <section id="仕様・テスト・デバッグ">
-<h2>仕様・テスト・デバッグ<a class="headerlink" href="#仕様・テスト・デバッグ" title="Permalink to this heading">¶</a></h2>
+<h2>仕様・テスト・デバッグ<a class="headerlink" href="#仕様・テスト・デバッグ" title="Link to this heading">¶</a></h2>
 <p>プログラムを書くときに、実現しようとしている事柄を<strong>仕様</strong>と呼びます。</p>
 <p>対象のプログラムが仕様に適合しているかを、実際にプログラムを動作させて検査することを、<strong>テスト</strong>と呼びます。 テストの際に、テスト対象に与える入出力ペアのことを、<strong>テストケース</strong>と呼びます。</p>
 <p>書いたプログラムが仕様に適合しているかは、一般に自明ではありません。 テストによって、仕様に反したプログラムの振舞いが、しばしば浮き彫りになります。 仕様に反したプログラムの振舞いの原因を、<strong>バグ</strong>と呼び、それを取り除くことを<strong>デバッグ</strong>と呼びます。</p>
@@ -61,7 +59,7 @@
 <p>という4つの行いを、必要に応じて繰り返すことになります。</p>
 </section>
 <section id="assert文">
-<h2>assert文<a class="headerlink" href="#assert文" title="Permalink to this heading">¶</a></h2>
+<h2>assert文<a class="headerlink" href="#assert文" title="Link to this heading">¶</a></h2>
 <p>テストとデバッグに有用なのが、<strong>assert文</strong>です。 これは、<code class="docutils literal notranslate"><span class="pre">assert</span></code> の次に書かれた条件式が真であるべきだと仕様を宣言する文です。 偽であった場合は、<code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> が発生してプログラムがそこで停止します。</p>
 <p>与えられた引数を二乗する関数 <code class="docutils literal notranslate"><span class="pre">square</span></code> を用いた具体例を示します。</p>
 <div class="nbinput nblast docutils container">
@@ -97,10 +95,10 @@
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">AssertionError</span>                            Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_1581/598319922.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> x <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">2</span>
-<span class="ansi-green-fg">----&gt; 5</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">assert</span> square<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">&gt;=</span> <span class="ansi-cyan-fg">0</span>
+Cell <span class="ansi-green-fg">In[2], line 5</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> x<span style="color: rgb(98,98,98)">+</span>x <span style="color: rgb(95,135,135)"># バグがある</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> x <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(98,98,98)">-</span><span style="color: rgb(98,98,98)">2</span>
+<span class="ansi-green-fg">----&gt; 5</span> <span class="ansi-bold" style="color: rgb(0,135,0)">assert</span> square(x) <span style="color: rgb(98,98,98)">&gt;</span><span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(98,98,98)">0</span>
 
 <span class="ansi-red-fg">AssertionError</span>:
 </pre></div></div>
@@ -124,11 +122,11 @@
 <p>上の例では、<code class="docutils literal notranslate"><span class="pre">square</span></code>に対する3つのテストケースについて、assert文でテストしています。テストケースが満たされた（つまりassert文で停止しなかった）からと言って、テスト対象の <code class="docutils literal notranslate"><span class="pre">square</span></code> が正しいとは言えませんが、仕様への適合度が高いことから、尤もらしいとは言えます。</p>
 </section>
 <section id="エラーの分類">
-<h2>エラーの分類<a class="headerlink" href="#エラーの分類" title="Permalink to this heading">¶</a></h2>
+<h2>エラーの分類<a class="headerlink" href="#エラーの分類" title="Link to this heading">¶</a></h2>
 <p>不正なプログラムからは、様々なエラーが生じます。</p>
 <p>エラーには大きく分けて、構文エラー・実行時エラー・論理エラーの3つがあります。 以下では、それぞれの意味と、典型例を示します。</p>
 <section id="構文エラー">
-<h3>構文エラー<a class="headerlink" href="#構文エラー" title="Permalink to this heading">¶</a></h3>
+<h3>構文エラー<a class="headerlink" href="#構文エラー" title="Link to this heading">¶</a></h3>
 <p><strong>構文エラー</strong>（syntax error）とは、プログラムコードが、Pythonの構文に違反しているときに生じるエラーです。</p>
 <p>Pythonにおける構文エラーの典型例として、</p>
 <ul class="simple">
@@ -153,7 +151,7 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_1581/4075509044.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[4], line 1</span>
 <span class="ansi-red-fg">    print(&#39;This is the error) # クォートの閉じ忘れ</span>
           ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> unterminated string literal (detected at line 1)
@@ -174,7 +172,7 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_1581/592770939.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[5], line 1</span>
 <span class="ansi-red-fg">    def f()  # コロンの付け忘れ</span>
              ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> expected &#39;:&#39;
@@ -195,7 +193,7 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_1581/56312742.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">2</span>
+<span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[6], line 2</span>
 <span class="ansi-red-fg">    return 1 # インデントの崩れ</span>
     ^
 <span class="ansi-red-fg">IndentationError</span><span class="ansi-red-fg">:</span> expected an indented block after function definition on line 1
@@ -215,7 +213,7 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_1581/156327778.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[7], line 1</span>
 <span class="ansi-red-fg">    1 +　1 # 全角スペースの利用</span>
        ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid non-printable character U+3000
@@ -227,7 +225,7 @@
 <p>Pythonでは、構文エラーが実行時に発生しているように見えますが、実際には、実行しようとするプログラムコードの解釈に失敗することでエラーが生じています。 つまり、構文エラーは、プログラムの実行によって生じるエラーではなく、実行できなかったことで生じるエラーです。</p>
 </section>
 <section id="実行時エラー">
-<h3>実行時エラー<a class="headerlink" href="#実行時エラー" title="Permalink to this heading">¶</a></h3>
+<h3>実行時エラー<a class="headerlink" href="#実行時エラー" title="Link to this heading">¶</a></h3>
 <p><strong>実行時エラー</strong>（runtime error）とは、プログラムを実行した際に生じるエラー全般を指します。 簡単に言えば、プログラムを異常停止させるエラーです。</p>
 <p>実行時エラーが生じる典型的な状況として、</p>
 <ul class="simple">
@@ -254,8 +252,8 @@
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_1581/3996331676.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>undefined_variable <span class="ansi-red-fg"># 未定義の変数の参照</span>
+Cell <span class="ansi-green-fg">In[8], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">undefined_variable</span> <span style="color: rgb(95,135,135)"># 未定義の変数の参照</span>
 
 <span class="ansi-red-fg">NameError</span>: name &#39;undefined_variable&#39; is not defined
 </pre></div></div>
@@ -278,18 +276,16 @@
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">UnboundLocalError</span>                         Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_1581/2530582621.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">def</span> f<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span>     x <span class="ansi-blue-fg">=</span> x <span class="ansi-red-fg"># グローバル変数のつもりでローカル変数を参照</span>
-<span class="ansi-green-fg">----&gt; 4</span><span class="ansi-red-fg"> </span>f<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+Cell <span class="ansi-green-fg">In[9], line 4</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">f</span>():
+<span class="ansi-green-intense-fg ansi-bold">      3</span>     x <span style="color: rgb(98,98,98)">=</span> x <span style="color: rgb(95,135,135)"># グローバル変数のつもりでローカル変数を参照</span>
+<span class="ansi-green-fg">----&gt; 4</span> <span class="ansi-yellow-bg">f</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
 
-<span class="ansi-green-fg">/tmp/ipykernel_1581/2530582621.py</span> in <span class="ansi-cyan-fg">f</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> x <span class="ansi-blue-fg">=</span> <span class="ansi-cyan-fg">1</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">def</span> f<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg">     </span>x <span class="ansi-blue-fg">=</span> x <span class="ansi-red-fg"># グローバル変数のつもりでローカル変数を参照</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> f<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+Cell <span class="ansi-green-fg">In[9], line 3</span>, in <span class="ansi-cyan-fg">f</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">f</span>():
+<span class="ansi-green-fg">----&gt; 3</span>     x <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">x</span>
 
-<span class="ansi-red-fg">UnboundLocalError</span>: local variable &#39;x&#39; referenced before assignment
+<span class="ansi-red-fg">UnboundLocalError</span>: cannot access local variable &#39;x&#39; where it is not associated with a value
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -307,8 +303,8 @@
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ZeroDivisionError</span>                         Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_1581/2808883117.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">/</span><span class="ansi-cyan-fg">0</span> <span class="ansi-red-fg"># ゼロによる除算</span>
+Cell <span class="ansi-green-fg">In[10], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg" style="color: rgb(98,98,98)">1</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">/</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">0</span> <span style="color: rgb(95,135,135)"># ゼロによる除算</span>
 
 <span class="ansi-red-fg">ZeroDivisionError</span>: division by zero
 </pre></div></div>
@@ -328,8 +324,8 @@
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_1581/3534311223.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-blue-fg">{</span><span class="ansi-blue-fg">&#39;a&#39;</span><span class="ansi-blue-fg">:</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">}</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;b&#39;</span><span class="ansi-blue-fg">]</span> <span class="ansi-red-fg"># 登録されていないキーに対する値を参照</span>
+Cell <span class="ansi-green-fg">In[11], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">{</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">a</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg">:</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">1</span><span class="ansi-yellow-bg">}</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">b</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg">]</span> <span style="color: rgb(95,135,135)"># 登録されていないキーに対する値を参照</span>
 
 <span class="ansi-red-fg">KeyError</span>: &#39;b&#39;
 </pre></div></div>
@@ -349,8 +345,17 @@
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_1581/3183672649.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>open<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;non-existent.txt&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;r&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-red-fg"># 存在しないファイルの読み込み</span>
+Cell <span class="ansi-green-fg">In[12], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">open</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">non-existent.txt</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">r</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg">)</span> <span style="color: rgb(95,135,135)"># 存在しないファイルの読み込み</span>
+
+File <span class="ansi-green-fg">~/Projects/utpython/lib/python3.12/site-packages/IPython/core/interactiveshell.py:324</span>, in <span class="ansi-cyan-fg">_modified_open</span><span class="ansi-blue-fg">(file, *args, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    317</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> file <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> {<span style="color: rgb(98,98,98)">0</span>, <span style="color: rgb(98,98,98)">1</span>, <span style="color: rgb(98,98,98)">2</span>}:
+<span class="ansi-green-intense-fg ansi-bold">    318</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">ValueError</span>(
+<span class="ansi-green-intense-fg ansi-bold">    319</span>         <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">IPython won</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">t let you open fd=</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>file<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)"> by default </span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    320</span>         <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">as it is likely to crash IPython. If you know what you are doing, </span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    321</span>         <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">you can use builtins</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)"> open.</span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    322</span>     )
+<span class="ansi-green-fg">--&gt; 324</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">io_open</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">file</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">args</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>
 
 <span class="ansi-red-fg">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;non-existent.txt&#39;
 </pre></div></div>
@@ -359,14 +364,14 @@
 <p>実行時エラーに直面した際は、発生した例外名とエラーメッセージをよく読んで、エラーに関連する言語機能（たとえば辞書やファイル）の仕組みを改めて確認しましょう。</p>
 </section>
 <section id="論理エラー">
-<h3>論理エラー<a class="headerlink" href="#論理エラー" title="Permalink to this heading">¶</a></h3>
+<h3>論理エラー<a class="headerlink" href="#論理エラー" title="Link to this heading">¶</a></h3>
 <p><strong>論理エラー</strong>（logic error）とは、プログラムを実行できるが、意図したように動作しないことを意味します。 これは、プログラムから発生するエラーではなく、プログラムを書いた人のエラーです。</p>
 <p>バグと呼ばれるものの多くは、論理エラーです。 したがって、デバッグでは、プログラムを書いた人の意図と、プログラムの振舞いを比較検証することになります。</p>
 <p>assert文は、仕様違反という論理エラーを、 <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> という実行時エラーに変換していると見做すことができます。</p>
 </section>
 </section>
 <section id="デバッグの具体例">
-<h2>デバッグの具体例<a class="headerlink" href="#デバッグの具体例" title="Permalink to this heading">¶</a></h2>
+<h2>デバッグの具体例<a class="headerlink" href="#デバッグの具体例" title="Link to this heading">¶</a></h2>
 <p>デバッグの具体的なシナリオを説明します。 次の関数 <code class="docutils literal notranslate"><span class="pre">median(x,</span> <span class="pre">y,</span> <span class="pre">z)</span></code> は、<code class="docutils literal notranslate"><span class="pre">x</span></code> と <code class="docutils literal notranslate"><span class="pre">y</span></code> と <code class="docutils literal notranslate"><span class="pre">z</span></code> の中央値（真ん中の値）を求めようとするものです。 ただし、 <code class="docutils literal notranslate"><span class="pre">x</span></code> と <code class="docutils literal notranslate"><span class="pre">y</span></code> と <code class="docutils literal notranslate"><span class="pre">z</span></code> は相異なる数であると仮定します。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
@@ -393,10 +398,10 @@
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">AssertionError</span>                            Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_1581/3638934845.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      9</span>     <span class="ansi-green-fg">return</span> y
-<span class="ansi-green-intense-fg ansi-bold">     10</span>
-<span class="ansi-green-fg">---&gt; 11</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">assert</span> median<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">2</span>
+Cell <span class="ansi-green-fg">In[13], line 11</span>
+<span class="ansi-green-intense-fg ansi-bold">      8</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> z
+<span class="ansi-green-intense-fg ansi-bold">      9</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> y
+<span class="ansi-green-fg">---&gt; 11</span> <span class="ansi-bold" style="color: rgb(0,135,0)">assert</span> median(<span style="color: rgb(98,98,98)">3</span>, <span style="color: rgb(98,98,98)">1</span>, <span style="color: rgb(98,98,98)">2</span>) <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(98,98,98)">2</span>
 
 <span class="ansi-red-fg">AssertionError</span>:
 </pre></div></div>
@@ -439,10 +444,10 @@
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">AssertionError</span>                            Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_1581/655774478.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     11</span>     <span class="ansi-green-fg">return</span> y
-<span class="ansi-green-intense-fg ansi-bold">     12</span>
-<span class="ansi-green-fg">---&gt; 13</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">assert</span> median<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">2</span>
+Cell <span class="ansi-green-fg">In[14], line 13</span>
+<span class="ansi-green-intense-fg ansi-bold">     10</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> z
+<span class="ansi-green-intense-fg ansi-bold">     11</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> y
+<span class="ansi-green-fg">---&gt; 13</span> <span class="ansi-bold" style="color: rgb(0,135,0)">assert</span> median(<span style="color: rgb(98,98,98)">3</span>, <span style="color: rgb(98,98,98)">1</span>, <span style="color: rgb(98,98,98)">2</span>) <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(98,98,98)">2</span>
 
 <span class="ansi-red-fg">AssertionError</span>:
 </pre></div></div>
@@ -501,7 +506,7 @@
 </div>
 </section>
 <section id="コーディングスタイル">
-<h2>コーディングスタイル<a class="headerlink" href="#コーディングスタイル" title="Permalink to this heading">¶</a></h2>
+<h2>コーディングスタイル<a class="headerlink" href="#コーディングスタイル" title="Link to this heading">¶</a></h2>
 <p>実は、生じたバグを取る対処法よりも、そもそもバグが生じにくくする予防法の方が大切です。 Pythonにおいて特に重要視されているのが、<strong>コーディングスタイル</strong>、つまりコードの書き方です。 読みにくい（可読性の低い）コードだと、些細なミスが生じやすく、また見つけにくいからです。</p>
 <p>Pythonでは<a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP8</a>（<a class="reference external" href="http://pep8-ja.readthedocs.io/ja/latest/">非公式日本語訳</a>）と呼ばれる公式のスタイルガイドがあります。 PEP8には様々な側面でスタイルに関する規則があり、コードの可読性を高めることが強く推奨されています。 ここまでに扱った言語の要素について、たとえば、</p>
 <ul class="simple">
@@ -538,7 +543,7 @@
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <h1 class="logo"><a href="../index.html">Pythonプログラミング入門</a></h1>
 
@@ -607,7 +612,7 @@
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -615,7 +620,7 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -630,18 +635,18 @@
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      &#169;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.2.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
       
     </div>
 
     
 
     
-    <script type="text/javascript">
+    <script>
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-159819977-1']);
@@ -650,8 +655,8 @@
       _gaq.push(['_trackPageview']);
 
       (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var ga = document.createElement('script'); ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
 

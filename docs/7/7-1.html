@@ -1,21 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="jp">
+<html lang="jp" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>7-1. pandasライブラリ &#8212; Pythonプログラミング入門  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
     <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=3ff7d7a7"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -26,8 +23,9 @@
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -40,7 +38,7 @@
           <div class="body" role="main">
             
   <section id="7-1.-pandasライブラリ">
-<h1>7-1. pandasライブラリ<a class="headerlink" href="#7-1.-pandasライブラリ" title="Permalink to this heading">¶</a></h1>
+<h1>7-1. pandasライブラリ<a class="headerlink" href="#7-1.-pandasライブラリ" title="Link to this heading">¶</a></h1>
 <p>pandasライブラリについて説明します。</p>
 <p>参考</p>
 <ul class="simple">
@@ -59,12 +57,12 @@
 </div>
 </div>
 <section id="シリーズとデータフレーム">
-<h2>シリーズとデータフレーム<a class="headerlink" href="#シリーズとデータフレーム" title="Permalink to this heading">¶</a></h2>
+<h2>シリーズとデータフレーム<a class="headerlink" href="#シリーズとデータフレーム" title="Link to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> モジュールは、リスト、配列や辞書などのデータを<strong>シリーズ</strong> (<code class="docutils literal notranslate"><span class="pre">Series</span></code>) あるいは<strong>データフレーム</strong> (<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>) のオブジェクトとして保持します。シリーズは列、データフレームは複数の列で構成されます。シリーズやデータフレームの行は<strong>インデックス</strong> <code class="docutils literal notranslate"><span class="pre">index</span></code> で管理され、インデックスには <code class="docutils literal notranslate"><span class="pre">0</span></code>
 から始まる番号、または任意のラベルが付けられています。インデックスが番号の場合は、シリーズやデータフレームはそれぞれNumPyの配列、2次元配列とみなすことができます。また、インデックスがラベルの場合は、ラベルをキー、各行を値とした辞書としてシリーズやデータフレームをみなすことができます。</p>
 </section>
 <section id="シリーズ-(Series)-の作成">
-<h2>シリーズ (<code class="docutils literal notranslate"><span class="pre">Series</span></code>) の作成<a class="headerlink" href="#シリーズ-(Series)-の作成" title="Permalink to this heading">¶</a></h2>
+<h2>シリーズ (<code class="docutils literal notranslate"><span class="pre">Series</span></code>) の作成<a class="headerlink" href="#シリーズ-(Series)-の作成" title="Link to this heading">¶</a></h2>
 <p>シリーズのオブジェクトは、以下のように、リスト、配列や辞書から作成することができます。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -93,9 +91,9 @@
 1    1
 2    2
 dtype: int64
-0    0.714490
-1    0.592449
-2    0.976355
+0    0.383521
+1    0.927830
+2    0.574435
 dtype: float64
 0    boo
 1    foo
@@ -106,7 +104,7 @@ dtype: object
 <p>以下では、シリーズ（列）より一般的なデータフレームの操作と機能について説明していきますが、データフレームオブジェクトの多くの操作や機能はシリーズオブジェクトにも適用できます。</p>
 </section>
 <section id="データフレーム-(DataFrame)-の作成">
-<h2>データフレーム (<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>) の作成<a class="headerlink" href="#データフレーム-(DataFrame)-の作成" title="Permalink to this heading">¶</a></h2>
+<h2>データフレーム (<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>) の作成<a class="headerlink" href="#データフレーム-(DataFrame)-の作成" title="Link to this heading">¶</a></h2>
 <p>データフレームのオブジェクトは、以下のように、リスト、配列や辞書から作成することができます。行のラベルは、<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> の <code class="docutils literal notranslate"><span class="pre">index</span></code> 引数で指定できますが、以下のデータフレーム作成の例、<code class="docutils literal notranslate"><span class="pre">d2</span></code>, <code class="docutils literal notranslate"><span class="pre">d3</span></code>、 では同インデックスを省略しているため、<code class="docutils literal notranslate"><span class="pre">0</span></code> から始まるインデックス番号がラベルとして行に自動的に付けられます。列のラベルは <code class="docutils literal notranslate"><span class="pre">columns</span></code> 引数で指定します。辞書からデータフレームを作成する際は、<code class="docutils literal notranslate"><span class="pre">columns</span></code> 引数で列の順番を指定することになります。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -137,10 +135,10 @@ dtype: object
 12   6   7   8
 13   9  10  11
          c1        c2        c3
-0  0.633429  0.264302  0.467160
-1  0.656182  0.799303  0.058796
-2  0.105300  0.205385  0.570039
-3  0.815636  0.074122  0.085846
+0  0.323205  0.981850  0.390974
+1  0.087846  0.613417  0.886564
+2  0.697406  0.409023  0.280994
+3  0.855508  0.203227  0.477202
   Name Initial
 0  boo       B
 1  foo       F
@@ -149,7 +147,7 @@ dtype: object
 </div>
 </section>
 <section id="CSVファイルからのデータフレームの作成">
-<h2>CSVファイルからのデータフレームの作成<a class="headerlink" href="#CSVファイルからのデータフレームの作成" title="Permalink to this heading">¶</a></h2>
+<h2>CSVファイルからのデータフレームの作成<a class="headerlink" href="#CSVファイルからのデータフレームの作成" title="Link to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> モジュールの <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> 関数を用いて、以下のように<strong>CSVファイル</strong>を読み込んで、データフレームのオブジェクトを作成することができます。<code class="docutils literal notranslate"><span class="pre">read_csv()</span></code> 関数の <code class="docutils literal notranslate"><span class="pre">encoding</span></code> 引数にはファイルの文字コードを指定します。CSVファイル <code class="docutils literal notranslate"><span class="pre">iris.csv</span></code> には、以下のようにアヤメの種類 (species) と花弁 (petal)・がく片 (sepal) の長さ (length) と幅 (width) のデータが含まれています。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sepal_length, sepal_width, petal_length, petal_width, species
 5.1, 3.5, 1.4, 0.2, setosa
@@ -315,7 +313,7 @@ RangeIndex(start=0, stop=150, step=1)
 </div>
 </section>
 <section id="データの参照">
-<h2>データの参照<a class="headerlink" href="#データの参照" title="Permalink to this heading">¶</a></h2>
+<h2>データの参照<a class="headerlink" href="#データの参照" title="Link to this heading">¶</a></h2>
 <p>シリーズやデータフレームでは、行の位置（行は <code class="docutils literal notranslate"><span class="pre">0</span></code> から始まります）を<strong>スライス</strong>として指定することで任意の行を抽出することができます。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -607,7 +605,7 @@ Name: species, dtype: object
 </div></div>
 </div>
 <section id="iloc-と-loc">
-<h3><code class="docutils literal notranslate"><span class="pre">iloc</span></code> と <code class="docutils literal notranslate"><span class="pre">loc</span></code><a class="headerlink" href="#iloc-と-loc" title="Permalink to this heading">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">iloc</span></code> と <code class="docutils literal notranslate"><span class="pre">loc</span></code><a class="headerlink" href="#iloc-と-loc" title="Link to this heading">¶</a></h3>
 <p>データフレームオブジェクトの <code class="docutils literal notranslate"><span class="pre">iloc</span></code> 属性を用いると、NumPyの多次元配列のスライスと同様に、行と列の位置を指定して任意の行と列を抽出することができます。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
@@ -647,7 +645,7 @@ Name: 1, dtype: object
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-3.0
+np.float64(3.0)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -755,7 +753,7 @@ Name: 5, dtype: object
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-5.4
+np.float64(5.4)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -827,7 +825,7 @@ Name: 5, dtype: object
 </section>
 </section>
 <section id="データの条件取り出し">
-<h2>データの条件取り出し<a class="headerlink" href="#データの条件取り出し" title="Permalink to this heading">¶</a></h2>
+<h2>データの条件取り出し<a class="headerlink" href="#データの条件取り出し" title="Link to this heading">¶</a></h2>
 <p>データフレームの列の指定と併せて条件を指定することで、条件にあった行からなるデータフレームを抽出することができます。NumPyの多次元配列の<strong>真理値配列によるインデックスアクセス</strong>と同様に、条件式のブール演算では、<code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code> の代わりに <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code>, <code class="docutils literal notranslate"><span class="pre">~</span></code> を用います。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
@@ -907,7 +905,7 @@ Name: 5, dtype: object
 </div>
 </section>
 <section id="列の追加と削除">
-<h2>列の追加と削除<a class="headerlink" href="#列の追加と削除" title="Permalink to this heading">¶</a></h2>
+<h2>列の追加と削除<a class="headerlink" href="#列の追加と削除" title="Link to this heading">¶</a></h2>
 <p>データフレームに列を追加する場合は、以下のように、追加したい新たな列名を指定し、値を代入すると新たな列を追加できます。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
@@ -958,7 +956,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.456118</td>
+      <td>0.437556</td>
     </tr>
     <tr>
       <th>1</th>
@@ -967,7 +965,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.285426</td>
+      <td>0.113504</td>
     </tr>
     <tr>
       <th>2</th>
@@ -976,7 +974,7 @@ Name: 5, dtype: object
       <td>1.3</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.810478</td>
+      <td>0.745076</td>
     </tr>
     <tr>
       <th>3</th>
@@ -985,7 +983,7 @@ Name: 5, dtype: object
       <td>1.5</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.547663</td>
+      <td>0.948184</td>
     </tr>
     <tr>
       <th>4</th>
@@ -994,7 +992,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.599085</td>
+      <td>0.924539</td>
     </tr>
     <tr>
       <th>5</th>
@@ -1003,7 +1001,7 @@ Name: 5, dtype: object
       <td>1.7</td>
       <td>0.4</td>
       <td>setosa</td>
-      <td>0.800863</td>
+      <td>0.227505</td>
     </tr>
     <tr>
       <th>6</th>
@@ -1012,7 +1010,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.3</td>
       <td>setosa</td>
-      <td>0.419813</td>
+      <td>0.693805</td>
     </tr>
     <tr>
       <th>7</th>
@@ -1021,7 +1019,7 @@ Name: 5, dtype: object
       <td>1.5</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.175686</td>
+      <td>0.201926</td>
     </tr>
     <tr>
       <th>8</th>
@@ -1030,7 +1028,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.259131</td>
+      <td>0.138399</td>
     </tr>
     <tr>
       <th>9</th>
@@ -1039,7 +1037,7 @@ Name: 5, dtype: object
       <td>1.5</td>
       <td>0.1</td>
       <td>setosa</td>
-      <td>0.311892</td>
+      <td>0.432066</td>
     </tr>
   </tbody>
 </table>
@@ -1221,7 +1219,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.536095</td>
+      <td>0.244661</td>
     </tr>
     <tr>
       <th>1</th>
@@ -1230,7 +1228,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.620008</td>
+      <td>0.004592</td>
     </tr>
     <tr>
       <th>2</th>
@@ -1239,7 +1237,7 @@ Name: 5, dtype: object
       <td>1.3</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.264892</td>
+      <td>0.345027</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1248,7 +1246,7 @@ Name: 5, dtype: object
       <td>1.5</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.191530</td>
+      <td>0.664036</td>
     </tr>
     <tr>
       <th>4</th>
@@ -1257,7 +1255,7 @@ Name: 5, dtype: object
       <td>1.4</td>
       <td>0.2</td>
       <td>setosa</td>
-      <td>0.773725</td>
+      <td>0.473928</td>
     </tr>
   </tbody>
 </table>
@@ -1351,7 +1349,7 @@ Name: 5, dtype: object
 </div>
 </section>
 <section id="行の追加と削除">
-<h2>行の追加と削除<a class="headerlink" href="#行の追加と削除" title="Permalink to this heading">¶</a></h2>
+<h2>行の追加と削除<a class="headerlink" href="#行の追加と削除" title="Link to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> モジュールの <code class="docutils literal notranslate"><span class="pre">append()</span></code> メソッドを用いると、データフレームに新たな行を追加することができます。以下では、<code class="docutils literal notranslate"><span class="pre">iris_d</span></code> データフレームの最終行に新たな行を追加しています。<code class="docutils literal notranslate"><span class="pre">ignore_index</span></code> 引数を <code class="docutils literal notranslate"><span class="pre">True</span></code> にすると追加した行に新たなインデックス番号がつけられます。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
@@ -1367,55 +1365,29 @@ Name: 5, dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
+<span class="ansi-green-fg">/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75033/1795173913.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># 追加する行のデータフレーム</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> row <span class="ansi-blue-fg">=</span> pd<span class="ansi-blue-fg">.</span>DataFrame<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;setosa&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> columns<span class="ansi-blue-fg">=</span>iris_d<span class="ansi-blue-fg">.</span>columns<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-red-fg"># データフレームに行を追加し新しいデータフレームを作成</span>
+<span class="ansi-green-fg">----&gt; 5</span><span class="ansi-red-fg"> </span>myiris4 <span class="ansi-blue-fg">=</span> iris_d<span class="ansi-blue-fg">.</span>append<span class="ansi-blue-fg">(</span>row<span class="ansi-blue-fg">,</span> ignore_index<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span> myiris4<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">]</span>
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
+<span class="ansi-green-fg">~/Projects/utpython/lib/python3.12/site-packages/pandas/core/generic.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg">(self, name)</span>
+<span class="ansi-green-intense-fg ansi-bold">   6295</span>             <span class="ansi-green-fg">and</span> name <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">in</span> self<span class="ansi-blue-fg">.</span>_accessors
+<span class="ansi-green-intense-fg ansi-bold">   6296</span>             <span class="ansi-green-fg">and</span> self<span class="ansi-blue-fg">.</span>_info_axis<span class="ansi-blue-fg">.</span>_can_hold_identifiers_and_holds_name<span class="ansi-blue-fg">(</span>name<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   6297</span>         <span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   6298</span>             <span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">[</span>name<span class="ansi-blue-fg">]</span>
+<span class="ansi-green-fg">-&gt; 6299</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> object<span class="ansi-blue-fg">.</span>__getattribute__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">)</span>
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>sepal_length</th>
-      <th>sepal_width</th>
-      <th>petal_length</th>
-      <th>petal_width</th>
-      <th>species</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>149</th>
-      <td>5.9</td>
-      <td>3.0</td>
-      <td>5.1</td>
-      <td>1.8</td>
-      <td>virginica</td>
-    </tr>
-    <tr>
-      <th>150</th>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>setosa</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
+<span class="ansi-red-fg">AttributeError</span>: &#39;DataFrame&#39; object has no attribute &#39;append&#39;
+</pre></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">drop()</span></code> メソッドを用いると、行のインデックスまたはラベルを指定することで行を削除することもできます。このときに、<code class="docutils literal notranslate"><span class="pre">axis</span></code> 引数は省略することができます。</p>
 <div class="nbinput docutils container">
@@ -1429,59 +1401,23 @@ Name: 5, dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[22], line 2</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span style="color: rgb(95,135,135)"># データフレームから行インデックス150の行を削除し、新しいデータフレームを作成</span>
+<span class="ansi-green-fg">----&gt; 2</span> myiris4 <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">myiris4</span><span style="color: rgb(98,98,98)">.</span>drop(<span style="color: rgb(98,98,98)">150</span>)
+<span class="ansi-green-intense-fg ansi-bold">      3</span> myiris4[<span style="color: rgb(98,98,98)">-</span><span style="color: rgb(98,98,98)">2</span>:]
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>sepal_length</th>
-      <th>sepal_width</th>
-      <th>petal_length</th>
-      <th>petal_width</th>
-      <th>species</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>148</th>
-      <td>6.2</td>
-      <td>3.4</td>
-      <td>5.4</td>
-      <td>2.3</td>
-      <td>virginica</td>
-    </tr>
-    <tr>
-      <th>149</th>
-      <td>5.9</td>
-      <td>3.0</td>
-      <td>5.1</td>
-      <td>1.8</td>
-      <td>virginica</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
+<span class="ansi-red-fg">NameError</span>: name &#39;myiris4&#39; is not defined
+</pre></div></div>
 </div>
 </section>
 <section id="データの並び替え">
-<h2>データの並び替え<a class="headerlink" href="#データの並び替え" title="Permalink to this heading">¶</a></h2>
+<h2>データの並び替え<a class="headerlink" href="#データの並び替え" title="Link to this heading">¶</a></h2>
 <p>データフレームオブジェクトの <code class="docutils literal notranslate"><span class="pre">sort_index()</span></code> メソッドで、データフレームのインデックスに基づくソートができます。また、<code class="docutils literal notranslate"><span class="pre">sort_values()</span></code> メソッドで、任意の列の値によるソートができます。列は複数指定することもできます。いずれのメソッドでも、<code class="docutils literal notranslate"><span class="pre">inplace</span></code> 引数により、ソートにより新しいデータフレームを作成する (<code class="docutils literal notranslate"><span class="pre">False</span></code>) か、元のデータフレームを更新する (<code class="docutils literal notranslate"><span class="pre">True</span></code>) を指定できます。デフォルトは <code class="docutils literal notranslate"><span class="pre">inplace</span></code> は <code class="docutils literal notranslate"><span class="pre">False</span></code> になっており、これらのメソッドは新しいデータフレームを作成します。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
@@ -1736,7 +1672,7 @@ Name: 5, dtype: object
 </div>
 </section>
 <section id="データの統計量">
-<h2>データの統計量<a class="headerlink" href="#データの統計量" title="Permalink to this heading">¶</a></h2>
+<h2>データの統計量<a class="headerlink" href="#データの統計量" title="Link to this heading">¶</a></h2>
 <p>データフレームオブジェクトの <code class="docutils literal notranslate"><span class="pre">describe()</span></code> メソッドで、データフレームの各列の要約統計量を求めることができます。要約統計量には平均、標準偏差、最大値、最小値などが含まれます。その他の統計量を求める <code class="docutils literal notranslate"><span class="pre">pandas</span></code> モジュールのメソッドは以下を参照してください。</p>
 <p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/frame.html#computations-descriptive-stats">pandasでの統計量計算</a></p>
 <div class="nbinput docutils container">
@@ -1840,7 +1776,7 @@ Name: 5, dtype: object
 </div>
 </section>
 <section id="▲データの連結">
-<h2>▲データの連結<a class="headerlink" href="#▲データの連結" title="Permalink to this heading">¶</a></h2>
+<h2>▲データの連結<a class="headerlink" href="#▲データの連結" title="Link to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> モジュールの <code class="docutils literal notranslate"><span class="pre">concat()</span></code> 関数を用いると、データフレームを連結して新たなデータフレームを作成することができます。以下では、<code class="docutils literal notranslate"><span class="pre">iris_d</span></code> データフレームの先頭5行と最終5行を連結して、新しいデータフレームを作成しています。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
@@ -2062,7 +1998,7 @@ Name: 5, dtype: object
 </div>
 </section>
 <section id="▲データの結合">
-<h2>▲データの結合<a class="headerlink" href="#▲データの結合" title="Permalink to this heading">¶</a></h2>
+<h2>▲データの結合<a class="headerlink" href="#▲データの結合" title="Link to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> モジュールの <code class="docutils literal notranslate"><span class="pre">merge()</span></code> 関数を用いると、任意の列の値をキーとして異なるデータフレームを結合することができます。結合のキーとする列名は <code class="docutils literal notranslate"><span class="pre">on</span></code> 引数で指定します。以下では、<code class="docutils literal notranslate"><span class="pre">species</span></code> の列の値をキーに、2つのデータフレーム、<code class="docutils literal notranslate"><span class="pre">sepal_len</span></code>, <code class="docutils literal notranslate"><span class="pre">sepal_wid</span></code>、を結合して新しいデータフレーム <code class="docutils literal notranslate"><span class="pre">sepal</span></code> を作成しています。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
@@ -2132,7 +2068,7 @@ Name: 5, dtype: object
 </div>
 </section>
 <section id="▲データのグループ化">
-<h2>▲データのグループ化<a class="headerlink" href="#▲データのグループ化" title="Permalink to this heading">¶</a></h2>
+<h2>▲データのグループ化<a class="headerlink" href="#▲データのグループ化" title="Link to this heading">¶</a></h2>
 <p>データフレームオブジェクトの <code class="docutils literal notranslate"><span class="pre">groupby()</span></code> メソッドを使うと、データフレームの任意の列の値に基づいて、同じ値を持つ行をグループにまとめることができます。列は複数指定することもできます。<code class="docutils literal notranslate"><span class="pre">groupby()</span></code> メソッドを適用するとグループ化オブジェクト (<code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code>) が作成されますが、データフレームと同様の操作を多く適用することができます。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
@@ -2149,7 +2085,7 @@ Name: 5, dtype: object
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f99329077f0&gt;
+&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x115ef2ea0&gt;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -2379,7 +2315,7 @@ Name: 5, dtype: object
 </div>
 </section>
 <section id="▲欠損値、時系列データの処理">
-<h2>▲欠損値、時系列データの処理<a class="headerlink" href="#▲欠損値、時系列データの処理" title="Permalink to this heading">¶</a></h2>
+<h2>▲欠損値、時系列データの処理<a class="headerlink" href="#▲欠損値、時系列データの処理" title="Link to this heading">¶</a></h2>
 <p>pandasでは、データ分析における欠損値、時系列データの処理を支援するための便利な機能が提供されています。詳細は以下を参照してください。</p>
 <p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/missing_data.html#missing-data">欠損値の処理</a></p>
 <p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/timeseries.html">時系列データの処理</a></p>
@@ -2391,7 +2327,7 @@ Name: 5, dtype: object
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <h1 class="logo"><a href="../index.html">Pythonプログラミング入門</a></h1>
 
@@ -2469,7 +2405,7 @@ Name: 5, dtype: object
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -2477,7 +2413,7 @@ Name: 5, dtype: object
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -2492,18 +2428,18 @@ Name: 5, dtype: object
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      &#169;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.2.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
       
     </div>
 
     
 
     
-    <script type="text/javascript">
+    <script>
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-159819977-1']);
@@ -2512,8 +2448,8 @@ Name: 5, dtype: object
       _gaq.push(['_trackPageview']);
 
       (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var ga = document.createElement('script'); ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
 

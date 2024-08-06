@@ -1,21 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="jp">
+<html lang="jp" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>1-1. 数値演算 &#8212; Pythonプログラミング入門  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
     <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=3ff7d7a7"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -26,8 +23,9 @@
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -40,7 +38,7 @@
           <div class="body" role="main">
             
   <section id="1-1.-数値演算">
-<h1>1-1. 数値演算<a class="headerlink" href="#1-1.-数値演算" title="Permalink to this heading">¶</a></h1>
+<h1>1-1. 数値演算<a class="headerlink" href="#1-1.-数値演算" title="Link to this heading">¶</a></h1>
 <p>数値演算について説明します。</p>
 <p>参考</p>
 <ul class="simple">
@@ -50,7 +48,7 @@
 <li><p><a class="reference external" href="https://docs.python.org/ja/3/library/math.html">https://docs.python.org/ja/3/library/math.html</a></p></li>
 </ul>
 <section id="簡単な算術計算">
-<h2>簡単な算術計算<a class="headerlink" href="#簡単な算術計算" title="Permalink to this heading">¶</a></h2>
+<h2>簡単な算術計算<a class="headerlink" href="#簡単な算術計算" title="Link to this heading">¶</a></h2>
 <p>CodeセルにPythonの式を入力して、プレイボタンを押すか、 Shiftを押しながらEnterを押すと、式が評価され、その結果の値がセルの下に挿入されます。</p>
 <p>1+1 の計算をしてみましょう。次のセルに <code class="docutils literal notranslate"><span class="pre">1+1</span></code> と入力して、 Shiftを押しながらEnterを押してください。</p>
 <div class="nbinput nblast docutils container">
@@ -207,7 +205,7 @@
 </div>
 </section>
 <section id="コメント">
-<h2>コメント<a class="headerlink" href="#コメント" title="Permalink to this heading">¶</a></h2>
+<h2>コメント<a class="headerlink" href="#コメント" title="Link to this heading">¶</a></h2>
 <p>Pythonでは一般に、コードの中に <code class="docutils literal notranslate"><span class="pre">#</span></code> が出現すると、それ以降、その行の終わりまでが<strong>コメント</strong>になります。 コメントは行頭からも、行の途中からでも始めることができます。</p>
 <p>プログラムの実行時には、コメントは無視されます。</p>
 <div class="nbinput docutils container">
@@ -251,7 +249,7 @@
 </div>
 </section>
 <section id="整数と実数">
-<h2>整数と実数<a class="headerlink" href="#整数と実数" title="Permalink to this heading">¶</a></h2>
+<h2>整数と実数<a class="headerlink" href="#整数と実数" title="Link to this heading">¶</a></h2>
 <p>Pythonでは、<strong>整数</strong>と小数点のある数（<strong>実数</strong>）は、数学的に同じ数を表す場合でも、 コンピュータの中で異なる形式で記憶されますので、表示は異なります。 （実数は<strong>浮動小数点数</strong>ともいいます。）</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
@@ -384,7 +382,7 @@ True
 </div>
 </div>
 <section id="実数のべき表示">
-<h3>実数のべき表示<a class="headerlink" href="#実数のべき表示" title="Permalink to this heading">¶</a></h3>
+<h3>実数のべき表示<a class="headerlink" href="#実数のべき表示" title="Link to this heading">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
@@ -423,7 +421,7 @@ True
 <p>非常に小さな実数も、10のべきとともに表示されます。 <code class="docutils literal notranslate"><span class="pre">e-302</span></code> は10の-302乗を意味します。</p>
 </section>
 <section id="いくらでも大きくなる整数">
-<h3>いくらでも大きくなる整数<a class="headerlink" href="#いくらでも大きくなる整数" title="Permalink to this heading">¶</a></h3>
+<h3>いくらでも大きくなる整数<a class="headerlink" href="#いくらでも大きくなる整数" title="Link to this heading">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
@@ -457,33 +455,40 @@ True
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">/usr/lib/python3/dist-packages/IPython/core/formatters.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, obj)</span>
-<span class="ansi-green-intense-fg ansi-bold">    700</span>                 type_pprinters<span class="ansi-blue-fg">=</span>self<span class="ansi-blue-fg">.</span>type_printers<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    701</span>                 deferred_pprinters=self.deferred_printers)
-<span class="ansi-green-fg">--&gt; 702</span><span class="ansi-red-fg">             </span>printer<span class="ansi-blue-fg">.</span>pretty<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    703</span>             printer<span class="ansi-blue-fg">.</span>flush<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    704</span>             <span class="ansi-green-fg">return</span> stream<span class="ansi-blue-fg">.</span>getvalue<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+File <span class="ansi-green-fg">~/Projects/utpython/lib/python3.12/site-packages/IPython/core/formatters.py:711</span>, in <span class="ansi-cyan-fg">PlainTextFormatter.__call__</span><span class="ansi-blue-fg">(self, obj)</span>
+<span class="ansi-green-intense-fg ansi-bold">    704</span> stream <span style="color: rgb(98,98,98)">=</span> StringIO()
+<span class="ansi-green-intense-fg ansi-bold">    705</span> printer <span style="color: rgb(98,98,98)">=</span> pretty<span style="color: rgb(98,98,98)">.</span>RepresentationPrinter(stream, <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>verbose,
+<span class="ansi-green-intense-fg ansi-bold">    706</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>max_width, <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>newline,
+<span class="ansi-green-intense-fg ansi-bold">    707</span>     max_seq_length<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>max_seq_length,
+<span class="ansi-green-intense-fg ansi-bold">    708</span>     singleton_pprinters<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>singleton_printers,
+<span class="ansi-green-intense-fg ansi-bold">    709</span>     type_pprinters<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>type_printers,
+<span class="ansi-green-intense-fg ansi-bold">    710</span>     deferred_pprinters<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>deferred_printers)
+<span class="ansi-green-fg">--&gt; 711</span> <span class="ansi-yellow-bg">printer</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">pretty</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">obj</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    712</span> printer<span style="color: rgb(98,98,98)">.</span>flush()
+<span class="ansi-green-intense-fg ansi-bold">    713</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> stream<span style="color: rgb(98,98,98)">.</span>getvalue()
 
-<span class="ansi-green-fg">/usr/lib/python3/dist-packages/IPython/lib/pretty.py</span> in <span class="ansi-cyan-fg">pretty</span><span class="ansi-blue-fg">(self, obj)</span>
-<span class="ansi-green-intense-fg ansi-bold">    375</span>                 <span class="ansi-green-fg">if</span> cls <span class="ansi-green-fg">in</span> self<span class="ansi-blue-fg">.</span>type_pprinters<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    376</span>                     <span class="ansi-red-fg"># printer registered in self.type_pprinters</span>
-<span class="ansi-green-fg">--&gt; 377</span><span class="ansi-red-fg">                     </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>type_pprinters<span class="ansi-blue-fg">[</span>cls<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">,</span> cycle<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    378</span>                 <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    379</span>                     <span class="ansi-red-fg"># deferred printer</span>
+File <span class="ansi-green-fg">~/Projects/utpython/lib/python3.12/site-packages/IPython/lib/pretty.py:394</span>, in <span class="ansi-cyan-fg">RepresentationPrinter.pretty</span><span class="ansi-blue-fg">(self, obj)</span>
+<span class="ansi-green-intense-fg ansi-bold">    391</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> <span style="color: rgb(0,135,0)">cls</span> <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> _get_mro(obj_class):
+<span class="ansi-green-intense-fg ansi-bold">    392</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">cls</span> <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>type_pprinters:
+<span class="ansi-green-intense-fg ansi-bold">    393</span>         <span style="color: rgb(95,135,135)"># printer registered in self.type_pprinters</span>
+<span class="ansi-green-fg">--&gt; 394</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">type_pprinters</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">cls</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">obj</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">cycle</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    395</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+<span class="ansi-green-intense-fg ansi-bold">    396</span>         <span style="color: rgb(95,135,135)"># deferred printer</span>
+<span class="ansi-green-intense-fg ansi-bold">    397</span>         printer <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_in_deferred_types(<span style="color: rgb(0,135,0)">cls</span>)
 
-<span class="ansi-green-fg">/usr/lib/python3/dist-packages/IPython/lib/pretty.py</span> in <span class="ansi-cyan-fg">_repr_pprint</span><span class="ansi-blue-fg">(obj, p, cycle)</span>
-<span class="ansi-green-intense-fg ansi-bold">    698</span>     <span class="ansi-blue-fg">&#34;&#34;&#34;A pprint that just redirects to the normal repr function.&#34;&#34;&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">    699</span>     <span class="ansi-red-fg"># Find newlines and replace them with p.break_()</span>
-<span class="ansi-green-fg">--&gt; 700</span><span class="ansi-red-fg">     </span>output <span class="ansi-blue-fg">=</span> repr<span class="ansi-blue-fg">(</span>obj<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    701</span>     lines <span class="ansi-blue-fg">=</span> output<span class="ansi-blue-fg">.</span>splitlines<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    702</span>     <span class="ansi-green-fg">with</span> p<span class="ansi-blue-fg">.</span>group<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+File <span class="ansi-green-fg">~/Projects/utpython/lib/python3.12/site-packages/IPython/lib/pretty.py:787</span>, in <span class="ansi-cyan-fg">_repr_pprint</span><span class="ansi-blue-fg">(obj, p, cycle)</span>
+<span class="ansi-green-intense-fg ansi-bold">    785</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;A pprint that just redirects to the normal repr function.&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    786</span> <span style="color: rgb(95,135,135)"># Find newlines and replace them with p.break_()</span>
+<span class="ansi-green-fg">--&gt; 787</span> output <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">repr</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">obj</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    788</span> lines <span style="color: rgb(98,98,98)">=</span> output<span style="color: rgb(98,98,98)">.</span>splitlines()
+<span class="ansi-green-intense-fg ansi-bold">    789</span> <span class="ansi-bold" style="color: rgb(0,135,0)">with</span> p<span style="color: rgb(98,98,98)">.</span>group():
 
-<span class="ansi-red-fg">ValueError</span>: Exceeds the limit (4300) for integer string conversion
+<span class="ansi-red-fg">ValueError</span>: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
 </pre></div></div>
 </div>
 </section>
 <section id="整数と実数の間の変換">
-<h3>整数と実数の間の変換<a class="headerlink" href="#整数と実数の間の変換" title="Permalink to this heading">¶</a></h3>
+<h3>整数と実数の間の変換<a class="headerlink" href="#整数と実数の間の変換" title="Link to this heading">¶</a></h3>
 <p>実数を整数に変換するには、<code class="docutils literal notranslate"><span class="pre">int</span></code> という関数を用います。 （関数に関する一般的な説明は1-2を参照してください。） <code class="docutils literal notranslate"><span class="pre">int(x)</span></code> は、実数 <code class="docutils literal notranslate"><span class="pre">x</span></code> を（<code class="docutils literal notranslate"><span class="pre">0</span></code> の方向に）切り下げた結果を返します。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
@@ -556,7 +561,7 @@ True
 </div>
 </section>
 <section id="数値誤差">
-<h3>数値誤差<a class="headerlink" href="#数値誤差" title="Permalink to this heading">¶</a></h3>
+<h3>数値誤差<a class="headerlink" href="#数値誤差" title="Link to this heading">¶</a></h3>
 <p>浮動小数点数には、<strong>数値誤差</strong>が不可避です。 これは、有限のビット数で、無限に小さくなり得る小数刻みを表現しようとするためです。 （参照：<a class="reference external" href="https://ja.wikipedia.org/wiki/%E6%B5%AE%E5%8B%95%E5%B0%8F%E6%95%B0%E7%82%B9%E6%95%B0#%E3%82%A8%E3%83%A9%E3%83%BC%EF%BC%88%E8%AA%A4%E5%B7%AE%EF%BC%89">Wikipedia - 浮動小数点数</a>）</p>
 <p>Pythonでは、整数は無限桁で表現されるため、整数演算には誤差が生じません。 しかし、整数を実数に変換したときには、一般に誤差が生じます。</p>
 <div class="nbinput docutils container">
@@ -614,7 +619,7 @@ True
 </section>
 </section>
 <section id="演算子の優先順位と括弧">
-<h2>演算子の優先順位と括弧<a class="headerlink" href="#演算子の優先順位と括弧" title="Permalink to this heading">¶</a></h2>
+<h2>演算子の優先順位と括弧<a class="headerlink" href="#演算子の優先順位と括弧" title="Link to this heading">¶</a></h2>
 <p>掛け算や割り算は足し算や引き算よりも先に評価されます。 すなわち、掛け算や割り算の方が足し算や引き算よりも<strong>優先順位</strong>が高いと定義されています。</p>
 <p><strong>括弧</strong>を使って式の評価順序を指定することができます。</p>
 <p>なお、数式 <span class="math notranslate nohighlight">\(a(b-c)\)</span>、<span class="math notranslate nohighlight">\((a-b)(c-d)\)</span> は、それぞれ <span class="math notranslate nohighlight">\(a\)</span> と <span class="math notranslate nohighlight">\(b-c\)</span>、<span class="math notranslate nohighlight">\(a-b\)</span> と <span class="math notranslate nohighlight">\(c-d\)</span> の積を意味しますが、 コードでは、<code class="docutils literal notranslate"><span class="pre">a*(b-c)</span></code> や <code class="docutils literal notranslate"><span class="pre">(a-b)*(c-d)</span></code> のように積の演算子である <code class="docutils literal notranslate"><span class="pre">*</span></code> を明記する必要があることに注意してください。</p>
@@ -785,7 +790,7 @@ True
 </div>
 </div>
 <section id="単項の-+-と--">
-<h3>単項の <code class="docutils literal notranslate"><span class="pre">+</span></code> と <code class="docutils literal notranslate"><span class="pre">-</span></code><a class="headerlink" href="#単項の-+-と--" title="Permalink to this heading">¶</a></h3>
+<h3>単項の <code class="docutils literal notranslate"><span class="pre">+</span></code> と <code class="docutils literal notranslate"><span class="pre">-</span></code><a class="headerlink" href="#単項の-+-と--" title="Link to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">+</span></code> と <code class="docutils literal notranslate"><span class="pre">-</span></code> は、単項の演算子（<strong>単項演算子</strong>）としても使えます。 （これらの演算子の後に1つだけ数が書かれます。 前と後の両方に数が書かれる演算子は<strong>2項演算子</strong>と言います。）</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
@@ -824,15 +829,15 @@ True
 </section>
 </section>
 <section id="算術演算子のまとめ">
-<h2>算術演算子のまとめ<a class="headerlink" href="#算術演算子のまとめ" title="Permalink to this heading">¶</a></h2>
+<h2>算術演算子のまとめ<a class="headerlink" href="#算術演算子のまとめ" title="Link to this heading">¶</a></h2>
 <p>算術演算子を、評価の優先順位にしたがって、すなわち結合力の強い順にまとめておきましょう。</p>
-<p>単項の <code class="docutils literal notranslate"><span class="pre">+</span></code> と <code class="docutils literal notranslate"><span class="pre">-</span></code> は最も強く結合します。</p>
-<p>次に、<code class="docutils literal notranslate"><span class="pre">**</span></code> が強く結合します。 <code class="docutils literal notranslate"><span class="pre">**</span></code> は右に結合します。</p>
+<p>まず、2項のべき演算子 <code class="docutils literal notranslate"><span class="pre">**</span></code> が最も強く結合します。 <code class="docutils literal notranslate"><span class="pre">**</span></code> は右の方から計算され、このことを「右に結合する」と表します。</p>
+<p>次に、単項の <code class="docutils literal notranslate"><span class="pre">+</span></code> と <code class="docutils literal notranslate"><span class="pre">-</span></code> が強く結合します。 なお、 <code class="docutils literal notranslate"><span class="pre">**</span></code> の右側に単項の <code class="docutils literal notranslate"><span class="pre">+</span></code> や <code class="docutils literal notranslate"><span class="pre">-</span></code> がある場合（例えば、<code class="docutils literal notranslate"><span class="pre">2.0</span> <span class="pre">**</span> <span class="pre">-1000</span></code>）は、<code class="docutils literal notranslate"><span class="pre">+</span></code> と <code class="docutils literal notranslate"><span class="pre">-</span></code> がより強く結合します。</p>
 <p>その次に、2項の <code class="docutils literal notranslate"><span class="pre">*</span></code> と <code class="docutils literal notranslate"><span class="pre">/</span></code> と <code class="docutils literal notranslate"><span class="pre">//</span></code> と <code class="docutils literal notranslate"><span class="pre">%</span></code> が強く結合します。これらは左に結合します。</p>
 <p>最後に、2項の <code class="docutils literal notranslate"><span class="pre">+</span></code> と <code class="docutils literal notranslate"><span class="pre">-</span></code> は最も弱く結合します。これらも左に結合します。</p>
 </section>
 <section id="空白">
-<h2>空白<a class="headerlink" href="#空白" title="Permalink to this heading">¶</a></h2>
+<h2>空白<a class="headerlink" href="#空白" title="Link to this heading">¶</a></h2>
 <p>既に <code class="docutils literal notranslate"><span class="pre">7</span> <span class="pre">-</span> <span class="pre">2</span> <span class="pre">*</span> <span class="pre">3</span></code> のような例が出てきましたが、 演算子と数の間や、演算子と変数（後述）の間には、空白を入れることができます。 ここで<strong>空白</strong>とは、<strong>半角の空白</strong>のことで、英数字と同様に1バイトの文字コードに含まれているものです。</p>
 <p>複数の文字から成る演算子、たとえば <code class="docutils literal notranslate"><span class="pre">**</span></code> や <code class="docutils literal notranslate"><span class="pre">//</span></code> の間に空白を入れることはできません。 エラーになることでしょう。</p>
 <div class="nbinput docutils container">
@@ -865,7 +870,7 @@ True
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_330/925474765.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[39], line 1</span>
 <span class="ansi-red-fg">    7* *2</span>
        ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -873,7 +878,7 @@ True
 </pre></div></div>
 </div>
 <section id="全角の空白">
-<h3>全角の空白<a class="headerlink" href="#全角の空白" title="Permalink to this heading">¶</a></h3>
+<h3>全角の空白<a class="headerlink" href="#全角の空白" title="Link to this heading">¶</a></h3>
 <p>日本語文字コードである<strong>全角の空白</strong>は、空白とはみなされませんので注意してください。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
@@ -888,17 +893,17 @@ True
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_330/511804230.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[40], line 1</span>
 <span class="ansi-red-fg">    7　**2</span>
-    ^
-<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid decimal literal
+     ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid non-printable character U+3000
 
 </pre></div></div>
 </div>
 </section>
 </section>
 <section id="エラー">
-<h2>エラー<a class="headerlink" href="#エラー" title="Permalink to this heading">¶</a></h2>
+<h2>エラー<a class="headerlink" href="#エラー" title="Link to this heading">¶</a></h2>
 <p>色々と試していると、<strong>エラー</strong>が起こることもあったでしょう。 以下は典型的なエラーです。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
@@ -915,8 +920,8 @@ True
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ZeroDivisionError</span>                         Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_330/530406163.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-cyan-fg">10</span><span class="ansi-blue-fg">/</span><span class="ansi-cyan-fg">0</span>
+Cell <span class="ansi-green-fg">In[41], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg" style="color: rgb(98,98,98)">10</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">/</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">0</span>
 
 <span class="ansi-red-fg">ZeroDivisionError</span>: division by zero
 </pre></div></div>
@@ -936,7 +941,7 @@ True
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;/tmp/ipykernel_330/92394027.py&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[42], line 1</span>
 <span class="ansi-red-fg">    10/</span>
        ^
 <span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
@@ -946,7 +951,7 @@ True
 <p>こちらのエラーは<strong>構文エラー</strong>です。 つまり、入力がPythonの構文に違反しているため実行できなかったのです。</p>
 </section>
 <section id="数学関数（モジュールのインポート）">
-<h2>数学関数（モジュールのインポート）<a class="headerlink" href="#数学関数（モジュールのインポート）" title="Permalink to this heading">¶</a></h2>
+<h2>数学関数（モジュールのインポート）<a class="headerlink" href="#数学関数（モジュールのインポート）" title="Link to this heading">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
@@ -1064,7 +1069,7 @@ True
 </div>
 </section>
 <section id="練習">
-<h2>練習<a class="headerlink" href="#練習" title="Permalink to this heading">¶</a></h2>
+<h2>練習<a class="headerlink" href="#練習" title="Link to this heading">¶</a></h2>
 <p>黄金比を求めてください。黄金比とは、5 の平方根に 1 を加えて 2 で割ったものです。約 1.618 になるはずです。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -1082,7 +1087,7 @@ True
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <h1 class="logo"><a href="../index.html">Pythonプログラミング入門</a></h1>
 
@@ -1155,7 +1160,7 @@ True
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -1163,7 +1168,7 @@ True
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -1178,18 +1183,18 @@ True
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      &#169;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.2.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
       
     </div>
 
     
 
     
-    <script type="text/javascript">
+    <script>
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-159819977-1']);
@@ -1198,8 +1203,8 @@ True
       _gaq.push(['_trackPageview']);
 
       (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var ga = document.createElement('script'); ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
 

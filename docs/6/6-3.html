@@ -1,21 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="jp">
+<html lang="jp" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>6-3. クラス &#8212; Pythonプログラミング入門  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
     <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=3ff7d7a7"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -26,8 +23,9 @@
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -40,7 +38,7 @@
           <div class="body" role="main">
             
   <section id="6-3.-クラス">
-<h1>6-3. クラス<a class="headerlink" href="#6-3.-クラス" title="Permalink to this heading">¶</a></h1>
+<h1>6-3. クラス<a class="headerlink" href="#6-3.-クラス" title="Link to this heading">¶</a></h1>
 <p>Pythonにおけるオブジェクト指向プログラミングのうち、クラスを定義する方法について簡単に説明します。</p>
 <p>参考</p>
 <ul class="simple">
@@ -48,7 +46,7 @@
 <li><p><a class="reference external" href="https://docs.python.org/ja/3/reference/datamodel.html">https://docs.python.org/ja/3/reference/datamodel.html</a></p></li>
 </ul>
 <section id="クラス定義">
-<h2>クラス定義<a class="headerlink" href="#クラス定義" title="Permalink to this heading">¶</a></h2>
+<h2>クラス定義<a class="headerlink" href="#クラス定義" title="Link to this heading">¶</a></h2>
 <p>Pythonでは全てのデータはオブジェクトなのですが、 以下では特に、クラス定義によって作成されたクラスを型とするデータを扱います。 このようなデータは、<strong>オブジェクト指向プログラミング</strong>における典型的な<strong>オブジェクト</strong>です。 そこで以下では、オブジェクトという用語をもっぱら使います。</p>
 <p>4-1で見たように、ファイルオブジェクトに対して <code class="docutils literal notranslate"><span class="pre">readline()</span></code> というメソッドを呼び出すと、 ファイルの行が文字列として次々と返されます。 ここでは、ファイルオブジェクトのようなオブジェクトで、 <code class="docutils literal notranslate"><span class="pre">readline()</span></code> というメソッドが呼び出されると、常に <code class="docutils literal notranslate"><span class="pre">'Hello.\n'</span></code> という文字列を返すようなものを作ってみましょう。</p>
 <p>そのためには、新しいクラスを定義します。 <strong>クラス</strong>とは、オブジェクトの種類を意味します。 新しいクラスを定義すると、そのクラスに属するオブジェクトを作ることができるようになります。 それらのオブジェクトの型は、その新しいクラスになります。</p>
@@ -123,7 +121,7 @@ __main__.HelloForEver
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;__main__.HelloForEver at 0x7f04e1842500&gt;
+&lt;__main__.HelloForEver at 0x104e20980&gt;
 </pre></div></div>
 </div>
 <p>このオブジェクトに対して、<code class="docutils literal notranslate"><span class="pre">readline</span></code> というメソッドを呼び出すことができます。</p>
@@ -186,7 +184,7 @@ __main__.HelloForEver
 </div>
 </section>
 <section id="初期化と属性">
-<h2>初期化と属性<a class="headerlink" href="#初期化と属性" title="Permalink to this heading">¶</a></h2>
+<h2>初期化と属性<a class="headerlink" href="#初期化と属性" title="Link to this heading">¶</a></h2>
 <p>以下の例では、初期化のメソッドが定義され、オブジェクトに属性が与えられます。</p>
 <p><strong>初期化</strong>のメソッドは <code class="docutils literal notranslate"><span class="pre">__init__</span></code> という名前を持ち、 オブジェクトが作られたときに自動的に呼び出されます。 <code class="docutils literal notranslate"><span class="pre">__init__</span></code> の引数は、オブジェクト自身と、クラス名の後に与えられる式の値です。</p>
 <div class="nbinput nblast docutils container">
@@ -316,7 +314,7 @@ __main__.HelloForEver
 <p>ここでは詳しく説明しませんが、オブジェクトのメソッドも属性の一種です。</p>
 </section>
 <section id="継承">
-<h2>継承<a class="headerlink" href="#継承" title="Permalink to this heading">¶</a></h2>
+<h2>継承<a class="headerlink" href="#継承" title="Link to this heading">¶</a></h2>
 <p><strong>継承</strong>は、既存のクラスをもとにして、変更部分だけを与えることにより、 新たなクラスを定義する機能です。</p>
 <p>以下の例では、<code class="docutils literal notranslate"><span class="pre">HelloForEver</span></code> をもとにして <code class="docutils literal notranslate"><span class="pre">HelloFile</span></code> を定義しています。 一般に、新しく定義されるクラスを<strong>子クラス</strong>、そのもとになるクラスを<strong>親クラス</strong>と言います。</p>
 <div class="nbinput nblast docutils container">
@@ -363,7 +361,7 @@ __main__.HelloForEver
 </div>
 </section>
 <section id="特殊メソッド">
-<h2>特殊メソッド<a class="headerlink" href="#特殊メソッド" title="Permalink to this heading">¶</a></h2>
+<h2>特殊メソッド<a class="headerlink" href="#特殊メソッド" title="Link to this heading">¶</a></h2>
 <p>Pythonでは、<strong>特殊メソッド</strong>と呼ばれるメソッドが多数あります。 これらのメソッドの名前は <code class="docutils literal notranslate"><span class="pre">__</span></code> で始まり <code class="docutils literal notranslate"><span class="pre">__</span></code> で終わります。</p>
 <p>クラス定義の中で特殊メソッドを定義すると、そのクラスのオブジェクトに対して、 その特殊メソッドに対応する機能が付与されます。 初期化メソッド <code class="docutils literal notranslate"><span class="pre">__init__</span></code> も特殊メソッドですが、 以下のクラス <code class="docutils literal notranslate"><span class="pre">HelloFileIterator</span></code> では、<code class="docutils literal notranslate"><span class="pre">__iter__</span></code> と <code class="docutils literal notranslate"><span class="pre">__next__</span></code> という特殊メソッドが定義されています。 このクラスは、<code class="docutils literal notranslate"><span class="pre">HelloFile</span></code> を継承して定義されています。</p>
 <p><code class="docutils literal notranslate"><span class="pre">__iter__</span></code> メソッドは、オブジェクトに対して関数 <code class="docutils literal notranslate"><span class="pre">iter</span></code> が適用されたときに呼び出されます。 <code class="docutils literal notranslate"><span class="pre">__iter__</span></code> メソッドの値が関数 <code class="docutils literal notranslate"><span class="pre">iter</span></code> の値となります。 以下の例では、<code class="docutils literal notranslate"><span class="pre">__iter__</span></code> はオブジェクト自身を返しています。 したがって、オブジェクトに <code class="docutils literal notranslate"><span class="pre">iter</span></code> が適用されると、オブジェクト自身が返ります。</p>
@@ -438,7 +436,7 @@ Hello.
 <p>4-2で説明したように、上のfor文では、 まず <code class="docutils literal notranslate"><span class="pre">f</span></code> のオブジェクトに対して関数 <code class="docutils literal notranslate"><span class="pre">iter</span></code> が適用されます。 すると <code class="docutils literal notranslate"><span class="pre">f</span></code> のオブジェクト自身が返ります。 そして、このオブジェクトに対して関数 <code class="docutils literal notranslate"><span class="pre">next</span></code> が繰り返し適用されて、 その結果が変数 <code class="docutils literal notranslate"><span class="pre">line</span></code> の値となります。 <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> のエラーが検知されると、for文が終了します。</p>
 </section>
 <section id="継承による振舞いの改変">
-<h2>継承による振舞いの改変<a class="headerlink" href="#継承による振舞いの改変" title="Permalink to this heading">¶</a></h2>
+<h2>継承による振舞いの改変<a class="headerlink" href="#継承による振舞いの改変" title="Link to this heading">¶</a></h2>
 <p>上で示された、<code class="docutils literal notranslate"><span class="pre">HelloFileIterator</span></code> の <code class="docutils literal notranslate"><span class="pre">__next__</span></code> メソッドでは、<code class="docutils literal notranslate"><span class="pre">self.readline()</span></code> というメソッド呼び出しがありました。 上の例の振舞いから、そのメソッド呼び出しは、<code class="docutils literal notranslate"><span class="pre">HelloFileIterator</span></code> には <code class="docutils literal notranslate"><span class="pre">readline</span></code> メソッドが定義されていないので、親の <code class="docutils literal notranslate"><span class="pre">HelloFile</span></code> を見に行って、そこで定義された <code class="docutils literal notranslate"><span class="pre">readline</span></code> メソッドが使われたように見えます。 しかし、それは正確ではありません。</p>
 <p><code class="docutils literal notranslate"><span class="pre">self.readline()</span></code> では、その呼び出し場所がどこであるかに関わらず、常にオブジェクト <code class="docutils literal notranslate"><span class="pre">self</span></code> の中のメソッドを探索します。 そして、継承があるために、<code class="docutils literal notranslate"><span class="pre">__next__(self)</span></code> における <code class="docutils literal notranslate"><span class="pre">self</span></code> が、<code class="docutils literal notranslate"><span class="pre">HelloFileIterator</span></code> のインスタンスであるとも限りません。 次を見てみましょう。</p>
 <div class="nbinput docutils container">
@@ -461,16 +459,16 @@ Hello.
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">StopIteration</span>                             Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_7186/3057831025.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> f <span class="ansi-blue-fg">=</span> EmptyFile<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">----&gt; 6</span><span class="ansi-red-fg"> </span>next<span class="ansi-blue-fg">(</span>f<span class="ansi-blue-fg">)</span>
+Cell <span class="ansi-green-fg">In[22], line 6</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">&#39;</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> f <span style="color: rgb(98,98,98)">=</span> EmptyFile(<span style="color: rgb(98,98,98)">3</span>)
+<span class="ansi-green-fg">----&gt; 6</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">next</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">f</span><span class="ansi-yellow-bg">)</span>
 
-<span class="ansi-green-fg">/tmp/ipykernel_7186/1163340223.py</span> in <span class="ansi-cyan-fg">__next__</span><span class="ansi-blue-fg">(self)</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span>         line <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>readline<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      6</span>         <span class="ansi-green-fg">if</span> line <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;&#39;</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">----&gt; 7</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> StopIteration
-<span class="ansi-green-intense-fg ansi-bold">      8</span>         <span class="ansi-green-fg">return</span> line
+Cell <span class="ansi-green-fg">In[18], line 7</span>, in <span class="ansi-cyan-fg">HelloFileIterator.__next__</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> line <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>readline()
+<span class="ansi-green-intense-fg ansi-bold">      6</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> line <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">&#39;</span>:
+<span class="ansi-green-fg">----&gt; 7</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">StopIteration</span>
+<span class="ansi-green-intense-fg ansi-bold">      8</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> line
 
 <span class="ansi-red-fg">StopIteration</span>:
 </pre></div></div>
@@ -479,7 +477,7 @@ Hello.
 <p>このように、継承は、メソッドの部分的な再定義を通じて、再定義されたメソッドを呼び出しているメソッドの振舞いを、間接的に改変することを可能にします。</p>
 </section>
 <section id="練習">
-<h2>練習<a class="headerlink" href="#練習" title="Permalink to this heading">¶</a></h2>
+<h2>練習<a class="headerlink" href="#練習" title="Link to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">'Hello.\n'</span></code> ではなくて、初期時に指定された文字列を繰り返し返すように、 新たなクラス <code class="docutils literal notranslate"><span class="pre">StringFileIterator</span></code> を定義してください。</p>
 <p><code class="docutils literal notranslate"><span class="pre">StringFileIterator</span></code> は <code class="docutils literal notranslate"><span class="pre">HelloFileIterator</span></code> を継承し、 初期化メソッドには、文字列と回数を指定します。</p>
 <div class="nbinput nblast docutils container">
@@ -510,30 +508,28 @@ Hello.
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_7186/4213257317.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> f <span class="ansi-blue-fg">=</span> StringFileIterator<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;abc&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>list<span class="ansi-blue-fg">(</span>f<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;abc&#39;</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">&#39;abc&#39;</span><span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">&#39;abc&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+Cell <span class="ansi-green-fg">In[24], line 2</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> f <span style="color: rgb(98,98,98)">=</span> StringFileIterator(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">abc</span><span style="color: rgb(175,0,0)">&#39;</span>, <span style="color: rgb(98,98,98)">3</span>)
+<span class="ansi-green-fg">----&gt; 2</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg" style="color: rgb(0,135,0)">list</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">f</span><span class="ansi-yellow-bg">)</span> <span style="color: rgb(98,98,98)">==</span> [<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">abc</span><span style="color: rgb(175,0,0)">&#39;</span>,<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">abc</span><span style="color: rgb(175,0,0)">&#39;</span>,<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">abc</span><span style="color: rgb(175,0,0)">&#39;</span>])
 
-<span class="ansi-green-fg">/tmp/ipykernel_7186/1163340223.py</span> in <span class="ansi-cyan-fg">__next__</span><span class="ansi-blue-fg">(self)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span>         <span class="ansi-green-fg">return</span> self
-<span class="ansi-green-intense-fg ansi-bold">      4</span>     <span class="ansi-green-fg">def</span> __next__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">----&gt; 5</span><span class="ansi-red-fg">         </span>line <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>readline<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      6</span>         <span class="ansi-green-fg">if</span> line <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;&#39;</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">      7</span>             <span class="ansi-green-fg">raise</span> StopIteration
+Cell <span class="ansi-green-fg">In[18], line 5</span>, in <span class="ansi-cyan-fg">HelloFileIterator.__next__</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">__next__</span>(<span style="color: rgb(0,135,0)">self</span>):
+<span class="ansi-green-fg">----&gt; 5</span>     line <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">readline</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> line <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">&#39;</span>:
+<span class="ansi-green-intense-fg ansi-bold">      7</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">StopIteration</span>
 
-<span class="ansi-green-fg">/tmp/ipykernel_7186/4030001423.py</span> in <span class="ansi-cyan-fg">readline</span><span class="ansi-blue-fg">(self)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span>         self<span class="ansi-blue-fg">.</span>n <span class="ansi-blue-fg">=</span> n
-<span class="ansi-green-intense-fg ansi-bold">      4</span>     <span class="ansi-green-fg">def</span> readline<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">----&gt; 5</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>n <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">      6</span>             <span class="ansi-green-fg">return</span> <span class="ansi-blue-fg">&#39;&#39;</span>
-<span class="ansi-green-intense-fg ansi-bold">      7</span>         self<span class="ansi-blue-fg">.</span>n <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>n <span class="ansi-blue-fg">-</span> <span class="ansi-cyan-fg">1</span>
+Cell <span class="ansi-green-fg">In[15], line 5</span>, in <span class="ansi-cyan-fg">HelloFile.readline</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">readline</span>(<span style="color: rgb(0,135,0)">self</span>):
+<span class="ansi-green-fg">----&gt; 5</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">n</span> <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(98,98,98)">0</span>:
+<span class="ansi-green-intense-fg ansi-bold">      6</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">&#39;</span>
+<span class="ansi-green-intense-fg ansi-bold">      7</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>n <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>n <span style="color: rgb(98,98,98)">-</span> <span style="color: rgb(98,98,98)">1</span>
 
 <span class="ansi-red-fg">AttributeError</span>: &#39;StringFileIterator&#39; object has no attribute &#39;n&#39;
 </pre></div></div>
 </div>
 </section>
 <section id="▲with文への対応">
-<h2>▲with文への対応<a class="headerlink" href="#▲with文への対応" title="Permalink to this heading">¶</a></h2>
+<h2>▲with文への対応<a class="headerlink" href="#▲with文への対応" title="Link to this heading">¶</a></h2>
 <p>ここでは詳しく説明しませんが、さらに特殊メソッドである <code class="docutils literal notranslate"><span class="pre">__enter__</span></code> と <code class="docutils literal notranslate"><span class="pre">__exit__</span></code> を定義すると、 <strong>with文</strong>にも対応できます。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
@@ -579,7 +575,7 @@ Hello.
 </div>
 </section>
 <section id="練習の解答">
-<h2>練習の解答<a class="headerlink" href="#練習の解答" title="Permalink to this heading">¶</a></h2>
+<h2>練習の解答<a class="headerlink" href="#練習の解答" title="Link to this heading">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
@@ -612,7 +608,7 @@ Hello.
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <h1 class="logo"><a href="../index.html">Pythonプログラミング入門</a></h1>
 
@@ -684,7 +680,7 @@ Hello.
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -692,7 +688,7 @@ Hello.
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -707,18 +703,18 @@ Hello.
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      &#169;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.2.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
       
     </div>
 
     
 
     
-    <script type="text/javascript">
+    <script>
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-159819977-1']);
@@ -727,8 +723,8 @@ Hello.
       _gaq.push(['_trackPageview']);
 
       (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var ga = document.createElement('script'); ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
 

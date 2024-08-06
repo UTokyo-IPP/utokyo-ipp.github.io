@@ -1,21 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="jp">
+<html lang="jp" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>▲CSVファイルの入出力 &#8212; Pythonプログラミング入門  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
     <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=3ff7d7a7"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -26,8 +23,9 @@
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
+
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
 
   </head><body>
   
@@ -40,14 +38,14 @@
           <div class="body" role="main">
             
   <section id="▲CSVファイルの入出力">
-<h1>▲CSVファイルの入出力<a class="headerlink" href="#▲CSVファイルの入出力" title="Permalink to this heading">¶</a></h1>
+<h1>▲CSVファイルの入出力<a class="headerlink" href="#▲CSVファイルの入出力" title="Link to this heading">¶</a></h1>
 <p>CSVファイルの入出力について説明します。</p>
 <p>参考</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.python.org/ja/3/library/csv.html">https://docs.python.org/ja/3/library/csv.html</a></p></li>
 </ul>
 <section id="CSV形式とは">
-<h2>CSV形式とは<a class="headerlink" href="#CSV形式とは" title="Permalink to this heading">¶</a></h2>
+<h2>CSV形式とは<a class="headerlink" href="#CSV形式とは" title="Link to this heading">¶</a></h2>
 <p><strong>CSV</strong>形式とは &quot;comma-separated values&quot; の略で、 複数の値をコンマで区切って記録するファイル形式です。</p>
 <p>みなさんExcelを使ったことがあると思いますが、 Excelでは1つのセルに1つの値（数値や文字など）が入っていて、 その他のセルの値とは独立に扱えますよね。</p>
 <p>それと同じように、CSV形式では、<code class="docutils literal notranslate"><span class="pre">,</span></code>（コンマ）で区切られた要素はそれぞれ独立の値として扱われます。</p>
@@ -78,7 +76,7 @@
 'user1','鈴木一郎','イチロー','広島'
 'user2','山田花子','はなこ','名古屋'</section>
 <section id="CSVファイルの読み込み">
-<h2>CSVファイルの読み込み<a class="headerlink" href="#CSVファイルの読み込み" title="Permalink to this heading">¶</a></h2>
+<h2>CSVファイルの読み込み<a class="headerlink" href="#CSVファイルの読み込み" title="Link to this heading">¶</a></h2>
 <p>CSVファイルを読み書きするには、 ファイルをオープンして、そのファイルオブジェクトから、 CSVリーダを作ります。</p>
 <p><strong>CSVリーダ</strong>とは、CSVファイルからデータを読み込むためのオブジェクトで、 このオブジェクトのメソッドを呼び出すことにより、CSVファイルからデータを読み込むことができます。</p>
 <p>CSVリーダを作るには、 <code class="docutils literal notranslate"><span class="pre">csv</span></code> というモジュールの <code class="docutils literal notranslate"><span class="pre">csv.reader</span></code> という関数にファイルオブジェクトを渡します。</p>
@@ -208,8 +206,8 @@
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">StopIteration</span>                             Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_8495/2968410705.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>next<span class="ansi-blue-fg">(</span>dataReader<span class="ansi-blue-fg">)</span>
+Cell <span class="ansi-green-fg">In[8], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">next</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">dataReader</span><span class="ansi-yellow-bg">)</span>
 
 <span class="ansi-red-fg">StopIteration</span>:
 </pre></div></div>
@@ -225,7 +223,7 @@
 </div>
 </section>
 <section id="CSVファイルに対するfor文">
-<h2>CSVファイルに対するfor文<a class="headerlink" href="#CSVファイルに対するfor文" title="Permalink to this heading">¶</a></h2>
+<h2>CSVファイルに対するfor文<a class="headerlink" href="#CSVファイルに対するfor文" title="Link to this heading">¶</a></h2>
 <p>CSVリーダもイテレータですので、for文の <code class="docutils literal notranslate"><span class="pre">in</span></code> の後に書くことができます。</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for row in dataReader:
     ...
@@ -256,7 +254,7 @@
 </div>
 </section>
 <section id="CSVファイルに対するwith文">
-<h2>CSVファイルに対するwith文<a class="headerlink" href="#CSVファイルに対するwith文" title="Permalink to this heading">¶</a></h2>
+<h2>CSVファイルに対するwith文<a class="headerlink" href="#CSVファイルに対するwith文" title="Link to this heading">¶</a></h2>
 <p>以下はwith文を使った例です。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
@@ -281,7 +279,7 @@
 </div>
 </section>
 <section id="CSVファイルの書き込み">
-<h2>CSVファイルの書き込み<a class="headerlink" href="#CSVファイルの書き込み" title="Permalink to this heading">¶</a></h2>
+<h2>CSVファイルの書き込み<a class="headerlink" href="#CSVファイルの書き込み" title="Link to this heading">¶</a></h2>
 <p>CSVファイルを作成して書き込むには、CSVライターを作ります。</p>
 <p><strong>CSVライター</strong>とは、CSVファイルを作ってデータを書き込むためのオブジェクトで、 このオブジェクトのメソッドを呼び出すことにより、データがCSV形式でファイルに書き込まれます。</p>
 <p>CSVライターを作るには、 <code class="docutils literal notranslate"><span class="pre">csv</span></code> というモジュールの <code class="docutils literal notranslate"><span class="pre">csv.writer</span></code> という関数にファイルオブジェクトを渡します。 ここで、半角英数文字以外の文字（たとえば日本語文字や全角英数文字）を書き込み・書き出しする際には、 文字コード（たとえば <code class="docutils literal notranslate"><span class="pre">encoding='utf-8'</span></code>）を指定し、 また書き出しの際にはさらに改行コードとして <code class="docutils literal notranslate"><span class="pre">newline=''</span></code> を指定しないと文字化けが生じる可能性があります。</p>
@@ -323,6 +321,7 @@
  &#39;__format__&#39;,
  &#39;__ge__&#39;,
  &#39;__getattribute__&#39;,
+ &#39;__getstate__&#39;,
  &#39;__gt__&#39;,
  &#39;__hash__&#39;,
  &#39;__init__&#39;,
@@ -400,7 +399,7 @@
 </div>
 </div>
 <section id="東京の7月の気温">
-<h3>東京の7月の気温<a class="headerlink" href="#東京の7月の気温" title="Permalink to this heading">¶</a></h3>
+<h3>東京の7月の気温<a class="headerlink" href="#東京の7月の気温" title="Link to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">tokyo-temps.csv</span></code> には、気象庁のオープンデータからダウンロードした、 東京の7月の平均気温のデータが入っています。</p>
 <p><a class="reference external" href="http://www.data.jma.go.jp/gmd/risk/obsdl/">http://www.data.jma.go.jp/gmd/risk/obsdl/</a></p>
 <p>48行目の第2列に1875年7月の平均気温が入っており、 以下、2016年まで、12行ごとに7月の平均気温が入っています。</p>
@@ -779,7 +778,7 @@
 </section>
 </section>
 <section id="練習">
-<h2>練習<a class="headerlink" href="#練習" title="Permalink to this heading">¶</a></h2>
+<h2>練習<a class="headerlink" href="#練習" title="Link to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">tokyo-temps.csv</span></code> を読み込んで、各行が西暦年と7月の気温のみからなる <code class="docutils literal notranslate"><span class="pre">'tokyo-july-temps.csv'</span></code> という名前のCSVファイルを作成してください。 西暦年は1875から2016までとします。</p></li>
 <li><p>作成したCSVファイルをExcelで読み込むとどうなるか確認してください。</p></li>
@@ -818,7 +817,7 @@ True
 </div>
 </section>
 <section id="id6">
-<h2>練習<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h2>
+<h2>練習<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h2>
 <p>整数データのみからなるCSVファイルの名前を受け取ると、そのCSVファイルの各行を読み込んで整数のリストを作り、 ファイル全体の内容を、そのようなリストのリストとして返す関数 <code class="docutils literal notranslate"><span class="pre">csv_matrix(name)</span></code> を定義してください。</p>
 <p>たとえば上で用いた <code class="docutils literal notranslate"><span class="pre">small.csv</span></code> には次のようなデータが入っています。</p>
 <p>0列目 | 1列目 | 2列目 | 3列目 | 4列目</p>
@@ -856,7 +855,7 @@ False
 </div>
 </section>
 <section id="練習の解答">
-<h2>練習の解答<a class="headerlink" href="#練習の解答" title="Permalink to this heading">¶</a></h2>
+<h2>練習の解答<a class="headerlink" href="#練習の解答" title="Link to this heading">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
@@ -899,7 +898,7 @@ False
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <h1 class="logo"><a href="../index.html">Pythonプログラミング入門</a></h1>
 
@@ -971,7 +970,7 @@ False
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -979,7 +978,7 @@ False
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -994,18 +993,18 @@ False
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      &#169;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.2.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
       
     </div>
 
     
 
     
-    <script type="text/javascript">
+    <script>
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-159819977-1']);
@@ -1014,8 +1013,8 @@ False
       _gaq.push(['_trackPageview']);
 
       (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var ga = document.createElement('script'); ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
 
