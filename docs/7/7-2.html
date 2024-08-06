@@ -5,6 +5,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8M0RXGPPSR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-8M0RXGPPSR');
+    </script>
+    
     <title>7-2. scikit-learnライブラリ &#8212; Pythonプログラミング入門  documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
     <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=c058f7c8" />
@@ -53,7 +62,6 @@
 <li><p><a class="reference external" href="https://elf-c.he.u-tokyo.ac.jp/courses/363">https://elf-c.he.u-tokyo.ac.jp/courses/363</a> （次元削減（主成分分析））</p></li>
 </ul>
 <p><strong>scikit-learn</strong>ライブラリには分類、回帰、クラスタリング、次元削減、前処理、モデル選択などの機械学習の処理を行うためのモジュールが含まれています。以下では、scikit-learnライブラリのモジュールの基本的な使い方について説明します。</p>
-<p><strong>以下の説明ではscikit-learnライブラリのバージョン0.22以降を想定しています。</strong> Anaconda （Individual Edition 2020.02）では同0.22がインストールされています。colaboratoryでも同0.22以降が使用可能です。</p>
 <section id="機械学習について">
 <h2>機械学習について<a class="headerlink" href="#機械学習について" title="Link to this heading">¶</a></h2>
 <p><strong>機械学習</strong>では、観察されたデータをよく表すようにモデルのパラメータの調整を行います。パラメータを調整することでモデルをデータに適合させるので、「学習」と呼ばれます。学習されたモデルを使って、新たに観測されたデータに対して予測を行うことが可能になります。</p>
@@ -214,24 +222,14 @@
 <span class="c1"># 訓練データとテストデータに分割</span>
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_iris</span><span class="p">,</span> <span class="n">y_iris</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_iris</span><span class="p">)</span>
 
-<span class="c1"># ロジスティック回帰モデル：solver引数には最適化手法、multi_classには多クラス分類の方法を指定</span>
-<span class="c1"># ここではそれぞれのデフォルト値、lbfgsとautoを指定</span>
-<span class="n">model</span><span class="o">=</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s1">&#39;lbfgs&#39;</span><span class="p">,</span>  <span class="n">multi_class</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="c1"># ロジスティック回帰モデル：solver引数には最適化手法を指定</span>
+<span class="n">model</span><span class="o">=</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s1">&#39;lbfgs&#39;</span><span class="p">)</span>
 
 <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span> <span class="c1"># モデルを訓練データに適合</span>
 <span class="n">y_predicted</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span> <span class="c1"># テストデータでラベルを予測</span>
 <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_predicted</span><span class="p">)</span> <span class="c1"># 予測精度（accuracy）の評価</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/Users/jmori/Projects/utpython/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1247: FutureWarning: &#39;multi_class&#39; was deprecated in version 1.5 and will be removed in 1.7. From then on, it will always use &#39;multinomial&#39;. Leave it to its default value to avoid this warning.
-  warnings.warn(
-</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -497,21 +495,12 @@ np.float64(0.03974445760904273)
 
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_iris</span><span class="p">,</span> <span class="n">y_iris</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_iris</span><span class="p">)</span>
 
-<span class="n">model</span><span class="o">=</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s1">&#39;lbfgs&#39;</span><span class="p">,</span>  <span class="n">multi_class</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">model</span><span class="o">=</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s1">&#39;lbfgs&#39;</span><span class="p">)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 <span class="n">y_model</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_model</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/Users/jmori/Projects/utpython/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:1247: FutureWarning: &#39;multi_class&#39; was deprecated in version 1.5 and will be removed in 1.7. From then on, it will always use &#39;multinomial&#39;. Leave it to its default value to avoid this warning.
-  warnings.warn(
-</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
@@ -657,7 +646,7 @@ np.float64(0.03974445760904273)
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &#169;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      &#169;2020–2024, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
       Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
@@ -671,7 +660,7 @@ np.float64(0.03974445760904273)
     <script>
 
       var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-159819977-1']);
+      _gaq.push(['_setAccount', 'G-8M0RXGPPSR']);
       _gaq.push(['_setDomainName', 'none']);
       _gaq.push(['_setAllowLinker', true]);
       _gaq.push(['_trackPageview']);

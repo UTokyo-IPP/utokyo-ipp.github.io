@@ -5,6 +5,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8M0RXGPPSR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-8M0RXGPPSR');
+    </script>
+    
     <title>1-0. Colaboratory (Colab) の使い方 &#8212; Pythonプログラミング入門  documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
     <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=c058f7c8" />
@@ -47,33 +56,10 @@
 <li><p><a class="reference external" href="https://colab.research.google.com/">https://colab.research.google.com/</a></p></li>
 </ul>
 </section>
-<section id="ノートブックのアップロード">
-<h2>ノートブックのアップロード<a class="headerlink" href="#ノートブックのアップロード" title="Link to this heading">¶</a></h2>
-<p>Colaboratoryを立ち上げると、以下のようにノートブックを指定することが求められますので、 「アップロード」のタブを選択してください。</p>
-<p><img alt="colab1.png" src="../_images/colab1.png" /></p>
-<p>そして、アップロードすべきファイルを指定してください。</p>
-<p><img alt="colab2.png" src="../_images/colab2.png" /></p>
-<p>指定したファイルは、いったん自分の Google Drive にアップロードされてから、 Colaboratoryによって開かれます。 ブラウザでは以下のように表示されるでしょう。</p>
-<p><img alt="colab3.png" src="../_images/colab3.png" /></p>
-<p>なお、ノートブックには <code class="docutils literal notranslate"><span class="pre">ipynb</span></code> という拡張子（エクステンション）が付いています。</p>
-</section>
 <section id="教材のオープン">
 <h2>教材のオープン<a class="headerlink" href="#教材のオープン" title="Link to this heading">¶</a></h2>
 <p>HTML版の教材の「Open in Colab」をクリックしたり、 Google Drive上の教材を直接Colabratoryでオープンした場合、 指定したノートブックがオープンされますが、ノートブックを操作した結果は Google Drive上に保存されません。 ノートブックの上方にある「ドライブにコピー」のボタンを押せば、 自分のGoogle Drive上にノートブックのコピーが作られてオープンされます。 ノートブックを操作した結果はコピーに保存されます。</p>
-</section>
-<section id="ノートブックのダウンロード">
-<h2>ノートブックのダウンロード<a class="headerlink" href="#ノートブックのダウンロード" title="Link to this heading">¶</a></h2>
-<p>Google Drive 上のノートブックをパソコンにダウンロードするには、 Colaboratoryのファイルメニューで「.ipynb をダウンロード」を選択します。</p>
-<p><img alt="colab4.png" src="../_images/colab4.png" /></p>
-</section>
-<section id="ノートブックのアップロード（再び）">
-<h2>ノートブックのアップロード（再び）<a class="headerlink" href="#ノートブックのアップロード（再び）" title="Link to this heading">¶</a></h2>
-<p>最初のノートブックを開いた後に、別のノートブックを開くには、Colaboratoryのファイルメニューで 「ノートブックをアップロード」を選択してください。</p>
-<p><img alt="colaboratory.png" src="../_images/colaboratory.png" /></p>
-</section>
-<section id="ノートブックの作成">
-<h2>ノートブックの作成<a class="headerlink" href="#ノートブックの作成" title="Link to this heading">¶</a></h2>
-<p>また、ノートブックを新たに作成するには、Colaboratoryのファイルメニューで 「ノートブックを新規作成」を選択してください。 <code class="docutils literal notranslate"><span class="pre">Untitled0.ipynb</span></code> という名前のノートブックが作られます。 上方に表示されたタイトルをクリックすれば名前を変更することができます。</p>
+<p>なお、ノートブックには <code class="docutils literal notranslate"><span class="pre">ipynb</span></code> という拡張子（エクステンション）が付いています。</p>
 </section>
 <section id="ノートブックの操作">
 <h2>ノートブックの操作<a class="headerlink" href="#ノートブックの操作" title="Link to this heading">¶</a></h2>
@@ -96,7 +82,7 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
 </pre></div>
 </div>
 </div>
@@ -121,7 +107,7 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -141,7 +127,7 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="k">pass</span>
 </pre></div>
 </div>
@@ -154,14 +140,11 @@
 <section id="ノートブックの参照">
 <h2>ノートブックの参照<a class="headerlink" href="#ノートブックの参照" title="Link to this heading">¶</a></h2>
 <p>Colaboratoryが使用するノードブックは Google Drive 上にあります。 右上の「共有」のボタンを押すことにより、 ノートブックの共有設定を変えることができます。 その上で、ノートブックが表示されているブラウザ上のURLを伝えることにより、 教員やTAにノートブックを見せることができます。</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-</div>
+</section>
+<section id="ノートブックのダウンロード">
+<h2>ノートブックのダウンロード<a class="headerlink" href="#ノートブックのダウンロード" title="Link to this heading">¶</a></h2>
+<p>Google Drive 上のノートブックをパソコンにダウンロードするには、 Colaboratoryのファイルメニューで「.ipynb をダウンロード」を選択します。</p>
+<p><img alt="colab4.png" src="../_images/colab4.png" /></p>
 </section>
 </section>
 
@@ -191,11 +174,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1-0. Colaboratory (Colab) の使い方</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Colaboratoryの立ち上げ">Colaboratoryの立ち上げ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ノートブックのアップロード">ノートブックのアップロード</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#教材のオープン">教材のオープン</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ノートブックのダウンロード">ノートブックのダウンロード</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ノートブックのアップロード（再び）">ノートブックのアップロード（再び）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ノートブックの作成">ノートブックの作成</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ノートブックの操作">ノートブックの操作</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#セル">セル</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#セルの編集">セルの編集</a></li>
@@ -204,6 +183,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#セルの実行が止まらないとき">セルの実行が止まらないとき</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#セルの操作">セルの操作</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ノートブックの参照">ノートブックの参照</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ノートブックのダウンロード">ノートブックのダウンロード</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="1-1.html">1-1. 数値演算</a></li>
@@ -271,7 +251,7 @@
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &#169;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      &#169;2020–2024, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
       Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
@@ -285,7 +265,7 @@
     <script>
 
       var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-159819977-1']);
+      _gaq.push(['_setAccount', 'G-8M0RXGPPSR']);
       _gaq.push(['_setDomainName', 'none']);
       _gaq.push(['_setAllowLinker', true]);
       _gaq.push(['_trackPageview']);

@@ -5,6 +5,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8M0RXGPPSR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-8M0RXGPPSR');
+    </script>
+    
     <title>▲正規表現 &#8212; Pythonプログラミング入門  documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
     <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=c058f7c8" />
@@ -1030,7 +1039,7 @@ accountname@test.ecc.u-tokyo.ac.jp
 <div class="highlight"><pre>
 &lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\(&#39;
 &lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\(&#39;
-/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/2703320260.py:5: SyntaxWarning: invalid escape sequence &#39;\(&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_78865/2703320260.py:5: SyntaxWarning: invalid escape sequence &#39;\(&#39;
   str1 = re.sub(&#39;\(a\)|あっとまーく|＠&#39;, &#39;@&#39;, &#39;accountnameあっとまーくtest.ecc.u-tokyo.ac.jp&#39;) # スパム回避の文字列を@に置き換える
 </pre></div></div>
 </div>
@@ -1473,11 +1482,11 @@ None
 &lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\s&#39;
 &lt;&gt;:3: SyntaxWarning: invalid escape sequence &#39;\s&#39;
 &lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\s&#39;
-/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/1235538076.py:1: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_78865/1235538076.py:1: SyntaxWarning: invalid escape sequence &#39;\s&#39;
   match1 = re.search(&#39;b\s&#39;, &#39;a      b       c       d&#39;)
-/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/1235538076.py:3: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_78865/1235538076.py:3: SyntaxWarning: invalid escape sequence &#39;\s&#39;
   match1 = re.search(&#39;a\s\s\s&#39;, &#39;a  　 b     　c      d&#39;)
-/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/1235538076.py:5: SyntaxWarning: invalid escape sequence &#39;\s&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_78865/1235538076.py:5: SyntaxWarning: invalid escape sequence &#39;\s&#39;
   match1 = re.search(&#39;b\s*&#39;, &#39;a     　 b     　c      d&#39;)
 </pre></div></div>
 </div>
@@ -1506,7 +1515,7 @@ None
 <div class="highlight"><pre>
 &lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\S&#39;
 &lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\S&#39;
-/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/3290421489.py:1: SyntaxWarning: invalid escape sequence &#39;\S&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_78865/3290421489.py:1: SyntaxWarning: invalid escape sequence &#39;\S&#39;
   match1 = re.search(&#39;b\S&#39;, &#39;a      b       bc      d&#39;)
 </pre></div></div>
 </div>
@@ -1538,9 +1547,9 @@ None
 &lt;&gt;:3: SyntaxWarning: invalid escape sequence &#39;\w&#39;
 &lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\w&#39;
 &lt;&gt;:3: SyntaxWarning: invalid escape sequence &#39;\w&#39;
-/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/3891737031.py:1: SyntaxWarning: invalid escape sequence &#39;\w&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_78865/3891737031.py:1: SyntaxWarning: invalid escape sequence &#39;\w&#39;
   match1 = re.search(&#39;\w\w&#39;, &#39;abcde&#39;)
-/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/3891737031.py:3: SyntaxWarning: invalid escape sequence &#39;\w&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_78865/3891737031.py:3: SyntaxWarning: invalid escape sequence &#39;\w&#39;
   match1 = re.search(&#39;b\w*g&#39;, &#39;abcdefgh&#39;)
 </pre></div></div>
 </div>
@@ -1574,9 +1583,9 @@ None
 &lt;&gt;:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
 &lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\W&#39;
 &lt;&gt;:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
-/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/3446286968.py:1: SyntaxWarning: invalid escape sequence &#39;\W&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_78865/3446286968.py:1: SyntaxWarning: invalid escape sequence &#39;\W&#39;
   match1 = re.search(&#39;g\W*&#39;, &#39;ab defg  hi jklm no p&#39;)
-/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/3446286968.py:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_78865/3446286968.py:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
   match1 = re.search(&#39;\W\w*\W&#39;, &#39;ab defg  hi jklm no p&#39;)
 </pre></div></div>
 </div>
@@ -1620,13 +1629,13 @@ None
 &lt;&gt;:3: SyntaxWarning: invalid escape sequence &#39;\d&#39;
 &lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\d&#39;
 &lt;&gt;:7: SyntaxWarning: invalid escape sequence &#39;\d&#39;
-/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/3067726332.py:1: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_78865/3067726332.py:1: SyntaxWarning: invalid escape sequence &#39;\d&#39;
   match1 = re.search(&#39;\d\d\d-\d\d\d\d&#39;, &#39;153-8902&#39;)
-/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/3067726332.py:3: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_78865/3067726332.py:3: SyntaxWarning: invalid escape sequence &#39;\d&#39;
   match1 = re.search(&#39;\d*-\d*&#39;, &#39;153-8902&#39;)
-/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/3067726332.py:5: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_78865/3067726332.py:5: SyntaxWarning: invalid escape sequence &#39;\d&#39;
   match1 = re.search(&#39;\d\d-\d\d\d\d-\d\d\d\d&#39;, &#39;03-5454-6828&#39;)
-/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/3067726332.py:7: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_78865/3067726332.py:7: SyntaxWarning: invalid escape sequence &#39;\d&#39;
   match1 = re.search(&#39;\d*-\d*-\d*&#39;, &#39;03-5454-6828&#39;)
 </pre></div></div>
 </div>
@@ -1655,7 +1664,7 @@ None
 <div class="highlight"><pre>
 &lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\D&#39;
 &lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\D&#39;
-/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/174792290.py:1: SyntaxWarning: invalid escape sequence &#39;\D&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_78865/174792290.py:1: SyntaxWarning: invalid escape sequence &#39;\D&#39;
   match1 = re.search(&#39;\D*&#39;, &#39;He has 10 apples.&#39;)
 </pre></div></div>
 </div>
@@ -1922,11 +1931,11 @@ None
 &lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\(&#39;
 &lt;&gt;:11: SyntaxWarning: invalid escape sequence &#39;\*&#39;
 &lt;&gt;:15: SyntaxWarning: invalid escape sequence &#39;\|&#39;
-/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/4112574947.py:5: SyntaxWarning: invalid escape sequence &#39;\(&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_78865/4112574947.py:5: SyntaxWarning: invalid escape sequence &#39;\(&#39;
   match1 = re.search(&#39;03\(5454\)6666&#39;, &#39;03(5454)6666&#39;) # \(と\)で左右の丸括弧として扱われるのでマッチする
-/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/4112574947.py:11: SyntaxWarning: invalid escape sequence &#39;\*&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_78865/4112574947.py:11: SyntaxWarning: invalid escape sequence &#39;\*&#39;
   match1 = re.search(&#39;3\*4\+5=17&#39;, &#39;3*4+5=17&#39;) #意図した文字列にマッチ
-/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/4112574947.py:15: SyntaxWarning: invalid escape sequence &#39;\|&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_78865/4112574947.py:15: SyntaxWarning: invalid escape sequence &#39;\|&#39;
   match1 = re.search(&#39;\|ω・`）チラ &#39;, &#39;|ω・`）チラ &#39;) #意図した文字列にマッチ
 </pre></div></div>
 </div>
@@ -2062,11 +2071,11 @@ None
 &lt;&gt;:2: SyntaxWarning: invalid escape sequence &#39;\d&#39;
 &lt;&gt;:4: SyntaxWarning: invalid escape sequence &#39;\.&#39;
 &lt;&gt;:6: SyntaxWarning: invalid escape sequence &#39;\.&#39;
-/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/2781033459.py:2: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_78865/2781033459.py:2: SyntaxWarning: invalid escape sequence &#39;\d&#39;
   match1 = re.search(&#39;03-5454-(\d\d\d\d)&#39;, &#39;03-5454-6666&#39;)
-/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/2781033459.py:4: SyntaxWarning: invalid escape sequence &#39;\.&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_78865/2781033459.py:4: SyntaxWarning: invalid escape sequence &#39;\.&#39;
   match1 = re.search(&#39;([^@]*)@[^.]*(\.[^.]*)?\.u-tokyo\.ac\.jp&#39;, &#39;accountname@test.ecc.u-tokyo.ac.jp&#39;) # \.はピリオドを表します
-/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/2781033459.py:6: SyntaxWarning: invalid escape sequence &#39;\.&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_78865/2781033459.py:6: SyntaxWarning: invalid escape sequence &#39;\.&#39;
   match1 = re.search(&#39;([^@]*)@[^.]*(\.[^.]*)?\.u-tokyo\.ac\.jp&#39;, &#39;accountname@test.u-tokyo.ac.jp&#39;) # \.はピリオドを表します
 </pre></div></div>
 </div>
@@ -2087,9 +2096,9 @@ None
 <div class="highlight"><pre>
 &lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\d&#39;
 &lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\d&#39;
-/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/778018344.py:1: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_78865/778018344.py:1: SyntaxWarning: invalid escape sequence &#39;\d&#39;
   match1 = re.search(&#39;03-5454-(\d\d\d\d)&#39;, &#39;03-5454-666&#39;) #マッチしない文字列
-/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/778018344.py:1: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_78865/778018344.py:1: SyntaxWarning: invalid escape sequence &#39;\d&#39;
   match1 = re.search(&#39;03-5454-(\d\d\d\d)&#39;, &#39;03-5454-666&#39;) #マッチしない文字列
 </pre></div></div>
 </div>
@@ -2135,7 +2144,7 @@ Cell <span class="ansi-green-fg">In[69], line 2</span>
 <div class="highlight"><pre>
 &lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\d&#39;
 &lt;&gt;:1: SyntaxWarning: invalid escape sequence &#39;\d&#39;
-/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_75450/971918040.py:1: SyntaxWarning: invalid escape sequence &#39;\d&#39;
+/var/folders/4n/53v5yxcx5t7d2sld1grw124w0000gn/T/ipykernel_78865/971918040.py:1: SyntaxWarning: invalid escape sequence &#39;\d&#39;
   match1 = re.search(&#39;03-5454-(\d\d\d\d)&#39;, &#39;03-5454-666&#39;)
 </pre></div></div>
 </div>
@@ -2612,7 +2621,7 @@ Cell <span class="ansi-green-fg">In[74], line 1</span>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &#169;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      &#169;2020–2024, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
       Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
@@ -2626,7 +2635,7 @@ Cell <span class="ansi-green-fg">In[74], line 1</span>
     <script>
 
       var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-159819977-1']);
+      _gaq.push(['_setAccount', 'G-8M0RXGPPSR']);
       _gaq.push(['_setDomainName', 'none']);
       _gaq.push(['_setAllowLinker', true]);
       _gaq.push(['_trackPageview']);

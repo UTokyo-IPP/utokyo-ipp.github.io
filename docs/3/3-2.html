@@ -5,6 +5,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8M0RXGPPSR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-8M0RXGPPSR');
+    </script>
+    
     <title>3-2. 繰り返し &#8212; Pythonプログラミング入門  documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
     <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=c058f7c8" />
@@ -197,7 +206,7 @@ a
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[&lt;matplotlib.lines.Line2D at 0x107411f40&gt;]
+[&lt;matplotlib.lines.Line2D at 0x11135e0c0&gt;]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -657,7 +666,7 @@ list1の 4 番目の要素（リスト）の 3 番目の要素 = l
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[&lt;matplotlib.lines.Line2D at 0x1075feea0&gt;]
+[&lt;matplotlib.lines.Line2D at 0x1114dba40&gt;]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -803,7 +812,7 @@ False
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-107.12142087308595
+83.21464578165379
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -820,7 +829,7 @@ False
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-102.28796168557571
+98.75325518733554
 </pre></div></div>
 </div>
 <p>10000個の場合は相当に時間がかかることがわかります。 これは、<code class="docutils literal notranslate"><span class="pre">variance</span></code> のfor文の中で <code class="docutils literal notranslate"><span class="pre">average</span></code> を呼んでいるためです。 見かけ上は一重ループなのですが、<code class="docutils literal notranslate"><span class="pre">average</span></code> の中にもループがあるため、 二重ループと同じ時間がかかります。 したがって、10000個の場合は、100個の場合に比べて10000倍時間がかかります。</p>
@@ -852,7 +861,7 @@ False
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-107.12142087308595
+83.21464578165379
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -869,7 +878,7 @@ False
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-102.28796168557571
+98.75325518733554
 </pre></div></div>
 </div>
 <p>10000個の場合でも一瞬で実行が終わったことでしょう。 この場合、一重のループを2回実行しているだけだからです。</p>
@@ -1887,7 +1896,7 @@ Yeah! 9
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &#169;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      &#169;2020–2024, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
       Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
@@ -1901,7 +1910,7 @@ Yeah! 9
     <script>
 
       var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-159819977-1']);
+      _gaq.push(['_setAccount', 'G-8M0RXGPPSR']);
       _gaq.push(['_setDomainName', 'none']);
       _gaq.push(['_setAllowLinker', true]);
       _gaq.push(['_trackPageview']);

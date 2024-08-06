@@ -5,6 +5,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8M0RXGPPSR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-8M0RXGPPSR');
+    </script>
+    
     <title>5-3. NumPyライブラリ &#8212; Pythonプログラミング入門  documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
     <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=c058f7c8" />
@@ -499,9 +508,9 @@ array([[0, 1, 2],
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[0.36339057 0.97268764 0.52719046 0.87031463]
-[[0.92107671 0.44518387 0.97044366]
- [0.77281204 0.59287429 0.67454146]]
+[0.8900215  0.93598872 0.54125233 0.16600045]
+[[0.19232785 0.27767337 0.54245174]
+ [0.93568173 0.89327122 0.96701785]]
 </pre></div></div>
 </div>
 <p>この他にも、<code class="docutils literal notranslate"><span class="pre">numpy.random.randn()</span></code>・<code class="docutils literal notranslate"><span class="pre">numpy.random.binomial()</span></code>・<code class="docutils literal notranslate"><span class="pre">numpy.random.poisson()</span></code> は、それぞれ、正規分布・二項分布・ポアソン分布の乱数からなる配列を生成します。</p>
@@ -1416,7 +1425,7 @@ np.float64(1.7320508075688772)
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &#169;2020–2023, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
+      &#169;2020–2024, 東京大学 数理・情報教育研究センター (CC BY-NC-ND 4.0).
       
       |
       Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
@@ -1430,7 +1439,7 @@ np.float64(1.7320508075688772)
     <script>
 
       var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-159819977-1']);
+      _gaq.push(['_setAccount', 'G-8M0RXGPPSR']);
       _gaq.push(['_setDomainName', 'none']);
       _gaq.push(['_setAllowLinker', true]);
       _gaq.push(['_trackPageview']);
